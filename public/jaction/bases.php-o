@@ -1,0 +1,33 @@
+<?php
+echo "<pre>";
+echo "Method 1: via cbsd\n";
+
+require('cbsd.php');
+
+$handle=popen("env NOCOLOR=1 /usr/local/bin/sudo /usr/local/bin/cbsd basels", 'r');
+echo "'$handle'; " . gettype($handle) . "\n";
+$read = fread($handle, 2096);
+echo $read;
+pclose($handle);
+
+echo "\n";
+echo "Method 2 - list directory";
+
+
+if ($handle = opendir("$workdir/basejail")) {
+    echo "Directory handle: $handle\n";
+    echo "Entries:\n";
+
+    /* This is the correct way to loop over the directory. */
+    while (false !== ($entry = readdir($handle))) {
+        echo "$entry\n";
+    }
+
+    /* This is the WRONG way to loop over the directory. */
+    while ($entry = readdir($handle)) {
+        echo "$entry\n";  // << regex for ^base_ here
+    }
+
+    closedir($handle);
+}
+?>

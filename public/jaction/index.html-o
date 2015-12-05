@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+	<head>
+		<title>IFRAME DEMO</title>
+	</head>
+	<body>
+		<iframe id="menu" src="/jaction/menu.html" width="200" height="100%">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+		<iframe id="main" src="/jaction/dashboard.html" width="90%" height="100%">
+			<p>Your browser does not support iframes.</p>
+		</iframe>
+	</body>
+</html>
+

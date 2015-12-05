@@ -1,0 +1,15 @@
+#!/bin/sh
+
+list=$( /usr/sbin/pkg rquery "%n-%v" )
+
+echo "<form action="">"
+echo '<div style="overflow: auto; height: 755px;">'
+
+for i in $list; do
+	tst=$( /usr/sbin/pkg query "%ro" $i 2>/dev/null )
+	[ -n "${tst}" ] && continue
+	echo "<input type="checkbox" class="s_checkbox" name="$i" value="$i">$i<br>"
+done
+
+echo "</div>"
+echo "</form>"

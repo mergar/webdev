@@ -1,0 +1,6 @@
+<form action=>
+<div class=field>
+<input type=checkbox class=s_checkbox name=ftpd value=ftpd>ftpd<br>
+<input type=checkbox class=s_checkbox name=sshd value=sshd>sshd<br>
+</div>
+</form>
