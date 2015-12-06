@@ -108,6 +108,10 @@
 				<input type="text" name="ip" value="" />
 			</p>
 			<p>
+				<span class="field-name">Jail profile:</span>
+				<input type="text" name="jprofile" value="webdev" />
+			</p>
+			<p>
 				<span class="field-name">Description:</span>
 				<textarea type="text" name="description" value="" ></textarea>
 			</p>

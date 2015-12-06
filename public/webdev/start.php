@@ -434,10 +434,11 @@ class WebDev
 			$this->_db->update($query);
 			//$query="update modules set deleted='true' where jail_id={$task['jail_id']}";
 			$query="delete from modules where jail_id={$task['jail_id']}";
-			$this->_db->update($query);
+			$this->db->update($query);
 		}
+		$query="update projects set jails_count=(select count(*) from jails where project_id={$this->projectId}) where id={$this->projectId}";
+		$this->_db->update($query);
 	}
-	
 	function modulesRemoveFromDb($modules_id)
 	{
 		//$query="update modules set deleted='true' where id in ({$modules_id})";
@@ -1051,9 +1052,10 @@ class WebDev
 		$name=trim($form['name']);
 		$hostname=trim($form['hostname']);
 		$ip=trim($form['ip']);
+		$jprofile=trim($form['jprofile']);
 		$description=trim($form['description']);
-		
-		$query="insert into jails (project_id,name,hostname,ip,description) values ({$this->projectId},'{$name}','{$hostname}','{$ip}','{$description}')";
+
+		$query="insert into jails (project_id,name,hostname,ip,jprofile,description) values ({$this->projectId},'{$name}','{$hostname}','{$ip}','{$jprofile}','{$description}')";
 		$res=$this->_db->insert($query);
 		if($res['error'])
 		{
@@ -1062,7 +1064,7 @@ class WebDev
 			$this->updateJailsCount();
 			$jails=$this->getJailsList();
 			$jail_name='jail'.$res['lastID'];
-			$jres=$this->jailCreate($jail_name,$hostname,$ip);
+			$jres=$this->jailCreate($jail_name,$hostname,$ip,$jprofile);
 			
 			$err='Jail was created!';
 			if($jres['retval']==0)
@@ -1144,9 +1146,9 @@ class WebDev
 			}
 		}
 	}
-	function jailCreate($name,$hostname,$ip)
+	function jailCreate($name,$hostname,$ip,$jprofile)
 	{
-		$tpl=$this->getJailTemplate($name,$hostname,1,$ip);
+		$tpl=$this->getJailTemplate($name,$hostname,1,$ip,$jprofile);
 		$file_name='/tmp/'.$name.'.conf';
 		file_put_contents($file_name,$tpl);
 	//echo '<pre>',$file_name,PHP_EOL,$tpl;
@@ -1644,7 +1646,7 @@ class WebDev
 	*/
 	
 	
-	function getJailTemplate($jailname,$hostname,$astart="1",$ipv4='DHCP')	//,$ipv4='172.17.0.10/24'
+	function getJailTemplate($jailname,$hostname,$astart="1",$ipv4='DHCP',$jprofile)	//,$ipv4='172.17.0.10/24'
 	{
 		$file=file_get_contents($this->realpath.'/webdev/_jailConstructTemplate.txt');
 		if(!empty($file))
@@ -1654,6 +1656,7 @@ class WebDev
 			$file=str_replace('#hostname#',$this->toTranslit($hostname),$file);
 			$file=str_replace('#astart#',$astart,$file);
 			$file=str_replace('#ipv4#',$ipv4,$file);
+			$file=str_replace('#jprofile#',$jprofile,$file);
 		}
 		return $file;
 	}

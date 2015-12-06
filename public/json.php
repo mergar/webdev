@@ -101,9 +101,10 @@ class Request
 		$name=trim($form['name']);
 		$hostname=trim($form['hostname']);
 		$ip=trim($form['ip']);
+		$jprofile=trim($form['jprofile']);
 		$description=trim($form['description']);
 		
-		$query="insert into jails (project_id,name,hostname,ip,description) values ({$this->projectId},'{$name}','{$hostname}','{$ip}','{$description}')";
+		$query="insert into jails (project_id,name,hostname,ip,jprofile,description) values ({$this->projectId},'{$name}','{$hostname}','{$ip}','{$jprofile}','{$description}')";
 		$res=$this->_db->insert($query);
 		if($res===false)
 		{
