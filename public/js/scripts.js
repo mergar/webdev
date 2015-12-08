@@ -287,6 +287,7 @@ iface={
 	},
 	showJailsList:function()
 	{
+debugger;
 		var list='';
 		for(n=0,nl=this.projectsList.length;n<nl;n++)
 		{
@@ -1297,7 +1298,7 @@ status: "2"
 		this.windowClose();
 	},
 	onLoadData:function(data)
-	{ debugger;
+	{
 		try{
 			var data=$.parseJSON(data);
 		}catch(e){alert(e.message);return;}
