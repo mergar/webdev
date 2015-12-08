@@ -223,7 +223,7 @@ class WebDev
 		
 		if(isset($obj['mod_ops'])) return $this->GetModulesTasksStatus($obj);
 		
-		$ops_array=array('jstart','jstop','jedit','jremove','jexport','jimport','madd','sstart','sstop');	//,'mremove'
+		$ops_array=array('jcreate','jstart','jstop','jedit','jremove','jexport','jimport','madd','sstart','sstop');	//,'mremove'
 		$stat_array=array(
 			'jcreate'=>array('Creating','Created'),
 			'jstart'=>array('Starting','Launched'),
@@ -248,7 +248,7 @@ class WebDev
 				{
 					switch($op)
 					{
-						//case 'jcreate':	$res=$this->jailStart('jail'.$key,$key);break;
+						case 'jcreate':	break;
 						case 'jstart':	$res=$this->jailStart('jail'.$key,$key);break;
 						case 'jstop':	$res=$this->jailStop('jail'.$key,$key);break;
 						case 'jedit':	$res=$this->jailEdit('jail'.$key);break;
