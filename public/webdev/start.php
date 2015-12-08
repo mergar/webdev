@@ -674,6 +674,7 @@ class WebDev
 					if($jail['id']==$task['client_id'])
 					{
 						$jails[$key]['task_status']=$task['status'];
+						if(strpos($task['cmd'],'jcreate')!==false) {$cmd='jcreate';$txt_status='Creating';}
 						if(strpos($task['cmd'],'jstart')!==false) {$cmd='jstart';$txt_status='Starting';}
 						if(strpos($task['cmd'],'jstop')!==false) {$cmd='jstop';$txt_status='Stopping';}
 						if(strpos($task['cmd'],'jremove')!==false) {$cmd='jremove';$txt_status='Removing';}
