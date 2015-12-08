@@ -1216,7 +1216,6 @@ status: "2"
 	
 	windowOpen:function(event)
 	{
-		debugger;
 		if(this.currentPage=='modules')
 			this.loadModulesListForInstall();
 		var wdt='';
