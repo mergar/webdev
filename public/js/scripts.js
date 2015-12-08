@@ -1317,7 +1317,7 @@ status: "2"
 						this.jailsList=data.jails;
 						this.lastJailId=data.lastID;
 						this.showJailsList();
-						this.playButt2Status('icon-attention','WAIT!');
+						this.enableWait(data.lastID);
 						this.tasks.add({'operation':'jcreate','jail_id':data.lastID,'task_id':data.taskId});
 						this.tasks.start();
 					}
