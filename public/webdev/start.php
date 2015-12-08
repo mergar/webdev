@@ -248,7 +248,7 @@ class WebDev
 				{
 					switch($op)
 					{
-						case 'jcreate':	$task=array('task_id'=>0);break;
+						//case 'jcreate':	$task=array('task_id'=>0);break;
 						case 'jstart':	$res=$this->jailStart('jail'.$key,$key);break;
 						case 'jstop':	$res=$this->jailStop('jail'.$key,$key);break;
 						case 'jedit':	$res=$this->jailEdit('jail'.$key);break;
