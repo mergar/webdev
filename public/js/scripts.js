@@ -1318,6 +1318,7 @@ status: "2"
 						this.jailsList=data.jails;
 						this.lastJailId=data.lastID;
 						this.showJailsList();
+						alert(data.lastID);
 					}
 					break;
 				case 'modules':
