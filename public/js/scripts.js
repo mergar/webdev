@@ -1317,8 +1317,7 @@ status: "2"
 						this.jailsList=data.jails;
 						this.lastJailId=data.lastID;
 						this.showJailsList();
-						debugger;
-						this.tasks.add({'operation':'jcreate','jail_id':data.lastID});	//,'task_id':data.task_id
+						this.tasks.add({'operation':'jcreate','jail_id':data.lastID,'task_id':data.taskId});
 						this.tasks.start();
 					}
 					break;
