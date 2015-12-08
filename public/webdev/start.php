@@ -1064,7 +1064,7 @@ class WebDev
 			$this->updateJailsCount();
 			$jails=$this->getJailsList();
 			$jail_name='jail'.$res['lastID'];
-			$jres=$this->jailCreate($jail_name,$hostname,$ip,$jprofile);
+			$jres=$this->jailCreate($jail_name,$hostname,$ip,$jprofile,$res['lastID']);
 			
 			$err='Jail was created!';
 			if($jres['retval']==0)
@@ -1146,13 +1146,14 @@ class WebDev
 			}
 		}
 	}
-	function jailCreate($name,$hostname,$ip,$jprofile)
+	function jailCreate($name,$hostname,$ip,$jprofile,$jail_id=-1)
 	{
 		$tpl=$this->getJailTemplate($name,$hostname,1,$ip,$jprofile);
 		$file_name='/tmp/'.$name.'.conf';
 		file_put_contents($file_name,$tpl);
 	//echo '<pre>',$file_name,PHP_EOL,$tpl;
-		$res=$this->cbsd_cmd('jcreate inter=0 jconf='.$file_name);
+		//$res=$this->cbsd_cmd('jcreate inter=0 jconf='.$file_name);
+		$res=$this->cbsd_cmd('task owner=cbsdwebsys mode=new client_id='.$jail_id.' /usr/local/bin/cbsd jcreate inter=0 jname='.$name);
 		return $res;
 	}
 	function jailStart($name,$jail_id)
