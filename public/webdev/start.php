@@ -225,7 +225,7 @@ class WebDev
 		
 		$ops_array=array('jcreate','jstart','jstop','jedit','jremove','jexport','jimport','madd','sstart','sstop');	//,'mremove'
 		$stat_array=array(
-			'jcreate'=>array('Creating','Created'),
+			'jcreate'=>array('Creating...','Created'),
 			'jstart'=>array('Starting','Launched'),
 			'jstop'=>array('Stopping','Stopped'),
 			'jedit'=>array('Saving','Saved'),
