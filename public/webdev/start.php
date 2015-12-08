@@ -1070,14 +1070,15 @@ class WebDev
 			$jres=$this->jailCreate($jail_name,$hostname,$ip,$jprofile,$res['lastID']);
 			
 			$err='Jail was created!';
+			$taskId=-1;
 			if($jres['retval']==0)
 			{
 				$err='Jail is not create!';
-				$res['task_id']=$jres['message'];
+				$taskId=$jres['message'];
 			}
 			//$jsres=$this->jailStart($jail_name);
 			$this->saveJailDescription($res['lastID'],$description);
-			return array('lastID'=>$res['lastID'],'jails'=>$jails,'errorMessage'=>$err);	//,'jail_start'=>$jsres
+			return array('lastID'=>$res['lastID'],'jails'=>$jails,'errorMessage'=>$err,'taskId'=>$taskId);	//,'jail_start'=>$jsres
 		}
 		
 		$query="update projects set jails_count=(select count(*) from jails where project_id={$this->projectId}) where id={$this->projectId}";
