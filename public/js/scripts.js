@@ -287,7 +287,6 @@ iface={
 	},
 	showJailsList:function()
 	{
-debugger;
 		var list='';
 		for(n=0,nl=this.projectsList.length;n<nl;n++)
 		{
