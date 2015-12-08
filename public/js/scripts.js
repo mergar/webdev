@@ -1547,6 +1547,11 @@ status: "2"
 			switch(task.operation)
 			{
 				case 'jcreate':
+					var num=this.getJailNumById(id);
+					this.jailsList[num].status=1;
+					this.enablePlay(id);
+					this.playButt2Update();
+					break;
 				case 'jstart':
 					var num=this.getJailNumById(id);
 					this.jailsList[num].status=1;
