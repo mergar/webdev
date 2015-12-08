@@ -1074,7 +1074,7 @@ class WebDev
 			{
 				$err='Jail is not create!';
 				print_r($jres);exit;
-				$res['task_id']=$jres['task_id'];
+				$res['task_id']=$jres['message'];
 			}
 			//$jsres=$this->jailStart($jail_name);
 			$this->saveJailDescription($res['lastID'],$description);
