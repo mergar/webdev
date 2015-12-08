@@ -1546,6 +1546,7 @@ status: "2"
 		}else{
 			switch(task.operation)
 			{
+				case 'jcreate':
 				case 'jstart':
 					var num=this.getJailNumById(id);
 					this.jailsList[num].status=1;
