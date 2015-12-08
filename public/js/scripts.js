@@ -1145,6 +1145,7 @@ status: "2"
 	groupOps:function(op,event)
 	{
 		var msgs={
+			'jcreate':'Jail is created!',
 			'jstart':'Jail already launched!',
 			'jstop':'Jail already stopped!',
 			'jexport':'Export not available on launched jail!',
