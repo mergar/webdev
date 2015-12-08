@@ -1073,6 +1073,7 @@ class WebDev
 			if($jres['retval']==0)
 			{
 				$err='Jail is not create!';
+				print_r($jres);exit;
 				$res['task_id']=$jres['task_id'];
 			}
 			//$jsres=$this->jailStart($jail_name);
