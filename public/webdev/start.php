@@ -424,7 +424,6 @@ class WebDev
 		{
 			$need_delete=true;
 		}else{
-			echo $query;
 			$query="select count(*) from jails where jname='jail{$task['jail_id']}'";
 			$res=$this->_db->selectAssoc($query);
 			if($res['count']<1) $need_delete=true;
@@ -437,7 +436,7 @@ class WebDev
 			$this->_db->update($query);
 			//$query="update modules set deleted='true' where jail_id={$task['jail_id']}";
 			$query="delete from modules where jail_id={$task['jail_id']}";
-			$this->db->update($query);
+			$this->_db->update($query);
 		}
 		$query="update projects set jails_count=(select count(*) from jails where project_id={$this->projectId}) where id={$this->projectId}";
 		$this->_db->update($query);
