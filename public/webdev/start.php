@@ -1153,7 +1153,7 @@ class WebDev
 		file_put_contents($file_name,$tpl);
 	//echo '<pre>',$file_name,PHP_EOL,$tpl;
 		//$res=$this->cbsd_cmd('jcreate inter=0 jconf='.$file_name);
-		$res=$this->cbsd_cmd('task owner=cbsdwebsys mode=new client_id='.$jail_id.' /usr/local/bin/cbsd jcreate inter=0 jname='.$name);
+		$res=$this->cbsd_cmd('task owner=cbsdwebsys mode=new client_id='.$jail_id.' /usr/local/bin/cbsd jcreate inter=0 jconf='.$file_name);
 		return $res;
 	}
 	function jailStart($name,$jail_id)
