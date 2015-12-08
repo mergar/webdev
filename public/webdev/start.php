@@ -248,7 +248,7 @@ class WebDev
 				{
 					switch($op)
 					{
-						case 'jcreate':	break;
+						case 'jcreate':	$res=false;break;
 						case 'jstart':	$res=$this->jailStart('jail'.$key,$key);break;
 						case 'jstop':	$res=$this->jailStop('jail'.$key,$key);break;
 						case 'jedit':	$res=$this->jailEdit('jail'.$key);break;
