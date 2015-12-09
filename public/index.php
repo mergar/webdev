@@ -105,7 +105,7 @@
 			</p>
 			<p>
 				<span class="field-name">IP address:</span>
-				<input type="text" name="ip" value="" />
+				<input type="text" name="ip" value="DHCP" />
 			</p>
 			<p>
 				<span class="field-name">Jail profile:</span>
