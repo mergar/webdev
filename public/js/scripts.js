@@ -1549,7 +1549,7 @@ status: "2"
 			{
 				case 'jcreate':
 					var num=this.getJailNumById(id);
-					this.jailsList[num].status=1;
+					//this.jailsList[num].status=1;
 					this.enablePlay(id);
 					this.playButt2Update();
 					break;
