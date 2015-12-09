@@ -1308,6 +1308,7 @@ status: "2"
 				case 'project':
 					this.projectsList=data.projects;
 					this.lastProjectId=data.lastID;
+					this.fillProjectsList();
 					break;
 				case 'jails':
 					if(data.editMode=='edit')
