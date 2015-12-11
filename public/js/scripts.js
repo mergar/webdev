@@ -1165,7 +1165,7 @@ status: "2"
 			var c=confirm(confirms[op]);
 			if(!c) return;
 		}
-		debugger;
+		
 		var jails=$('.tbl-cnt.jails tbody input[type="checkbox"]:checked');
 		var jl=0,n=0;
 		for(n=0,jl=jails.length;n<jl;n++)
