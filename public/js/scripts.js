@@ -1166,7 +1166,7 @@ status: "2"
 			if(!c) return;
 		}
 		
-		var jails=$('.tbl-cnt.jails input[type="checkbox"]:checked');
+		var jails=$('.tbl-cnt.jails tbody input[type="checkbox"]:checked');
 		var jl=0,n=0;
 		for(n=0,jl=jails.length;n<jl;n++)
 		{
