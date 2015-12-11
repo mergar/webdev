@@ -1174,7 +1174,7 @@ status: "2"
 			var id=this.getJailId(tr);
 			this.clearErrorMessageByJailId(id);
 			var j=this.getJailById(id);
-			if((j.status==1 && op!='jstop') || (j.status==0 && op=='jstop') || op!='jremove')
+			if((j.status==1 && (op!='jstop' && op!='jremove')) || (j.status==0 && op=='jstop'))
 			{
 				this.writeErrorMessageByJailId(id,msgs[op]);
 			}else{
