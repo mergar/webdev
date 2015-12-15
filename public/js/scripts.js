@@ -549,7 +549,7 @@ iface={
 			html+='<td class="ico-proj"></td><td>';
 			html+='<strong>'+data[n].name+'</strong><br /><small>Servers: '+data[n].servers_count+', Jails: '+data[n].jails_count+
 				', Modules: '+data[n].modules_count+', Size: '+data[n].size+'</small><div class="errmsg"></div>';
-			html+='</td><td class="jstatus">Not created</td><td class="ops"><span class="icon-cnt icon-play"></span></td></tr>'
+			html+='</td><td class="jstatus">Not running</td><td class="ops"><span class="icon-cnt icon-play"></span></td></tr>'
 		}
 		html+='</tbody>';
 		
