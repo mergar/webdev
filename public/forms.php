@@ -16,9 +16,45 @@ class Forms
 	function generate()
 	{
 		$query="select * from forms order by group_id asc, order_id asc";
-		$res=$this->db->select($query);
-		echo '<pre>';
-		print_r($res);
+		$fields=$this->db->select($query);
+/*
+            [idx] => 2
+            [group_id] => 1
+            [order_id] => 2
+            [param] => expose_php
+            [desc] => default is Off
+            [def] => Off
+            [cur] => 
+            [new] => 
+            [mandatory] => 1
+            [attr] => maxlen=60
+            [xattr] => 
+            [type] => inputbox
+*/
+		foreach($fields as $key=>$field)
+		{
+			$tpl=$this->getElement($field['type']);
+			$params=array('param','desc','attr','cur');
+			foreach($params as $param)
+			{
+				$tpl=str_replace('${'.$param.'}',$field[$param],$tpl);
+			}
+			echo $tpl;exit;
+		}
+	}
+	
+	function getElement($el)
+	{
+		switch($el)
+		{
+			case 'inputbox':
+				$tpl='';
+				<div class="">
+					<input type="text" name="${param}" value="${cur}" ${attr}${required} />
+					<span class="small">${desc}</span>
+				</div>
+				break;
+		}
 	}
 }
 
