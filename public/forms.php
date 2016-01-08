@@ -45,16 +45,14 @@ class Forms
 	
 	function getElement($el)
 	{
+		$tpl='';
 		switch($el)
 		{
 			case 'inputbox':
-				$tpl='';
-				<div class="">
-					<input type="text" name="${param}" value="${cur}" ${attr}${required} />
-					<span class="small">${desc}</span>
-				</div>
+				$tpl='<div class=""><input type="text" name="${param}" value="${cur}" ${attr}${required} /><span class="small">${desc}</span></div>';
 				break;
 		}
+		return $tpl;
 	}
 }
 
