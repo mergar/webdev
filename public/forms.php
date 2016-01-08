@@ -31,6 +31,32 @@ class Forms
             [attr] => maxlen=60
             [xattr] => 
             [type] => inputbox
+			
+            [idx] => 1
+            [group_id] => 1
+            [order_id] => 1
+            [param] => -
+            [desc] => PHP Settings
+            [def] => PHP Settings
+            [cur] => PP
+            [new] => 
+            [mandatory] => 1
+            [attr] => maxlen=60
+            [xattr] => 
+            [type] => delimer
+			
+            [idx] => 22
+            [group_id] => 1
+            [order_id] => 1
+            [param] => -
+            [desc] => PHP-FPM Settings
+            [def] => -
+            [cur] => -
+            [new] => 
+            [mandatory] => 1
+            [attr] => maxlen=60
+            [xattr] => 
+            [type] => delimer
 */
 		foreach($fields as $key=>$field)
 		{
@@ -54,8 +80,8 @@ class Forms
 			case 'inputbox':
 				$tpl='<div class=""><input type="text" name="${param}" value="${cur}" ${attr}${required} /><span class="small">${desc}</span></div>';
 				break;
-			case 'tpl':
-				$tpl='<h1>${param}</h1>';
+			case 'delimer':
+				$tpl='<h1>${desc}</h1>';
 				break;
 		}
 		return $tpl;
