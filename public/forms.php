@@ -40,6 +40,8 @@ class Forms
 			{
 				$tpl=str_replace('${'.$param.'}',$field[$param],$tpl);
 			}
+			$required=($field['mandatory']==1)?' required':'';
+			$tpl=str_replace('${required}',$required,$tpl);
 			echo $tpl;
 		}
 	}
