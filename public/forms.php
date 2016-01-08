@@ -17,7 +17,7 @@ class Forms
 	{
 		$query="select * from forms order by group_id asc, order_id asc";
 		$fields=$this->db->select($query);
-		$tpl='...';
+		echo '<pre>';print_r($fields);
 /*
             [idx] => 2
             [group_id] => 1
@@ -53,6 +53,9 @@ class Forms
 		{
 			case 'inputbox':
 				$tpl='<div class=""><input type="text" name="${param}" value="${cur}" ${attr}${required} /><span class="small">${desc}</span></div>';
+				break;
+			case 'tpl':
+				$tpl='<h1>${param}</h1>';
 				break;
 		}
 		return $tpl;
