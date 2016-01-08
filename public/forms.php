@@ -16,7 +16,8 @@ class Forms
 	function generate()
 	{
 		$query="select * from forms order by group_id asc, order_id asc";
-		$res=$db->select($query);
+		$res=$this->db->select($query);
+		echo '<pre>';
 		print_r($res);
 	}
 }
