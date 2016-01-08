@@ -38,6 +38,7 @@ class Forms
 			foreach($params as $param)
 			{
 				$tpl=str_replace('${'.$param.'}',$field[$param],$tpl);
+				echo $tpl;
 			}
 			echo $tpl;exit;
 		}
