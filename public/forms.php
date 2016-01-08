@@ -11,8 +11,15 @@ class Forms
 	{
 		$this->name=$name;
 		$this->db=new Db('helpers',$name);
-		print_r($this->db);
+	}
+	
+	function generate()
+	{
+		$query="select * from forms order by group_id asc, order_id asc";
+		$res=$db->select($query);
+		print_r($res);
 	}
 }
 
 $form=new Forms('php');
+$form->generate();
