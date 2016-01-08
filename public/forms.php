@@ -17,6 +17,7 @@ class Forms
 	{
 		$query="select * from forms order by group_id asc, order_id asc";
 		$fields=$this->db->select($query);
+		$tpl='...';
 /*
             [idx] => 2
             [group_id] => 1
@@ -38,7 +39,6 @@ class Forms
 			foreach($params as $param)
 			{
 				$tpl=str_replace('${'.$param.'}',$field[$param],$tpl);
-				echo $tpl;
 			}
 			echo $tpl;exit;
 		}
