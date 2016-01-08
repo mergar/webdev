@@ -34,13 +34,13 @@ class Forms
 */
 		foreach($fields as $key=>$field)
 		{
-			$tpl=$this->getElement($field['type']);
+			$tpl=$this->getElement($field);
 			$params=array('param','desc','attr','cur');
 			foreach($params as $param)
 			{
 				$tpl=str_replace('${'.$param.'}',$field[$param],$tpl);
 			}
-			echo $tpl;exit;
+			echo $tpl;
 		}
 	}
 	
