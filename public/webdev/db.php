@@ -23,6 +23,9 @@ class Db
 			case 'forms':
 				$connect='sqlite:/var/db/webdev/forms.sqlite';
 				break;
+			case 'helpers':
+				$connect='sqlite:'.$this->_workdir.'/formfile/'.$database.'.sqlite';
+				break;
 			case 'sqlite_cbsd':
 				if($database!='')
 				{
