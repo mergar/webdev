@@ -34,7 +34,7 @@ class Forms
 */
 		foreach($fields as $key=>$field)
 		{
-			$tpl=$this->getElement($field);
+			$tpl=$this->getElement($field['type']);
 			$params=array('param','desc','attr','cur');
 			foreach($params as $param)
 			{
