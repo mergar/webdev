@@ -1,4 +1,6 @@
 <?php
+$rp=realpath('');
+include_once($rp.'/webdev/db.php');
 
 class Forms
 {
