@@ -58,6 +58,7 @@ class Forms
             [xattr] => 
             [type] => delimer
 */
+		echo '<form name="">';
 		foreach($fields as $key=>$field)
 		{
 			$tpl=$this->getElement($field['type']);
@@ -76,6 +77,7 @@ class Forms
 			$tpl=str_replace('${required}',$required,$tpl);
 			echo $tpl;
 		}
+		echo '</form>';
 	}
 	
 	function getElement($el)
