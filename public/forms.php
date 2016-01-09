@@ -67,6 +67,11 @@ class Forms
 				if(isset($field[$param]))
 					$tpl=str_replace('${'.$param.'}',$field[$param],$tpl);
 			}
+			
+			$value=$field['def'];
+			if(isset($field['cur']) && !empty($field['cur'])) $value=$field['cur'];
+			$tpl=str_replace('${value}',$value,$tpl);
+			
 			$required=($field['mandatory']==1)?' required':'';
 			$tpl=str_replace('${required}',$required,$tpl);
 			echo $tpl;
@@ -79,7 +84,7 @@ class Forms
 		switch($el)
 		{
 			case 'inputbox':
-				$tpl='<div class=""><input type="text" name="${param}" value="${cur}" ${attr}${required} /><span class="small">${desc}</span></div>';
+				$tpl='<div class=""><input type="text" name="${param}" value="${value}" ${attr}${required} /><span class="small">${desc}</span></div>';
 				break;
 			case 'delimer':
 				$tpl='<h1>${desc}</h1>';
