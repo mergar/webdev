@@ -77,6 +77,7 @@ class Forms
 			$tpl=str_replace('${required}',$required,$tpl);
 			echo $tpl;
 		}
+		$this->setButtons();
 		echo '</form>';
 	}
 	
@@ -95,9 +96,9 @@ class Forms
 		return $tpl;
 	}
 	
-	function setButtons($arr)
+	function setButtons($arr=array())
 	{
-		echo '<div class="buttons"><input type="button" value="Save" /><input type="button" value="Cancel" /></div>';
+		echo '<div class="buttons"><input type="button" value="Save" /> <input type="button" value="Cancel" /></div>';
 	}
 }
 
@@ -114,8 +115,8 @@ h1 {color:white;background:silver;margin:0;padding:10px;}
 .form-field span {margin-left:10px;}
 .form-field input {width:300px;}
 form {border:1px solid gray;padding:0;margin-bottom:10px;width:500px;border-radius:8px;overflow:hidden;box-shadow:4px 4px 6px rgba(0,0,0,0.2);}
-.buttons {padding:10px;text-align:center;}
+.buttons {padding:20px 10px;text-align:center;}
 </style>
 <?php
 $form->generate();
-$form->setButtons(array('save','cancel'));
+//$form->setButtons(array('save','cancel'));
