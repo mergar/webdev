@@ -101,7 +101,7 @@ $form=new Forms('php');
 <html>
 <style>
 body {font-size:100%;font-family:Tahoma,'Sans-Serif',Arial;}
-h1 {border-bottom:1px solid #f0f0f0;color:gray;}
+h1 {color:white;background:silver;margin:0;padding:10px;}
 .small {font-size:x-small;}
 .form-field {padding:4px 4px 0 4px;margin:0 4px; background:#fafafa;}
 .form-field:last-child {padding-bottom:4px;}
