@@ -103,6 +103,7 @@ body {font-size:100%;font-family:Tahoma,'Sans-Serif',Arial;}
 .form-field {padding:4px 4px 0 4px;margin:0 4px; background:#f0f0f0;}
 .form-field:last-child {padding-bottom:4px;}
 .form-field span {margin-left:10px;}
+.form-field input {width:300px;}
 </style>
 <?php
 $form->generate();
