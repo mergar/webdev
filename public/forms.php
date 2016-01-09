@@ -102,10 +102,10 @@ $form=new Forms('php');
 <style>
 body {font-size:100%;font-family:Tahoma,'Sans-Serif',Arial;}
 h1 {color:white;background:silver;margin:0;padding:10px;}
-h1:last-child {margin-bottom:10px;}
 .small {font-size:x-small;}
 .form-field {padding:4px 10px 0 10px;margin:0 4px; background:#fafafa;}
 .form-field:last-child {padding-bottom:10px;}
+.form-field:first-child {margin-top:40px;}
 .form-field span {margin-left:10px;}
 .form-field input {width:300px;}
 form {border:1px solid gray;padding:0;margin-bottom:10px;width:500px;border-radius:8px;overflow:hidden;box-shadow:4px 4px 6px rgba(0,0,0,0.2);}
