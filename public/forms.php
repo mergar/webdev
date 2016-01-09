@@ -95,4 +95,11 @@ class Forms
 }
 
 $form=new Forms('php');
+?>
+<html>
+<style>
+body {font-size:100%;font-family:Tahoma,'Sans-Serif',Arial;}
+.small {font-size:x-small;}
+</style>
+<?php
 $form->generate();
