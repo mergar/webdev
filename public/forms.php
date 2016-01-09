@@ -107,6 +107,7 @@ h1 {border-bottom:1px solid #f0f0f0;color:gray;}
 .form-field:last-child {padding-bottom:4px;}
 .form-field span {margin-left:10px;}
 .form-field input {width:300px;}
+form {border:1px solid gray;padding:0 20px 20px;width:500px;border-radius:8px;}
 </style>
 <?php
 $form->generate();
