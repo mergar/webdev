@@ -64,7 +64,8 @@ class Forms
 			$params=array('param','desc','attr','cur');
 			foreach($params as $param)
 			{
-				$tpl=str_replace('${'.$param.'}',$field[$param],$tpl);
+				if(isset($field[$param]))
+					$tpl=str_replace('${'.$param.'}',$field[$param],$tpl);
 			}
 			$required=($field['mandatory']==1)?' required':'';
 			$tpl=str_replace('${required}',$required,$tpl);
