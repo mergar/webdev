@@ -84,7 +84,7 @@ class Forms
 		switch($el)
 		{
 			case 'inputbox':
-				$tpl='<div class=""><input type="text" name="${param}" value="${value}" ${attr}${required} /><span class="small">${desc}</span></div>';
+				$tpl='<div class="form-field"><input type="text" name="${param}" value="${value}" ${attr}${required} /><span class="small">${desc}</span></div>';
 				break;
 			case 'delimer':
 				$tpl='<h1>${desc}</h1>';
@@ -100,6 +100,8 @@ $form=new Forms('php');
 <style>
 body {font-size:100%;font-family:Tahoma,'Sans-Serif',Arial;}
 .small {font-size:x-small;}
+.form-field {padding:4px;margin:0 4px; background:#f0f0f0;}
+.form-field span {margin-left:10px;}
 </style>
 <?php
 $form->generate();
