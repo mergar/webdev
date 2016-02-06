@@ -1090,6 +1090,7 @@ class WebDev
 			}
 			
 			$jails=$this->getJailsList();
+			print_r($jails);
 			//$jsres=$this->jailStart($jail_name);
 			$this->saveJailDescription($res['lastID'],$description);
 			return array('lastID'=>$res['lastID'],'jails'=>$jails,'errorMessage'=>$err,'taskId'=>$taskId);	//,'jail_start'=>$jsres
