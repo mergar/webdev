@@ -1078,8 +1078,9 @@ class WebDev
 			if(strtolower($ip)=='dhcp')
 			{
 				$query="select ip4_addr from jails where jname='{$jail_name}'";
+				echo $query;
 				$old=$this->_db_jails->selectAssoc($query);
-				print_r($old);
+				var_dump($old);exit;
 				if(strtolower($old['ip'])!='dhcp')
 				{
 					//$jails[$key]['ip']=$old['ip4_addr'];
