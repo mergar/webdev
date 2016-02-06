@@ -1083,7 +1083,7 @@ class WebDev
 				{
 					//$jails[$key]['ip']=$old['ip4_addr'];
 					$query="update jails set ip='".$old['ip4_addr']."' where id=".$j['id'];
-					$res=$this->_db->update($query);
+					$res=$this->_db_jails->update($query);
 				}
 			}
 			
