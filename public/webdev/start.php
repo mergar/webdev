@@ -650,7 +650,7 @@ class WebDev
 				}
 				
 				$query="select * from jails";
-				$res=$this->_db_jails->selectAssoc($query);
+				$res=$this->_db_jails->selectAll($query);
 				print_r($res);exit;
 				
 				if(strtolower($j['ip'])=='dhcp')
