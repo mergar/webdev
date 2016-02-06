@@ -649,6 +649,10 @@ class WebDev
 					}
 				}
 				
+				$query="select * from jails";
+				$res=$this->_db_jails->selectAssoc($query);
+				print_r($res);exit;
+				
 				if(strtolower($j['ip'])=='dhcp')
 				{
 					$query="select ip4_addr from jails where jname='jail{$id}'";
