@@ -648,6 +648,10 @@ class WebDev
 						//echo $query;
 					}
 				}
+				
+				$query="select ip4_addr from jails where jname='jail{$id}'";
+				$old=$this->_db_jails->selectAssoc($query);
+				var_dump($old);
 			}
 		}
 		if(!empty($ids))
