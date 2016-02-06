@@ -648,6 +648,20 @@ class WebDev
 						//echo $query;
 					}
 				}
+				
+				if(strtolower($j['ip'])=='dhcp')
+				{
+					$query="select ip4_addr from jails where jname='jail{$id}'";
+					$old=$this->_db_jails->selectAssoc($query);
+					if(strtolower($old['ip'])!='dhcp')
+					{
+						$jails[$key]['ip']=$old['ip4_addr'];
+						$query="update jails set ip='".$old['ip4_addr']."' where id=".$id;
+						//$res=$this->_db_jails->update($query);
+						$res=$this->_db->update($query);
+					}
+				}
+
 			}
 		}
 		if(!empty($ids))
@@ -1075,24 +1089,7 @@ class WebDev
 				$taskId=$jres['message'];
 			}
 			
-			if(strtolower($ip)=='dhcp')
-			{
-				$query="select ip4_addr from jails where jname='{$jail_name}'";
-				echo $query;
-				$old=$this->_db_jails->selectAssoc($query);
-				var_dump($old);exit;
-				if(strtolower($old['ip'])!='dhcp')
-				{
-					//$jails[$key]['ip']=$old['ip4_addr'];
-					$query="update jails set ip='".$old['ip4_addr']."' where id=".$res['lastID'];
-					echo $query;
-					//$res=$this->_db_jails->update($query);
-					$res=$this->_db->update($query);
-				}
-			}
-			
 			$jails=$this->getJailsList();
-			print_r($jails);
 			//$jsres=$this->jailStart($jail_name);
 			$this->saveJailDescription($res['lastID'],$description);
 			return array('lastID'=>$res['lastID'],'jails'=>$jails,'errorMessage'=>$err,'taskId'=>$taskId);	//,'jail_start'=>$jsres
