@@ -654,13 +654,17 @@ class WebDev
 					$query="select * from jails where jname='jail{$id}'";	//ip4_addr
 					//echo $query;
 					$old=$this->_db_jails->selectAssoc($query);
-					var_dump($old);
-					if(strtolower($old['ip4_addr'])!='dhcp')
+					if($old!==false)
 					{
-						//$jails[$key]['ip']=$old['ip4_addr'];
-						print_r($jails);exit;
-						$query="update jails set ip='".$old['ip4_addr']."' where id=".$id;
-						$res=$this->_db->update($query);
+						print_r($old);
+						if(strtolower($old['ip4_addr'])!='dhcp')
+						{
+							//$jails[$key]['ip']=$old['ip4_addr'];
+							print_r($jails);exit;
+							$query="update jails set ip='".$old['ip4_addr']."' where id=".$id;
+							$res=$this->_db->update($query);
+						}
+						
 					}
 				}
 
