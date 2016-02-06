@@ -648,7 +648,7 @@ class WebDev
 						//echo $query;
 					}
 				}
-				
+				print_r($j);exit;
 				$query="select ip4_addr from jails where jname='jail{$id}'";
 				$old=$this->_db_jails->selectAssoc($query);
 				var_dump($old);
