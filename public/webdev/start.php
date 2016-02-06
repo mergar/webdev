@@ -657,8 +657,6 @@ class WebDev
 					{
 						$jails[$key]['ip']=$old['ip4_addr'];
 						$query="update jails set ip='".$old['ip4_addr']."' where id=".$id;
-						//echo $query;
-						//$res=$this->_db_jails->update($query);
 						$res=$this->_db->update($query);
 					}
 				}
@@ -1079,6 +1077,7 @@ class WebDev
 			return array('error'=>$res);
 		}else{
 			$this->updateJailsCount();
+			$jails=$this->getJailsList();
 			$jail_name='jail'.$res['lastID'];
 			$jres=$this->jailCreate($jail_name,$hostname,$ip,$jprofile,$res['lastID']);
 			
@@ -1090,7 +1089,6 @@ class WebDev
 				$taskId=$jres['message'];
 			}
 			
-			$jails=$this->getJailsList();
 			//$jsres=$this->jailStart($jail_name);
 			$this->saveJailDescription($res['lastID'],$description);
 			return array('lastID'=>$res['lastID'],'jails'=>$jails,'errorMessage'=>$err,'taskId'=>$taskId);	//,'jail_start'=>$jsres
