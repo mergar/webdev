@@ -1082,8 +1082,9 @@ class WebDev
 				if(strtolower($old['ip'])!='dhcp')
 				{
 					//$jails[$key]['ip']=$old['ip4_addr'];
-					$query="update jails set ip='".$old['ip4_addr']."' where id=".$j['id'];
-					$res=$this->_db_jails->update($query);
+					$query="update jails set ip='".$old['ip4_addr']."' where id=".$res['lastID'];
+					//$res=$this->_db_jails->update($query);
+					$res=$this->_db->update($query);
 				}
 			}
 			
