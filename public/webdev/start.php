@@ -665,7 +665,7 @@ class WebDev
 		if(!empty($ids))
 		{
 			$tid=join("','jail",$ids);
-			$statuses=$this->_db_jails->select("select jname,status from jails where jname in ('jail{$tid}')");
+			$statuses=$this->_db_jails->select("select ip,jname,status from jails where jname in ('jail{$tid}')");
 			if(!empty($statuses)) foreach($statuses as $stat)
 			{
 				$id=str_replace('jail','',$stat['jname']);
