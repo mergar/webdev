@@ -988,12 +988,12 @@ class WebDev
 			and	p.packagename=pgl.packagename
 			order
 				by mg.id asc, pgl.packagename asc";
-$query="select * from packages";
+//$query="select * from packages";
 		$modules=$this->_db->select($query);
 		$db=new Db('pkg','jail'.$this->jailId);
 		if($db->error) return $modules;	// если БД недоступна, то возвращаем список модулей без отметки об установленных
 		$res=$db->select("select origin from packages");
-print_r($modules);exit;
+//print_r($modules);exit;
 		$installed=array();
 		if(!empty($res))foreach($res as $item){$installed[]=$item['origin'];}
 		unset($res);
