@@ -993,6 +993,7 @@ class WebDev
 		if($db->error) return $modules;	// если БД недоступна, то возвращаем список модулей без отметки об установленных
 		$res=$db->select("select origin from packages");
 //print_r($modules);exit;
+print_r($res);exit;
 		$installed=array();
 		if(!empty($res))foreach($res as $item){$installed[]=$item['origin'];}
 		unset($res);
