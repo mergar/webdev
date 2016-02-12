@@ -405,7 +405,23 @@ iface={
 			var data=$.parseJSON(_data);
 		}catch(e){alert(e.message);return;}
 		
-		$('table.tbl-cnt').html('helpers here');
+		if(typeof data.jails!='undefined')
+		{
+			this.jailsList=data.jails;
+			this.fillJailsToLeftMenu();
+		}
+		
+		if(data.helpers.length<1 || data.helpers===false)
+		{
+			var table='<thead><tr><th>Services list</th></tr></thead><tbody><tr><td>No helpers in list!</td></tr></tbody>';
+			$('table.tbl-cnt').html(table);
+			$('table.tbl-cnt').show();
+		}else{
+			this.helpersList=data.helpers;
+			//this.showHelpersList();
+		}
+		
+		$('table.tbl-cnt').show();
 	},
 	
 	
