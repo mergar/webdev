@@ -394,6 +394,13 @@ iface={
 		$('#module-info').html(data.settings);
 	},
 	
+	openHelpers:function()
+	{
+		$('#top-path').html('helpers list');
+		$('table.tbl-cnt').html('helpers here');
+	},
+	
+	
 	openServices:function()
 	{
 		$('#top-path').html('services list');
