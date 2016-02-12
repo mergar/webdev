@@ -1008,11 +1008,13 @@ status: "2"
 		{
 			$('#log-menu').attr('href','/#prj-'+this.project+'/jail-'+this.jail+'/log').show();
 			$('#users-menu').attr('href','/#prj-'+this.project+'/jail-'+this.jail+'/users').show();
+			$('#helpers-menu').attr('href','/#prj-'+this.project+'/jail-'+this.jail+'/helpers').show();
 			$('#service-menu').attr('href','/#prj-'+this.project+'/jail-'+this.jail+'/services').show();
 			$('#modules-menu').attr('href','/#prj-'+this.project+'/jail-'+this.jail).show();
 		}else{
 			$('#log-menu').hide();
 			$('#users-menu').hide();
+			$('#helpers-menu').hide();
 			$('#service-menu').hide();
 			$('#modules-menu').hide();
 		}
