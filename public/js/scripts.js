@@ -934,6 +934,7 @@ status: "2"
 		var rxl=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/log/);
 		var rxli=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/log-(\d+)/);
 		var rxu=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/users/);
+		var rxh=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/helpers/);
 		var rxs=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/services/);
 		var rxm=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/module-(\d+)/);
 		var rxj=new RegExp(/^#prj-(\d+)\/jail-(\d+)/);
@@ -967,6 +968,13 @@ status: "2"
 			this.states={'project':this.project,'jail':this.jail};
 			this.currentPage='services';
 			this.openServices();
+		}else if(res=hash.match(rxh)){
+			// we are in helpers
+			this.project=parseInt(res[1]);
+			this.jail=parseInt(res[2]);
+			this.states={'project':this.project,'jail':this.jail};
+			this.currentPage='helpers';
+			this.openHelpers();
 		}else if(res=hash.match(rxm)){
 			// we are in module
 			this.project=parseInt(res[1]);
