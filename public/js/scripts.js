@@ -691,8 +691,8 @@ debugger;
 		var html='<thead><tr><th>helpers</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
+			html+='<tr class="link hover"><td>'
 			html+='<strong>'+data[n]+'</strong>';
-			html+='</td><td class="ops"><span class="icon-cnt"><span class="icon-'+icon+'"></span></td>';
 			html+='</tr>';
 		}
 		/*
