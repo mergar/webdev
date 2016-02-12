@@ -410,7 +410,7 @@ iface={
 			this.jailsList=data.jails;
 			this.fillJailsToLeftMenu();
 		}
-		
+debugger;
 		if(data.helpers.length<1 || data.helpers===false)
 		{
 			var table='<thead><tr><th>Services list</th></tr></thead><tbody><tr><td>No helpers in list!</td></tr></tbody>';
