@@ -683,7 +683,7 @@ debugger;
 		return html;
 	},
 	
-	:function(data)
+	makeTableHelpers:function(data)
 	{
 	this.log_write('makeTableHelpers');
 		var table=$('table.tbl-cnt');
