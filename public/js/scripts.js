@@ -688,10 +688,10 @@ debugger;
 	this.log_write('makeTableHelpers');
 		var table=$('table.tbl-cnt');
 		$(table).addClass('helpers');
-		var html='<thead><tr><th>helpers</th></tr></thead><tbody>';
+		var html='<thead><tr><th colspan="2">helpers</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
-			html+='<tr class="link hover"><td>'
+			html+='<tr class="link hover"><td><td class="ico-servs"></td>'
 			html+='<strong>'+data[n]+'</strong>';
 			html+='</tr>';
 		}
