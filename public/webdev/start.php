@@ -110,6 +110,11 @@ class WebDev
 					$settings=$this->getModuleSettings();
 					echo json_encode(array('modules'=>$modules,'settings'=>$settings));
 					return;break;
+				case 'getHelpersList':
+					$jails=$this->getJailsList();
+					$helpers=$this->getHelpersList();
+					echo json_encode(array('jails'=>$jails,'helpers'=>$helpers));
+					return;break;
 				case 'getServicesList':
 					$jails=$this->getJailsList();
 					$services=$this->getServicesList();
@@ -767,6 +772,30 @@ class WebDev
 			return $mtime>$dbmtime;
 		}
 		return false;
+	}
+	
+	function getHelpersList()
+	{
+		$arr=array();
+		$res=$this->cbsd_cmd(' imghelper header=0');	//('service jname=jail'.$this->jailId.' mode=list');
+		if($res['retval']==0)
+		{
+			$lst=explode("\n",$res['message']);
+			$n=0;
+			if(!empty($lst)) foreach($lst as $item)
+			{
+				/*
+				$arr[$n]['id']=$n+1;
+				$arr[$n]['name']=$item;
+				$arr[$n]['autostart']=0;
+				$arr[$n]['comment']='Описание мы придумаем позже&hellip;';
+				*/
+				$arr[$n]=$item;
+				$n++;
+			}
+		}
+		
+		return $arr;
 	}
 	
 	function getServicesList()
