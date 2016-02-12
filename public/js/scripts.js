@@ -397,6 +397,14 @@ iface={
 	openHelpers:function()
 	{
 		$('#top-path').html('helpers list');
+		this.loadData('getHelpersList',$.proxy(this.fillHelpersList,this));
+	},
+	fillHelpersList:function(_data)
+	{
+		try{
+			var data=$.parseJSON(_data);
+		}catch(e){alert(e.message);return;}
+		
 		$('table.tbl-cnt').html('helpers here');
 	},
 	
