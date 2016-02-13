@@ -809,19 +809,15 @@ class WebDev
 	{
 		$arr=array();
 		
-		$jail_form=$workdir."/jails-system/jail".$this->jailId."/helpers/".$this->helper.".sqlite";
-		
-		echo $jail_form;
-/*
-		$jail_form=$workdir."/jails-system/".$jname."/helpers/".$helper.".sqlite";
-		if (file_exists($jail_form)) {
-			$form=new Forms($helper);
-			$form->generate();
-			//$form->setButtons(array('apply','cancel'));
-		} else {
-			echo "Module not installed for $jname. Please <a href='/img_helper_cfg.php?jname=$jname&mode=install&helper=$helper'>install module</a>";
+		$jail_form=$this->workdir."/jails-system/jail".$this->jailId."/helpers/".$this->helper.".sqlite";
+		if(file_exists($jail_form))
+		{
+			$form=new Forms($this->helper);
+			$html=$form->generate();
+			$arr=array('error'=>false,'form'=>$html);
+		}else{
+			$arr=array('error'=>true,'errorMsg'=>'Module '.$this->helper.' not installed.');
 		}
-*/
 		
 		return $arr;
 	}
