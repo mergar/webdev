@@ -402,11 +402,12 @@ iface={
 	openHelperForm:function(_data)
 	{
 		var data=$.parseJSON(_data);
-		if(data.error!==false)
+		if(typeof data.helpers=='undefined') return;
+		if(data.helpers.error!==false)
 		{
-			$('#tbl-cnt').html(data.form);
+			$('#tbl-cnt').html(data.helpers.form);
 		}else{
-			$('#tbl-cnt').html('<p>'+data.errorMsg+'</p>');
+			$('#tbl-cnt').html('<p>'+data.helpers.errorMsg+'</p>');
 		}
 	},
 	openHelpers:function()
