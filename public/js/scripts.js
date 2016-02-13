@@ -915,8 +915,7 @@ status: "2"
 				location.hash='#prj-'+this.project+'/jail-'+this.jail+'/log-'+lid;
 				break;
 			case 'helpers':
-			debugger;
-				var hid=$('tr td .pid').html();
+				var hid=$('tr td .pid',tr).html();
 				location.hash='#prj-'+this.project+'/jail-'+this.jail+'/helpers-'+hid;
 				break;
 		}
