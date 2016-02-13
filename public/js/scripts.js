@@ -692,7 +692,7 @@ iface={
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 			html+='<tr class="link hover" rel="helpers-'+data[n]+'"><td class="ico-servs"></td>'
-			html+='<td><strong>'+data[n]+'</strong><br /><small>Описание&hellip;</small></td>';
+			html+='<td><strong class="pid">'+data[n]+'</strong><br /><small>Описание&hellip;</small></td>';
 			html+='</tr>';
 		}
 
@@ -916,7 +916,7 @@ status: "2"
 				break;
 			case 'helpers':
 			debugger;
-				var hid=$('tr td:nth-child(2) .pid').html();
+				var hid=$('tr td .pid').html();
 				location.hash='#prj-'+this.project+'/jail-'+this.jail+'/helpers-'+hid;
 				break;
 		}
