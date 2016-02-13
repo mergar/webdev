@@ -1191,6 +1191,7 @@ status: "2"
 	{
 		var path='/json.php';
 		var posts={'mode':mode,'project':this.project,'jail':this.jail,'module':this.module};
+		if(typeof this.helper!='undefined') posts['helper']=this.helper;
 		if(typeof arr=='object')
 		{
 			posts['form_data']={};
