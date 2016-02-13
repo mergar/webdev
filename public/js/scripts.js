@@ -394,6 +394,11 @@ iface={
 		$('#module-info').html(data.settings);
 	},
 	
+	openHelper:function()
+	{
+		$('#top-path').html('helper settings: '+this.helper);
+		//this.loadData('getServicesList',$.proxy(this.fillServicesList,this));
+	},
 	openHelpers:function()
 	{
 		$('#top-path').html('helpers list');
@@ -1024,7 +1029,7 @@ status: "2"
 					break;
 				case 'helpers':
 					this.helper=this.currentSubPage;
-					alert(this.helper);
+					this.openHelper();
 					break;
 			}
 		}else if(res=hash.match(rx3)){
