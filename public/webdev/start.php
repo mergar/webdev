@@ -116,6 +116,11 @@ class WebDev
 					$helpers=$this->getHelpersList();
 					echo json_encode(array('jails'=>$jails,'helpers'=>$helpers));
 					return;break;
+				case 'getHelper':
+					$jails=$this->getJailsList();
+					$helper=$this->getHelper();
+					echo json_encode(array('jails'=>$jails,'helpers'=>$helper));
+					return;break;
 				case 'getServicesList':
 					$jails=$this->getJailsList();
 					$services=$this->getServicesList();
