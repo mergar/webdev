@@ -914,6 +914,11 @@ status: "2"
 				var lid=$('tr td:first-child').html();
 				location.hash='#prj-'+this.project+'/jail-'+this.jail+'/log-'+lid;
 				break;
+			case 'helpers':
+			debugger;
+				var hid=$('tr td:nth-child(2)').html();
+				location.hash='#prj-'+this.project+'/jail-'+this.jail+'/helpers-'+hid;
+				break;
 		}
 	},
 	
