@@ -1011,6 +1011,80 @@ status: "2"
 		if(hash=='') hash='#';
 		this.project=0;
 		this.jail=0;
+		
+		debugger;
+		var rx4=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/([^-]+)-([.]+)\/?$/);
+		var rx3=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/([.]+)\/?$/);
+		var rx2=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/?$/);
+		var rx1=new RegExp(/^#prj-(\d+)\/?$/);
+		if(res=hash.match(rx4)){
+			this.project=parseInt(res[1]);
+			this.jail=parseInt(res[2]);
+			this.states={'project':this.project,'jail':this.jail};
+			this.currentPage=res[3];
+			this.currentSubPage=res[4];
+			switch(this.currentPage)
+			{
+				case 'log':
+					this.log_id=parseInt(this.currentSubPage);
+					this.openTaskLogItem();
+					break;
+				case 'module':
+					this.module=parseInt(this.currentSubPage);
+					this.states['module']=this.module;
+					this.openModule();
+					break;
+			}
+		}else if(res=hash.match(rx3)){
+			this.project=parseInt(res[1]);
+			this.jail=parseInt(res[2]);
+			this.states={'project':this.project,'jail':this.jail};
+			this.currentPage=res[3];
+			switch(this.currentPage)
+			{
+				case 'log':
+					this.openTaskLog();
+					break;
+				case 'users':
+					this.openUsers();
+					break;
+				case 'services':
+					this.openServices();
+					break;
+				case 'helpers':
+					this.openHelpers();
+					break;
+			}
+		}else if(res=hash.match(rx2)){
+			this.project=parseInt(res[1]);
+			this.jail=parseInt(res[2]);
+			this.states={'project':this.project,'jail':this.jail};
+			this.currentPage='modules';
+			//this.showModulesList();
+			this.openJail();
+		}else if(res=hash.match(rx1)){
+			this.project=parseInt(res[1]);
+			this.states={'project':this.project,'jail':''};
+			this.currentPage='jails';
+			this.openProject();
+		}else{
+			// we are in project list
+			this.currentPage='project';
+			this.openProjectsList();
+		}
+		this.windowClose();
+		
+		var n, nl;
+		var tabs=['log','users','helpers','services','modules'];
+		if(this.project>0&&this.jail>0)
+		{
+			for(n=0,nl=tabs.length;n<nl;n++)
+				$('#'+tabs[n]+'-menu').attr('href','/#prj-'+this.project+'/jail-'+this.jail+'/'+tabs[n]).show();
+		}else{
+			for(n=0,nl=tabs.length;n<nl;n++)
+				$('#'+tabs[n]+'-menu').hide();
+		}
+/*		
 		var rxl=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/log/);
 		var rxli=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/log-(\d+)/);
 		var rxu=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/users/);
@@ -1083,7 +1157,7 @@ status: "2"
 			this.openProjectsList();
 		}
 		this.windowClose();
-		
+	
 		if(this.project>0&&this.jail>0)
 		{
 			$('#log-menu').attr('href','/#prj-'+this.project+'/jail-'+this.jail+'/log').show();
@@ -1098,6 +1172,7 @@ status: "2"
 			$('#service-menu').hide();
 			$('#modules-menu').hide();
 		}
+*/
 	},
 	hashCheck:function()
 	{
