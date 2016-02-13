@@ -397,7 +397,12 @@ iface={
 	openHelper:function()
 	{
 		$('#top-path').html('helper settings: '+this.helper);
-		//this.loadData('getServicesList',$.proxy(this.fillServicesList,this));
+		this.loadData('getHelper',$.proxy(this.openHelperForm,this));
+	},
+	openHelperForm:function(_data)
+	{
+		var data=$.parseJSON(_data);
+		
 	},
 	openHelpers:function()
 	{
