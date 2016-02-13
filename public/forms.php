@@ -80,6 +80,8 @@ class Forms
 		}
 		$this->setButtons();
 		$this->html+='</form>';
+		
+		return $this->html;
 	}
 	
 	function getElement($el)
