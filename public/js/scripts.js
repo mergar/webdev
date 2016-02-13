@@ -1022,6 +1022,10 @@ status: "2"
 					this.states['module']=this.module;
 					this.openModule();
 					break;
+				case 'helpers':
+					this.helper=this.currentSubPage;
+					alert(this.helper);
+					break;
 			}
 		}else if(res=hash.match(rx3)){
 			this.project=parseInt(res[1]);
