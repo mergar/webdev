@@ -6,6 +6,7 @@ class WebDev
 	public $projectId=0;
 	public $jailId=0;
 	public $moduleId=0;
+	public $helper='';
 	public $mode='';
 	public $form='';
 	public $workdir='';
@@ -87,6 +88,7 @@ class WebDev
 			$this->projectId=intval($this->_vars['project']);
 			$this->jailId=intval($this->_vars['jail']);
 			$this->moduleId=intval($this->_vars['module']);
+			$this->helper=$this->_vars['helper'];
 			$this->mode=$this->_vars['mode'];
 			if(isset($this->_vars['form_data'])) $this->form=$this->_vars['form_data'];
 			
@@ -807,6 +809,9 @@ class WebDev
 	{
 		$arr=array();
 		
+		$jail_form=$workdir."/jails-system/jail".$this->jailId."/helpers/".$this->helper.".sqlite";
+		
+		echo $jail_form;
 /*
 		$jail_form=$workdir."/jails-system/".$jname."/helpers/".$helper.".sqlite";
 		if (file_exists($jail_form)) {
