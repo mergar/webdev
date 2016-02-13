@@ -405,9 +405,9 @@ iface={
 		if(typeof data.helpers=='undefined') return;
 		if(data.helpers.error===false)
 		{
-			$('#content').html(data.helpers.form);
+			$('.tbl-cnt').html('td'+data.helpers.form+'</td>');
 		}else{
-			$('#content').html('<p>'+data.helpers.errorMsg+'</p>');
+			$('.tbl-cnt').html('<td>'+data.helpers.errorMsg+'</td>');
 		}
 	},
 	openHelpers:function()
