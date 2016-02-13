@@ -35,7 +35,7 @@
 				<a href="" class="icon-gift" style="display:none;"> Import</a>
 				<a href="" class="icon-cubes" id="modules-menu" style="display:none;"> Modules</a>
 				<a href="" class="icon-cubes" id="helpers-menu" style="display:none;"> Helpers</a>
-				<a href="" class="icon-cog" id="service-menu" style="display:none;"> Services</a>
+				<a href="" class="icon-cog" id="services-menu" style="display:none;"> Services</a>
 				<a href="" class="icon-users" id="users-menu" style="display:none;"> Users</a>
 				<a href="" class="icon-pencil-squared" id="log-menu"> Task log</a>
 			<!--	<a href="" class="icon-camera-alt"> Snapshots</a> -->
