@@ -1,4 +1,5 @@
 <?php
+include('forms.php');
 
 class WebDev
 {
@@ -794,6 +795,23 @@ class WebDev
 				$n++;
 			}
 		}
+		
+		return $arr;
+	}
+	function getHelper()
+	{
+		$arr=array();
+		
+/*
+		$jail_form=$workdir."/jails-system/".$jname."/helpers/".$helper.".sqlite";
+		if (file_exists($jail_form)) {
+			$form=new Forms($helper);
+			$form->generate();
+			//$form->setButtons(array('apply','cancel'));
+		} else {
+			echo "Module not installed for $jname. Please <a href='/img_helper_cfg.php?jname=$jname&mode=install&helper=$helper'>install module</a>";
+		}
+*/
 		
 		return $arr;
 	}

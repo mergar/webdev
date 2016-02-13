@@ -6,6 +6,7 @@ class Forms
 {
 	private $name='';
 	private $db='';
+	private $html='';
 	
 	function __construct($name)
 	{
@@ -58,7 +59,7 @@ class Forms
             [xattr] => 
             [type] => delimer
 */
-		echo '<form name="">';
+		$this->html='<form name="">';
 		foreach($fields as $key=>$field)
 		{
 			$tpl=$this->getElement($field['type']);
@@ -75,10 +76,10 @@ class Forms
 			
 			$required=($field['mandatory']==1)?' required':'';
 			$tpl=str_replace('${required}',$required,$tpl);
-			echo $tpl;
+			$this->html+=$tpl;
 		}
 		$this->setButtons();
-		echo '</form>';
+		$this->html+='</form>';
 	}
 	
 	function getElement($el)
@@ -102,6 +103,8 @@ class Forms
 	}
 }
 
+/*
+
 $form=new Forms('php');
 ?>
 <html>
@@ -118,3 +121,5 @@ form {border:1px solid gray;padding:0;margin-bottom:10px;width:500px;border-radi
 <?php
 $form->generate();
 //$form->setButtons(array('save','cancel'));
+
+*/
