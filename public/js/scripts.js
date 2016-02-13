@@ -403,7 +403,7 @@ iface={
 	{
 		var data=$.parseJSON(_data);
 		if(typeof data.helpers=='undefined') return;
-		if(data.helpers.error!==false)
+		if(data.helpers.error===false)
 		{
 			$('#tbl-cnt').html(data.helpers.form);
 		}else{
