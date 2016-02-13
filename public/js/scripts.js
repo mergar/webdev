@@ -691,28 +691,11 @@ iface={
 		var html='<thead><tr><th colspan="2">helpers</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
-			html+='<tr class="link hover"><td class="ico-servs"></td>'
+			html+='<tr class="link hover" rel="helpers-'+data[n]+'"><td class="ico-servs"></td>'
 			html+='<td><strong>'+data[n]+'</strong><br /><small>Описание&hellip;</small></td>';
 			html+='</tr>';
 		}
-		/*
-		var html='<thead><tr><th colspan="2">&nbsp;</th><th>helpers</th><th>Autostart</th><th colspan="2">&nbsp;</th><th>Status</th><th>&nbsp;</th></tr></thead><tbody>';
-		for(n=0,nl=data.length;n<nl;n++)
-		{
-			var itemId='';
-			if(typeof data[n]['id']!='undefined') itemId=' id-'+data[n]['id'];
-			html+='<tr class="link hover'+itemId+'"><td class="chbx">&nbsp;</td>';
-			html+='<td class="ico-servs"></td><td>';
-			html+='<strong>'+data[n].name+'</strong><br /><small>'+data[n].comment+'</small><br /><div class="errmsg"></div>';
-			html+='<td class="sett"><input type="checkbox" /></td>';
-			html+='<td class="sett"><span class="icon-cog"></span></td>';
-			html+='</td><td class="mod-info"><span class="icon-cnt icon-info-circled"></span></td>';
-			html+='<td class="jstatus">'+data[n].status_message+'</td>';
-			var icon=data[n].status==0?'stop':'play';
-			html+='</td><td class="ops"><span class="icon-cnt"><span class="icon-'+icon+'"></span></td>';
-			html+='</tr>';
-		}
-		*/
+
 		html+='</tbody>';
 		return html;
 	},
