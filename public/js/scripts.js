@@ -692,7 +692,7 @@ iface={
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 			html+='<tr class="link hover" rel="helpers-'+data[n]+'"><td class="ico-servs"></td>'
-			html+='<td><strong class="pid">'+data[n]+'</strong><br /><small>Описание&hellip;</small></td>';
+			html+='<td><strong class="sp-id">'+data[n]+'</strong><br /><small>Описание&hellip;</small></td>';
 			html+='</tr>';
 		}
 
@@ -762,7 +762,7 @@ logfile: "/tmp/taskd.801.log"
 st_time: "20150120005816"
 status: "2"
 */
-			html+='<tr class="link"><td>'+data[n].id+'</td>';
+			html+='<tr class="link"><td class="sp-id">'+data[n].id+'</td>';
 			html+='<td class="text-center"><small>'+data[n].cmd+'</small></td><td class="text-center"><small>'+data[n].st_time+'</small></td><td class="text-center"><small>'+data[n].end_time+'</small></td><td class="text-center"><small>'+data[n].status+'</small></td>';
 			html+='<td class="text-center"><small>'+data[n].errcode+'</small></td><td><small>'+data[n].logfile+'</small></td><td>'+data[n].filesize+'</td>';
 			html+='</tr>';
@@ -910,12 +910,14 @@ status: "2"
 			case 'modules':
 				location.hash='#prj-'+this.project+'/jail-'+this.jail+'/module-'+id;
 				break;
-			case 'log':
+/*			case 'log':
 				var lid=$('tr td:first-child').html();
 				location.hash='#prj-'+this.project+'/jail-'+this.jail+'/log-'+lid;
 				break;
+*/
+			case 'log':
 			case 'helpers':
-				var hid=$('tr td .pid',tr).html();
+				var hid=$('td .sp-id',tr).html();
 				location.hash='#prj-'+this.project+'/jail-'+this.jail+'/helpers-'+hid;
 				break;
 		}
