@@ -1012,7 +1012,6 @@ status: "2"
 		this.project=0;
 		this.jail=0;
 		
-		debugger;
 		var rx4=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/([^-]+)-([\w]+)\/?$/);
 		var rx3=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/([\w]+)\/?$/);
 		var rx2=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/?$/);
