@@ -1013,8 +1013,8 @@ status: "2"
 		this.jail=0;
 		
 		debugger;
-		var rx4=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/([^-]+)-([.*]+)\/?$/);
-		var rx3=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/([.*]+)\/?$/);
+		var rx4=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/([^-]+)-([\w]+)\/?$/);
+		var rx3=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/([\w]+)\/?$/);
 		var rx2=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/?$/);
 		var rx1=new RegExp(/^#prj-(\d+)\/?$/);
 		if(res=hash.match(rx4)){
