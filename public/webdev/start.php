@@ -844,8 +844,6 @@ class WebDev
 	function saveHelperValues()
 	{
 		$form=$this->_vars['form_data'];
-		//print_r($form);
-		//$db=new Db('from_file',"/jails-system/jail".$this->jailId."/helpers/".$this->helper.".sqlite");
 		$jname='jail'.$this->jailId;
 		$db=new Db('helpers',array('jname'=>$jname,'helper'=>$this->helper));
 		var_dump($db);

@@ -759,9 +759,11 @@ span.install:hover {
 #content form .form-fields {
 	background-color:#fafafa;
 }
+/*
 #content form .form-fields .form-field:first-child {
 	margin-top:20px;
 }
+*/
 #content form h1 {
 	background-color:#f0f0f0;
 }
