@@ -757,11 +757,10 @@ span.install:hover {
 	overflow:hidden;
 }
 #content form .form-fields {
-	padding: 20px;
 	background-color:#fafafa;
 }
 #content form h1 {
-	margin:0;
+	bacground-color:silver;
 }
 #content form .form-field {
 	padding: 2px 0;
@@ -771,7 +770,8 @@ span.install:hover {
 	background:silver;
 }
 #content form input[type="text"] {
-	margin-right:10px;
+	margin:2px 10px 2px 20px;
+	/*margin-right:10px;*/
 }
 span.small {
 	font-size:86%;
