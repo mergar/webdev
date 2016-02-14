@@ -893,9 +893,17 @@ status: "2"
 			return;
 		}
 
+		if(target.tagName=='INPUT')
+		{
+			var cl=target.className;
+			alert(cl);
+			
+			return;
+		}
+		
 		if(typeof td!='undefined') this.selItem(tr);
 		
-		if(!tr) return;
+		if(typeof tr[0]=='undefined') return;
 		var cl=tr[0].className;
 		if(!$(tr).hasClass('link')) return;
 		var rx=new RegExp(/id-(\d+)/);
