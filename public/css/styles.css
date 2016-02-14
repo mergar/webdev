@@ -760,7 +760,7 @@ span.install:hover {
 	background-color:#fafafa;
 }
 #content form h1 {
-	bacground-color:silver;
+	background-color:#f0f0f0;
 }
 #content form .form-field {
 	padding: 2px 0;
@@ -768,6 +768,7 @@ span.install:hover {
 #content form .buttons {
 	padding: 10px 20px;
 	background:silver;
+	border-top:1px solid gray;
 }
 #content form input[type="text"] {
 	margin:2px 10px 2px 20px;
