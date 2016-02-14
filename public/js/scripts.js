@@ -874,7 +874,7 @@ status: "2"
 		{
 			debugger;
 			var cl=target.className;
-			if(cl.indexOf('install')<0)
+			if(cl && cl.indexOf('install')<0)
 			{
 				var res=new RegExp(/helper-(\w+)/);
 				alert(res[1]);
@@ -887,6 +887,7 @@ status: "2"
 				}
 */
 			}
+			return;
 		}
 
 		if(typeof td!='undefined') this.selItem(tr);
