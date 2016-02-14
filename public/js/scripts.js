@@ -486,7 +486,7 @@ iface={
 	{
 		if(!el) return;
 		var inp=$(el).prev('input');
-		debugger;
+		$(inp).val(def);
 	},
 	
 	
@@ -917,7 +917,7 @@ status: "2"
 			
 			if(cl && cl.indexOf('default')>=0)
 			{
-				var res=cl.match(new RegExp(/val-(\w+)/));
+				var res=cl.match(new RegExp(/val-(\[^$]+)/));
 				if(res)
 				{
 					this.fillHelperDefault(target,res[1]);
