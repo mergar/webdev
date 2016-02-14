@@ -40,11 +40,7 @@
 				<a href="" class="icon-pencil-squared" id="log-menu"> Task log</a>
 			<!--	<a href="" class="icon-camera-alt"> Snapshots</a> -->
 			</div>
-			<div id="content">
-				<table class="tbl-cnt projects"></table>
-				<div id="module-info" class="hide"></div>
-				<!-- <span class="icon-spin3 animate-spin" style="zoom:100%;width:16px;height:16px;line-height:16px;margin:1px 0 0 1px;"></span> -->
-			</div>
+			<div id="content"></div>
 			
 		</div>
 		
