@@ -915,7 +915,7 @@ status: "2"
 			var cl=target.className;
 			if(cl=='') return;
 			if(cl='save-helper-values') this.saveHelperValues();
-			if(cl='clear-helper') this.clearHelperForm();
+			if(cl='clear-helper') this.clearHelperForm(target);
 			
 			return;
 		}
