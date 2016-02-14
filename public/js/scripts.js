@@ -584,7 +584,7 @@ iface={
 		}
 		if(data.tasklog.length<1 || data.tasklog===false)
 		{
-			var table='<table class="tbl-cnt projects"><thead><tr><th>Task log</th></tr></thead><tbody><tr><td>Log is empty!</td></tr></tbody></table>';
+			var table='<table class="tbl-cnt tasks"><thead><tr><th>Task log</th></tr></thead><tbody><tr><td>Log is empty!</td></tr></tbody></table>';
 			$('#content').html(table);
 			//$('table.tbl-cnt').html(table);
 			//$('table.tbl-cnt').show();
@@ -644,7 +644,7 @@ iface={
 	this.log_write('makeTableJails');
 		var table=$('table.tbl-cnt');
 		$(table).addClass('jails');
-		var html='<table class="tbl-cnt projects"><thead><tr><th colspan="2"><input type="checkbox" id="main_chkbox" /></th><th colspan="3">Jails</th><th>Status</th><th>&nbsp;</th></tr></thead><tbody>';
+		var html='<table class="tbl-cnt jails"><thead><tr><th colspan="2"><input type="checkbox" id="main_chkbox" /></th><th colspan="3">Jails</th><th>Status</th><th>&nbsp;</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 			var itemId='';
@@ -700,7 +700,7 @@ iface={
 	this.log_write('makeTableModules');
 		var table=$('table.tbl-cnt');
 		$(table).addClass('modules');
-		var html='<table class="tbl-cnt projects"><thead><tr><th colspan="2">&nbsp;</th><th>Modules</th><th>&nbsp;</th></tr></thead><tbody>';
+		var html='<table class="tbl-cnt modules"><thead><tr><th colspan="2">&nbsp;</th><th>Modules</th><th>&nbsp;</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 			var itemId='';
@@ -721,7 +721,7 @@ iface={
 	this.log_write('makeTableHelpers');
 		var table=$('table.tbl-cnt');
 		$(table).addClass('helpers');
-		var html='<table class="tbl-cnt projects"><thead><tr><th colspan="2">helpers</th></tr></thead><tbody>';
+		var html='<table class="tbl-cnt helpers"><thead><tr><th colspan="2">helpers</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 			html+='<tr class="link hover" rel="helpers-'+data[n]+'"><td class="ico-servs"></td>'
@@ -738,7 +738,7 @@ iface={
 	this.log_write('makeTableServices');
 		var table=$('table.tbl-cnt');
 		$(table).addClass('services');
-		var html='<table class="tbl-cnt projects"><thead><tr><th colspan="2">&nbsp;</th><th>Services</th><th>Autostart</th><th colspan="2">&nbsp;</th><th>Status</th><th>&nbsp;</th></tr></thead><tbody>';
+		var html='<table class="tbl-cnt services"><thead><tr><th colspan="2">&nbsp;</th><th>Services</th><th>Autostart</th><th colspan="2">&nbsp;</th><th>Status</th><th>&nbsp;</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 			var itemId='';
@@ -763,7 +763,7 @@ iface={
 	this.log_write('makeTableUsers');
 		var table=$('table.tbl-cnt');
 		$(table).addClass('users');
-		var html='<table class="tbl-cnt projects"><thead><tr><th colspan="2">&nbsp;</th><th>Users</th><th>&nbsp;</th></tr></thead><tbody>';
+		var html='<table class="tbl-cnt users"><thead><tr><th colspan="2">&nbsp;</th><th>Users</th><th>&nbsp;</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 			var itemId='';
@@ -783,7 +783,7 @@ iface={
 	this.log_write('makeTableTaskLog');
 		var table=$('table.tbl-cnt');
 		$(table).addClass('tasklog');
-		var html='<table class="tbl-cnt projects"><thead><tr><th>Id</th><th>Command</th><th>Start time</th><th>End time</th><th>Status</th><th>Error code</th><th>Log file</th><th>Log size</th></tr></thead><tbody><table>';
+		var html='<table class="tbl-cnt tasks"><thead><tr><th>Id</th><th>Command</th><th>Start time</th><th>End time</th><th>Status</th><th>Error code</th><th>Log file</th><th>Log size</th></tr></thead><tbody><table>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 /*
