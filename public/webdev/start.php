@@ -823,8 +823,8 @@ class WebDev
 		{
 			$jname='jail'.$this->jailId;
 			$form=new Forms($jname,$this->helper);
-			$html=$form->generate();
-			$arr=array('error'=>false,'form'=>$html);
+			$res=$form->generate();
+			$arr=array('error'=>false,'form'=>$res['html'],'defaults'=>$res['defaults']);
 		}else{
 			$arr=array('error'=>true,'errorMsg'=>'<p>Module <strong>'.$this->helper.'</strong> are not installed.</p><p>You need to <span class="install helper-'.$this->helper.'">install the module</span>.</p>');
 		}
