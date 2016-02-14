@@ -18,7 +18,7 @@ class Forms
 	{
 		$query="select * from forms order by group_id asc, order_id asc";
 		$fields=$this->db->select($query);
-		echo '<pre>';print_r($fields);
+		//echo '<pre>';print_r($fields);
 /*
             [idx] => 2
             [group_id] => 1
@@ -76,11 +76,10 @@ class Forms
 			
 			$required=($field['mandatory']==1)?' required':'';
 			$tpl=str_replace('${required}',$required,$tpl);
-			$this->html+=$tpl;
+			$this->html.=$tpl;
 		}
 		$this->setButtons();
-		$this->html+='</form>';
-		echo $this->html;
+		$this->html.='</form>';
 		return $this->html;
 	}
 	
