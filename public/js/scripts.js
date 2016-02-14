@@ -872,12 +872,15 @@ status: "2"
 		var tr=$(target).closest('tr');
 		if(target.tagName=='SPAN')
 		{
-			debugger;
 			var cl=target.className;
 			if(cl && cl.indexOf('install')>=0)
 			{
 				var res=cl.match(new RegExp(/helper-(\w+)/));
-				alert(res[1]);
+				if(res)
+				{
+					this.installHelper(res[1]);
+					return;
+				}
 /*
 				switch(res[1])
 				{
@@ -1272,6 +1275,16 @@ status: "2"
 			*/
 			this.resizeWindow();
 		}
+	},
+	
+	installHelper:function(helper)
+	{
+		debugger;
+		this.loadData('installHelper',$.proxy(this.installHelperOk,this));
+	},
+	installHelperOk:function(_data)
+	{
+		var data=$.parseJSON(_data);
 	},
 	
 	deleteItems:function(event)
