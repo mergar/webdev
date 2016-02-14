@@ -26,8 +26,8 @@ class Db
 			case 'helpers':
 				if(is_array($database))
 				{
-					$connect='sqlite:'.$this->_workdir.'/jails-system/'.$database['jname'].'/helpers/'.$this->helper.".sqlite";
-					echo $connect;
+					$connect='sqlite:'.$this->_workdir.'/jails-system/'.
+						$database['jname'].'/helpers/'.$database['helper'].".sqlite";
 				}else{
 					$connect='';
 				}
