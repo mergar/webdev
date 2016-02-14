@@ -476,6 +476,12 @@ iface={
 		//$('table.tbl-cnt').html(tbl);
 		$('#content').html(tbl);
 	},
+	clearHelperForm:function(el)
+	{
+		if(!el) return;
+		var form=$(el).closest(form);
+		form.clear();
+	},
 	
 	
 	openServices:function()
