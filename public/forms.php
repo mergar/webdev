@@ -19,6 +19,7 @@ class Forms
 		$query="select * from forms order by group_id asc, order_id asc";
 		$fields=$this->db->select($query);
 		//echo '<pre>';print_r($fields);
+		$defaults=array();
 
 		$last_tag='';
 		$this->html='<form name=""><div class="form-fields">';
@@ -39,12 +40,14 @@ class Forms
 			$required=($field['mandatory']==1)?' required':'';
 			$tpl=str_replace('${required}',$required,$tpl);
 			$this->html.=$tpl;
+			
+			if(!empty($field['def'])) $defaults[$key]=$field['def'];
 		}
 		$this->html.='</div>';
 		
 		$this->setButtons();
 		$this->html.='</form>';
-		return $this->html;
+		return array('html'=>$this->html,'defaults'=>$defaults);
 	}
 	
 	function getElement($el)
