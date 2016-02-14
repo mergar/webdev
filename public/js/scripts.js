@@ -404,7 +404,6 @@ iface={
 	{
 		$('#top-path').html('helper settings: '+this.helper);
 		this.loadData('getHelper',$.proxy(this.openHelperForm,this));
-		this.fillHelpersToLeftMenu();
 	},
 	openHelperForm:function(_data)
 	{
@@ -418,12 +417,12 @@ iface={
 			//$('.tbl-cnt').html('<td>'+data.helpers.errorMsg+'</td>');
 			$('#content').html('<p>'+data.helpers.errorMsg+'</p>');
 		}
+		this.fillHelpersToLeftMenu();
 	},
 	openHelpers:function()
 	{
 		$('#top-path').html('helpers list');
 		this.loadData('getHelpersList',$.proxy(this.fillHelpersList,this));
-		//this.fillHelpersToLeftMenu();
 	},
 	fillHelpersToLeftMenu:function()
 	{
@@ -461,6 +460,7 @@ iface={
 			this.showHelpersList();
 		}
 		
+		this.fillHelpersToLeftMenu();
 		//$('table.tbl-cnt').show();
 	},
 	showHelpersList:function()
