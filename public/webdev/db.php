@@ -37,6 +37,9 @@ class Db
 			case 'pkg':
 				$connect='sqlite:'.$this->_workdir.'/jails-data/'.$database.'-data/var/db/pkg/local.sqlite';
 				break;
+			case 'from_file':
+				$connect=$this->_workdir.$database;
+				break;
 			default:
 				throw new Exception('Unknown database driver!');
 				break;
