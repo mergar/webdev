@@ -8,10 +8,10 @@ class Forms
 	private $db='';
 	private $html='';
 	
-	function __construct($name)
+	function __construct($jname,$helper)
 	{
 		$this->name=$name;
-		$this->db=new Db('helpers',$name);
+		$this->db=new Db('helpers',$helper);
 	}
 	
 	function generate()
