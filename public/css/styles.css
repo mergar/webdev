@@ -743,5 +743,9 @@ td.ops span.icon-emo-cry {
 }
 
 span.install {
-	text-underline:underlined;
+	text-decoration:underline;
+	cursor:pointer;
+}
+span.install:hover {
+	text-decoration:none;
 }
