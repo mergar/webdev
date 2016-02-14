@@ -127,6 +127,10 @@ class WebDev
 					$res=$this->installHelper();
 					echo json_encode($res);
 					return;break;
+				case 'saveHelperValues':
+					$res=$this->saveHelperValues();
+					echo json_encode($res);
+					return;break;
 				case 'getServicesList':
 					$jails=$this->getJailsList();
 					$services=$this->getServicesList();
@@ -835,6 +839,11 @@ class WebDev
 		}
 		
 		return $arr;
+	}
+	function saveHelperValues()
+	{
+		$db=new Db('from_file',"/jails-system/jail".$this->jailId."/helpers/".$this->helper.".sqlite");
+		var_dump($db);
 	}
 	
 	function getServicesList()
