@@ -479,7 +479,7 @@ iface={
 	clearHelperForm:function(el)
 	{
 		if(!el) return;
-		var form=$(el).closest(form);
+		var form=$(el).closest('form');
 		form.reset();
 	},
 	
