@@ -826,7 +826,7 @@ class WebDev
 			$html=$form->generate();
 			$arr=array('error'=>false,'form'=>$html);
 		}else{
-			$arr=array('error'=>true,'errorMsg'=>'<p>Module '.$this->helper.' are not installed.</p><p>You need to <span class="install helper-'.$this->helper.'">install the module</span>.</p>');
+			$arr=array('error'=>true,'errorMsg'=>'<p>Module <strong>'.$this->helper.'</strong> are not installed.</p><p>You need to <span class="install helper-'.$this->helper.'">install the module</span>.</p>');
 		}
 		
 		return $arr;
