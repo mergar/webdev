@@ -1297,6 +1297,16 @@ status: "2"
 		var data=$.parseJSON(_data);
 	},
 	
+	saveHelperValues:function()
+	{
+		this.loadData('saveHelperValues',$.proxy(this.saveHelperValuesOk,this));
+	},
+	saveHelperValuesOk:function(_data)
+	{
+		var data=$.parseJSON(_data);
+		
+	},
+	
 	deleteItems:function(event)
 	{
 		if(this.currentPage=='modules')
