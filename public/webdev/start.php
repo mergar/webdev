@@ -861,6 +861,7 @@ class WebDev
 		{
 			$arr=$res;
 		}
+		print_r($res);
 		
 		return array('error'=>false,'updatedCount'=>$count->rowCount);
 	}
