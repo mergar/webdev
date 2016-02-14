@@ -872,7 +872,8 @@ status: "2"
 		var tr=$(target).closest('tr');
 		if(target.tagName=='SPAN')
 		{
-			
+			var cl=target.className;
+			alert(cl);
 		}
 
 		if(typeof td!='undefined') this.selItem(tr);
