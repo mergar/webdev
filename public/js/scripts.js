@@ -482,6 +482,12 @@ iface={
 		var form=$(el).closest('form');
 		if(form.length) form[0].reset();
 	},
+	fillHelperDefault:function(el,def)
+	{
+		if(!el) return;
+		var inp=$(el).siblingAbove();
+		debugger;
+	},
 	
 	
 	openServices:function()
@@ -907,6 +913,16 @@ status: "2"
 						break;
 				}
 */
+			}
+			
+			if(cl && cl.indexOf('default')>=0)
+			{
+				var res=cl.match(new RegExp(/val-(\w+)/));
+				if(res)
+				{
+					this.fillHelperDefault(target,res[1]);
+					return;
+				}
 			}
 		}
 
