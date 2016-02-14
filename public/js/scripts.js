@@ -872,6 +872,7 @@ status: "2"
 		var tr=$(target).closest('tr');
 		if(target.tagName=='SPAN')
 		{
+			debugger;
 			var cl=target.className;
 			if(cl.indexOf('install')!=0)
 			{
