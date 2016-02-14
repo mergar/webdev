@@ -1299,7 +1299,8 @@ status: "2"
 	
 	saveHelperValues:function()
 	{
-		this.loadData('saveHelperValues',$.proxy(this.saveHelperValuesOk,this));
+		var posts=$('#content form').serializeArray();
+		this.loadData('saveHelperValues',$.proxy(this.saveHelperValuesOk,this),posts);
 	},
 	saveHelperValuesOk:function(_data)
 	{
