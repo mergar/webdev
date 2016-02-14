@@ -895,6 +895,7 @@ status: "2"
 
 		if(typeof td!='undefined') this.selItem(tr);
 		
+		if(!tr) return;
 		var cl=tr[0].className;
 		if(!$(tr).hasClass('link')) return;
 		var rx=new RegExp(/id-(\d+)/);
