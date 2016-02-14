@@ -11,7 +11,7 @@ class Forms
 	function __construct($jname,$helper)
 	{
 		$this->name=$name;
-		$this->db=new Db('helpers',$helper);
+		$this->db=new Db('helpers',array('jname'=>$jname,'helper'=>$helper));
 	}
 	
 	function generate()
