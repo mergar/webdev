@@ -55,7 +55,7 @@ class Db
 			}catch (PDOException $e){
 				//die ('DB Error');
 				$this->error=true;
-				$this->error_message=$this->_pdo->errorInfo();	//'DB Error';
+				$this->error_message=PDOStatement::errorInfo();	//'DB Error';
 				return false;
 			}
 		}
