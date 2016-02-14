@@ -750,6 +750,9 @@ span.install:hover {
 	text-decoration:none;
 }
 
+strong {
+	font-weight:bold;
+}
 
 #content form {
 	border:1px solid gray;
