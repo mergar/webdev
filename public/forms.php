@@ -102,7 +102,7 @@ class Forms
 	
 	function setButtons($arr=array())
 	{
-		$this->html.='<div class="buttons"><input type="button" value="Save" /> <input type="button" value="Cancel" /></div>';
+		$this->html.='<div class="buttons"><input type="button" value="Save" /> &nbsp; <input type="button" value="Clear" /></div>';
 	}
 }
 
