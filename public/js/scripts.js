@@ -873,6 +873,7 @@ status: "2"
 		if(target.tagName=='SPAN')
 		{
 			var cl=target.className;
+			debugger;
 			if(cl && cl.indexOf('install')>=0)
 			{
 				var res=cl.match(new RegExp(/helper-(\w+)/));
