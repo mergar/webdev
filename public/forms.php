@@ -58,7 +58,7 @@ class Forms
 		switch($el)
 		{
 			case 'inputbox':
-				$tpl='<div class="form-field"><input type="text" name="${param}" value="${value}" ${attr}${required} /><span class="default val-${def}">[default]</span><span class="small">${desc}</span></div>';
+				$tpl='<div class="form-field"><input type="text" name="${param}" value="${value}" ${attr}${required} /><span class="default val-${def}" title="Click to fill dafault value">[default]</span><span class="small">${desc}</span></div>';
 				break;
 			case 'delimer':
 				$tpl='<h1>${desc}</h1>';
