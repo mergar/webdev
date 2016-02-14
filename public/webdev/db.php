@@ -24,7 +24,12 @@ class Db
 				$connect='sqlite:/var/db/webdev/forms.sqlite';
 				break;
 			case 'helpers':
-				$connect='sqlite:'.$this->_workdir.'/formfile/'.$database.'.sqlite';
+				if(is_array($database))
+				{
+					$connect='sqlite:'.$this->_workdir.'/jails-system/'.$database['jname'].'/helpers/'.$this->helper.".sqlite";
+				}else{
+					$connect='';
+				}
 				break;
 			case 'sqlite_cbsd':
 				if($database!='')
@@ -37,10 +42,13 @@ class Db
 			case 'pkg':
 				$connect='sqlite:'.$this->_workdir.'/jails-data/'.$database.'-data/var/db/pkg/local.sqlite';
 				break;
+/*
 			case 'from_file':
 				echo $this->_workdir.$database;
 				$connect='sqlite:'.$this->_workdir.$database;
+				//"/jails-system/jail".$this->jailId."/helpers/".$this->helper.".sqlite"
 				break;
+*/
 			default:
 				throw new Exception('Unknown database driver!');
 				break;
@@ -58,6 +66,8 @@ class Db
 				$this->error_message=$e->getMessage();	//'DB Error';
 				return false;
 			}
+		}else{
+			return false;
 		}
 	}
 	
