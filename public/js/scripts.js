@@ -480,7 +480,7 @@ iface={
 	{
 		if(!el) return;
 		var form=$(el).closest('form');
-		form.reset();
+		if(form.length) form[0].reset();
 	},
 	
 	
