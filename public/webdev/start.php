@@ -851,9 +851,10 @@ class WebDev
 		$query='';
 		foreach($form as $key=>$val)
 		{
-			$query.="update forms set new='{$val}' where param='{$key}';";
+			$query="update forms set new='{$val}' where param='{$key}'";
+			$db->update($query);
 		}
-		$count=$db->update($query);
+		//$count=$db->update($query);
 		
 		//module=redis jname=jail1 mode=apply
 		$res=$this->cbsd_cmd(' puppet module='.$this->helper.' jname='.$jname.' mode=apply');
@@ -861,7 +862,6 @@ class WebDev
 		{
 			$arr=$res;
 		}
-		print_r($res);
 		
 		return array('error'=>false,'updatedCount'=>$count->rowCount);
 	}
