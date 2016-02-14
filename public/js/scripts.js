@@ -873,7 +873,19 @@ status: "2"
 		if(target.tagName=='SPAN')
 		{
 			var cl=target.className;
-			alert(cl);
+			if(cl.indexOf('install')!=0)
+			{
+				var res=new RegExp(/helper-(\w+)/);
+				alert(res[1]);
+/*
+				switch(res[1])
+				{
+					case '':
+						
+						break;
+				}
+*/
+			}
 		}
 
 		if(typeof td!='undefined') this.selItem(tr);
