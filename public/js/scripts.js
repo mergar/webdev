@@ -905,19 +905,11 @@ status: "2"
 					this.installHelper(res[1]);
 					return;
 				}
-/*
-				switch(res[1])
-				{
-					case '':
-						
-						break;
-				}
-*/
 			}
 			
 			if(cl && cl.indexOf('default')>=0)
 			{
-				var res=cl.match(new RegExp(/val-(\[^$]+)/));
+				var res=cl.match(new RegExp(/val-(.+)/));
 				if(res)
 				{
 					this.fillHelperDefault(target,res[1]);
