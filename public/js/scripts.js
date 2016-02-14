@@ -196,9 +196,10 @@ iface={
 		}catch(e){alert(e.message);return;}
 		if(data.projects.length<1)
 		{
-			var table='<thead><tr><th>Projects list</th></tr></thead><tbody><tr><td>No data, add something!</td></tr></tbody>';
-			$('table.tbl-cnt').html(table);
-			$('table.tbl-cnt').show();
+			var table='<table class="tbl-cnt projects"><thead><tr><th>Projects list</th></tr></thead><tbody><tr><td>No data, add something!</td></tr></tbody></table>';
+			$('#content').html(table);
+			//$('table.tbl-cnt').html(table);
+			//$('table.tbl-cnt').show();
 		}else{
 			this.projectsList=data.projects;
 			this.showProjectsList();
@@ -215,7 +216,8 @@ iface={
 		var data=this.projectsList;
 		//var tbl=this.makeTable(headers,data,'projects');
 		var tbl=this.makeTableProjects(data);
-		$('table.tbl-cnt').html(tbl);
+		//$('table.tbl-cnt').html(tbl);
+		$('#content').html(tbl);
 	},
 	showProject:function(pid)
 	{
@@ -270,9 +272,10 @@ iface={
 		}catch(e){alert(e.message);return;}
 		if(data.jails.length<1)
 		{
-			var table='<thead><tr><th>Jails list</th></tr></thead><tbody><tr><td>No data, add something!</td></tr></tbody>';
-			$('table.tbl-cnt').html(table);
-			$('table.tbl-cnt').show();
+			var table='<table class="tbl-cnt projects"><thead><tr><th>Jails list</th></tr></thead><tbody><tr><td>No data, add something!</td></tr></tbody></table>';
+			$('#content').html(table);
+			//$('table.tbl-cnt').html(table);
+			//$('table.tbl-cnt').show();
 		}else{
 			this.jailsList=data.jails;
 			this.showJailsList();
@@ -281,7 +284,7 @@ iface={
 			this.projectsList=data.projects;
 		
 		this.fillProjectsToLeftMenu();
-		$('table.tbl-cnt').show();
+		//$('table.tbl-cnt').show();
 		//$('#top-settings a.icon-gift').css({'display':'inline-block'});
 		$('#top-settings a.icon-gift').show();
 	},
@@ -304,7 +307,8 @@ iface={
 		var data=this.jailsList;
 		//var tbl=this.makeTable(headers,data,'jails');
 		var tbl=this.makeTableJails(data);
-		$('table.tbl-cnt').html(tbl);
+		//$('table.tbl-cnt').html(tbl);
+		$('#content').html(tbl);
 		var buttons=$('table.tbl-cnt span.icon-cnt');
 	},
 	openJail:function()
@@ -327,7 +331,7 @@ iface={
 		}
 		$('#left-menu').html(list);
 		$('#left-menu-caption').html('MODULES');
-		$('.tbl-cnt').hide();
+		//$('.tbl-cnt').hide();
 		$('#module-info').show();
 	},
 	fillModulesList:function(data)
@@ -342,15 +346,17 @@ iface={
 		}
 		if(data.modules.length<1 || data.modules===false)
 		{
-			var table='<thead><tr><th>Modules list</th></tr></thead><tbody><tr><td>No data, add something!</td></tr></tbody>';
-			$('table.tbl-cnt').html(table);
-			$('table.tbl-cnt').show();
+			//var table='<thead><tr><th>Modules list</th></tr></thead><tbody><tr><td>No data, add something!</td></tr></tbody>';
+			var table="<p>No data, add something!</p>";
+			$('#content').html(table);
+			//$('table.tbl-cnt').html(table);
+			//$('table.tbl-cnt').show();
 		}else{
 			this.modulesList=data.modules;
 			this.showModulesList();
 		}
 		
-		$('table.tbl-cnt').show();
+		//$('table.tbl-cnt').show();
 		
 		//$('#top-settings a.icon-gift').css({'display':'none'});
 		$('#top-settings a.icon-gift').hide();
@@ -373,7 +379,8 @@ iface={
 		var data=this.modulesList;
 		//var tbl=this.makeTable(headers,data,'jails');
 		var tbl=this.makeTableModules(data);
-		$('table.tbl-cnt').html(tbl);
+		//$('table.tbl-cnt').html(tbl);
+		$('#content').html(tbl);
 	},
 	openModule:function()
 	{
@@ -405,9 +412,11 @@ iface={
 		if(typeof data.helpers=='undefined') return;
 		if(data.helpers.error===false)
 		{
-			$('.tbl-cnt').html('td'+data.helpers.form+'</td>');
+			//$('.tbl-cnt').html('td'+data.helpers.form+'</td>');
+			$('#content').html('<p>'+data.helpers.form+'</p>');
 		}else{
-			$('.tbl-cnt').html('<td>'+data.helpers.errorMsg+'</td>');
+			//$('.tbl-cnt').html('<td>'+data.helpers.errorMsg+'</td>');
+			$('#content').html('<p>'+data.helpers.errorMsg+'</p>');
 		}
 	},
 	openHelpers:function()
@@ -430,14 +439,15 @@ iface={
 		if(data.helpers.length<1 || data.helpers===false)
 		{
 			var table='<thead><tr><th>Services list</th></tr></thead><tbody><tr><td>No helpers in list!</td></tr></tbody>';
-			$('table.tbl-cnt').html(table);
-			$('table.tbl-cnt').show();
+			$('#content').html(table);
+			//$('table.tbl-cnt').html(table);
+			//$('table.tbl-cnt').show();
 		}else{
 			this.helpersList=data.helpers;
 			this.showHelpersList();
 		}
 		
-		$('table.tbl-cnt').show();
+		//$('table.tbl-cnt').show();
 	},
 	showHelpersList:function()
 	{
@@ -452,7 +462,8 @@ iface={
 
 		var data=this.helpersList;
 		var tbl=this.makeTableHelpers(data);
-		$('table.tbl-cnt').html(tbl);
+		//$('table.tbl-cnt').html(tbl);
+		$('#content').html(tbl);
 	},
 	
 	
@@ -474,8 +485,9 @@ iface={
 		if(data.services.length<1 || data.services===false)
 		{
 			var table='<thead><tr><th>Services list</th></tr></thead><tbody><tr><td>No services in list!</td></tr></tbody>';
-			$('table.tbl-cnt').html(table);
-			$('table.tbl-cnt').show();
+			$('#content').html(table);
+			//$('table.tbl-cnt').html(table);
+			//$('table.tbl-cnt').show();
 		}else{
 			this.servicesList=data.services;
 			this.showServicesList();
@@ -501,7 +513,8 @@ iface={
 		var data=this.servicesList;
 		//var tbl=this.makeTable(headers,data,'jails');
 		var tbl=this.makeTableServices(data);
-		$('table.tbl-cnt').html(tbl);
+		//$('table.tbl-cnt').html(tbl);
+		$('#content').html(tbl);
 	},
 	
 	openUsers:function()
@@ -523,14 +536,15 @@ iface={
 		if(data.users.length<1 || data.users===false)
 		{
 			var table='<thead><tr><th>Users list</th></tr></thead><tbody><tr><td>No users in list!</td></tr></tbody>';
-			$('table.tbl-cnt').html(table);
-			$('table.tbl-cnt').show();
+			$('#content').html(table);
+			//$('table.tbl-cnt').html(table);
+			//$('table.tbl-cnt').show();
 		}else{
 			this.usersList=data.users;
 			this.showUsersList();
 		}
 		
-		$('table.tbl-cnt').show();
+		//$('table.tbl-cnt').show();
 		var mng=$('.footer .mng');
 		if(mng.length>0) mng[0].className='mng users';
 		this.playButt2Update();
@@ -548,7 +562,8 @@ iface={
 
 		var data=this.usersList;
 		var tbl=this.makeTableUsers(data);
-		$('table.tbl-cnt').html(tbl);
+		//$('table.tbl-cnt').html(tbl);
+		$('#content').html(tbl);
 	},
 	
 	openTaskLog:function()
@@ -569,12 +584,14 @@ iface={
 		}
 		if(data.tasklog.length<1 || data.tasklog===false)
 		{
-			var table='<thead><tr><th>Task log</th></tr></thead><tbody><tr><td>Log is empty!</td></tr></tbody>';
-			$('table.tbl-cnt').html(table);
-			$('table.tbl-cnt').show();
+			var table='<table class="tbl-cnt projects"><thead><tr><th>Task log</th></tr></thead><tbody><tr><td>Log is empty!</td></tr></tbody></table>';
+			$('#content').html(table);
+			//$('table.tbl-cnt').html(table);
+			//$('table.tbl-cnt').show();
 		}else{
 			var tbl=this.makeTableTaskLog(data.tasklog);
-			$('table.tbl-cnt').html(tbl);
+			//$('table.tbl-cnt').html(tbl);
+			$('#content').html(tbl);
 		}
 		
 		$('table.tbl-cnt').show();
@@ -601,7 +618,7 @@ iface={
 		if(this.currentPage!='project') return;
 		var table=$('table.tbl-cnt');
 		$(table).addClass('projects');
-		var html='<thead><tr><th colspan="2">&nbsp;</th><th>Projects</th><th>Status</th><th>&nbsp;</th></tr></thead><tbody>';
+		var html='<table class="tbl-cnt projects"><thead><tr><th colspan="2">&nbsp;</th><th>Projects</th><th>Status</th><th>&nbsp;</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 			var itemId='';
@@ -613,7 +630,7 @@ iface={
 				', Modules: '+data[n].modules_count+', Size: '+data[n].size+'</small><div class="errmsg"></div>';
 			html+='</td><td class="jstatus">Not running</td><td class="ops"><span class="icon-cnt icon-play"></span></td></tr>'
 		}
-		html+='</tbody>';
+		html+='</tbody></table>';
 		
 		var mng=$('.footer .mng');
 		if(mng.length>0) mng[0].className='mng projects';
@@ -627,7 +644,7 @@ iface={
 	this.log_write('makeTableJails');
 		var table=$('table.tbl-cnt');
 		$(table).addClass('jails');
-		var html='<thead><tr><th colspan="2"><input type="checkbox" id="main_chkbox" /></th><th colspan="3">Jails</th><th>Status</th><th>&nbsp;</th></tr></thead><tbody>';
+		var html='<table class="tbl-cnt projects"><thead><tr><th colspan="2"><input type="checkbox" id="main_chkbox" /></th><th colspan="3">Jails</th><th>Status</th><th>&nbsp;</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 			var itemId='';
@@ -636,7 +653,7 @@ iface={
 			html+=this.makeTableJailsItem(data,n);
 			html+='</tr>';
 		}
-		html+='</tbody>';
+		html+='</tbody></table>';
 		
 		var mng=$('.footer .mng');
 		if(mng.length>0) mng[0].className='mng jails';
@@ -683,7 +700,7 @@ iface={
 	this.log_write('makeTableModules');
 		var table=$('table.tbl-cnt');
 		$(table).addClass('modules');
-		var html='<thead><tr><th colspan="2">&nbsp;</th><th>Modules</th><th>&nbsp;</th></tr></thead><tbody>';
+		var html='<table class="tbl-cnt projects"><thead><tr><th colspan="2">&nbsp;</th><th>Modules</th><th>&nbsp;</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 			var itemId='';
@@ -695,7 +712,7 @@ iface={
 				', Size: '+data[n].size+'</small><div class="errmsg"></div>';
 			html+='</td><td class="mod-info"><span class="icon-cnt icon-info-circled"></span></td></tr>'
 		}
-		html+='</tbody>';
+		html+='</tbody></table><div id="module-info" class="hide"></div>';
 		return html;
 	},
 	
@@ -704,7 +721,7 @@ iface={
 	this.log_write('makeTableHelpers');
 		var table=$('table.tbl-cnt');
 		$(table).addClass('helpers');
-		var html='<thead><tr><th colspan="2">helpers</th></tr></thead><tbody>';
+		var html='<table class="tbl-cnt projects"><thead><tr><th colspan="2">helpers</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 			html+='<tr class="link hover" rel="helpers-'+data[n]+'"><td class="ico-servs"></td>'
@@ -712,7 +729,7 @@ iface={
 			html+='</tr>';
 		}
 
-		html+='</tbody>';
+		html+='</tbody></table>';
 		return html;
 	},
 	
@@ -721,7 +738,7 @@ iface={
 	this.log_write('makeTableServices');
 		var table=$('table.tbl-cnt');
 		$(table).addClass('services');
-		var html='<thead><tr><th colspan="2">&nbsp;</th><th>Services</th><th>Autostart</th><th colspan="2">&nbsp;</th><th>Status</th><th>&nbsp;</th></tr></thead><tbody>';
+		var html='<table class="tbl-cnt projects"><thead><tr><th colspan="2">&nbsp;</th><th>Services</th><th>Autostart</th><th colspan="2">&nbsp;</th><th>Status</th><th>&nbsp;</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 			var itemId='';
@@ -737,7 +754,7 @@ iface={
 			html+='</td><td class="ops"><span class="icon-cnt"><span class="icon-'+icon+'"></span></td>';
 			html+='</tr>';
 		}
-		html+='</tbody>';
+		html+='</tbody></table>';
 		return html;
 	},
 	
@@ -746,7 +763,7 @@ iface={
 	this.log_write('makeTableUsers');
 		var table=$('table.tbl-cnt');
 		$(table).addClass('users');
-		var html='<thead><tr><th colspan="2">&nbsp;</th><th>Users</th><th>&nbsp;</th></tr></thead><tbody>';
+		var html='<table class="tbl-cnt projects"><thead><tr><th colspan="2">&nbsp;</th><th>Users</th><th>&nbsp;</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 			var itemId='';
@@ -757,7 +774,7 @@ iface={
 			html+='<td class="user-info"><span class="icon-cog"></span></td>';
 			html+='</tr>';
 		}
-		html+='</tbody>';
+		html+='</tbody></table>';
 		return html;
 	},
 
@@ -766,7 +783,7 @@ iface={
 	this.log_write('makeTableTaskLog');
 		var table=$('table.tbl-cnt');
 		$(table).addClass('tasklog');
-		var html='<thead><tr><th>Id</th><th>Command</th><th>Start time</th><th>End time</th><th>Status</th><th>Error code</th><th>Log file</th><th>Log size</th></tr></thead><tbody>';
+		var html='<table class="tbl-cnt projects"><thead><tr><th>Id</th><th>Command</th><th>Start time</th><th>End time</th><th>Status</th><th>Error code</th><th>Log file</th><th>Log size</th></tr></thead><tbody><table>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 /*
@@ -783,7 +800,7 @@ status: "2"
 			html+='<td class="text-center"><small>'+data[n].errcode+'</small></td><td><small>'+data[n].logfile+'</small></td><td>'+data[n].filesize+'</td>';
 			html+='</tr>';
 		}
-		html+='</tbody>';
+		html+='</tbody></table>';
 		return html;
 	},
 
