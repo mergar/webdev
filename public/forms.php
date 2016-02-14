@@ -19,46 +19,8 @@ class Forms
 		$query="select * from forms order by group_id asc, order_id asc";
 		$fields=$this->db->select($query);
 		//echo '<pre>';print_r($fields);
-/*
-            [idx] => 2
-            [group_id] => 1
-            [order_id] => 2
-            [param] => expose_php
-            [desc] => default is Off
-            [def] => Off
-            [cur] => 
-            [new] => 
-            [mandatory] => 1
-            [attr] => maxlen=60
-            [xattr] => 
-            [type] => inputbox
-			
-            [idx] => 1
-            [group_id] => 1
-            [order_id] => 1
-            [param] => -
-            [desc] => PHP Settings
-            [def] => PHP Settings
-            [cur] => PP
-            [new] => 
-            [mandatory] => 1
-            [attr] => maxlen=60
-            [xattr] => 
-            [type] => delimer
-			
-            [idx] => 22
-            [group_id] => 1
-            [order_id] => 1
-            [param] => -
-            [desc] => PHP-FPM Settings
-            [def] => -
-            [cur] => -
-            [new] => 
-            [mandatory] => 1
-            [attr] => maxlen=60
-            [xattr] => 
-            [type] => delimer
-*/
+
+		$last_tag='';
 		$this->html='<form name=""><div class="form-fields">';
 		foreach($fields as $key=>$field)
 		{
