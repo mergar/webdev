@@ -760,6 +760,9 @@ span.install:hover {
 	padding: 20px;
 	background-color:#fafafa;
 }
+#content form h1 {
+	margin:0;
+}
 #content form .form-field {
 	padding: 2px 0;
 }
