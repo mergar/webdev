@@ -786,3 +786,12 @@ strong {
 span.small {
 	font-size:86%;
 }
+#content span.default {
+	font-size:80%;
+	cursor:pointer;
+	text-decoration:underline;
+	margin-right:20px;
+}
+#content span.default:hover {
+	text-decoration:none;
+}
