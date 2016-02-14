@@ -874,7 +874,7 @@ status: "2"
 		{
 			debugger;
 			var cl=target.className;
-			if(cl.indexOf('install')!=0)
+			if(cl.indexOf('install')<0)
 			{
 				var res=new RegExp(/helper-(\w+)/);
 				alert(res[1]);
