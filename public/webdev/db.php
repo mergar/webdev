@@ -39,7 +39,7 @@ class Db
 				break;
 			case 'from_file':
 				echo $this->_workdir.$database;
-				$connect=$this->_workdir.$database;
+				$connect='sqlite:'.$this->_workdir.$database;
 				break;
 			default:
 				throw new Exception('Unknown database driver!');
