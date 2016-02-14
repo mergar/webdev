@@ -59,7 +59,7 @@ iface={
 	
 	addEvents:function()
 	{
-		$('#content .projects').bind('click',$.proxy(this.tableClick,this));
+		$('#content').bind('click',$.proxy(this.tableClick,this));
 	
 		$('#close-but').bind('click',$.proxy(this.windowClose,this));
 		//$('#window #buttons .cancel').bind('click',$.proxy(this.windowClose,this));
