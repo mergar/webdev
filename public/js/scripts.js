@@ -876,7 +876,7 @@ status: "2"
 			
 		}
 
-		this.selItem(tr);
+		if(typeof td!='undefined') this.selItem(tr);
 		
 		var cl=tr[0].className;
 		if(!$(tr).hasClass('link')) return;
