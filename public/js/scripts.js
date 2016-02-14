@@ -485,7 +485,7 @@ iface={
 	fillHelperDefault:function(el,def)
 	{
 		if(!el) return;
-		var inp=$(el).siblingAbove();
+		var inp=$(el).prev('input');
 		debugger;
 	},
 	
