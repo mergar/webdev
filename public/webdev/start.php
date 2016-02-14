@@ -120,9 +120,9 @@ class WebDev
 					return;break;
 				case 'getHelper':
 					//$jails=$this->getJailsList();
-					$jails=$this->getHelpersList();
+					$modules=$this->getHelpersList();
 					$helper=$this->getHelper();
-					echo json_encode(array('jails'=>$jails,'helpers'=>$helper));
+					echo json_encode(array('modules'=>$modules,'helpers'=>$helper));
 					return;break;
 				case 'installHelper':
 					$res=$this->installHelper();

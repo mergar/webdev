@@ -413,7 +413,7 @@ iface={
 		{
 			//$('.tbl-cnt').html('td'+data.helpers.form+'</td>');
 			$('#content').html('<p>'+data.helpers.form+'</p>');
-			this.helpersList=data.helpers;
+			this.helpersList=data.modules;
 		}else{
 			//$('.tbl-cnt').html('<td>'+data.helpers.errorMsg+'</td>');
 			$('#content').html('<p>'+data.helpers.errorMsg+'</p>');
