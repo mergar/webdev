@@ -741,3 +741,7 @@ td.ops span.icon-emo-cry {
 #content p {
 	margin:8px 0;
 }
+
+span.install {
+	text-underline:underlined;
+}
