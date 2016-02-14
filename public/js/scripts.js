@@ -423,6 +423,7 @@ iface={
 	{
 		$('#top-path').html('helpers list');
 		this.loadData('getHelpersList',$.proxy(this.fillHelpersList,this));
+		this.fillHelpersToLeftMenu();
 	},
 	fillHelpersToLeftMenu:function()
 	{
@@ -436,8 +437,6 @@ iface={
 		}
 		$('#left-menu').html(list);
 		$('#left-menu-caption').html('HELPERS');
-		//$('.tbl-cnt').hide();
-		//$('#module-info').show();
 	},
 	fillHelpersList:function(_data)
 	{
