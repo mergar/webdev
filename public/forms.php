@@ -59,7 +59,7 @@ class Forms
             [xattr] => 
             [type] => delimer
 */
-		$this->html='<form name="">';
+		$this->html='<form name=""><div class="form-fields">';
 		foreach($fields as $key=>$field)
 		{
 			$tpl=$this->getElement($field['type']);
@@ -78,6 +78,8 @@ class Forms
 			$tpl=str_replace('${required}',$required,$tpl);
 			$this->html.=$tpl;
 		}
+		$this->html.='</div>';
+		
 		$this->setButtons();
 		$this->html.='</form>';
 		return $this->html;
