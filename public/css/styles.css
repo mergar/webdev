@@ -749,3 +749,8 @@ span.install {
 span.install:hover {
 	text-decoration:none;
 }
+
+
+span.small {
+	font-size:86%;
+}
