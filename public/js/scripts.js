@@ -346,8 +346,7 @@ iface={
 		}
 		if(data.modules.length<1 || data.modules===false)
 		{
-			//var table='<thead><tr><th>Modules list</th></tr></thead><tbody><tr><td>No data, add something!</td></tr></tbody>';
-			var table="<p>No data, add something!</p>";
+			var table='<table class="tbl-cnt modules"><thead><tr><th>Modules list</th></tr></thead><tbody><tr><td>No data, add something!</td></tr></tbody></table>';
 			$('#content').html(table);
 			//$('table.tbl-cnt').html(table);
 			//$('table.tbl-cnt').show();
