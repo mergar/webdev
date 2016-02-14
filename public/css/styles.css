@@ -759,6 +759,9 @@ span.install:hover {
 #content form .form-fields {
 	background-color:#fafafa;
 }
+#content form .form-fields:first-child .form-field {
+	margin-top:20px;
+}
 #content form h1 {
 	background-color:#f0f0f0;
 }
