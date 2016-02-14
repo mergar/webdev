@@ -755,9 +755,10 @@ span.install:hover {
 	border:1px solid gray;
 	border-radius:4px;
 	overflow:hidden;
+	background-color:#fafafa;
 }
 #content form .form-fields {
-	background-color:#fafafa;
+	
 }
 /*
 #content form .form-fields .form-field:first-child {
@@ -774,6 +775,7 @@ span.install:hover {
 	padding: 10px 20px;
 	background:#f0f0f0;
 	border-top:1px solid silver;
+	margin-top:20px;
 }
 #content form input[type="text"] {
 	margin:2px 10px 2px 20px;
