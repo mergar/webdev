@@ -767,8 +767,8 @@ span.install:hover {
 }
 #content form .buttons {
 	padding: 10px 20px;
-	background:silver;
-	border-top:1px solid gray;
+	background:#f0f0f0;
+	border-top:1px solid silver;
 }
 #content form input[type="text"] {
 	margin:2px 10px 2px 20px;
