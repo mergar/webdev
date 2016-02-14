@@ -423,7 +423,7 @@ iface={
 	{
 		$('#top-path').html('helpers list');
 		this.loadData('getHelpersList',$.proxy(this.fillHelpersList,this));
-		this.fillHelpersToLeftMenu();
+		//this.fillHelpersToLeftMenu();
 	},
 	fillHelpersToLeftMenu:function()
 	{
