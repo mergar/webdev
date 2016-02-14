@@ -418,7 +418,7 @@ iface={
 			//$('.tbl-cnt').html('<td>'+data.helpers.errorMsg+'</td>');
 			$('#content').html('<p>'+data.helpers.errorMsg+'</p>');
 		}
-		//this.fillHelpersToLeftMenu();
+		this.fillHelpersToLeftMenu();
 	},
 	openHelpers:function()
 	{
@@ -461,7 +461,7 @@ iface={
 			this.showHelpersList();
 		}
 		
-		this.fillHelpersToLeftMenu();
+		//this.fillHelpersToLeftMenu();
 		//$('table.tbl-cnt').show();
 	},
 	showHelpersList:function()
