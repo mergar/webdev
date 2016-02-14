@@ -899,7 +899,6 @@ status: "2"
 				}
 */
 			}
-			return;
 		}
 
 		if(target.tagName=='INPUT')
