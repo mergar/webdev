@@ -820,7 +820,8 @@ class WebDev
 		$jail_form=$this->workdir."/jails-system/jail".$this->jailId."/helpers/".$this->helper.".sqlite";
 		if(file_exists($jail_form))
 		{
-			$form=new Forms($this->'jail'.$this->jailId,$this->helper);
+			$jname='jail'.$this->jailId;
+			$form=new Forms($jname,$this->helper);
 			$html=$form->generate();
 			$arr=array('error'=>false,'form'=>$html);
 		}else{
