@@ -844,9 +844,17 @@ class WebDev
 	function saveHelperValues()
 	{
 		$form=$this->_vars['form_data'];
+		if(empty($form)) return array('error'=>true,'errorMsg'=>'No data in form!');
+		
 		$jname='jail'.$this->jailId;
 		$db=new Db('helpers',array('jname'=>$jname,'helper'=>$this->helper));
-		var_dump($db);
+		$query='';
+		foreach($form as $key=>$val)
+		{
+			$query.="update forms set new='{$val}' where param='{$key}';";
+		}
+		$count=$db->update($query);
+		print_r($count);
 	}
 	
 	function getServicesList()
