@@ -404,6 +404,7 @@ iface={
 	{
 		$('#top-path').html('helper settings: '+this.helper);
 		this.loadData('getHelper',$.proxy(this.openHelperForm,this));
+		this.fillHelpersToLeftMenu();
 	},
 	openHelperForm:function(_data)
 	{
@@ -422,6 +423,21 @@ iface={
 	{
 		$('#top-path').html('helpers list');
 		this.loadData('getHelpersList',$.proxy(this.fillHelpersList,this));
+	},
+	fillHelpersToLeftMenu:function()
+	{
+		var list='';
+		for(n=0,nl=this.helpersList.length;n<nl;n++)
+		{
+			var helper=this.helpersList[n];
+			var current='';
+			if(this.helper==helper) current=' class="current"';
+			list+='<li'+current+'><a href="#prj-'+this.project+'/jail-'+this.jail+'/helpers-'+helper+'" class="box"><span class="box-ico"></span>'+helper+'</a></li>';
+		}
+		$('#left-menu').html(list);
+		$('#left-menu-caption').html('HELPERS');
+		//$('.tbl-cnt').hide();
+		//$('#module-info').show();
 	},
 	fillHelpersList:function(_data)
 	{
