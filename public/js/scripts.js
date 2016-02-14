@@ -897,7 +897,7 @@ status: "2"
 		{
 			var cl=target.className;
 			if(cl=='') return;
-			alert(cl);
+			if(cl='save-helper-values') this.saveHelperValues();
 			
 			return;
 		}
