@@ -27,6 +27,7 @@ class Db
 				if(is_array($database))
 				{
 					$connect='sqlite:'.$this->_workdir.'/jails-system/'.$database['jname'].'/helpers/'.$this->helper.".sqlite";
+					echo $connect;
 				}else{
 					$connect='';
 				}
