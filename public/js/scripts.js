@@ -409,10 +409,10 @@ iface={
 	{
 		var data=$.parseJSON(_data);
 		if(typeof data.helpers=='undefined') return;
+		this.helpersList=data.modules;
 		if(data.helpers.error===false)
 		{
 			$('#content').html('<p>'+data.helpers.form+'</p>');
-			this.helpersList=data.modules;
 		}else{
 			$('#content').html('<p>'+data.helpers.errorMsg+'</p>');
 		}
