@@ -820,7 +820,7 @@ class WebDev
 		$jail_form=$this->workdir."/jails-system/jail".$this->jailId."/helpers/".$this->helper.".sqlite";
 		if(file_exists($jail_form))
 		{
-			$form=new Forms($this->helper);
+			$form=new Forms($this->'jail'.$this->jailId,$this->helper);
 			$html=$form->generate();
 			$arr=array('error'=>false,'form'=>$html);
 		}else{
@@ -844,7 +844,9 @@ class WebDev
 	{
 		$form=$this->_vars['form_data'];
 		//print_r($form);
-		$db=new Db('from_file',"/jails-system/jail".$this->jailId."/helpers/".$this->helper.".sqlite");
+		//$db=new Db('from_file',"/jails-system/jail".$this->jailId."/helpers/".$this->helper.".sqlite");
+		$jname='jail'.$this->jailId;
+		$db=new Db('helpers',array('jname'=>$jname,'helper'=>$this->helper));
 		var_dump($db);
 	}
 	
