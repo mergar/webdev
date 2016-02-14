@@ -411,11 +411,9 @@ iface={
 		if(typeof data.helpers=='undefined') return;
 		if(data.helpers.error===false)
 		{
-			//$('.tbl-cnt').html('td'+data.helpers.form+'</td>');
 			$('#content').html('<p>'+data.helpers.form+'</p>');
 			this.helpersList=data.modules;
 		}else{
-			//$('.tbl-cnt').html('<td>'+data.helpers.errorMsg+'</td>');
 			$('#content').html('<p>'+data.helpers.errorMsg+'</p>');
 		}
 		this.fillHelpersToLeftMenu();
@@ -454,15 +452,10 @@ iface={
 		{
 			var table='<thead><tr><th>Services list</th></tr></thead><tbody><tr><td>No helpers in list!</td></tr></tbody>';
 			$('#content').html(table);
-			//$('table.tbl-cnt').html(table);
-			//$('table.tbl-cnt').show();
 		}else{
 			this.helpersList=data.helpers;
 			this.showHelpersList();
 		}
-		
-		//this.fillHelpersToLeftMenu();
-		//$('table.tbl-cnt').show();
 	},
 	showHelpersList:function()
 	{
