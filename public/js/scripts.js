@@ -397,6 +397,7 @@ iface={
 			this.modulesList=data.modules;
 			this.fillModulesToLeftMenu();
 		}
+		!($('#module-info').length) $('#content').html('<div id="module-info" class="hide"></div>');
 		$('#module-info').html(data.settings);
 		$('#module-info').show();
 		$('table.tbl-cnt').hide();
