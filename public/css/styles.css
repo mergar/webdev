@@ -758,7 +758,9 @@ span.install:hover {
 }
 #content form .form-fields {
 	padding: 20px;
-}#content form .form-field {
+	background-color:#fafafa;
+}
+#content form .form-field {
 	padding: 2px 0;
 }
 #content form .buttons {
