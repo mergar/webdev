@@ -123,6 +123,10 @@ class WebDev
 					$helper=$this->getHelper();
 					echo json_encode(array('jails'=>$jails,'helpers'=>$helper));
 					return;break;
+				case 'installHelper':
+					$res=$this->installHelper();
+					echo json_encode($res);
+					return;break;
 				case 'getServicesList':
 					$jails=$this->getJailsList();
 					$services=$this->getServicesList();
@@ -817,6 +821,17 @@ class WebDev
 			$arr=array('error'=>false,'form'=>$html);
 		}else{
 			$arr=array('error'=>true,'errorMsg'=>'<p>Module '.$this->helper.' are not installed.</p><p>You need to <span class="install helper-'.$this->helper.'">install the module</span>.</p>');
+		}
+		
+		return $arr;
+	}
+	function installHelper()
+	{
+		$arr=array();
+		$res=$this->cbsd_cmd(' imghelper module='.$this->helper.' jname=jail'.$this->jailId.' inter=0');
+		if($res['retval']==0)
+		{
+			$arr=$res;
 		}
 		
 		return $arr;
