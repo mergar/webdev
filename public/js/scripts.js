@@ -398,6 +398,7 @@ iface={
 			this.fillModulesToLeftMenu();
 		}
 		$('#module-info').html(data.settings);
+		$('table.tbl-cnt').hide();
 	},
 	
 	openHelper:function()
