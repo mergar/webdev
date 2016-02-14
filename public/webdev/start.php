@@ -854,7 +854,15 @@ class WebDev
 			$query.="update forms set new='{$val}' where param='{$key}';";
 		}
 		$count=$db->update($query);
-		print_r($count);
+		
+		//module=redis jname=jail1 mode=apply
+		$res=$this->cbsd_cmd(' puppet module='.$this->helper.' jname='.$jname.' mode=apply');
+		if($res['retval']==0)
+		{
+			$arr=$res;
+		}
+		
+		return array('error'=>false,'updatedCount'=>$count->rowCount);
 	}
 	
 	function getServicesList()
