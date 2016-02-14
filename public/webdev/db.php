@@ -38,6 +38,7 @@ class Db
 				$connect='sqlite:'.$this->_workdir.'/jails-data/'.$database.'-data/var/db/pkg/local.sqlite';
 				break;
 			case 'from_file':
+				echo $this->_workdir.$database;
 				$connect=$this->_workdir.$database;
 				break;
 			default:
