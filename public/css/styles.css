@@ -754,10 +754,14 @@ span.install:hover {
 #content form {
 	border:1px solid gray;
 	border-radius:4px;
-	padding:20px;
+	overflow:hidden;
 }
 #content form .form-field {
 	padding: 2px 0;
+}
+#content form .buttons {
+	padding: 10px 0;
+	background:silver;
 }
 #content form input[type="text"] {
 	margin-right:10px;
