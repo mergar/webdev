@@ -1069,6 +1069,9 @@ status: "2"
 				case 'log':
 					this.openTaskLog();
 					break;
+				case 'modules':
+					this.openJail();
+					break;
 				case 'users':
 					this.openUsers();
 					break;
