@@ -272,7 +272,7 @@ iface={
 		}catch(e){alert(e.message);return;}
 		if(data.jails.length<1)
 		{
-			var table='<table class="tbl-cnt projects"><thead><tr><th>Jails list</th></tr></thead><tbody><tr><td>No data, add something!</td></tr></tbody></table>';
+			var table='<table class="tbl-cnt jails"><thead><tr><th>Jails list</th></tr></thead><tbody><tr><td>No data, add something!</td></tr></tbody></table>';
 			$('#content').html(table);
 			//$('table.tbl-cnt').html(table);
 			//$('table.tbl-cnt').show();
