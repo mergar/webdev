@@ -1277,8 +1277,9 @@ status: "2"
 			for(n=0,nl=arr.length;n<nl;n++)
 				posts['form_data'][arr[n]['name']]=arr[n]['value'];
 		}
+		this.waitScreenShow();
 		$.post(path,posts,
-			$.proxy(function(data){return_func(data);},this)
+			$.proxy(function(data){this.waitScreenHide();return_func(data);},this)
 		);
 	},
 	
