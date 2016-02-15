@@ -28,7 +28,7 @@ class WebDev
 			1 => array('pipe','w'),
 			2 => array('pipe','r')
 		);
-//echo self::CBSD_CMD.$cmd;exit;
+echo self::CBSD_CMD.$cmd;exit;
 		$process = proc_open(self::CBSD_CMD.$cmd,$descriptorspec,$pipes,null,null);
 
 		$error=false;
