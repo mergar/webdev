@@ -770,7 +770,7 @@ strong {
 #content .pad-head {
 	margin-top:20px;
 }*/
-#content form h1>div.form-field {
+#content form h1 > div.form-field {
 	margin-bottom:20px;
 }
 #content form h1 {
