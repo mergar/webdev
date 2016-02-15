@@ -2167,10 +2167,8 @@ status: "2"
 	
 	waitScreenShow:function()
 	{
-		alert($('#overlap').length);
+		$('body #overlap').show();
 		$('.spinner').show();
-		$('#overlap').show();
-		
 	},
 	waitScreenHide:function()
 	{
