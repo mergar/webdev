@@ -778,6 +778,9 @@ strong {
 	margin-top:20px;
 	border-top:1px solid silver;
 }
+#content form h1 + h1 {
+	margin-bottom:0;
+}
 /*
 #content form div.form-field + h1 + div.form-field {
 	margin-top:20px 0;
