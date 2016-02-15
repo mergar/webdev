@@ -2166,13 +2166,13 @@ status: "2"
 	
 	waitScreenShow:function()
 	{
-		$('#overlap').show();
-		console.log($('#overlap').css('display'));
+		$('#overlap').css('display','block');	//.show();
+		//console.log($('#overlap').css('display'));
 		$('.spinner').show();
 	},
 	waitScreenHide:function()
 	{
-		debugger;
+		//debugger;
 		$('#overlap').hide();
 		$('.spinner').hide();
 	},
