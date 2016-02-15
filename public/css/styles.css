@@ -392,7 +392,7 @@ table tr.sel {
 	position:absolute;
 	background-color:black;
 	opacity:.5;
-	z-index:5000;
+	z-index:50000;
 }
 #window {
 	position:absolute;
