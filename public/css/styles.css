@@ -770,8 +770,8 @@ strong {
 #content .pad-head {
 	margin-top:20px;
 }*/
-#content form h1 > div.form-field {
-	margin-bottom:20px;
+#content form h1 + div.form-field {
+	margin-top:20px;
 }
 #content form h1 {
 	background-color:#f0f0f0;
