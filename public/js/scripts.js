@@ -2166,11 +2166,13 @@ status: "2"
 	
 	waitScreenShow:function()
 	{
+		debugger;
 		$('#overlap').show();
 		$('.spinner').show();
 	},
 	waitScreenHide:function()
 	{
+		debugger;
 		$('#overlap').hide();
 		$('.spinner').hide();
 	},
