@@ -2167,6 +2167,7 @@ status: "2"
 	waitScreenShow:function()
 	{
 		$('#overlap').show();
+		console.print($('#overlap'));
 		$('.spinner').show();
 	},
 	waitScreenHide:function()
