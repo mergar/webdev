@@ -835,6 +835,7 @@ class WebDev
 	{
 		$arr=array();
 		$res=$this->cbsd_cmd(' imghelper module='.$this->helper.' jname=jail'.$this->jailId.' inter=0');
+		print_r($res);exit;
 		if($res['retval']==0)
 		{
 			$arr=$res;
