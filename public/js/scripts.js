@@ -1500,14 +1500,14 @@ status: "2"
 			$('#window-box').height('');
 			$('#window-content').html($(cnt_obj).html());
 			$('#window-content form').bind('submit',$.proxy(this.onFormSubmit,this));
-			$('#overlap').show();
+			this.waitScreenShow();
 			$('#window').show();
 			this.resizeWindow();
 		}
 	},
 	windowClose:function()
 	{
-		$('#overlap').hide();
+		this.waitScreenHide();
 		$('#window').hide();
 		$('#window-content').html('');
 	},
@@ -2072,7 +2072,7 @@ status: "2"
 			$('#window-box').height('');
 			$('#window-content').html($(cnt_obj).html());
 			//$('#window-content form').bind('submit',$.proxy(this.onFormSubmit,this));
-			$('#overlap').show();
+			this.waitScreenShow();
 			$('#window').show();
 			this.resizeWindow();
 		}
@@ -2158,7 +2158,7 @@ status: "2"
 			$('#window-box').width(wdt);
 			$('#window-box').height('');	//hgt
 			$('#window-content').html($(cnt_obj).html());
-			$('#overlap').show();
+			this.waitScreenShow();
 			$('#window').show();
 			this.resizeWindow();
 		}
