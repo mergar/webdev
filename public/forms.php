@@ -21,10 +21,14 @@ class Forms
 		//echo '<pre>';print_r($fields);
 		$defaults=array();
 
-		$last_tag='';
+		$last_type='';
 		$this->html='<form name=""><div class="form-fields">';
 		foreach($fields as $key=>$field)
 		{
+			if($last_type=='delimer' && $field['type']!='delimer')
+				$this->html.='<div class="pad-head"></div>';
+			$last_type=$field['type'];
+				
 			$tpl=$this->getElement($field['type']);
 			$params=array('param','desc','attr','cur');
 			foreach($params as $param)
