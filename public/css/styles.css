@@ -394,6 +394,7 @@ table tr.sel {
 	background-color:black;
 	opacity:.5;
 	z-index:5000;
+	display:none;
 }
 #window {
 	position:absolute;
