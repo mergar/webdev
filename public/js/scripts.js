@@ -2167,13 +2167,13 @@ status: "2"
 	
 	waitScreenShow:function()
 	{
-		$('body #overlap').show();
+		$('.overlap').show();
 		$('.spinner').show();
 	},
 	waitScreenHide:function()
 	{
 		//debugger;
-		$('#overlap').hide();
+		$('.overlap').hide();
 		$('.spinner').hide();
 	},
 }
