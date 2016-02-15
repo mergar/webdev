@@ -774,7 +774,7 @@ strong {
 	margin-top:20px;
 }
 #content form div.form-field + h1 {
-	margin-bottom:20px;
+	margin:20px 0;
 }
 #content form h1 {
 	background-color:#f0f0f0;
