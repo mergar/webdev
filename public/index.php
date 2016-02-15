@@ -22,6 +22,7 @@
 	<meta name="description" content="WebDev &mdash; Personal Web Development" />
 </head>
 <body>
+	<div id="overlap"></div>
 	<div class="main">
 		<div class="body"> <div class="log">log:<br /></div>
 			<h1 id="top-path">&hellip;</h1>
@@ -187,5 +188,4 @@
 			<div class="circle1"></div><div class="circle2"></div><div class="circle3"></div><div class="circle4"></div>
 		</div>
 	</div>
-	<div id="overlap"></div>
 </html>
