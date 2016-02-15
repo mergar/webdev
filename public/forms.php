@@ -25,8 +25,10 @@ class Forms
 		$this->html='<form name=""><div class="form-fields">';
 		foreach($fields as $key=>$field)
 		{
+			/*
 			if($last_type=='delimer' && $field['type']!='delimer')
 				$this->html.='<div class="pad-head"></div>';
+			*/
 			$last_type=$field['type'];
 				
 			$tpl=$this->getElement($field['type']);
