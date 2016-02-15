@@ -763,13 +763,7 @@ strong {
 }
 #content form .form-fields {
 	margin-bottom:16px;
-}/*
-#content form .form-fields div.form-field:nth-of-type(1) {
-	margin-top:20px;
 }
-#content .pad-head {
-	margin-top:20px;
-}*/
 #content form h1 + div.form-field {
 	margin-top:20px;
 }
@@ -780,11 +774,6 @@ strong {
 #content form h1 + h1 {
 	margin-top:0;
 }
-/*
-#content form div.form-field + h1 + div.form-field {
-	margin-top:20px 0;
-}
-*/
 #content form h1 {
 	background-color:#f0f0f0;
 }
