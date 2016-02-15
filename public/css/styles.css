@@ -774,7 +774,8 @@ strong {
 	margin-top:20px;
 }
 #content form div.form-field + h1 {
-	margin-bottom:20px 0;
+	margin-bottom:20px;
+	margin-top:20pxl
 }
 #content form div.form-field + h1 + div.form-field {
 	margin-top:20px 0;
