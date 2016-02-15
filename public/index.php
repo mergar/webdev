@@ -22,7 +22,7 @@
 	<meta name="description" content="WebDev &mdash; Personal Web Development" />
 </head>
 <body>
-	<div class="overlap"></div>
+	<div id="overlap"></div><div class="overlap"></div>
 	<div class="main">
 		<div class="body"> <div class="log">log:<br /></div>
 			<h1 id="top-path">&hellip;</h1>
