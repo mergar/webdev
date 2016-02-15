@@ -1328,10 +1328,12 @@ status: "2"
 	saveHelperValues:function()
 	{
 		var posts=$('#content form').serializeArray();
+		this.waitScreenShow();
 		this.loadData('saveHelperValues',$.proxy(this.saveHelperValuesOk,this),posts);
 	},
 	saveHelperValuesOk:function(_data)
 	{
+		this.waitScreenHide();
 		var data=$.parseJSON(_data);
 		
 	},
