@@ -775,11 +775,13 @@ strong {
 }
 #content form div.form-field + h1 {
 	margin-bottom:20px;
-	margin-top:20pxl
+	margin-top:20px;
 }
+/*
 #content form div.form-field + h1 + div.form-field {
 	margin-top:20px 0;
 }
+*/
 #content form h1 {
 	background-color:#f0f0f0;
 }
