@@ -1279,7 +1279,7 @@ status: "2"
 		}
 		this.waitScreenShow();
 		$.post(path,posts,
-			$.proxy(function(data){this.waitScreenHide();return_func(data);},this)
+			$.proxy(function(data){return_func(data);},this)
 		);
 	},
 	
