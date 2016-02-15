@@ -69,7 +69,6 @@
 			</div>
 		</div>
 	</div>
-	<div id="overlap"></div>
 	<div id="window"><div id="window-box">
 		<span id="close-but">×</span>
 		<div id="window-content"></div>
@@ -188,4 +187,5 @@
 			<div class="circle1"></div><div class="circle2"></div><div class="circle3"></div><div class="circle4"></div>
 		</div>
 	</div>
+	<div id="overlap"></div>
 </html>
