@@ -1709,7 +1709,7 @@ class WebDev
 			return $file;
 		}
 		
-		$file='<h1>Log file are not found</h1><div class="log-info"><p>We are not found this log file&hellip;</p></div>';
+		$file='<h1>The log file is not found</h1><div class="log-info"><p>We did not find the log file&hellip;</p></div>';
 		return $file;
 	}
 	
