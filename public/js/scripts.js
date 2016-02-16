@@ -1004,6 +1004,8 @@ status: "2"
 				break;
 */
 			case 'log':
+				
+				break;
 			case 'helpers':
 				var hid=$('td .sp-id',tr).html();
 				location.hash='#prj-'+this.project+'/jail-'+this.jail+'/helpers-'+hid;
