@@ -634,7 +634,11 @@ iface={
 		try{
 			var data=$.parseJSON(data);
 		}catch(e){alert(e.message);return;}
-		alert(data.item);
+		
+		if(!$('#module-info').length) $('#content').html('<div id="module-info" class="hide"></div>');
+		$('#module-info').html(data.item);
+		$('#module-info').show();
+		$('table.tbl-cnt').hide();
 	},
 	
 	makeTableProjects:function(data)
