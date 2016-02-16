@@ -1708,7 +1708,9 @@ class WebDev
 			$file.='</div>';
 			return $file;
 		}
-		return false;
+		
+		$file='<h1>Log file not found</h1><div class="log-info"><p>We are not found this log file&hellip;</p></div>';
+		return $file;
 	}
 	
 	
