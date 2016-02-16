@@ -738,6 +738,10 @@ td.ops span.icon-emo-cry {
 	margin-bottom:8px;
 }
 
+.log-info {
+	border-top:1px solid silver;
+}
+
 #content p {
 	margin:8px 0;
 }

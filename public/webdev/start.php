@@ -1703,8 +1703,9 @@ class WebDev
 		{
 			$file=file_get_contents($name);
 			$arr=explode(PHP_EOL,$file);
-			$file="<h1>Log file of</h1><h2>{$name}</h2><hr />";
+			$file='<h1>Log file of</h1><h2>'.$name.'</h2><div class="log-info">';
 			if(!empty($arr))foreach($arr as $a) $file.='<p>'.$a.'</p>';
+			$file.='</div>';
 			return $file;
 		}
 		return false;
