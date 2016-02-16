@@ -1702,6 +1702,9 @@ class WebDev
 		if(file_exists($name))
 		{
 			$file=file_get_contents($name);
+			$arr=explode(PHP_EOL,$file);
+			$file='';
+			if(!empty($arr))foreach($arr as $a) $file.='<p>'.$a.'</p>';
 			return $file;
 		}
 		return false;
