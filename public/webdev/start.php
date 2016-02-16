@@ -1703,7 +1703,7 @@ class WebDev
 		{
 			$file=file_get_contents($name);
 			$arr=explode(PHP_EOL,$file);
-			$file='';
+			$file="<h1>Log file of</h1><h2>{$name}</h2>";
 			if(!empty($arr))foreach($arr as $a) $file.='<p>'.$a.'</p>';
 			return $file;
 		}
