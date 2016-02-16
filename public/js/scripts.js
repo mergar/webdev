@@ -808,7 +808,7 @@ iface={
 	this.log_write('makeTableTaskLog');
 		var table=$('table.tbl-cnt');
 		$(table).addClass('tasklog');
-		var html='<table class="tbl-cnt tasks"><thead><tr><th>Id</th><th>Command</th><th>Start time</th><th>End time</th><th>Status</th><th>Error code</th><th>Log file</th><th>Log size</th></tr></thead><tbody><table>';
+		var html='<table class="tbl-cnt tasks"><thead><tr><th>Id</th><th>Command</th><th>Start time</th><th>End time</th><th>Status</th><th>Error code</th><th>Log file</th><th>Log size</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 /*
