@@ -453,7 +453,7 @@ iface={
 		
 		if(data.helpers.length<1 || data.helpers===false)
 		{
-			var table='<thead><tr><th>Services list</th></tr></thead><tbody><tr><td>No helpers in list!</td></tr></tbody>';
+			var table='<table class="tbl-cnt modules"><thead><tr><th>Services list</th></tr></thead><tbody><tr><td>No helpers in list!</td></tr></tbody></table>';
 			$('#content').html(table);
 		}else{
 			this.helpersList=data.helpers;
@@ -509,7 +509,7 @@ iface={
 		}
 		if(data.services.length<1 || data.services===false)
 		{
-			var table='<thead><tr><th>Services list</th></tr></thead><tbody><tr><td>No services in list!</td></tr></tbody>';
+			var table='<table class="tbl-cnt modules"><thead><tr><th>Services list</th></tr></thead><tbody><tr><td>No services in list!</td></tr></tbody></table>';
 			$('#content').html(table);
 			//$('table.tbl-cnt').html(table);
 			//$('table.tbl-cnt').show();
@@ -560,7 +560,7 @@ iface={
 		}
 		if(data.users.length<1 || data.users===false)
 		{
-			var table='<thead><tr><th>Users list</th></tr></thead><tbody><tr><td>No users in list!</td></tr></tbody>';
+			var table='<table class="tbl-cnt modules"><thead><tr><th>Users list</th></tr></thead><tbody><tr><td>No users in list!</td></tr></tbody></table>';
 			$('#content').html(table);
 			//$('table.tbl-cnt').html(table);
 			//$('table.tbl-cnt').show();
