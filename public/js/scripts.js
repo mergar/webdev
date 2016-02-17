@@ -453,7 +453,7 @@ iface={
 		
 		if(data.helpers.length<1 || data.helpers===false)
 		{
-			var table='<table class="tbl-cnt modules"><thead><tr><th>Services list</th></tr></thead><tbody><tr><td>No helpers in list!</td></tr></tbody></table>';
+			var table='<table class="tbl-cnt modules"><thead><tr><th>Helpers list</th></tr></thead><tbody><tr><td>No helpers in list!</td></tr></tbody></table>';
 			$('#content').html(table);
 		}else{
 			this.helpersList=data.helpers;
@@ -825,7 +825,7 @@ st_time: "20150120005816"
 status: "2"
 */
 			html+='<tr class="link"><td class="sp-id">'+data[n].id+'</td>';
-			html+='<td class="text-center"><small>'+data[n].cmd+'</small></td><td class="text-center"><small>'+data[n].st_time+'</small></td><td class="text-center"><small>'+data[n].end_time+'</small></td><td class="text-center"><small>'+data[n].status+'</small></td>';
+			html+='<td><small>'+data[n].cmd+'</small></td><td class="text-center"><small>'+data[n].st_time+'</small></td><td class="text-center"><small>'+data[n].end_time+'</small></td><td class="text-center"><small>'+data[n].status+'</small></td>';
 			html+='<td class="text-center"><small>'+data[n].errcode+'</small></td><td><small>'+data[n].logfile+'</small></td><td>'+data[n].filesize+'</td>';
 			html+='</tr>';
 		}
