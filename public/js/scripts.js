@@ -286,7 +286,7 @@ iface={
 		this.fillProjectsToLeftMenu();
 		//$('table.tbl-cnt').show();
 		//$('#top-settings a.icon-gift').css({'display':'inline-block'});
-		$('#top-settings a.icon-gift').show();
+//		$('#top-settings a.icon-gift').show();
 	},
 	showJailsList:function()
 	{
@@ -358,7 +358,7 @@ iface={
 		//$('table.tbl-cnt').show();
 		
 		//$('#top-settings a.icon-gift').css({'display':'none'});
-		$('#top-settings a.icon-gift').hide();
+//		$('#top-settings a.icon-gift').hide();
 		var mng=$('.footer .mng');
 		if(mng.length>0) mng[0].className='mng modules';
 		this.playButt2Update();
@@ -663,7 +663,7 @@ iface={
 		
 		var mng=$('.footer .mng');
 		if(mng.length>0) mng[0].className='mng projects';
-		$('#top-settings a.icon-gift').css({'display':'none'});
+//		$('#top-settings a.icon-gift').css({'display':'none'});
 		
 		return html;
 	},
@@ -1096,6 +1096,8 @@ status: "2"
 		this.project=0;
 		this.jail=0;
 		
+		var import_bool=false;
+		
 		var rx4=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/([^-]+)-([\w]+)\/?$/);
 		var rx3=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/([\w]+)\/?$/);
 		var rx2=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/?$/);
@@ -1157,6 +1159,7 @@ status: "2"
 			this.states={'project':this.project,'jail':''};
 			this.currentPage='jails';
 			this.openProject();
+			import_bool=true;
 		}else{
 			// we are in project list
 			this.currentPage='project';
@@ -1165,18 +1168,20 @@ status: "2"
 		this.windowClose();
 		
 		var n, nl;
+		
+		if(import_bool)
+			$('#top-settings a.icon-gift').show();
+		else
+			$('#top-settings a.icon-gift').hide();
+		
 		var tabs=['log','users','helpers','services','modules'];
 		if(this.project>0&&this.jail>0)
 		{
-/*
 			for(n=0,nl=tabs.length;n<nl;n++)
 				$('#'+tabs[n]+'-menu').attr('href','/#prj-'+this.project+'/jail-'+this.jail+'/'+tabs[n]).show();
-*/
 		}else{
-/*
 			for(n=0,nl=tabs.length;n<nl;n++)
 				$('#'+tabs[n]+'-menu').hide();
-*/
 		}
 /*		
 		var rxl=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/log/);
