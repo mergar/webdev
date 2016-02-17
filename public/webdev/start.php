@@ -88,7 +88,8 @@ class WebDev
 			$this->projectId=intval($this->_vars['project']);
 			$this->jailId=intval($this->_vars['jail']);
 			$this->moduleId=intval($this->_vars['module']);
-			$this->helper=$this->_vars['helper'];
+			if(isset($this->_vars['helper']))
+				$this->helper=$this->_vars['helper'];
 			$this->mode=$this->_vars['mode'];
 			if(isset($this->_vars['form_data'])) $this->form=$this->_vars['form_data'];
 			
