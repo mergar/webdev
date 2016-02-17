@@ -1168,11 +1168,15 @@ status: "2"
 		var tabs=['log','users','helpers','services','modules'];
 		if(this.project>0&&this.jail>0)
 		{
+/*
 			for(n=0,nl=tabs.length;n<nl;n++)
 				$('#'+tabs[n]+'-menu').attr('href','/#prj-'+this.project+'/jail-'+this.jail+'/'+tabs[n]).show();
+*/
 		}else{
+/*
 			for(n=0,nl=tabs.length;n<nl;n++)
 				$('#'+tabs[n]+'-menu').hide();
+*/
 		}
 /*		
 		var rxl=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/log/);
