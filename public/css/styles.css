@@ -697,11 +697,12 @@ td.ops span.icon-emo-cry {
 
 /* Spinner CSS3 start - http://tobiasahlin.com/spinkit/ */
 .sk-circle {
-  margin: 100px auto;
-  width: 40px;
-  height: 40px;
-  position: absolute;
+	width:80px;
+	height:80px;
+	position:absolute;
 	z-index:10000;
+	top:50%;
+	left:50%;
 }
 .sk-circle .sk-child {
   width: 100%;
@@ -716,7 +717,7 @@ td.ops span.icon-emo-cry {
   margin: 0 auto;
   width: 15%;
   height: 15%;
-  background-color: #333;
+  background-color: #fff;	/*#333;*/
   border-radius: 100%;
   -webkit-animation: sk-circleBounceDelay 1.2s infinite ease-in-out both;
           animation: sk-circleBounceDelay 1.2s infinite ease-in-out both;
