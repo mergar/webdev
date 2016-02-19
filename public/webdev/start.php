@@ -836,13 +836,14 @@ class WebDev
 	}
 	function installHelper()
 	{
-		$arr=array();
+		$arr=array('error'=>true,'errorMsg'=>'Something wrong&hellip;');
 		$res=$this->cbsd_cmd(' imghelper module='.$this->helper.' jname=jail'.$this->jailId.' inter=0');
 		if($res['retval']==0)
 		{
 			$arr=$res;
+		}else{
+			$arr=array('error'=>true,'errorMsg'=>$res['error_message'].' in command: '.$res['cmd']);
 		}
-		
 		return $arr;
 	}
 	function saveHelperValues()

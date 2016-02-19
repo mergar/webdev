@@ -1339,6 +1339,12 @@ status: "2"
 	installHelperOk:function(_data)
 	{
 		this.waitScreenHide();
+		var data=$.parseJSON(_data);
+		if(!typeof data.error!='undefined' && data.error)
+		{
+			alert(data.errorMsg);
+			return;
+		}
 		this.openHelperForm(_data);
 	},
 
