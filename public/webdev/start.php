@@ -1673,7 +1673,7 @@ class WebDev
 		return $res[1];
 	}
 	function jailImport()
-	{
+	{	$res=false;
 		//$cmd='task owner=cbsdwebsys mode=new client_id='.$jail_id.' /usr/local/bin/cbsd jexport inter=0 jname='.$name.' imgname='.$new_name;
 		//$res=$this->cbsd_cmd($cmd);	// autoflush=2
 		return $res;
