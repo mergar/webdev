@@ -127,7 +127,9 @@ class WebDev
 					return;break;
 				case 'installHelper':
 					$res=$this->installHelper();
-					echo json_encode($res);
+					$modules=$this->getHelpersList();
+					$helper=$this->getHelper();
+					echo json_encode(array('modules'=>$modules,'helpers'=>$helper,'res'=>$res));
 					return;break;
 				case 'saveHelperValues':
 					$res=$this->saveHelperValues();

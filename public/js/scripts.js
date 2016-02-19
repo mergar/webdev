@@ -1333,14 +1333,15 @@ status: "2"
 	
 	installHelper:function(helper)
 	{
-		debugger;
+		this.waitScreenShow();
 		this.loadData('installHelper',$.proxy(this.installHelperOk,this));
 	},
 	installHelperOk:function(_data)
 	{
-		var data=$.parseJSON(_data);
+		this.waitScreenHide();
+		this.openHelperForm(_data);
 	},
-	
+
 	saveHelperValues:function()
 	{
 		var posts=$('#content form').serializeArray();
