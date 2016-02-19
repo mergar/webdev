@@ -177,6 +177,7 @@
 		<h2>Import jails in project</h2>
 		<div class="exp-list"></div>
 	</div>
+<!--
 	<div class="spinner hide" id="spinner1">
 		<div class="spinner-container container1">
 			<div class="circle1"></div><div class="circle2"></div><div class="circle3"></div><div class="circle4"></div>
@@ -188,7 +189,8 @@
 			<div class="circle1"></div><div class="circle2"></div><div class="circle3"></div><div class="circle4"></div>
 		</div>
 	</div>
-	<div class="sk-circle" id="spinner">
+-->
+	<div class="sk-circle hide" id="spinner">
 		<div class="sk-circle1 sk-child"></div>	<div class="sk-circle2 sk-child"></div> <div class="sk-circle3 sk-child"></div>
 		<div class="sk-circle4 sk-child"></div> <div class="sk-circle5 sk-child"></div> <div class="sk-circle6 sk-child"></div>
 		<div class="sk-circle7 sk-child"></div> <div class="sk-circle8 sk-child"></div> <div class="sk-circle9 sk-child"></div>

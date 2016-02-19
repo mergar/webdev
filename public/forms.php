@@ -10,7 +10,7 @@ class Forms
 	
 	function __construct($jname,$helper)
 	{
-		$this->name=$name;
+		$this->name=$jname;
 		$this->db=new Db('helpers',array('jname'=>$jname,'helper'=>$helper));
 	}
 	
