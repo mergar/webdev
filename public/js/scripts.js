@@ -2186,13 +2186,13 @@ status: "2"
 	waitScreenShow:function()
 	{
 		$('.overlap').show();
-		$('.spinner').show();
+		$('#spinner').show();
 	},
 	waitScreenHide:function()
 	{
 		//debugger;
 		$('.overlap').hide();
-		$('.spinner').hide();
+		$('#spinner').hide();
 	},
 }
 
