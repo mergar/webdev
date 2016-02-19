@@ -75,7 +75,7 @@ class Forms
 	
 	function setButtons($arr=array())
 	{
-		$this->html.='<div class="buttons"><input type="button" value="Apply" class="save-helper-values" /> &nbsp; <input type="button" value="Clear" class="clear-helper" /></div>';
+		$this->html.='<div class="buttons"><input type="button" value="Apply" class="save-helper-values" title="Save and apply params" /> &nbsp; <input type="button" value="Clear" class="clear-helper" title="Restore loaded params" /></div>';
 	}
 }
 

@@ -842,7 +842,7 @@ class WebDev
 		{
 			$arr=$res;
 		}else{
-			$arr=array('error'=>true,'errorMsg'=>$res['error_message'].' in command: '.$res['cmd']);
+			$arr=array('error'=>true,'errorMsg'=>$res['error_message'].' Command: '.$res['cmd']);
 		}
 		return $arr;
 	}

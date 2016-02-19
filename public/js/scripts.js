@@ -1340,9 +1340,9 @@ status: "2"
 	{
 		this.waitScreenHide();
 		var data=$.parseJSON(_data);
-		if(!typeof data.error!='undefined' && data.error)
+		if(typeof data.res.error!='undefined' && data.res.error)
 		{
-			alert(data.errorMsg);
+			alert(data.res.errorMsg);
 			return;
 		}
 		this.openHelperForm(_data);
