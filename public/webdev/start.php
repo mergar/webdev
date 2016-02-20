@@ -862,7 +862,7 @@ class WebDev
 		//$count=$db->update($query);
 		
 		//module=redis jname=jail1 mode=apply
-		$res=$this->cbsd_cmd(' puppet module='.$this->helper.' jname='.$jname.' mode=apply');
+		$res=$this->cbsd_cmd(' puppet imghelper='.$this->helper.' jname='.$jname.' mode=apply inter=0');
 		if($res['retval']==0)
 		{
 			$arr=$res;
