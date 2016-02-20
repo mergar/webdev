@@ -198,8 +198,6 @@ iface={
 		{
 			var table='<table class="tbl-cnt projects"><thead><tr><th>Projects list</th></tr></thead><tbody><tr><td>No data, add something!</td></tr></tbody></table>';
 			$('#content').html(table);
-			//$('table.tbl-cnt').html(table);
-			//$('table.tbl-cnt').show();
 		}else{
 			this.projectsList=data.projects;
 			this.showProjectsList();
@@ -213,11 +211,10 @@ iface={
 		$('#top-path').html('projects list');
 		this.navBackHide();
 		
-		var headers={'name':'Name','servers_count':'Servers','jails_count':'Jails','modules_count':'Modules','size':'Size'};
+		//var headers={'name':'Name','servers_count':'Servers','jails_count':'Jails','modules_count':'Modules','size':'Size'};
 		var data=this.projectsList;
 		//var tbl=this.makeTable(headers,data,'projects');
 		var tbl=this.makeTableProjects(data);
-		//$('table.tbl-cnt').html(tbl);
 		$('#content').html(tbl);
 	},
 	showProject:function(pid)
@@ -229,13 +226,10 @@ iface={
 		}
 		this.fillProjectsToLeftMenu();
 		
-		//$('#nav-back .nav-text').html('Projects list');
-		//$('#nav-back').removeClass('invisible');
 		this.navBackHide();
 	},
 	openProject:function()
 	{
-		//$('table.tbl-cnt').hide();
 		this.loadData('getJailsList',$.proxy(this.fillJailsList,this));
 	},
 	navBackShow:function()
@@ -292,9 +286,6 @@ iface={
 			this.projectsList=data.projects;
 		
 		this.fillProjectsToLeftMenu();
-		//$('table.tbl-cnt').show();
-		//$('#top-settings a.icon-gift').css({'display':'inline-block'});
-//		$('#top-settings a.icon-gift').show();
 	},
 	showJailsList:function()
 	{
@@ -310,7 +301,7 @@ iface={
 		
 		this.navBackShow();
 		
-		var headers={'name':'Name','ip':'IP','description':'Description','size':'Size'};
+		//var headers={'name':'Name','ip':'IP','description':'Description','size':'Size'};
 		var data=this.jailsList;
 		//var tbl=this.makeTable(headers,data,'jails');
 		var tbl=this.makeTableJails(data);
@@ -337,7 +328,6 @@ iface={
 		}
 		$('#left-menu').html(list);
 		$('#left-menu-caption').html('MODULES');
-		//$('.tbl-cnt').hide();
 		$('#module-info').show();
 	},
 	fillModulesList:function(data)
@@ -354,14 +344,10 @@ iface={
 		{
 			var table='<table class="tbl-cnt modules"><thead><tr><th>Modules list</th></tr></thead><tbody><tr><td>No data, add something!</td></tr></tbody></table>';
 			$('#content').html(table);
-			//$('table.tbl-cnt').html(table);
-			//$('table.tbl-cnt').show();
 		}else{
 			this.modulesList=data.modules;
 			this.showModulesList();
 		}
-		
-		//$('table.tbl-cnt').show();
 		
 		//$('#top-settings a.icon-gift').css({'display':'none'});
 //		$('#top-settings a.icon-gift').hide();
@@ -380,11 +366,10 @@ iface={
 			list+='<li'+current+'><a href="#prj-'+jail['id']+'" class="box">'+jail['name']+'</a></li>';
 		}
 
-		var headers={'packagename':'Name','version':'Version','comment':'Comment','size':'Size'};
+		//var headers={'packagename':'Name','version':'Version','comment':'Comment','size':'Size'};
 		var data=this.modulesList;
 		//var tbl=this.makeTable(headers,data,'jails');
 		var tbl=this.makeTableModules(data);
-		//$('table.tbl-cnt').html(tbl);
 		$('#content').html(tbl);
 	},
 	openModule:function()
@@ -482,7 +467,6 @@ iface={
 
 		var data=this.helpersList;
 		var tbl=this.makeTableHelpers(data);
-		//$('table.tbl-cnt').html(tbl);
 		$('#content').html(tbl);
 	},
 	clearHelperForm:function(el)
@@ -521,8 +505,6 @@ iface={
 		{
 			var table='<table class="tbl-cnt modules"><thead><tr><th>Services list</th></tr></thead><tbody><tr><td>No services in list!</td></tr></tbody></table>';
 			$('#content').html(table);
-			//$('table.tbl-cnt').html(table);
-			//$('table.tbl-cnt').show();
 		}else{
 			this.servicesList=data.services;
 			this.showServicesList();
@@ -548,7 +530,6 @@ iface={
 		var data=this.servicesList;
 		//var tbl=this.makeTable(headers,data,'jails');
 		var tbl=this.makeTableServices(data);
-		//$('table.tbl-cnt').html(tbl);
 		$('#content').html(tbl);
 	},
 	
@@ -573,14 +554,11 @@ iface={
 		{
 			var table='<table class="tbl-cnt modules"><thead><tr><th>Users list</th></tr></thead><tbody><tr><td>No users in list!</td></tr></tbody></table>';
 			$('#content').html(table);
-			//$('table.tbl-cnt').html(table);
-			//$('table.tbl-cnt').show();
 		}else{
 			this.usersList=data.users;
 			this.showUsersList();
 		}
 		
-		//$('table.tbl-cnt').show();
 		var mng=$('.footer .mng');
 		if(mng.length>0) mng[0].className='mng users';
 		this.playButt2Update();
@@ -598,7 +576,6 @@ iface={
 
 		var data=this.usersList;
 		var tbl=this.makeTableUsers(data);
-		//$('table.tbl-cnt').html(tbl);
 		$('#content').html(tbl);
 	},
 	
@@ -623,11 +600,8 @@ iface={
 		{
 			var table='<table class="tbl-cnt tasks"><thead><tr><th>Task log</th></tr></thead><tbody><tr><td>Log is empty!</td></tr></tbody></table>';
 			$('#content').html(table);
-			//$('table.tbl-cnt').html(table);
-			//$('table.tbl-cnt').show();
 		}else{
 			var tbl=this.makeTableTaskLog(data.tasklog);
-			//$('table.tbl-cnt').html(tbl);
 			$('#content').html(tbl);
 		}
 		
@@ -683,7 +657,6 @@ iface={
 		
 		var mng=$('.footer .mng');
 		if(mng.length>0) mng[0].className='mng projects';
-//		$('#top-settings a.icon-gift').css({'display':'none'});
 		
 		return html;
 	},
@@ -732,13 +705,10 @@ iface={
 			if(typeof data[n].task_cmd!='undefined')
 			{
 				txt_status=data[n].txt_status;	//task_cmd;
-				//this.taskJailAdd(txt_status,data[n].id,data[n].task_status,data[n].task_id);
 				this.tasks.add({'operation':data[n].task_cmd,'jail_id':data[n].id,'status':data[n].task_status,'task_id':data[n].task_id});
-//				this.tasks.start();
 				in_progress=true;
 			}
 		}
-		//if(data[n].operation=='start') txt_status='Launched';	//
 		html+='</td><td class="jstatus">'+txt_status+'</td><td class="ops"><span class="icon-cnt"><span class="icon-'+icon+'"></span></span></td>';
 		
 		return html;
@@ -978,7 +948,6 @@ status: "2"
 			case 'jstatus':
 				return;break;
 			case 'info':
-				//alert('show info about jail!');
 				this.loadData('getForm',$.proxy(this.loadForm,this));
 				return;break;
 			case 'mod-info':
@@ -1022,11 +991,6 @@ status: "2"
 			case 'modules':
 				location.hash='#prj-'+this.project+'/jail-'+this.jail+'/module-'+id;
 				break;
-/*			case 'log':
-				var lid=$('tr td:first-child').html();
-				location.hash='#prj-'+this.project+'/jail-'+this.jail+'/log-'+lid;
-				break;
-*/
 			case 'log':
 				var hid=$('td.sp-id',tr).html();
 				location.hash='#prj-'+this.project+'/jail-'+this.jail+'/log-'+hid;
@@ -1203,95 +1167,6 @@ status: "2"
 			for(n=0,nl=tabs.length;n<nl;n++)
 				$('#'+tabs[n]+'-menu').hide();
 		}
-/*		
-		var rxl=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/log/);
-		var rxli=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/log-(\d+)/);
-		var rxu=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/users/);
-		var rxh=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/helpers/);
-		var rxs=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/services/);
-		var rxm=new RegExp(/^#prj-(\d+)\/jail-(\d+)\/module-(\d+)/);
-		var rxj=new RegExp(/^#prj-(\d+)\/jail-(\d+)/);
-		var rxp=new RegExp(/^#prj-(\d+)\/?$/);
-		if(res=hash.match(rxli)){
-			// we are in log
-			this.project=parseInt(res[1]);
-			this.jail=parseInt(res[2]);
-			this.log_id=parseInt(res[3]);
-			this.states={'project':this.project,'jail':this.jail};
-			this.currentPage='log';
-			this.openTaskLogItem();
-		}else if(res=hash.match(rxl)){
-			// we are in log
-			this.project=parseInt(res[1]);
-			this.jail=parseInt(res[2]);
-			this.states={'project':this.project,'jail':this.jail};
-			this.currentPage='log';
-			this.openTaskLog();
-		}else if(res=hash.match(rxu)){
-			// we are in users
-			this.project=parseInt(res[1]);
-			this.jail=parseInt(res[2]);
-			this.states={'project':this.project,'jail':this.jail};
-			this.currentPage='users';
-			this.openUsers();
-		}else if(res=hash.match(rxs)){
-			// we are in service
-			this.project=parseInt(res[1]);
-			this.jail=parseInt(res[2]);
-			this.states={'project':this.project,'jail':this.jail};
-			this.currentPage='services';
-			this.openServices();
-		}else if(res=hash.match(rxh)){
-			// we are in helpers
-			this.project=parseInt(res[1]);
-			this.jail=parseInt(res[2]);
-			this.states={'project':this.project,'jail':this.jail};
-			this.currentPage='helpers';
-			this.openHelpers();
-		}else if(res=hash.match(rxm)){
-			// we are in module
-			this.project=parseInt(res[1]);
-			this.jail=parseInt(res[2]);
-			this.module=parseInt(res[3]);
-			this.states={'project':this.project,'jail':this.jail,'module':this.module};
-			this.currentPage='module';
-			this.openModule();
-		}else if(res=hash.match(rxj)){
-			// we are in jail
-			this.project=parseInt(res[1]);
-			this.jail=parseInt(res[2]);
-			this.states={'project':this.project,'jail':this.jail};
-			this.currentPage='modules';
-			//this.showModulesList();
-			this.openJail();
-		}else if(res=hash.match(rxp)){
-			// we are in project
-			this.project=parseInt(res[1]);
-			this.states={'project':this.project,'jail':''};
-			this.currentPage='jails';
-			this.openProject();
-		}else{
-			// we are in project list
-			this.currentPage='project';
-			this.openProjectsList();
-		}
-		this.windowClose();
-	
-		if(this.project>0&&this.jail>0)
-		{
-			$('#log-menu').attr('href','/#prj-'+this.project+'/jail-'+this.jail+'/log').show();
-			$('#users-menu').attr('href','/#prj-'+this.project+'/jail-'+this.jail+'/users').show();
-			$('#helpers-menu').attr('href','/#prj-'+this.project+'/jail-'+this.jail+'/helpers').show();
-			$('#service-menu').attr('href','/#prj-'+this.project+'/jail-'+this.jail+'/services').show();
-			$('#modules-menu').attr('href','/#prj-'+this.project+'/jail-'+this.jail).show();
-		}else{
-			$('#log-menu').hide();
-			$('#users-menu').hide();
-			$('#helpers-menu').hide();
-			$('#service-menu').hide();
-			$('#modules-menu').hide();
-		}
-*/
 	},
 	hashCheck:function()
 	{
@@ -1651,7 +1526,6 @@ status: "2"
 						alert(data.new_user.error_message);
 						return;
 					}
-					//alert(data.new_user);
 					this.fillUsersList(data);
 					break;
 				case 'log':
@@ -1691,7 +1565,6 @@ status: "2"
 			
 			var id=data1[n].id;
 			var task_id=data1[n].task_id;
-			//this.tasks[id]={'operation':'jimport','jname':'jail'+id,'jail_id':id,'status':-1,'task_id':task_id};
 			this.tasks.add({'operation':'jimport','jname':'jail'+id,'jail_id':id,'task_id':task_id});
 			n++;
 		}
@@ -1709,12 +1582,6 @@ status: "2"
 		}
 		
 		this.tasks.start();
-		/*
-		if(this.interval===null)
-		{
-			this.interval=setInterval($.proxy(this.getTasks,this),1000);
-		}
-		*/
 	},
 	
 	
@@ -1932,143 +1799,6 @@ status: "2"
 		this.showModulesList();
 	},
 	
-	/*
-	getTasks:function()
-	{
-		if(this.checkTasks) return;
-		this.checkTasks=true;
-		//var txtStatus='';
-		
-		/-*
-		for(key in this.tasks)
-		{
-			var task=this.tasks[key];
-			if(task.status<2)
-			{
-				//this.log_write(task.jail_id+' ('+task.status+')'+' — '+task.operation);
-			}else if(task.status==2){
-				if(typeof this.tasks[key].errmsg!='undefined')
-					this.enablePlay(key);
-				else{
-					if(task.operation=='jstop')
-					{
-					//	this.enablePlay(key);
-					//	txtStatus='Stopped';
-					//	var num=this.getJailNumById(key);
-					//	this.jailsList[num].status=0;
-					}
-					else if(task.operation=='jstart')
-					{
-					//	this.enableStop(key);
-					//	txtStatus='Launched';
-					//	var num=this.getJailNumById(key);
-					//	this.jailsList[num].status=1;
-					}
-					else if(task.operation=='jedit')
-					{
-					//	this.enableStop(key);
-					//	txtStatus='Saved';
-					}
-					else if(task.operation=='jremove')
-					{
-					//	this.enableRip(key);
-					//	txtStatus='Removed';
-					//	window.setTimeout($.proxy(this.deleteItemsOk,this,key),2000);
-					}
-					else if(task.operation=='jexport')
-					{
-					//	this.enablePlay(key);
-					//	txtStatus='Exported';
-					}
-					else if(task.operation=='jimport')
-					{
-					//	this.enablePlay(key);
-					//	txtStatus='Imported';
-					}
-					//txtStatus_=task.txt_status;
-					//$('tr.id-'+key+' .jstatus').html(txtStatus_);
-				}
-				//delete this.tasks[key];
-			}
-		}
-		*-/
-		
-		if($.isEmptyObject(this.tasks))
-		{
-			clearInterval(this.interval);
-			this.interval=null;
-			this.checkTasks=false;
-			return;
-		}
-		
-		var vars=JSON.stringify(this.tasks);
-		this.loadData('getTasksStatus',$.proxy(this.getTasksOk,this),[{'name':'jsonObj','value':vars}]);
-	},
-	getTasksOk:function(data)
-	{
-		try{
-			var data=$.parseJSON(data);
-		}catch(e){alert(e.message);return;}
-		for(key in data)
-		{
-			$('tr.id-'+key+' .jstatus').html(data[key].txt_status);
-			var errmsg=$('tr.id-'+key+' .errmsg');
-			if(typeof data[key].errmsg!='undefined')
-			{
-				$(errmsg).html('<span class="label">Error:</span>'+data[key].errmsg);
-				this.tasks[key].errmsg=data[key].errmsg;
-			}
-			this.tasks[key].operation=data[key].operation;
-			this.tasks[key].task_id=data[key].task_id;
-			this.tasks[key].status=data[key].status;
-			
-			if(data[key].status==2)
-			{
-				if(typeof this.tasks[key].errmsg!='undefined')
-				{
-					this.enablePlay(key);
-				}else{
-					switch(data[key].operation)
-					{
-						case 'jstart':
-							var num=this.getJailNumById(key);
-							this.jailsList[num].status=1;
-							this.enableStop(key);
-							break;
-						case 'jstop':
-							var num=this.getJailNumById(key);
-							this.jailsList[num].status=0;
-							this.enablePlay(key);
-							break;
-						case 'jedit':
-							this.enableStop(key);
-							break;
-						case 'jremove':
-							this.enableRip(key);
-							window.setTimeout($.proxy(this.deleteItemsOk,this,key),2000);
-							break;
-						case 'jexport':
-							this.enablePlay(key);
-							break;
-						case 'jimport':
-							this.enablePlay(key);
-							break;
-					}
-				}
-				delete this.tasks[key];
-			}
-		}
-		
-		this.checkTasks=false;
-		if(this.interval===null)
-		{
-			//this.interval=setInterval($.proxy(this.context.getTasks,this.context),1000);
-			this.interval=setInterval($.proxy(this.start,this),1000);
-		}
-
-	},
-	*/
-	
 	enableWait:function(id)
 	{
 		var icon_cnt=$('tr.id-'+id).find('span.icon-cnt');
@@ -2123,32 +1853,6 @@ status: "2"
 		}
 		return $('#window-content');
 	},
-	/*
-	windowClose:function()
-	{
-		$('#overlap').hide();
-		$('#window').hide();
-		$('#window-content').html('');
-	},
-	windowOkClick:function()
-	{
-		// read settings from window!
-		var posts=$('#window-content form').serializeArray();
-		switch(this.currentPage)
-		{
-			case 'project':
-				this.loadData('addProject',$.proxy(this.onLoadData,this),posts);
-				break;
-			case 'jails':
-				this.loadData('addJail',$.proxy(this.onLoadData,this),posts);
-				break;
-			case 'modules':
-				this.loadData('addModule',$.proxy(this.onLoadData,this),posts);
-				break;
-		}
-		this.windowClose();
-	},
-	*/
 	
 	getJailSettings:function(tr)
 	{
@@ -2217,7 +1921,6 @@ status: "2"
 	},
 	waitScreenHide:function()
 	{
-		//debugger;
 		$('.overlap').hide();
 		$('#spinner').hide();
 	},
