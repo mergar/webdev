@@ -61,7 +61,7 @@ class Forms
 	function getElement($el)
 	{
 		$tpl='';
-		switch($el)
+		switch(trim($el))
 		{
 			case 'inputbox':
 				$tpl='<div class="form-field"><input type="text" name="${param}" value="${value}" ${attr}${required} /><span class="default val-${def}" title="Click to fill dafault value">[default]</span><span class="small">${desc}</span></div>';
