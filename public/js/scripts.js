@@ -187,7 +187,7 @@ iface={
 			list+='<li'+current+'><a href="#prj-'+prj['id']+'" class="box">'+prj['name']+'</a></li>';
 		}
 		$('#left-menu').html(list);
-		$('#left-menu-caption').html('PROJECT');
+		$('#left-menu-caption').html('PROJECTS');
 	},
 	fillProjectsList:function(data)
 	{
