@@ -635,6 +635,12 @@ iface={
 			var data=$.parseJSON(data);
 		}catch(e){alert(e.message);return;}
 		
+		if(typeof data.jails!='undefined')
+		{
+			this.jailsList=data.jails;
+			this.fillJailsToLeftMenu();
+		}
+		
 		if(!$('#module-info').length) $('#content').html('<div id="module-info" class="hide"></div>');
 		$('#module-info').html(data.item);
 		$('#module-info').show();

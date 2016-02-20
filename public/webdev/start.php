@@ -1703,11 +1703,18 @@ class WebDev
 	{
 		$log_id=$this->form['log_id'];
 		$name='/tmp/taskd.'.$log_id.'.log';
+		$hname=$name;
+		
+		# Вытаскиваем команду, которая запускалась.
+		$query="select cmd from taskd where owner='cbsdwebsys' and id={$log_id} order by id desc;";
+		$res=$this->_db_tasks->select($query);
+		if($res!==false) $hname=$res[0]['cmd'];
+
 		if(file_exists($name))
 		{
 			$file=file_get_contents($name);
 			$arr=explode(PHP_EOL,$file);
-			$file='<h1>Log file of</h1><h2>'.$name.'</h2><div class="log-info">';
+			$file='<h1>Log file of</h1><h2>'.$hname.'</h2><div class="log-info">';
 			if(!empty($arr))foreach($arr as $a) $file.='<p>'.$a.'</p>';
 			$file.='</div>';
 			return $file;
