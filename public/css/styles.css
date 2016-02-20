@@ -73,10 +73,14 @@ body {
 	padding:0 14px;
 	border-right:1px solid #ccc;
 	text-shadow:2px 2px 2px rgba(0,0,0,0.2);
+	line-height:120%;
 }
 .body .menu a:hover {
-	/*text-decoration:underline;*/
-	border-bottom:1px solid black;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,387db6+83,387db6+100&0+0,0+82,1+83,0+100,1+100 */
+	background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(55,123,180,0) 86%, rgba(56,125,182,1) 87%, rgba(56,125,182,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(55,123,180,0) 86%,rgba(56,125,182,1) 87%,rgba(56,125,182,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(55,123,180,0) 86%,rgba(56,125,182,1) 87%,rgba(56,125,182,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#387db6',GradientType=0 ); /* IE6-9 */
 }
 .body .menu a.f-rgt {
 	float:right;
