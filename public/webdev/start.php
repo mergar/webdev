@@ -840,7 +840,7 @@ class WebDev
 		$res=$this->cbsd_cmd(' imghelper module='.$this->helper.' jname=jail'.$this->jailId.' inter=0');
 		if($res['retval']==0)
 		{
-			$arr=$res;
+			$arr=array('error'=>false,'log'=>$res);
 		}else{
 			$arr=array('error'=>true,'errorMsg'=>$res['error_message'].' Command: '.$res['cmd']);
 		}
