@@ -868,7 +868,7 @@ class WebDev
 			$arr=$res;
 		}
 		
-		return array('error'=>false,'updatedCount'=>$count->rowCount);
+		return array('error'=>false,'res'=>$arr);
 	}
 	
 	function getServicesList()
