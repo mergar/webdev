@@ -209,8 +209,9 @@ iface={
 	{
 		$('#left-menu-caption').html('PROJECTS');
 		if(this.currentPage=='project') $('#left-menu').html('');
-		$('#nav-back').addClass('invisible');
+		
 		$('#top-path').html('projects list');
+		this.navBackHide();
 		
 		var headers={'name':'Name','servers_count':'Servers','jails_count':'Jails','modules_count':'Modules','size':'Size'};
 		var data=this.projectsList;
@@ -228,13 +229,22 @@ iface={
 		}
 		this.fillProjectsToLeftMenu();
 		
-		$('#nav-back .nav-text').html('Projects list');
-		$('#nav-back').removeClass('invisible');
+		//$('#nav-back .nav-text').html('Projects list');
+		//$('#nav-back').removeClass('invisible');
+		this.navBackHide();
 	},
 	openProject:function()
 	{
 		//$('table.tbl-cnt').hide();
 		this.loadData('getJailsList',$.proxy(this.fillJailsList,this));
+	},
+	navBackShow:function()
+	{
+		$('#nav-back').removeClass('invisible');
+	},
+	navBackHide:function()
+	{
+		$('#nav-back').addClass('invisible');
 	},
 	
 	openProjectsList:function()
@@ -274,8 +284,6 @@ iface={
 		{
 			var table='<table class="tbl-cnt jails"><thead><tr><th>Jails list</th></tr></thead><tbody><tr><td>No data, add something!</td></tr></tbody></table>';
 			$('#content').html(table);
-			//$('table.tbl-cnt').html(table);
-			//$('table.tbl-cnt').show();
 		}else{
 			this.jailsList=data.jails;
 			this.showJailsList();
@@ -300,22 +308,20 @@ iface={
 		}
 		$('#left-menu').html(list);
 		
-		$('#nav-back .nav-text').html('Projects list');
-		$('#nav-back').removeClass('invisible');
+		this.navBackShow();
 		
 		var headers={'name':'Name','ip':'IP','description':'Description','size':'Size'};
 		var data=this.jailsList;
 		//var tbl=this.makeTable(headers,data,'jails');
 		var tbl=this.makeTableJails(data);
-		//$('table.tbl-cnt').html(tbl);
+		
 		$('#content').html(tbl);
 		var buttons=$('table.tbl-cnt span.icon-cnt');
 	},
 	openJail:function()
 	{
+		this.navBackShow();
 		$('#top-path').html('modules list');
-//		this.jail=jailId;
-		//$('table.tbl-cnt').hide();
 		this.loadData('getModulesList',$.proxy(this.fillModulesList,this));
 	},
 	
@@ -383,6 +389,7 @@ iface={
 	},
 	openModule:function()
 	{
+		this.navBackShow();
 		$('#top-path').html('module settings');
 		this.loadData('getModuleSettings',$.proxy(this.fillModuleSettings,this));
 		this.fillModulesToLeftMenu();
@@ -405,6 +412,7 @@ iface={
 	
 	openHelper:function()
 	{
+		this.navBackShow();
 		$('#top-path').html('helper settings: '+this.helper);
 		this.loadData('getHelper',$.proxy(this.openHelperForm,this));
 	},
@@ -423,6 +431,7 @@ iface={
 	},
 	openHelpers:function()
 	{
+		this.navBackShow();
 		$('#top-path').html('helpers list');
 		this.loadData('getHelpersList',$.proxy(this.fillHelpersList,this));
 	},
@@ -492,6 +501,7 @@ iface={
 	
 	openServices:function()
 	{
+		this.navBackShow();
 		$('#top-path').html('services list');
 		this.waitScreenShow();
 		this.loadData('getServicesList',$.proxy(this.fillServicesList,this));
@@ -544,6 +554,7 @@ iface={
 	
 	openUsers:function()
 	{
+		this.navBackShow();
 		$('#top-path').html('users list');
 		this.loadData('getUsersList',$.proxy(this.fillUsersList,this));
 	},
@@ -593,6 +604,7 @@ iface={
 	
 	openTaskLog:function()
 	{
+		this.navBackShow();
 		$('#top-path').html('task log');
 		this.loadData('getTaskLog',$.proxy(this.fillTaskLog,this));
 	},
@@ -627,6 +639,8 @@ iface={
 	
 	openTaskLogItem:function()
 	{
+		this.navBackShow();
+		$('#top-path').html('task log');
 		this.loadData('getTaskLogItem',$.proxy(this.fillTaskLogItem,this),[{'name':'log_id','value':this.log_id}]);
 	},
 	fillTaskLogItem:function(data)

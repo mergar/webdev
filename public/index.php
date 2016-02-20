@@ -47,7 +47,7 @@
 		
 		<div class="left-menu">
 			<div class="nav-back-box">
-				<a id="nav-back" href="#"><strong><span class="circle">‹</span> <span class="nav-text">Projects list</span></strong></a>
+				<a id="nav-back" href="#" class="invisible"><strong><span class="circle">‹</span> <span class="nav-text">Projects list</span></strong></a>
 			</div>
 			<div class="head" id="left-menu-caption">JAILS</div>
 			<ul id="left-menu"></ul>
