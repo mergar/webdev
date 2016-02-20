@@ -75,7 +75,8 @@ body {
 	text-shadow:2px 2px 2px rgba(0,0,0,0.2);
 }
 .body .menu a:hover {
-	text-decoration:underline;
+	/*text-decoration:underline;*/
+	border-bottom:1px solid black;
 }
 .body .menu a.f-rgt {
 	float:right;
