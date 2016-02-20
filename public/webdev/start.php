@@ -29,7 +29,7 @@ class WebDev
 			2 => array('pipe','r')
 		);
 //echo self::CBSD_CMD.$cmd;exit;
-		$process = proc_open(self::CBSD_CMD.$cmd,$descriptorspec,$pipes,null,null);
+		$process = proc_open(self::CBSD_CMD.trim($cmd),$descriptorspec,$pipes,null,null);
 
 		$error=false;
 		$error_message='';
@@ -837,7 +837,7 @@ class WebDev
 	function installHelper()
 	{
 		$arr=array('error'=>true,'errorMsg'=>'Something wrong&hellip;');
-		$res=$this->cbsd_cmd(' imghelper module='.$this->helper.' jname=jail'.$this->jailId.' inter=0');
+		$res=$this->cbsd_cmd('imghelper module='.$this->helper.' jname=jail'.$this->jailId.' inter=0');
 		if($res['retval']==0)
 		{
 			$arr=array('error'=>false,'log'=>$res);
@@ -862,7 +862,7 @@ class WebDev
 		//$count=$db->update($query);
 		
 		//module=redis jname=jail1 mode=apply
-		$res=$this->cbsd_cmd(' puppet imghelper='.$this->helper.' jname='.$jname.' mode=apply inter=0');
+		$res=$this->cbsd_cmd('imghelper module='.$this->helper.' jname='.$jname.' mode=apply inter=0');
 		if($res['retval']==0)
 		{
 			$arr=$res;
