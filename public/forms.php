@@ -97,7 +97,7 @@ class Forms
 				$tpl.='<option value="'.$opt['id'].'">'.$opt['text'].'</option>';
 			}
 		}
-		$tpl.='</select><span class="default val-${def}" title="Click to fill dafault value">[default]</span><span class="small">${desc}</span></div>';
+		$tpl.='</select><span class="small">${desc}</span></div>';
 		return $tpl;
 	}
 	

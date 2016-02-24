@@ -881,9 +881,22 @@ td.ops span.icon-emo-cry {
 }
 
 #content fieldset {
-	width:100%;
+	width:inherit;
 	padding:8px;
 	margin:8px 20px;
+	border:1px solid silver;
+}
+#content fieldset label {
+	margin-right:20px;
+}
+
+#content select {
+	margin:8px 20px;
+	min-width:173px;
+	padding:2px;
+}
+#content select option {
+	
 }
 
 span.install {
