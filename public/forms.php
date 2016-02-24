@@ -92,6 +92,7 @@ class Forms
 		{
 			$query="select * from {$arr['link']} order by order_id asc";
 			$opts=$this->db->select($query);
+			array_unshift($opts,array('id'=>0,'text'=>'','order_id'=>-1));
 			if(!empty($opts))foreach($opts as $key=>$opt)
 			{
 				$tpl.='<option value="'.$opt['id'].'">'.$opt['text'].'</option>';
@@ -108,8 +109,6 @@ class Forms
 		{
 			$query="select * from {$arr['link']} order by order_id asc";
 			$opts=$this->db->select($query);
-			print_r($opts);exit;
-			array_unshift($opts,array('id'=>0,'text'=>''));
 			if(!empty($opts))foreach($opts as $key=>$opt)
 			{
 				$tpl.='<input type="radio" name="${param}" value="'.$opt['id'].'" id="${param}-'.$opt['id'].'" /><label for="${param}-'.$opt['id'].'">'.$opt['text'].'</label>';
