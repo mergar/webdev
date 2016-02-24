@@ -31,7 +31,7 @@ class Forms
 			*/
 			$last_type=$field['type'];
 				
-			$tpl=$this->getElement($field['type']);
+			$tpl=$this->getElement($field['type'],$field);
 			$params=array('param','desc','attr','cur');
 			foreach($params as $param)
 			{
@@ -58,7 +58,7 @@ class Forms
 		return array('html'=>$this->html,'defaults'=>$defaults);
 	}
 	
-	function getElement($el)
+	function getElement($el,$arr=array())
 	{
 		$tpl='';
 		switch(trim($el))
@@ -66,10 +66,54 @@ class Forms
 			case 'inputbox':
 				$tpl='<div class="form-field"><input type="text" name="${param}" value="${value}" ${attr}${required} /><span class="default val-${def}" title="Click to fill dafault value">[default]</span><span class="small">${desc}</span></div>';
 				break;
+			case 'password':
+				$tpl='<div class="form-field"><input type="password" name="${param}" value="${value}" ${attr}${required} /><span class="default val-${def}" title="Click to fill dafault value">[default]</span><span class="small">${desc}</span></div>';
+				break;
 			case 'delimer':
 				$tpl='<h1>${desc}</h1>';
 				break;
+			case 'checkbox':
+				$tpl='<input type="checkbox" id="chk-${idx}" name="${param}" /><label for="chk-${idx}">${desc}</label>';
+				break;
+			case 'select':
+				$tpl=$this->getSelect($el,$arr);
+				break;
+			case 'radio':
+				$tpl=$this->getRadio($el,$arr);
+				break;
 		}
+		return $tpl;
+	}
+	
+	function getSelect($el,$arr)
+	{
+		$tpl='<div class="form-field"><select name="${param}">';
+		if(isset($arr['link']))
+		{
+			$query="select * from {$arr['link']} order by order_id asc";
+			$opts=$this->db->select($query);
+			if(!empty($opts))foreach($opts as $key=>$opt)
+			{
+				$tpl.='<option value="'.$opt['id'].'">'.$opt['text'].'</option>';
+			}
+		}
+		$tpl.='</select><span class="default val-${def}" title="Click to fill dafault value">[default]</span><span class="small">${desc}</span></div>';
+		return $tpl;
+	}
+	
+	function getRadio($el,$arr)
+	{
+		$tpl='<div class="form-field"><fieldset><legend>${desc}</legend>';
+		if(isset($arr['link']))
+		{
+			$query="select * from {$arr['link']} order by order_id asc";
+			$opts=$this->db->select($query);
+			if(!empty($opts))foreach($opts as $key=>$opt)
+			{
+				$tpl.='<input type="radio" name="${param}" value="'.$opt['id'].'" id="${param}-'.$opt['id'].'" /><label for="${param}-'.$opt['id'].'">'.$opt['text'].'</label>';
+			}
+		}
+		$tpl.='</fieldset><span class="default val-${def}" title="Click to fill dafault value">[default]</span><span class="small">${desc}</span></div>';
 		return $tpl;
 	}
 	
