@@ -113,7 +113,7 @@ class Forms
 				$tpl.='<input type="radio" name="${param}" value="'.$opt['id'].'" id="${param}-'.$opt['id'].'" /><label for="${param}-'.$opt['id'].'">'.$opt['text'].'</label>';
 			}
 		}
-		$tpl.='</fieldset><span class="default val-${def}" title="Click to fill dafault value">[default]</span><span class="small">${desc}</span></div>';
+		$tpl.='</fieldset>';
 		return $tpl;
 	}
 	

@@ -880,6 +880,12 @@ td.ops span.icon-emo-cry {
 	margin:8px 0;
 }
 
+#content fieldset {
+	width:100%;
+	padding:8px;
+	margin:8px 20px;
+}
+
 span.install {
 	text-decoration:underline;
 	cursor:pointer;
