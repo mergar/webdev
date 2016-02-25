@@ -111,7 +111,7 @@ class Forms
 			$opts=$this->db->select($query);
 			if(!empty($opts))foreach($opts as $key=>$opt)
 			{
-				$tpl.='<input type="radio" name="${param}" value="'.$opt['id'].'" id="${param}-'.$opt['id'].'" /><label for="${param}-'.$opt['id'].'">'.$opt['text'].'</label>';
+				$tpl.='<label for="${param}-'.$opt['id'].'">'.$opt['text'].':</label><input type="radio" name="${param}" value="'.$opt['id'].'" id="${param}-'.$opt['id'].'" />';
 			}
 		}
 		$tpl.='</fieldset>';

@@ -886,7 +886,7 @@ td.ops span.icon-emo-cry {
 	margin:8px 20px;
 	border:1px solid silver;
 }
-#content fieldset label {
+#content fieldset input[type="radio"] {
 	margin-right:20px;
 }
 
@@ -894,9 +894,6 @@ td.ops span.icon-emo-cry {
 	margin:8px 20px;
 	min-width:173px;
 	padding:2px;
-}
-#content select option {
-	
 }
 
 span.install {
