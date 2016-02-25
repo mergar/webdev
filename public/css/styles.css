@@ -945,7 +945,8 @@ strong {
 	background:#f0f0f0;
 	border-top:1px solid silver;
 }
-#content form input[type="text"] {
+#content form input[type="text"],
+#content form input[type="password"] {
 	margin:2px 10px 2px 20px;
 }
 span.small {
