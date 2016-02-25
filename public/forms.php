@@ -95,7 +95,8 @@ class Forms
 			array_unshift($opts,array('id'=>0,'text'=>'','order_id'=>-1));
 			if(!empty($opts))foreach($opts as $key=>$opt)
 			{
-				$tpl.='<option value="'.$opt['id'].'">'.$opt['text'].'</option>';
+				$selected=($opt['id']==$arr['cur'])?' selected':'';
+				$tpl.='<option value="'.$opt['id'].'"'.$selected.'>'.$opt['text'].'</option>';
 			}
 		}
 		$tpl.='</select><span class="small">${desc}</span></div>';
@@ -111,7 +112,8 @@ class Forms
 			$opts=$this->db->select($query);
 			if(!empty($opts))foreach($opts as $key=>$opt)
 			{
-				$tpl.='<label for="${param}-'.$opt['id'].'">'.$opt['text'].':</label><input type="radio" name="${param}" value="'.$opt['id'].'" id="${param}-'.$opt['id'].'" />';
+				$checked=($opt['id']==$arr['cur'])?' checked':'';
+				$tpl.='<label for="${param}-'.$opt['id'].'">'.$opt['text'].':</label><input type="radio" name="${param}" value="'.$opt['id'].'" id="${param}-'.$opt['id'].'"'.$checked.' />';
 			}
 		}
 		$tpl.='</fieldset></div>';
