@@ -114,7 +114,7 @@ class Forms
 				$tpl.='<label for="${param}-'.$opt['id'].'">'.$opt['text'].':</label><input type="radio" name="${param}" value="'.$opt['id'].'" id="${param}-'.$opt['id'].'" />';
 			}
 		}
-		$tpl.='</fieldset>';
+		$tpl.='</fieldset></div>';
 		return $tpl;
 	}
 	
