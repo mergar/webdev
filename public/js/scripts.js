@@ -408,7 +408,7 @@ iface={
 		this.helpersList=data.modules;
 		if(data.helpers.error===false)
 		{
-			$('#content').html(data.helpers.form);
+			$('#content').html('<p>'+data.helpers.form+'</p>');
 		}else{
 			$('#content').html('<p>'+data.helpers.errorMsg+'</p>');
 		}
