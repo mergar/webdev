@@ -477,19 +477,18 @@ iface={
 	},
 	fillHelperDefault:function(el,def)
 	{
-debugger;
 		if(!el) return;
+		var par=null;
+		
 		var inp=$(el).prev('input');
-		if(inp.length)
-		{
-			$(inp).val(def);
-			return;
-		}
+		if(inp.length) par=inp;
 		
 		var sel=$(el).prev('select');
-		if(sel.length)
+		if(sel.length) par=sel;
+		
+		if(par.length)
 		{
-			$(sel).val(def);
+			$(par).val(def);
 			return;
 		}
 	},
