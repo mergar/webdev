@@ -39,10 +39,12 @@ class Forms
 					$tpl=str_replace('${'.$param.'}',$field[$param],$tpl);
 			}
 			
-			$value=$field['def'];
-			if(isset($field['cur']) && !empty($field['cur'])) $value=$field['cur'];
+			//$value=$field['def'];
+			//if(isset($field['cur']) && !empty($field['cur'])) $value=$field['cur'];
+			$value=$field['cur'];
 			$tpl=str_replace('${value}',$value,$tpl);
 			
+			$value=$field['def'];
 			$tpl=str_replace('${def}',$value,$tpl);
 			
 			$required=($field['mandatory']==1)?' required':'';
