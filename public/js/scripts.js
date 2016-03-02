@@ -948,11 +948,17 @@ status: "2"
 	debugger;
 	
 		var tdc=td.className;
-		if($(tdc).hasClass('sett'))
+		var arr=tdc.split(' ');
+		if(arr.length>0)
 		{
-			tdc='sett';
-			tdc1=tdc.replace('sett').trim();
-			alert(tdc1);
+			var pos=arr.indexOf('sett');
+			if(pos>-1)
+			{
+				delete arr[pos];
+				tdc='sett';
+				tdc1=arr[0];
+				alert(tdc1);
+			}
 		}
 		
 		switch(tdc)
