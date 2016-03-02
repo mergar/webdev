@@ -86,6 +86,10 @@
 				<span class="field-name">Project name:</span>
 				<input type="text" name="name" value="" />
 			</p>
+			<p>
+				<span class="field-name">Description:</span>
+				<input type="text" name="description" value="" />
+			</p>
 		</form>
 	</div>
 	<div id="jails-settings" class="hide">
