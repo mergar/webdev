@@ -1173,7 +1173,7 @@ class WebDev
 	function editProject()
 	{
 		$form=$this->_vars['form_data'];
-		$id=$this->_vars['projectId'];
+		$id=$form['projectId'];
 		$name=$form['name'];
 		$descr=$form['description'];
 		if(!empty($name))

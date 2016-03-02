@@ -1460,7 +1460,7 @@ status: "2"
 			case 'project':
 				if(this.editMode=='edit-proj')
 				{
-					posts['projectId']=this.lastProjectId;
+					posts.push({name:'projectId',value:this.lastProjectId});
 					this.loadData('editProject',$.proxy(this.onLoadData,this),posts);
 				}else{
 					this.loadData('addProject',$.proxy(this.onLoadData,this),posts);
