@@ -662,7 +662,7 @@ iface={
 			html+='<td class="ico-proj"></td><td>';
 			html+='<strong>'+data[n].name+'</strong><br /><small class="jdscr">'+data[n].description+'</small><br /><small>Servers: '+data[n].servers_count+', Jails: '+data[n].jails_count+
 				', Modules: '+data[n].modules_count+', Size: '+data[n].size+'</small><div class="errmsg"></div>';
-			html+='</td><td class="sett"><span class="icon-cog"></span></td><td class="jstatus">Not running</td></tr>'
+			html+='</td><td class="sett proj"><span class="icon-cog"></span></td><td class="jstatus">Not running</td></tr>'
 		}
 		html+='</tbody></table>';
 		
@@ -945,13 +945,15 @@ status: "2"
 		{
 			var id=res[1];
 		}
-	//debugger;
+	debugger;
+		
 		switch(td.className)
 		{
 			case 'ops':
 				this.jailStart(tr);
 				return;break;
 			case 'sett':
+				
 				this.lastJailId=id;
 				this.editMode='edit';
 				this.getJailSettings(tr);
