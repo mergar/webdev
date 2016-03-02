@@ -1151,9 +1151,10 @@ class WebDev
 	{
 		$form=$this->_vars['form_data'];
 		$name=$form['name'];
+		$descr=$form['description'];
 		if(!empty($name))
 		{
-			$res=$this->_db->insert("insert into projects (name) values ('{$name}')");
+			$res=$this->_db->insert("insert into projects (name,description) values ('{$name}','{$descr}')");
 			if($res!==false)
 			{
 				$projects=$this->getProjectsList();

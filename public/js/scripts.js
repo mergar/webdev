@@ -945,29 +945,20 @@ status: "2"
 		{
 			var id=res[1];
 		}
-	debugger;
+	//debugger;
 	
 		var tdc=td.className;
-		var arr=tdc.split(' ');
-		if(arr.length>0)
-		{
-			var pos=arr.indexOf('sett');
-			if(pos>-1)
-			{
-				delete arr[pos];
-				tdc='sett';
-				tdc1=arr[0];
-				alert(tdc1);
-			}
-		}
+		tdc=tdc.replace(' ','-');
 		
 		switch(tdc)
 		{
 			case 'ops':
 				this.jailStart(tr);
 				return;break;
+			case 'sett-proj':
+				alert(tdc);
+				return;break;
 			case 'sett':
-				
 				this.lastJailId=id;
 				this.editMode='edit';
 				this.getJailSettings(tr);
