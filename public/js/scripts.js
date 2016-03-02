@@ -1457,6 +1457,9 @@ status: "2"
 		var posts=$('#window-content form').serializeArray();
 		switch(this.currentPage)
 		{
+			case 'edit-proj':
+				this.loadData('editProject',$.proxy(this.onLoadData,this),posts);
+				break;
 			case 'project':
 				this.loadData('addProject',$.proxy(this.onLoadData,this),posts);
 				break;
@@ -1879,7 +1882,7 @@ status: "2"
 		var n,nl;
 		var proj=false;
 		var ps=this.projectsList;
-		for(n=0,nl=ps.length;n<nl;n++) if(ps[n]=id) proj=ps[n];
+		for(n=0,nl=ps.length;n<nl;n++) if(ps[n]['id']==id) proj=ps[n];
 		if(proj===false) return;
 		var obj_cnt=this.settWinOpen('project');
 		var form=$('form',obj_cnt);
