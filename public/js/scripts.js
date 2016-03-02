@@ -946,8 +946,16 @@ status: "2"
 			var id=res[1];
 		}
 	debugger;
+	
+		var tdc=td.className;
+		if($(tdc).hasClass('sett'))
+		{
+			tdc='sett';
+			tdc1=tdc.replace('sett').trim();
+			alert(tdc1);
+		}
 		
-		switch(td.className)
+		switch(tdc)
 		{
 			case 'ops':
 				this.jailStart(tr);
