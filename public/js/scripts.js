@@ -1876,8 +1876,13 @@ status: "2"
 	
 	projSettings:function(id)
 	{
-		var proj=this.projectsList[id];
+		var n,nl;
+		var proj=false;
+		var ps=this.projectsList;
+		for(n=0,nl=ps.length;n<nl;n++) if(ps[n]=id) proj=ps[n];
+		if(proj===false) return;
 		var obj_cnt=this.settWinOpen('project');
+		var form=$('form',obj_cnt);
 		$('input[name="name"]',form).val(proj.name);
 		$('textarea[name="description"]',form).val(proj.description);
 	},
