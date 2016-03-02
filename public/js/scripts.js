@@ -1457,11 +1457,14 @@ status: "2"
 		var posts=$('#window-content form').serializeArray();
 		switch(this.currentPage)
 		{
-			case 'edit-proj':
-				this.loadData('editProject',$.proxy(this.onLoadData,this),posts);
-				break;
 			case 'project':
-				this.loadData('addProject',$.proxy(this.onLoadData,this),posts);
+				if(this.editMode=='edit-proj')
+				{
+					posts['projectId']=this.lastProjectId;
+					this.loadData('editProject',$.proxy(this.onLoadData,this),posts);
+				}else{
+					this.loadData('addProject',$.proxy(this.onLoadData,this),posts);
+				}
 				break;
 			case 'jails':
 				if(this.editMode=='edit')

@@ -160,6 +160,9 @@ class WebDev
 				case 'addProject':
 					echo json_encode($this->addProject());
 					return;break;
+				case 'editProject':
+					echo json_encode($this->editProject());
+					return;break;
 				case 'addJail':
 					echo json_encode($this->addJail());
 					return;break;
@@ -1159,6 +1162,27 @@ class WebDev
 			{
 				$projects=$this->getProjectsList();
 				return array('lastID'=>$res['lastID'],'projects'=>$projects);
+			}else{
+			#	Ошибка в запросе
+				return array('error'=>$res);
+			}
+		}else{
+		#	Пришло пустое название проекта
+		}
+	}
+	function editProject()
+	{
+		$form=$this->_vars['form_data'];
+		$id=$this->_vars['projectId'];
+		$name=$form['name'];
+		$descr=$form['description'];
+		if(!empty($name))
+		{
+			$res=$this->_db->insert("update projects set name='{$name}',description='{$descr}' where id={$id}");
+			if($res!==false)
+			{
+				$projects=$this->getProjectsList();
+				return array('projects'=>$projects);
 			}else{
 			#	Ошибка в запросе
 				return array('error'=>$res);
