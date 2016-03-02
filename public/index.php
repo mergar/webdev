@@ -88,7 +88,7 @@
 			</p>
 			<p>
 				<span class="field-name">Description:</span>
-				<input type="text" name="description" value="" />
+				<textarea type="text" name="description" value="" ></textarea>
 			</p>
 		</form>
 	</div>
