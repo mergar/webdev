@@ -956,7 +956,9 @@ status: "2"
 				this.jailStart(tr);
 				return;break;
 			case 'sett-proj':
-				alert(tdc);
+				this.lastProjectId=id;
+				this.editMode='edit-proj';
+				this.projSettings(id);
 				return;break;
 			case 'sett':
 				this.lastJailId=id;
@@ -1870,6 +1872,14 @@ status: "2"
 			this.resizeWindow();
 		}
 		return $('#window-content');
+	},
+	
+	projSettings:function(id)
+	{
+		var proj=this.projectsList[id];
+		var obj_cnt=this.settWinOpen('project');
+		$('input[name="name"]',form).val(proj.name);
+		$('textarea[name="description"]',form).val(proj.description);
 	},
 	
 	getJailSettings:function(tr)
