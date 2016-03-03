@@ -531,8 +531,8 @@ class WebDev
 	function getTasksStatus($jsonObj)
 	{
 		$tasks=array();
-		$ops_array=array('start','stop','edit','remove','export','import','modremove');
-		$stat_array=array('Starting','Stopping','Saving','Removing','Exporting','Importing','Removing');
+		$ops_array=array('start','stop','edit','remove','export','import','modremove','projremove');
+		$stat_array=array('Starting','Stopping','Saving','Removing','Exporting','Importing','Removing','Removing');
 		$obj=json_decode($jsonObj,true);
 		if(!empty($obj)) foreach($obj as $key=>$task)
 		{
@@ -559,6 +559,8 @@ class WebDev
 					return $res;
 				}elseif($task['operation']=='modremove' && $task['status']==-1){
 					$res=$this->removeModule($key);
+				}elseif($task['operation']=='projremove' && $task['status']==-1){
+					$res=$this->removeProject($key);
 				}
 				if($res['error'])
 				{
@@ -579,6 +581,7 @@ class WebDev
 					if($task_id>0 && $task['operation']=='export') $obj[$key]['operation']='Exporting';	//$res['task_id']
 					if($task_id>0 && $task['operation']=='import') $obj[$key]['operation']='Importing';	//$res['task_id']
 					if($task_id>0 && $task['operation']=='modremove') {$obj[$key]['operation']='Removing'; $obj[$key]['obj']='module';}
+					if($task_id>0 && $task['operation']=='projremove') {$obj[$key]['operation']='Removing'; $obj[$key]['obj']='project';}
 					if(!empty($res['error_message'])) $obj[$key]['error_message']=$res['error_message'];
 				}
 			}else if(in_array($task['operation'],$stat_array)){	//$task['operation']=='Starting' || $task['operation']=='Stopping'

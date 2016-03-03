@@ -1427,9 +1427,8 @@ status: "2"
 			ids.push(id);
 		}
 		var tprojs=ids.join(';');
-		alert(tprojs);
-		//if(ids.length>0) this.tasks.add({'operation':op,'projects_id':ids});
-		//this.tasks.start();
+		if(ids.length>0) this.tasks.add({'operation':op,'projects_id':tprojs});
+		this.tasks.start();
 	},
 	
 	modulesOps:function(op,event)
