@@ -534,6 +534,7 @@ class WebDev
 		$ops_array=array('start','stop','edit','remove','export','import','modremove','projremove');
 		$stat_array=array('Starting','Stopping','Saving','Removing','Exporting','Importing','Removing','Removing');
 		$obj=json_decode($jsonObj,true);
+print_r($obj);
 		if(!empty($obj)) foreach($obj as $key=>$task)
 		{
 			if(in_array($task['operation'],$ops_array))
@@ -560,7 +561,7 @@ class WebDev
 				}elseif($task['operation']=='modremove' && $task['status']==-1){
 					$res=$this->removeModule($key);
 				}elseif($task['operation']=='projremove' && $task['status']==-1){
-					$res=$this->removeProject($key);
+					$res=$this->projectRemove($key);
 				}
 				if($res['error'])
 				{

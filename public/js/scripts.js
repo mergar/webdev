@@ -97,6 +97,8 @@ iface={
 				this.tasks['mod_ops']=vars;
 			if(typeof vars['service_id']!='undefined')
 				this.tasks[vars['service_id']]=vars;
+			if(typeof vars['projects_id']!='undefined')
+				this.tasks[vars['projects_id']]=vars;
 		},
 		
 		start:function()
