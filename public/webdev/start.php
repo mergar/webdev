@@ -1240,7 +1240,8 @@ class WebDev
 				
 				$tnames=join(' ',$names);
 				$tjids=join(',',$jids);
-				$cmd='jremove '.$tnames;
+				//$cmd='jremove '.$tnames;
+				$cmd='task owner=cbsdwebsys mode=new /usr/local/bin/cbsd jremove inter=0 '.$tnames;
 				//echo $cmd.PHP_EOL;
 				
 				$res=$this->cbsd_cmd($cmd);
