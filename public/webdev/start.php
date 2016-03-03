@@ -1203,17 +1203,48 @@ class WebDev
 		if(empty($pids)) return;
 		
 		$ids=explode(';',$pids);
+		$error=true;
+		$errorMessage='Nothing to delete! Projects IDs is empty.';
 		if(!empty($ids))
 		{
 			$tids=implode(',',$ids);
-			$query="select name from jails where project_id in ({$tids})";
-			echo $query;
+			$query="select id,name from jails where project_id in ({$tids})";
 			$res=$this->_db->select($query);
-			print_r($res);
+			$names=array();
+			$jids=array();
+			if(!empty($res))
+			{
+				foreach($res as $r)
+				{
+					$jids[]=$r['id'];
+					$names[]='jail'.$r['id'];
+				}
+			}
+			$tnames=join(' ',$names);
+			$tjids=join(',',$jids);
+			$cmd='jremove '.$tnames;
+			//echo $cmd.PHP_EOL;
 			
-			exit;
+			$query="delete from jails where project_id in ({$tids})";
+			$this->_db->select($query);
+			//echo $query.PHP_EOL;
+			
+			$query="delete from projects where id in ({$tids})";
+			$this->_db->select($query);
+			//echo $query;
+		
+			$res=$this->cbsd_cmd($cmd);
+			if($res['retval']!=0)
+			{
+				error=true;
+				$errorMessage='Project deleting is failed!';
+			}else{
+				$error=false;
+				$errorMessage='';
+			}
 		}
 		
+		return array('error'=>$error,'errorMsg'=>$errorMessage,'res'=>$res,'cmd'=>$cmd);
 	}
 	
 	function addJail()
