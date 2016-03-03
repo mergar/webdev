@@ -1365,6 +1365,23 @@ status: "2"
 		}
 		var list_type='jails';
 		var item_type='jail';
+		
+		if(op=='jremove')
+		{
+			switch(this.currentPage)
+			{
+				case 'modules':
+					this.modulesOps('modremove',event);
+					return;break;
+				case 'project':
+					this.projectsOps('projremove',event);
+					return;break;
+			}
+			var c=confirm(confirms[op]);
+			if(!c) return;
+		}
+		
+/*
 		if(op=='jremove')
 		{
 			if(this.currentPage=='modules')
@@ -1375,7 +1392,7 @@ status: "2"
 			var c=confirm(confirms[op]);
 			if(!c) return;
 		}
-		
+*/		
 		var jails=$('.tbl-cnt.jails tbody input[type="checkbox"]:checked');
 		var jl=0,n=0;
 		for(n=0,jl=jails.length;n<jl;n++)
@@ -1393,6 +1410,26 @@ status: "2"
 			}
 		}
 		this.tasks.start();
+	},
+	
+	projectsOps:function(op,event)
+	{
+		var c=confirm('You want to delete some projects with all jails and modules! Are you sure?');
+		if(!c) return;
+		
+		var projects=$('.tbl-cnt.projects input[type="checkbox"]:checked');
+		var pl=0,n=0;
+		var ids=[];
+		for(n=0,pl=projects.length;n<pl;n++)
+		{
+			var tr=$(projects[n]).closest('tr');
+			var id=this.getJailById(tr);
+			ids.push('jail'+id);
+		}
+		var tprojs=ids.join(' ',ids);
+		alert(tprojs);
+		//if(ids.length>0) this.tasks.add({'operation':op,'projects_id':ids});
+		//this.tasks.start();
 	},
 	
 	modulesOps:function(op,event)
