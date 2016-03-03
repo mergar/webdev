@@ -1212,12 +1212,14 @@ class WebDev
 	}
 	function projectRemove($arr)
 	{
-		print_r($arr);
+		if(empty($arr)) return;
+		reset($arr);
+		$arr=current($arr);
 		$pids=$arr['projects_id'];
 		if(empty($pids)) return;
 		
 		$ids=explode(';',$pids);
-		$error=true;
+		$error=false;
 		$errorMessage='Nothing to delete! Projects IDs is empty.';
 		$res=false;
 		$cmd='no cmd';
@@ -1262,7 +1264,7 @@ class WebDev
 		//echo $query;
 		
 		$projects=$this->getProjectsList();
-		return array('projects'=>$projects,'error'=>$error,'errorMsg'=>$errorMessage,'res'=>$res,'cmd'=>$cmd,'retval'=>0);
+		return array('projects'=>$projects,'error'=>$error,'errorMsg'=>$errorMessage,'res'=>$res,'cmd'=>$cmd,'retval'=>0,'proj_ops'=>'projDelete');
 	}
 	
 	function addJail()
