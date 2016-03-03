@@ -155,11 +155,9 @@ iface={
 			{
 				if(data['proj_ops']=='projDelete')
 				{
-					//alert('script.js:159 — дописать чистку удалённых проектов');
 					if(typeof data.projects!='undefined')
-						this.projectsList=data.projects;
-					debugger;
-					this.context.fillProjectsToLeftMenu();
+						this.context.projectsList=data.projects;
+					this.context.showProjectsList();
 					return;
 				}
 			}

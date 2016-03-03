@@ -1256,15 +1256,15 @@ class WebDev
 		}
 
 		$query="delete from jails where project_id in ({$tids})";
-		//$this->_db->select($query);
+		$this->_db->select($query);
 		//echo $query.PHP_EOL;
 		
 		$query="delete from projects where id in ({$tids})";
-		//$this->_db->select($query);
+		$this->_db->select($query);
 		//echo $query;
 		
 		$projects=$this->getProjectsList();
-		return array('projects'=>$projects,'error'=>$error,'errorMsg'=>$errorMessage,'res'=>$res,'cmd'=>$cmd,'retval'=>0,'proj_ops'=>'projDelete');
+		return array('projects'=>$projects,'error'=>$error,'errorMsg'=>$errorMessage,'res'=>$res,'cmd'=>$cmd,'retval'=>2,'proj_ops'=>'projDelete');
 	}
 	
 	function addJail()
