@@ -159,10 +159,10 @@ class WebDev
 					return;break;
 */
 				case 'addProject':
-					echo json_encode($this->addProject());
+					echo json_encode($this->projectAdd());
 					return;break;
 				case 'editProject':
-					echo json_encode($this->editProject());
+					echo json_encode($this->projectEdit());
 					return;break;
 				case 'addJail':
 					echo json_encode($this->addJail());
@@ -1151,7 +1151,7 @@ class WebDev
 	*/
 	}
 	
-	function addProject()
+	function projectAdd()
 	{
 		$form=$this->_vars['form_data'];
 		$name=$form['name'];
@@ -1171,7 +1171,7 @@ class WebDev
 		#	Пришло пустое название проекта
 		}
 	}
-	function editProject()
+	function projectEdit()
 	{
 		$form=$this->_vars['form_data'];
 		$id=$form['projectId'];
@@ -1191,6 +1191,11 @@ class WebDev
 		}else{
 		#	Пришло пустое название проекта
 		}
+	}
+	function projectRemove()
+	{
+		$form=$this->_vars['form_data'];
+		print_r($form);
 	}
 	
 	function addJail()
