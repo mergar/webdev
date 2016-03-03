@@ -148,6 +148,8 @@ iface={
 				
 			}
 			
+			//if(typeof data[''])
+			
 			for(key in data)
 			{
 				$('tr.id-'+key+' .jstatus').html(data[key].txt_status);

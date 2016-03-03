@@ -1205,6 +1205,7 @@ class WebDev
 		$ids=explode(';',$pids);
 		$error=true;
 		$errorMessage='Nothing to delete! Projects IDs is empty.';
+		$res=false;
 		if(!empty($ids))
 		{
 			$tids=implode(',',$ids);
@@ -1219,32 +1220,34 @@ class WebDev
 					$jids[]=$r['id'];
 					$names[]='jail'.$r['id'];
 				}
-			}
-			$tnames=join(' ',$names);
-			$tjids=join(',',$jids);
-			$cmd='jremove '.$tnames;
-			//echo $cmd.PHP_EOL;
-			
-			$query="delete from jails where project_id in ({$tids})";
-			$this->_db->select($query);
-			//echo $query.PHP_EOL;
-			
-			$query="delete from projects where id in ({$tids})";
-			$this->_db->select($query);
-			//echo $query;
-		
-			$res=$this->cbsd_cmd($cmd);
-			if($res['retval']!=0)
-			{
-				error=true;
-				$errorMessage='Project deleting is failed!';
-			}else{
-				$error=false;
-				$errorMessage='';
+				
+				$tnames=join(' ',$names);
+				$tjids=join(',',$jids);
+				$cmd='jremove '.$tnames;
+				//echo $cmd.PHP_EOL;
+				
+				$res=$this->cbsd_cmd($cmd);
+				if($res['retval']!=0)
+				{
+					$error=true;
+					$errorMessage='Project deleting is failed!';
+				}else{
+					$error=false;
+					$errorMessage='';
+				}
 			}
 		}
+
+		$query="delete from jails where project_id in ({$tids})";
+		$this->_db->select($query);
+		//echo $query.PHP_EOL;
 		
-		return array('error'=>$error,'errorMsg'=>$errorMessage,'res'=>$res,'cmd'=>$cmd);
+		$query="delete from projects where id in ({$tids})";
+		$this->_db->select($query);
+		//echo $query;
+		
+		$projects=$this->getProjectsList();
+		return array('projects'=>$projects,'error'=>$error,'errorMsg'=>$errorMessage,'res'=>$res,'cmd'=>$cmd);
 	}
 	
 	function addJail()
