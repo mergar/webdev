@@ -1199,9 +1199,21 @@ class WebDev
 	}
 	function projectRemove($key,$arr)
 	{
-		$form=$this->_vars['form_data'];
-		print_r($form);
-		print_r($arr);
+		$pids=$arr['projects_id'];
+		if(empty($pids)) return;
+		
+		$ids=explode(';',$pids);
+		if(!empty($ids))
+		{
+			$tids=implode(',',$ids);
+			$query="select name from jails where project_id in ({$tids})";
+			echo $query;
+			$res=$this->_db->select($query);
+			print_r($res);
+			
+			exit;
+		}
+		
 	}
 	
 	function addJail()
