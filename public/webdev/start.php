@@ -252,7 +252,7 @@ class WebDev
 		
 		if(isset($obj['mod_ops'])) return $this->GetModulesTasksStatus($obj);
 		
-		$ops_array=array('jcreate','jstart','jstop','jedit','jremove','jexport','jimport','madd','sstart','sstop');	//,'mremove'
+		$ops_array=array('jcreate','jstart','jstop','jedit','jremove','jexport','jimport','madd','sstart','sstop','projremove');	//,'mremove'
 		$stat_array=array(
 			'jcreate'=>array('Creating...','Not running'),
 			'jstart'=>array('Starting','Launched'),
@@ -265,6 +265,7 @@ class WebDev
 			//'mremove'=>array('Removing','Removed'),
 			'sstart'=>array('Starting','Started'),
 			'sstop'=>array('Stopping','Stopped'),
+			'projremove'=>array('Removing','Removed'),
 		);
 		if(!empty($obj)) foreach($obj as $key=>$task)
 		{
@@ -287,6 +288,7 @@ class WebDev
 						//case 'mremove':	$res=$this->moduleRemove('jail'.$key,$task['jname'],$key);break;
 						case 'sstart':	$res=$this->serviceStart($task);break;
 						case 'sstop':	$res=$this->serviceStop($task);break;
+						case 'projremove':	$res=$this->projectRemove($key,$task);break;
 					}
 				}
 				
@@ -534,7 +536,6 @@ class WebDev
 		$ops_array=array('start','stop','edit','remove','export','import','modremove','projremove');
 		$stat_array=array('Starting','Stopping','Saving','Removing','Exporting','Importing','Removing','Removing');
 		$obj=json_decode($jsonObj,true);
-print_r($obj);
 		if(!empty($obj)) foreach($obj as $key=>$task)
 		{
 			if(in_array($task['operation'],$ops_array))
@@ -1196,10 +1197,11 @@ print_r($obj);
 		#	Пришло пустое название проекта
 		}
 	}
-	function projectRemove()
+	function projectRemove($key,$arr)
 	{
 		$form=$this->_vars['form_data'];
 		print_r($form);
+		print_r($arr);
 	}
 	
 	function addJail()
