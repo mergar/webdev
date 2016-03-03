@@ -1423,10 +1423,10 @@ status: "2"
 		for(n=0,pl=projects.length;n<pl;n++)
 		{
 			var tr=$(projects[n]).closest('tr');
-			var id=this.getJailById(tr);
-			ids.push('jail'+id);
+			var id=this.getJailId(tr);
+			ids.push(id);
 		}
-		var tprojs=ids.join(' ',ids);
+		var tprojs=ids.join(';');
 		alert(tprojs);
 		//if(ids.length>0) this.tasks.add({'operation':op,'projects_id':ids});
 		//this.tasks.start();
