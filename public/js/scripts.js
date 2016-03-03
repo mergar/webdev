@@ -1873,6 +1873,7 @@ status: "2"
 			$('#window-box').height('');
 			$('#window-content').html($(cnt_obj).html());
 			//$('#window-content form').bind('submit',$.proxy(this.onFormSubmit,this));
+			$('#window-content form').unbind('submit').bind('submit',function(){return false;});
 			$('#overlap').show();
 			$('#window').show();
 			this.resizeWindow();
