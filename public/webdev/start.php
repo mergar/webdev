@@ -250,6 +250,7 @@ class WebDev
 		$tasks=array();
 		$obj=json_decode($jsonObj,true);
 		
+		if(isset($obj['proj_ops'])) return $this->GetProjectTasksStatus($obj);
 		if(isset($obj['mod_ops'])) return $this->GetModulesTasksStatus($obj);
 		
 		$ops_array=array('jcreate','jstart','jstop','jedit','jremove','jexport','jimport','madd','sstart','sstop','projremove');	//,'mremove'
@@ -265,7 +266,7 @@ class WebDev
 			//'mremove'=>array('Removing','Removed'),
 			'sstart'=>array('Starting','Started'),
 			'sstop'=>array('Stopping','Stopped'),
-			'projremove'=>array('Removing','Removed'),
+			//'projremove'=>array('Removing','Removed'),
 		);
 		if(!empty($obj)) foreach($obj as $key=>$task)
 		{
@@ -288,7 +289,7 @@ class WebDev
 						//case 'mremove':	$res=$this->moduleRemove('jail'.$key,$task['jname'],$key);break;
 						case 'sstart':	$res=$this->serviceStart($task);break;
 						case 'sstop':	$res=$this->serviceStop($task);break;
-						case 'projremove':	$res=$this->projectRemove($key,$task);break;
+						//case 'projremove':	$res=$this->projectRemove($key,$task);break;
 					}
 				}
 				
@@ -352,6 +353,18 @@ class WebDev
 		}
 		
 		return $obj;
+	}
+	
+	function GetProjectTasksStatus($obj)
+	{
+		if(isset($obj['proj_ops']))
+		{
+			$ops=$obj['proj_ops'];
+			unset($obj['proj_ops']);
+			$res=$this->projectRemove($obj);
+			return $res;
+		}
+		return false;
 	}
 	
 	function GetModulesTasksStatus($obj)
@@ -1197,8 +1210,9 @@ class WebDev
 		#	Пришло пустое название проекта
 		}
 	}
-	function projectRemove($key,$arr)
+	function projectRemove($arr)
 	{
+		print_r($arr);
 		$pids=$arr['projects_id'];
 		if(empty($pids)) return;
 		
@@ -1240,11 +1254,11 @@ class WebDev
 		}
 
 		$query="delete from jails where project_id in ({$tids})";
-		$this->_db->select($query);
+		//$this->_db->select($query);
 		//echo $query.PHP_EOL;
 		
 		$query="delete from projects where id in ({$tids})";
-		$this->_db->select($query);
+		//$this->_db->select($query);
 		//echo $query;
 		
 		$projects=$this->getProjectsList();
