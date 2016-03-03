@@ -1206,6 +1206,7 @@ class WebDev
 		$error=true;
 		$errorMessage='Nothing to delete! Projects IDs is empty.';
 		$res=false;
+		$cmd='no cmd';
 		if(!empty($ids))
 		{
 			$tids=implode(',',$ids);
@@ -1247,7 +1248,7 @@ class WebDev
 		//echo $query;
 		
 		$projects=$this->getProjectsList();
-		return array('projects'=>$projects,'error'=>$error,'errorMsg'=>$errorMessage,'res'=>$res,'cmd'=>$cmd);
+		return array('projects'=>$projects,'error'=>$error,'errorMsg'=>$errorMessage,'res'=>$res,'cmd'=>$cmd,'retval'=>0);
 	}
 	
 	function addJail()

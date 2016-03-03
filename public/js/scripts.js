@@ -98,7 +98,10 @@ iface={
 			if(typeof vars['service_id']!='undefined')
 				this.tasks[vars['service_id']]=vars;
 			if(typeof vars['projects_id']!='undefined')
+			{
+				this.tasks['proj_ops']='projDelete';
 				this.tasks[vars['projects_id']]=vars;
+			}
 		},
 		
 		start:function()
@@ -148,7 +151,15 @@ iface={
 				
 			}
 			
-			//if(typeof data[''])
+			if(typeof data['proj_ops']!='undefined')
+			{
+				if(data['proj_ops']=='projDelete')
+				{
+					debugger;
+					alert('script.js:159 — дописать чистку удалённых проектов');
+					return;
+				}
+			}
 			
 			for(key in data)
 			{
