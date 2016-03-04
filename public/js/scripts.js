@@ -1620,7 +1620,8 @@ status: "2"
 	
 	log_write:function(txt)
 	{
-		$('.log').append(txt+'<br />');
+		if($('.log').length)
+			$('.log').append(txt+'<br />');
 	},
 	
 	getImportedFileInfo:function(data)

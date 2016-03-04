@@ -24,7 +24,7 @@
 <body>
 	<div id="overlap"></div><div class="overlap"></div>
 	<div class="main">
-		<div class="body"> <div class="log">log:<br /></div>
+		<div class="body"> <!-- <div class="log">log:<br /></div> -->
 			<h1 id="top-path">&hellip;</h1>
 			<div class="menu" id="top-settings">
 				<a href="" class="icon-help-circled"> Help</a>
