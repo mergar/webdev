@@ -64,6 +64,7 @@
 				<span class="butt" id="play-but"><span class="ico icon-play"></span><span class="txt">RUN</span></span>
 				<span class="butt" id="stop-but"><span class="ico icon-stop"></span><span class="txt">STOP</span></span>
 				<span class="butt" id="del-but"><span class="ico icon-trash"></span><span class="txt">DELETE</span></span>
+				<span class="butt" id="clone-but"><span class="ico icon-docs"></span><span class="txt">CLONE</span></span>
 				<span class="butt" id="exp-but"><span class="ico icon-gift"></span><span class="txt">EXPORT</span></span>
 				<span class="butt" id="move-but"><span class="ico icon-reply-all"></span><span class="txt">MOVE</span></span>
 				<span class="butt" id="snap-but"><span class="ico icon-camera-alt"></span><span class="txt">SNAPSHOT</span></span>
