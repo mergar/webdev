@@ -469,6 +469,8 @@ iface={
 			this.helpersList=data.helpers;
 			this.showHelpersList();
 		}
+		var mng=$('.footer .mng');
+		if(mng.length>0) mng[0].className='mng helpers';
 	},
 	showHelpersList:function()
 	{
