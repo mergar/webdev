@@ -1668,7 +1668,17 @@ status: "2"
 	
 	windowClone:function(event)
 	{
-		alert('hi');
+		var jails=$('.tbl-cnt.jails input[type="checkbox"]:checked');
+		if(jails.length)
+		{
+			var n,nl;
+			for(n=0,nl=jails.length;n<nl;n++)
+			{
+				var jail=$(jails[n]).closest('tr');
+				var id=this.getJailId(jail);
+				var jail_info=this.getJailById(id);
+			}
+		}
 	},
 	
 	
