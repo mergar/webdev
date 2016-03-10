@@ -71,6 +71,7 @@ iface={
 		$('#play-but').bind('click',$.proxy(this.groupOps,this,'jstart'));
 		$('#play-but-2').bind('click',$.proxy(this.jailRunStop,this));
 		$('#stop-but').bind('click',$.proxy(this.groupOps,this,'jstop'));
+		$('#clone-but').bind('click',$.proxy(this.windowClone,this,'jstop'));
 		$('#top-settings a').bind('click',$.proxy(this.topSettingsMenu,this));
 		
 		this.tasks.init(this);
@@ -1664,6 +1665,12 @@ status: "2"
 		
 		this.tasks.start();
 	},
+	
+	windowClone:function(event)
+	{
+		alert('hi');
+	},
+	
 	
 	
 	
