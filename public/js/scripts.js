@@ -1565,13 +1565,31 @@ status: "2"
 				}
 				break;
 			case 'clone':
-				//alert('Джейлы клонировали, клонировали да не выклонировали...');
+				alert('Джейлы клонировали, клонировали да не выклонировали...');
 				//this.tasks.add({'operation':'jclone','jail_id':id});
 				//this.tasks.add({'operation':'jclone','jail_id':id});
 				
 				//this.tasks.start();
 				var fields=$('#window-content form fieldset');
-				alert(fields.length);
+				var n,nl;
+				if(fields.length)
+				{
+					for(n=0,nl=fields.length;n<nl;n++)
+					{
+						var inps=$('input',fields[n]);
+						var m,ml;
+						if(inps.length)
+						{
+							var vs={'operation':'jclone'};
+							for(m=0,ml=inps.length;m<ml;m++)
+							{
+								vs[$(inps[m]).attr('name')]=$(inps[m]).val();
+							}
+							this.tasks.add(vs);
+						}
+					}
+					this.tasks.start();
+				}
 				break;
 		}
 		this.windowClose();
