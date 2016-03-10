@@ -171,6 +171,11 @@ class WebDev
 					echo json_encode($this->editJail());
 					return;break;
 /*
+				case 'jailClone':
+					echo json_encode($this->jailClone());
+					return;break;
+*/
+/*
 				case 'addModule':
 					$this->addModule();
 					return;break;
@@ -253,7 +258,7 @@ class WebDev
 		if(isset($obj['proj_ops'])) return $this->GetProjectTasksStatus($obj);
 		if(isset($obj['mod_ops'])) return $this->GetModulesTasksStatus($obj);
 		
-		$ops_array=array('jcreate','jstart','jstop','jedit','jremove','jexport','jimport','madd','sstart','sstop','projremove');	//,'mremove'
+		$ops_array=array('jcreate','jstart','jstop','jedit','jremove','jexport','jimport','jclone','madd','sstart','sstop','projremove');	//,'mremove'
 		$stat_array=array(
 			'jcreate'=>array('Creating...','Not running'),
 			'jstart'=>array('Starting','Launched'),
@@ -262,6 +267,7 @@ class WebDev
 			'jremove'=>array('Removing','Removed'),
 			'jexport'=>array('Exporting','Exported'),
 			'jimport'=>array('Importing','Imported'),
+			'jclone'=>array('Cloning','Cloned'),
 			'madd'=>array('Installing','Installed'),
 			//'mremove'=>array('Removing','Removed'),
 			'sstart'=>array('Starting','Started'),
@@ -285,6 +291,7 @@ class WebDev
 						case 'jremove':	$res=$this->jailRemove('jail'.$key,$key);break;
 						case 'jexport':	$res=$this->jailExport('jail'.$key,$task['jname'],$key);break;
 						case 'jimport':	$res=$this->jailImport('jail'.$key,$task['jname'],$key);break;
+						case 'jclone':	$res=$this->jailClone('jail'.$key,$task['jname'],$key);break;
 						case 'madd':	$res=$this->moduleAdd('jail'.$key,$task['jname'],$key);break;
 						//case 'mremove':	$res=$this->moduleRemove('jail'.$key,$task['jname'],$key);break;
 						case 'sstart':	$res=$this->serviceStart($task);break;
@@ -1444,6 +1451,23 @@ class WebDev
 		if(empty($jail_sys)) $jail_sys=array();
 		$res=array_merge($jail_iface,$jail_sys);
 		return $res;
+	}
+	function jailClone()
+	{
+		#cbsd jclone old=jail107 new=jail207 host_hostname=jail207.my.domain ip4_addr=10.0.0.52/24
+		/*
+		обязательные: old new host_hostname
+		опциональный: ip4_addr
+
+		но для webdev, думаю, все 4 будут обязательнными.
+
+		old - старый jname
+		new - новый jname
+		host_hostname - FQDN, полный hostname
+		ip4_addr - новый IP адрес. Может быть 'DHCP'
+		*/
+		$form=$this->_vars['form_data'];
+		print_r($form);exit;
 	}
 	
 	function serviceStart($task)
