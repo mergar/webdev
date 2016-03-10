@@ -1668,6 +1668,7 @@ status: "2"
 	
 	windowClone:function(event)
 	{
+		var html='';
 		var jails=$('.tbl-cnt.jails input[type="checkbox"]:checked');
 		if(jails.length)
 		{
@@ -1677,8 +1678,16 @@ status: "2"
 				var jail=$(jails[n]).closest('tr');
 				var id=this.getJailId(jail);
 				var jail_info=this.getJailById(id);
+				html+='<fieldset><legend>clone: '+jail_info['name']+'</legend><input type="hidden" name="oldId" value="'+id+'" /><p><span class="field-name">host_hostname:</span><input type="text" name="host_hostname" value="" /></p><p><span class="field-name">ip4_addr:</span><input type="text" name="ip4_addr" value="" /></p></fieldset>';
 			}
+			if(html!='') $('#clonedForm').html(html);
 		}
+		this.currentPage='clone';
+		this.windowOpen(event);
+		/*
+		$('#windowClone').show();
+		this.resizeWindow();
+		*/
 	},
 	
 	

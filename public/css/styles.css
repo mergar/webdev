@@ -973,3 +973,12 @@ span.small {
 #content span.default:hover {
 	text-decoration:none;
 }
+
+form.win fieldset {
+	border: 1px solid gray;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+form.win legend {
+	padding:0 10px;
+}

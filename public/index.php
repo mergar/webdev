@@ -182,7 +182,7 @@
 		<h2>Import jails in project</h2>
 		<div class="exp-list"></div>
 	</div>
-	<div id="windowClone" class="hide">
+	<div id="clone-settings" class="hide">
 		<h1>Clone settings</h1>
 		<h2>Settings for cloned jails</h2>
 		<div class="scrolled">
