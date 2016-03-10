@@ -291,7 +291,7 @@ class WebDev
 						case 'jremove':	$res=$this->jailRemove('jail'.$key,$key);break;
 						case 'jexport':	$res=$this->jailExport('jail'.$key,$task['jname'],$key);break;
 						case 'jimport':	$res=$this->jailImport('jail'.$key,$task['jname'],$key);break;
-						case 'jclone':	$res=$this->jailClone('jail'.$key,$task['jname'],$key);break;
+						case 'jclone':	$res=$this->jailClone('jail'.$key,$key,$obj);break;
 						case 'madd':	$res=$this->moduleAdd('jail'.$key,$task['jname'],$key);break;
 						//case 'mremove':	$res=$this->moduleRemove('jail'.$key,$task['jname'],$key);break;
 						case 'sstart':	$res=$this->serviceStart($task);break;
@@ -1452,7 +1452,7 @@ class WebDev
 		$res=array_merge($jail_iface,$jail_sys);
 		return $res;
 	}
-	function jailClone()
+	function jailClone($jname,$id,$arr)
 	{
 		#cbsd jclone old=jail107 new=jail207 host_hostname=jail207.my.domain ip4_addr=10.0.0.52/24
 		/*
@@ -1466,8 +1466,7 @@ class WebDev
 		host_hostname - FQDN, полный hostname
 		ip4_addr - новый IP адрес. Может быть 'DHCP'
 		*/
-		$form=$this->_vars['form_data'];
-		print_r($form);exit;
+		print_r($arr);exit;
 	}
 	
 	function serviceStart($task)

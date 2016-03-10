@@ -1583,7 +1583,10 @@ status: "2"
 							var vs={'operation':'jclone'};
 							for(m=0,ml=inps.length;m<ml;m++)
 							{
-								vs[$(inps[m]).attr('name')]=$(inps[m]).val();
+								var name=$(inps[m]).attr('name');
+								var val=$(inps[m]).val();
+								vs[name]=val;
+								if(name=='oldId') vs['jail_id']=val;
 							}
 							this.tasks.add(vs);
 						}
