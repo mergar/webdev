@@ -291,7 +291,7 @@ class WebDev
 						case 'jremove':	$res=$this->jailRemove('jail'.$key,$key);break;
 						case 'jexport':	$res=$this->jailExport('jail'.$key,$task['jname'],$key);break;
 						case 'jimport':	$res=$this->jailImport('jail'.$key,$task['jname'],$key);break;
-						case 'jclone':	$res=$this->jailClone('jail'.$key,$key,$obj);break;
+						case 'jclone':	$res=$this->jailClone('jail'.$key,$key,$obj[$key]);break;
 						case 'madd':	$res=$this->moduleAdd('jail'.$key,$task['jname'],$key);break;
 						//case 'mremove':	$res=$this->moduleRemove('jail'.$key,$task['jname'],$key);break;
 						case 'sstart':	$res=$this->serviceStart($task);break;
@@ -1467,6 +1467,10 @@ class WebDev
 		ip4_addr - новый IP адрес. Может быть 'DHCP'
 		*/
 		print_r($arr);exit;
+		/*
+		$res=$this->cbsd_cmd('task owner=cbsdwebsys mode=new client_id='.$this->jailId.' /usr/local/bin/cbsd service jname=jail'.$this->jailId.' '.$task['service_name'].' onestart');	// autoflush=2
+		return $res;
+		*/
 	}
 	
 	function serviceStart($task)
