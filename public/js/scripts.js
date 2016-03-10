@@ -1565,7 +1565,13 @@ status: "2"
 				}
 				break;
 			case 'clone':
-				alert('Джейлы клонировали, клонировали да не выклонировали...');
+				//alert('Джейлы клонировали, клонировали да не выклонировали...');
+				//this.tasks.add({'operation':'jclone','jail_id':id});
+				//this.tasks.add({'operation':'jclone','jail_id':id});
+				
+				//this.tasks.start();
+				var fields=$('#window-content form fieldset');
+				alert(fields.length);
 				break;
 		}
 		this.windowClose();
