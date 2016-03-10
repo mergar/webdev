@@ -182,6 +182,13 @@
 		<h2>Import jails in project</h2>
 		<div class="exp-list"></div>
 	</div>
+	<div id="windowClone" class="hide">
+		<h1>Clone settings</h1>
+		<h2>Settings for cloned jails</h2>
+		<div class="scrolled">
+			<form class="win" method="post" id="clonedForm"></form>
+		</div>
+	</div>
 <!--
 	<div class="spinner hide" id="spinner1">
 		<div class="spinner-container container1">
