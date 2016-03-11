@@ -1319,9 +1319,10 @@ class WebDev
 			$this->saveJailDescription($res['lastID'],$description);
 			return array('lastID'=>$res['lastID'],'jails'=>$jails,'errorMessage'=>$err,'taskId'=>$taskId);	//,'jail_start'=>$jsres
 		}
-		
+		/*
 		$query="update projects set jails_count=(select count(*) from jails where project_id={$this->projectId}) where id={$this->projectId}";
 		$this->_db->update($query);
+		*/
 		return;
 	}
 	function editJail()
@@ -1454,6 +1455,14 @@ class WebDev
 	}
 	function jailClone($jname,$id,$arr)
 	{
+		/*
+		    [operation] => jclone
+			[jail_id] => 115
+			[host_hostname] => test
+			[ip4_addr] => DHCP
+			[description] => test
+			[status] => -1
+		*/
 		#cbsd jclone old=jail107 new=jail207 host_hostname=jail207.my.domain ip4_addr=10.0.0.52/24
 		/*
 		обязательные: old new host_hostname
@@ -1466,11 +1475,43 @@ class WebDev
 		host_hostname - FQDN, полный hostname
 		ip4_addr - новый IP адрес. Может быть 'DHCP'
 		*/
-		print_r($arr);exit;
-		/*
-		$res=$this->cbsd_cmd('task owner=cbsdwebsys mode=new client_id='.$this->jailId.' /usr/local/bin/cbsd service jname=jail'.$this->jailId.' '.$task['service_name'].' onestart');	// autoflush=2
-		return $res;
-		*/
+		
+		
+		if($arr['jail_id']<1) return;
+		
+		$jid=$arr['jail_id'];
+		$name='cloned jail'.$jid;
+		$hostname=trim($arr['host_hostname']);
+		$ip=trim($arr['ip4_addr']);
+		$description=trim($arr['description']);
+
+		$query="insert into jails (project_id,name,hostname,ip,jprofile,description) values ({$this->projectId},'{$name}','{$hostname}','{$ip}','','{$description}')";
+		$res=$this->_db->insert($query);
+		if($res['error'])
+		{
+			return array('error'=>$res);
+		}else{
+			$newID=$res['lastID'];
+			$this->updateJailsCount();
+			$jails=$this->getJailsList();
+			$jail_name='jail'.$newID;
+			$jres=$this->cbsd_cmd('task owner=cbsdwebsys mode=new client_id='.$jid.' /usr/local/bin/cbsd jclone old=jail'.$jid.' new=jail'.$newID.' host_hostname='.$hostname.' ip4_addr='.$ip);
+			
+			$err='Jail was cloned!';
+			$taskId=-1;
+			if($jres['retval']==0)
+			{
+				$err='Jail is not cloned!';
+				$taskId=$jres['message'];
+			}
+			
+			$this->saveJailDescription($newID,$description);
+			$res['jails']=$jails;
+			$res['errorMessage']=$err;
+			$res['taskId']=$taskId;
+			return $res;
+			//return array('lastID'=>$newID,'jails'=>$jails,'errorMessage'=>$err,'taskId'=>$taskId);
+		}
 	}
 	
 	function serviceStart($task)
