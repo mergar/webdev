@@ -1509,10 +1509,11 @@ class WebDev
 			}
 			
 			$this->saveJailDescription($newID,$description);
-			$res['jails']=$jails;
-			$res['errorMessage']=$err;
-			$res['taskId']=$taskId;
-			return $res;
+			$jres['jails']=$jails;
+			$jres['errorMessage']=$err;
+			$jres['taskId']=$taskId;
+			//$jres['status']=0;
+			return $jres;
 			//return array('lastID'=>$newID,'jails'=>$jails,'errorMessage'=>$err,'taskId'=>$taskId);
 		}
 	}

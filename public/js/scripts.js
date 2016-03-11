@@ -181,6 +181,15 @@ iface={
 					this.context.onTaskEnd(this.tasks[key],key);
 					delete this.tasks[key];
 				}
+				
+				if(data[key].operation=='jclone')
+				{
+					if(typeof data.jails!='undefined')
+					{
+						this.context.jailsList=data.jails;
+						this.context.showJailsList();
+					}
+				}
 			}
 			
 			this.checkTasks=false;
@@ -1565,11 +1574,6 @@ status: "2"
 				}
 				break;
 			case 'clone':
-//				alert('Джейлы клонировали, клонировали да не выклонировали...');
-				//this.tasks.add({'operation':'jclone','jail_id':id});
-				//this.tasks.add({'operation':'jclone','jail_id':id});
-				
-				//this.tasks.start();
 				var fields=$('#window-content form fieldset');
 				var n,nl;
 				if(fields.length)
@@ -1586,7 +1590,6 @@ status: "2"
 								var name=$(inps[m]).attr('name');
 								var val=$(inps[m]).val();
 								vs[name]=val;
-								//if(name=='oldId') vs['jail_id']=val;
 							}
 							this.tasks.add(vs);
 						}
