@@ -1898,6 +1898,15 @@ status: "2"
 				case 'jimport':
 					this.enablePlay(id);
 					break;
+				case 'jclone':
+					var num=this.getJailNumById(id);
+					var status=this.jailsList[num].status;
+					if(status==0)
+						this.enablePlay(id);
+					else
+						this.enableStop(id);
+					//this.playButt2Update();
+					break;
 /*
 				case 'modremove':
 				case 'modinstall':
