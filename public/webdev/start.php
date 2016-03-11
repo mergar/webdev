@@ -328,6 +328,7 @@ class WebDev
 		{
 			$query="select id,status,logfile,errcode from taskd where id in ({$ids})";
 			$statuses=$this->_db_tasks->select($query);
+			//print_r($statuses);
 			if(!empty($obj)) foreach($obj as $key=>$task)
 			{
 				if(!empty($statuses)) foreach($statuses as $stat)
@@ -549,7 +550,7 @@ class WebDev
 		return array('jails'=>$jails,'modules'=>$modules);		
 	}
 	
-	
+/*
 	function getTasksStatus($jsonObj)
 	{
 		$tasks=array();
@@ -667,6 +668,7 @@ class WebDev
 		
 		return $obj;
 	}
+*/
 
 	
 	function getProjectsList()
