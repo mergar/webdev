@@ -1905,7 +1905,6 @@ status: "2"
 						this.enablePlay(id);
 					else
 						this.enableStop(id);
-					//this.playButt2Update();
 					break;
 /*
 				case 'modremove':

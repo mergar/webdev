@@ -360,7 +360,7 @@ class WebDev
 			}
 		}
 		
-		if($op=='jclone' && $status==0)
+		if(isset($res['cloned']) && $res['cloned'])
 		{
 			$obj[-1]['jails']=$this->getJailsList();
 		}
@@ -1517,6 +1517,7 @@ class WebDev
 			//$jres['jails']=$jails;
 			$jres['errorMessage']=$err;
 			$jres['taskId']=$taskId;
+			$jres['cloned']=true;
 			return $jres;
 			//return array('lastID'=>$newID,'jails'=>$jails,'errorMessage'=>$err,'taskId'=>$taskId);
 		}
