@@ -360,6 +360,11 @@ class WebDev
 			}
 		}
 		
+		if($op=='jclone' && $status==0)
+		{
+			$obj['jails']=$this->getJailsList();
+		}
+
 		return $obj;
 	}
 	
@@ -1496,7 +1501,7 @@ class WebDev
 		}else{
 			$newID=$res['lastID'];
 			$this->updateJailsCount();
-			$jails=$this->getJailsList();
+			//$jails=$this->getJailsList();
 			$jail_name='jail'.$newID;
 			$jres=$this->cbsd_cmd('task owner=cbsdwebsys mode=new client_id='.$newID.' /usr/local/bin/cbsd jclone checkstate=0 old=jail'.$jid.' new=jail'.$newID.' host_hostname='.$hostname.' ip4_addr='.$ip);
 			
@@ -1509,10 +1514,9 @@ class WebDev
 			}
 			
 			$this->saveJailDescription($newID,$description);
-			$jres['jails']=$jails;
+			//$jres['jails']=$jails;
 			$jres['errorMessage']=$err;
 			$jres['taskId']=$taskId;
-			//$jres['status']=0;
 			return $jres;
 			//return array('lastID'=>$newID,'jails'=>$jails,'errorMessage'=>$err,'taskId'=>$taskId);
 		}
