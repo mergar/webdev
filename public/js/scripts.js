@@ -165,28 +165,28 @@ iface={
 			
 			for(key in data)
 			{
-				$('tr.id-'+key+' .jstatus').html(data[key].txt_status);
-				var errmsg=$('tr.id-'+key+' .errmsg');
-				if(typeof data[key].errmsg!='undefined')
+				if(key>0)
 				{
-					$(errmsg).html('<span class="label">Error:</span>'+data[key].errmsg);
-					this.tasks[key].errmsg=data[key].errmsg;
-				}
-				this.tasks[key].operation=data[key].operation;
-				this.tasks[key].task_id=data[key].task_id;
-				this.tasks[key].status=data[key].status;
-				
-				if(data[key].status==2)
-				{
-					this.context.onTaskEnd(this.tasks[key],key);
-					delete this.tasks[key];
-				}
-				
-				if(data[key].operation=='jclone')
-				{
-					if(typeof data.jails!='undefined')
+					$('tr.id-'+key+' .jstatus').html(data[key].txt_status);
+					var errmsg=$('tr.id-'+key+' .errmsg');
+					if(typeof data[key].errmsg!='undefined')
 					{
-						this.context.jailsList=data.jails;
+						$(errmsg).html('<span class="label">Error:</span>'+data[key].errmsg);
+						this.tasks[key].errmsg=data[key].errmsg;
+					}
+					this.tasks[key].operation=data[key].operation;
+					this.tasks[key].task_id=data[key].task_id;
+					this.tasks[key].status=data[key].status;
+					
+					if(data[key].status==2)
+					{
+						this.context.onTaskEnd(this.tasks[key],key);
+						delete this.tasks[key];
+					}
+				}else{
+					if(typeof data[-1].jails!='undefined')
+					{
+						this.context.jailsList=data[-1].jails;
 						this.context.showJailsList();
 					}
 				}

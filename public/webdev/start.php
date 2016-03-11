@@ -362,7 +362,7 @@ class WebDev
 		
 		if($op=='jclone' && $status==0)
 		{
-			$obj['jails']=$this->getJailsList();
+			$obj[-1]['jails']=$this->getJailsList();
 		}
 
 		return $obj;
