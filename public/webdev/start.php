@@ -1496,7 +1496,7 @@ class WebDev
 			$this->updateJailsCount();
 			$jails=$this->getJailsList();
 			$jail_name='jail'.$newID;
-			$jres=$this->cbsd_cmd('task owner=cbsdwebsys mode=new client_id='.$jid.' /usr/local/bin/cbsd jclone checkstate=0 old=jail'.$jid.' new=jail'.$newID.' host_hostname='.$hostname.' ip4_addr='.$ip);
+			$jres=$this->cbsd_cmd('task owner=cbsdwebsys mode=new client_id='.$newID.' /usr/local/bin/cbsd jclone checkstate=0 old=jail'.$jid.' new=jail'.$newID.' host_hostname='.$hostname.' ip4_addr='.$ip);
 			
 			$err='Jail was cloned!';
 			$taskId=-1;
