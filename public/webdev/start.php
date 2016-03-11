@@ -1515,8 +1515,8 @@ class WebDev
 			
 			$this->saveJailDescription($newID,$description);
 			//$jres['jails']=$jails;
-			$jres['errorMessage']=$err;
-			$jres['taskId']=$taskId;
+//			$jres['errorMessage']=$err;
+//			$jres['taskId']=$taskId;
 			$jres['cloned']=true;
 			return $jres;
 			//return array('lastID'=>$newID,'jails'=>$jails,'errorMessage'=>$err,'taskId'=>$taskId);

@@ -1900,7 +1900,7 @@ status: "2"
 					break;
 				case 'jclone':
 					var num=this.getJailNumById(id);
-					var status=this.jailsList[num].status;
+					var status=this.jailsList[num].task_status;
 					if(status==0)
 						this.enablePlay(id);
 					else
