@@ -1457,7 +1457,7 @@ class WebDev
 		$res=array_merge($jail_iface,$jail_sys);
 		return $res;
 	}
-	function jailClone($jname,$id,$arr)
+	function jailClone()	//$jname,$id,$arr
 	{
 		$form=$this->_vars['form_data'];
 		print_r($form);exit;

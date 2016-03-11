@@ -1565,11 +1565,8 @@ status: "2"
 				}
 				break;
 			case 'clone':
-				alert('Джейлы клонировали, клонировали да не выклонировали...');
-				//this.tasks.add({'operation':'jclone','jail_id':id});
-				//this.tasks.add({'operation':'jclone','jail_id':id});
-				
-				//this.tasks.start();
+				this.loadData('jailClone',$.proxy(this.onLoadData,this),posts);
+				/*
 				var fields=$('#window-content form fieldset');
 				var n,nl;
 				if(fields.length)
@@ -1593,6 +1590,7 @@ status: "2"
 					}
 					this.tasks.start();
 				}
+				*/
 				break;
 		}
 		this.windowClose();
@@ -1708,7 +1706,8 @@ status: "2"
 				var jail=$(jails[n]).closest('tr');
 				var id=this.getJailId(jail);
 				var jail_info=this.getJailById(id);
-				html+='<fieldset><legend>clone: '+jail_info['name']+'</legend><input type="hidden" name="jail_id" value="'+id+'" /><p><span class="field-name">host_hostname:</span><input type="text" name="host_hostname" value="" /></p><p><span class="field-name">ip4_addr:</span><input type="text" name="ip4_addr" value="DHCP" /></p><p><span class="field-name">description:</span><input type="text" name="description" value="'+jail_info['description']+'" /></p></fieldset>';
+				var v='[j'+id+']';
+				html+='<fieldset><legend>clone: '+jail_info['name']+'</legend><input type="hidden" name="jail_id" value="'+id+'" /><p><span class="field-name">host_hostname:</span><input type="text" name="'+v+'[host]" value="" /></p><p><span class="field-name">ip4_addr:</span><input type="text" name="'+v+'[ip]" value="DHCP" /></p><p><span class="field-name">description:</span><input type="text" name="'+v+'[descr]" value="'+jail_info['description']+'" /></p></fieldset>';
 			}
 		}
 		$('#clonedForm').html(html);
