@@ -1900,11 +1900,14 @@ status: "2"
 					break;
 				case 'jclone':
 					var num=this.getJailNumById(id);
-					var status=this.jailsList[num].task_status;
-					if(status==0)
-						this.enablePlay(id);
-					else
-						this.enableStop(id);
+					if(typeof this.jailsList[num].task_status!='undefined')
+					{
+						var status=this.jailsList[num].task_status;
+						if(status==0)
+							this.enablePlay(id);
+						else
+							this.enableStop(id);
+					}
 					break;
 /*
 				case 'modremove':
