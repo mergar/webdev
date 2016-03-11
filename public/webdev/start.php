@@ -170,9 +170,6 @@ class WebDev
 				case 'editJail':
 					echo json_encode($this->editJail());
 					return;break;
-				case 'jailClone':
-					echo json_encode($this->jailClone());
-					return;break;
 /*
 				case 'jailClone':
 					echo json_encode($this->jailClone());
@@ -1457,10 +1454,8 @@ class WebDev
 		$res=array_merge($jail_iface,$jail_sys);
 		return $res;
 	}
-	function jailClone()	//$jname,$id,$arr
+	function jailClone($jname,$id,$arr)
 	{
-		$form=$this->_vars['form_data'];
-		print_r($form);exit;
 		/*
 		    [operation] => jclone
 			[jail_id] => 115
