@@ -1708,7 +1708,7 @@ status: "2"
 				var jail=$(jails[n]).closest('tr');
 				var id=this.getJailId(jail);
 				var jail_info=this.getJailById(id);
-				html+='<fieldset><legend>clone: '+jail_info['name']+'</legend><input type="hidden" name="jail_id" value="'+id+'" /><p><span class="field-name">host_hostname:</span><input type="text" name="host_hostname" value="" /></p><p><span class="field-name">ip4_addr:</span><input type="text" name="ip4_addr" value="" /></p></fieldset>';
+				html+='<fieldset><legend>clone: '+jail_info['name']+'</legend><input type="hidden" name="jail_id" value="'+id+'" /><p><span class="field-name">host_hostname:</span><input type="text" name="host_hostname" value="" /></p><p><span class="field-name">ip4_addr:</span><input type="text" name="ip4_addr" value="" /></p><p><span class="field-name">description:</span><input type="text" name="description" value="'+jail_info['description']+'" /></p></fieldset>';
 			}
 		}
 		$('#clonedForm').html(html);
