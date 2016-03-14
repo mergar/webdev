@@ -355,6 +355,11 @@ class WebDev
 							$this->moduleRemoveFromDb($stat['errcode'],$task);
 						}
 					*/
+					#	Возвращаем IP клонированному джейлу, если он был присвоен по DHCP
+						if($stat['status']==2 && $task['operation']=='jclone')
+						{
+							$obj['new_ip']=$this->getJailIpOnJcloneEnd($key);
+						}
 					}
 				}
 			}
@@ -1471,20 +1476,6 @@ class WebDev
 			[description] => test
 			[status] => -1
 		*/
-		#cbsd jclone old=jail107 new=jail207 host_hostname=jail207.my.domain ip4_addr=10.0.0.52/24
-		/*
-		обязательные: old new host_hostname
-		опциональный: ip4_addr
-
-		но для webdev, думаю, все 4 будут обязательнными.
-
-		old - старый jname
-		new - новый jname
-		host_hostname - FQDN, полный hostname
-		ip4_addr - новый IP адрес. Может быть 'DHCP'
-		*/
-		
-		
 		if($arr['jail_id']<1) return;
 		
 		$jid=$arr['jail_id'];
@@ -1521,6 +1512,12 @@ class WebDev
 			return $jres;
 			//return array('lastID'=>$newID,'jails'=>$jails,'errorMessage'=>$err,'taskId'=>$taskId);
 		}
+	}
+	function getJailIpOnJcloneEnd($jail_id)
+	{
+		$query="select ip from jails where id={$jail_id}";
+		$res=$this->_db->select($query);
+		return $res['ip'];
 	}
 	
 	function serviceStart($task)

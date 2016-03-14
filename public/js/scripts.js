@@ -1901,13 +1901,18 @@ status: "2"
 					break;
 				case 'jclone':
 					var num=this.getJailNumById(id);
-					if(typeof this.jailsList[num].task_status!='undefined')
+					var j=this.jailsList[num];
+					if(typeof j.task_status!='undefined')
 					{
-						var status=this.jailsList[num].task_status;
+						var status=j.task_status;
 						if(status==0)
 							this.enablePlay(id);
 						else
 							this.enableStop(id);
+					}
+					if(typeof j.new_ip!='undifined')
+					{
+						$('.jails tr.id-'+id+' .jip').html(j.new_ip);
 					}
 					this.currentPage='jails';
 					break;
