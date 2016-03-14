@@ -358,7 +358,7 @@ class WebDev
 					#	Возвращаем IP клонированному джейлу, если он был присвоен по DHCP
 						if($stat['status']==2 && $task['operation']=='jclone')
 						{
-							$obj[$key]['new_ip']=$this->getJailIpOnJcloneEnd($key);
+							//$obj[$key]['new_ip']=$this->getJailIpOnJcloneEnd($key);
 						}
 					}
 				}
@@ -1503,6 +1503,8 @@ class WebDev
 				$err='Jail is not cloned!';
 				$taskId=$jres['message'];
 			}
+			
+			//$jres['jail_id']=$newID;
 			
 			$this->saveJailDescription($newID,$description);
 			//$jres['jails']=$jails;
