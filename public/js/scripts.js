@@ -1514,6 +1514,7 @@ status: "2"
 		$('#overlap').hide();
 		$('#window').hide();
 		$('#window-content').html('');
+		if(this.currentPage=='clone') this.currentPage='jails';
 	},
 	windowOkClick:function()
 	{
@@ -1711,7 +1712,7 @@ status: "2"
 				var jail=$(jails[n]).closest('tr');
 				var id=this.getJailId(jail);
 				var jail_info=this.getJailById(id);
-				html+='<fieldset><legend>clone: '+jail_info['name']+'</legend><input type="hidden" name="jail_id" value="'+id+'" /><p><span class="field-name">host_hostname:</span><input type="text" name="host_hostname" value="" /></p><p><span class="field-name">ip4_addr:</span><input type="text" name="ip4_addr" value="DHCP" /></p><p><span class="field-name">description:</span><input type="text" name="description" value="'+jail_info['description']+'" /></p></fieldset>';
+				html+='<fieldset><legend>clone: '+jail_info['name']+'</legend><input type="hidden" name="jail_id" value="'+id+'" /><input type="hidden" name="description" value="'+jail_info['description']+'" /><p><span class="field-name">jail name:</span><input type="text" name="jail_name" value="'+jail_info['name']+'" /></p><p><span class="field-name">host_hostname:</span><input type="text" name="host_hostname" value="" /></p><p><span class="field-name">ip4_addr:</span><input type="text" name="ip4_addr" value="DHCP" /></p></fieldset>';
 			}
 		}
 		$('#clonedForm').html(html);
@@ -1908,6 +1909,7 @@ status: "2"
 						else
 							this.enableStop(id);
 					}
+					this.currentPage='jails';
 					break;
 /*
 				case 'modremove':

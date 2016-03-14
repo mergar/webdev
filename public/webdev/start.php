@@ -1488,7 +1488,7 @@ class WebDev
 		if($arr['jail_id']<1) return;
 		
 		$jid=$arr['jail_id'];
-		$name='cloned jail'.$jid;
+		$name=trim($arr['jail_name']);	//'cloned jail'.$jid;
 		$hostname=trim($arr['host_hostname']);
 		$ip=trim($arr['ip4_addr']);
 		$description=trim($arr['description']);
