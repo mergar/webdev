@@ -85,7 +85,7 @@
 		<form class="win" method="post">
 			<p>
 				<span class="field-name">Project name:</span>
-				<input type="text" name="name" value="" />
+				<input type="text" name="name" value="" required />
 			</p>
 			<p>
 				<span class="field-name">Description:</span>
@@ -99,15 +99,15 @@
 		<form class="win" method="post">
 			<p>
 				<span class="field-name">Jail name:</span>
-				<input type="text" name="name" value="" />
+				<input type="text" name="name" value="" required />
 			</p>
 			<p>
 				<span class="field-name">Hostname (FQDN):</span>
-				<input type="text" name="hostname" value="" />
+				<input type="text" name="hostname" value="" required />
 			</p>
 			<p>
 				<span class="field-name">IP address:</span>
-				<input type="text" name="ip" value="DHCP" />
+				<input type="text" name="ip" value="DHCP" required />
 			</p>
 			<p>
 				<span class="field-name">Jail profile:</span>
@@ -134,16 +134,16 @@
 		<form class="win" method="post">
 			<p>
 				<span class="field-name">Jail name:</span>
-				<input type="text" name="name" value="" />
+				<input type="text" name="name" value="" required />
 			</p>
 			<p>
 				<span class="field-name">Hostname (FQDN):</span>
-				<input type="text" name="hostname" value="" />
+				<input type="text" name="hostname" value="" required />
 				<small class="astart-warn">— available on disabled jail</small>
 			</p>
 			<p>
 				<span class="field-name">IP address:</span>
-				<input type="text" name="ip" value="" />
+				<input type="text" name="ip" value="" required />
 			</p>
 			<p>
 				<span class="field-name">Description:</span>
@@ -161,7 +161,7 @@
 		<form class="win" method="post">
 			<p>
 				<span class="field-name">User login:</span>
-				<input type="text" name="login" value="" />
+				<input type="text" name="login" value="" required />
 			</p>
 			<p>
 				<span class="field-name">Full name:</span>
