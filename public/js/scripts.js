@@ -1534,7 +1534,6 @@ status: "2"
 				return;
 			}else{
 				inp.setCustomValidity('');
-				$(inp).attr('x-moz-errormessage','');
 				inp.checkValidity();
 			}
 		}
