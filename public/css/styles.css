@@ -987,10 +987,7 @@ form.win input[type="text"]:required {
 	border:1px solid #d7a0a0;
 }
 /*
-form.win input:focus:invalid {
-	box-shadow:  0 0 5px red
+form.win input:required:valid {
+	box-shadow:0 0 5px green;
 }
 */
-form.win input:required:valid {
-	box-shadow:0 0 5px green
-}
