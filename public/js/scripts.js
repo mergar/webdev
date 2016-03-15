@@ -1706,6 +1706,7 @@ status: "2"
 		var jails=$('.tbl-cnt.jails input[type="checkbox"]:checked');
 		if(jails.length)
 		{
+			html='';
 			var n,nl;
 			for(n=0,nl=jails.length;n<nl;n++)
 			{
