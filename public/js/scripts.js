@@ -1519,8 +1519,18 @@ status: "2"
 	windowOkClick:function()
 	{
 		// check required fields
-		debugger;
-		var frm=$('#window-content form');
+		var inps=$('#window-content form input[required]');
+		var n,nl;
+		for(n=0,nl=inps.length;n<nl;n++)
+		{
+			var inp=inps[n];
+			if($(inp).val()=='')
+			{
+				$(inp).setCustomValidity("This field cannot be left blank");
+				$('#window-content form').submit();
+				return;
+			}
+		}
 		return;
 		// read settings from window!
 		var posts=$('#window-content form').serializeArray();
