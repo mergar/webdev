@@ -984,5 +984,5 @@ form.win legend {
 }
 form.win input[type="text"]:required {
 	background-color:#fef7f7;
-	border:1px solid #ff9696;
+	border:1px solid #d7a0a0;
 }

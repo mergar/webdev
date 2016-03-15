@@ -1518,6 +1518,10 @@ status: "2"
 	},
 	windowOkClick:function()
 	{
+		// check required fields
+		debugger;
+		var frm=$('#window-content form');
+		return;
 		// read settings from window!
 		var posts=$('#window-content form').serializeArray();
 		switch(this.currentPage)
