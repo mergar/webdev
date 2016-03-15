@@ -983,5 +983,6 @@ form.win legend {
 	padding:0 10px;
 }
 form.win input[type="text"]:required {
-	
+	background-color:#fef7f7;
+	border:1px solid #ff9696;
 }
