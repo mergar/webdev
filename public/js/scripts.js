@@ -1526,16 +1526,19 @@ status: "2"
 			var inp=inps[n];
 			if($(inp).val()=='')
 			{
-				inp.setCustomValidity("This field cannot be left blank");
+				var msg="This field cannot be left blank";
+				inp.setCustomValidity(msg);
+				$(inp).attr('x-moz-errormessage',msg);
 				inp.checkValidity();
-				//$('#window-content form').submit();
+				inp.reportValidity();
 				return;
 			}else{
 				inp.setCustomValidity('');
+				$(inp).attr('x-moz-errormessage','');
 				inp.checkValidity();
 			}
 		}
-		return;
+		
 		// read settings from window!
 		var posts=$('#window-content form').serializeArray();
 		switch(this.currentPage)
