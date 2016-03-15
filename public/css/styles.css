@@ -982,3 +982,11 @@ form.win fieldset {
 form.win legend {
 	padding:0 10px;
 }
+form.win input[type="text"]:required:before {
+	content:'*';
+	position:absolute;
+	margin-left:-20px;
+	height:inherit;
+	vertical-align:middle;
+	color:red;
+}
