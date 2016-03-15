@@ -1530,7 +1530,6 @@ status: "2"
 				inp.setCustomValidity(msg);
 				$(inp).attr('x-moz-errormessage',msg);
 				inp.checkValidity();
-				inp.reportValidity();
 				return;
 			}else{
 				inp.setCustomValidity('');
