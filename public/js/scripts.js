@@ -1528,8 +1528,11 @@ status: "2"
 			{
 				inp.setCustomValidity("This field cannot be left blank");
 				inp.checkValidity();
-				$('#window-content form').submit();
+				//$('#window-content form').submit();
 				return;
+			}else{
+				inp.setCustomValidity('');
+				inp.checkValidity();
 			}
 		}
 		return;
