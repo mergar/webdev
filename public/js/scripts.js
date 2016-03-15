@@ -1526,7 +1526,8 @@ status: "2"
 			var inp=inps[n];
 			if($(inp).val()=='')
 			{
-				$(inp).setCustomValidity("This field cannot be left blank");
+				inp.setCustomValidity("This field cannot be left blank");
+				inp.checkValidity();
 				$('#window-content form').submit();
 				return;
 			}
