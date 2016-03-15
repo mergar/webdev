@@ -139,7 +139,7 @@
 			<p>
 				<span class="field-name">Hostname (FQDN):</span>
 				<input type="text" name="hostname" value="" required />
-				<small class="astart-warn">— available on disabled jail</small>
+				<small class="astart-warn">— available on the jail is not running</small>
 			</p>
 			<p>
 				<span class="field-name">IP address:</span>
