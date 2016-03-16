@@ -9,6 +9,7 @@ $lang=array(
 	'Users'=>'Пользователи',
 	'Task log'=>'Лог задач',
 	'Snapshots'=>'Снимки',
+	'Module'=>'Модуль',
 	'Projects list'=>'Список проектов',
 	'Jails'=>'Клетки',
 	'run jail'=>'запустить',
@@ -83,4 +84,8 @@ $lang=array(
 	'Time'=>'Время',
 	'Settings'=>'Настройки',
 	'Loading form'=>'Загружаемая форма',
+	
+	'are not installed'=>'не установлен',
+	'You need to'=>'Вам необходимо',
+	'install the module'=>'установить модуль',
 );

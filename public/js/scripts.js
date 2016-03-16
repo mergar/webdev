@@ -421,7 +421,7 @@ iface={
 	openModule:function()
 	{
 		this.navBackShow();
-		$('#top-path').html('module settings');
+		$('#top-path').html(this.translate('module properties'));
 		this.loadData('getModuleSettings',$.proxy(this.fillModuleSettings,this));
 		this.fillModulesToLeftMenu();
 	},
