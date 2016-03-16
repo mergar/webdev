@@ -312,17 +312,18 @@ table tr.sel {
 }
 .footer .butt {
 	display:inline-block;
-	width:60px;
+	min-width:46px;
 	height:66px;
 	text-align:center;
 	font-size:70%;
 	font-weight:bold;
-	margin:0;
+	margin:0 4px;
 	/*background-image:url(/images/iface/mng-pictos.png);
 	background-repeat:none;*/
 	opacity:.3;
 	cursor:pointer;
 	/*background-color:black;*/
+	text-transform:uppercase;
 }
 .footer .butt .ico {
 	display:block;
