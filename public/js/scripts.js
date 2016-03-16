@@ -241,7 +241,7 @@ iface={
 		}catch(e){alert(e.message);return;}
 		if(data.projects.length<1)
 		{
-			var table='<table class="tbl-cnt projects"><thead><tr><th>Projects list</th></tr></thead><tbody><tr><td>No data, add something!</td></tr></tbody></table>';
+			var table='<table class="tbl-cnt projects"><thead><tr><th>Projects list</th></tr></thead><tbody><tr><td>'+this.translate('No data, add something')+'!</td></tr></tbody></table>';
 			$('#content').html(table);
 		}else{
 			this.projectsList=data.projects;
@@ -250,10 +250,10 @@ iface={
 	},
 	showProjectsList:function()
 	{
-		$('#left-menu-caption').html('PROJECTS');
+		$('#left-menu-caption').html(this.translate('PROJECTS'));
 		if(this.currentPage=='project') $('#left-menu').html('');
 		
-		$('#top-path').html('projects list');
+		$('#top-path').html(this.translate('projects list'));
 		this.navBackHide();
 		
 		//var headers={'name':'Name','servers_count':'Servers','jails_count':'Jails','modules_count':'Modules','size':'Size'};
@@ -311,17 +311,17 @@ iface={
 			list+='<li'+current+'><a href="#prj-'+this.project+'/jail-'+jail['id']+'" class="box"><span class="status '+status+' jail'+jail['id']+'" title="'+status_txt+'"></span><span class="box-ico"></span>'+jail['name']+'</a></li>';
 		}
 		$('#left-menu').html(list);
-		$('#left-menu-caption').html('JAILS');
+		$('#left-menu-caption').html(this.translate('JAILS'));
 	},
 	fillJailsList:function(data)
 	{
-		$('#top-path').html('jails list');
+		$('#top-path').html(this.translate('jails list'));
 		try{
 			var data=$.parseJSON(data);
 		}catch(e){alert(e.message);return;}
 		if(data.jails.length<1)
 		{
-			var table='<table class="tbl-cnt jails"><thead><tr><th>Jails list</th></tr></thead><tbody><tr><td>No data, add something!</td></tr></tbody></table>';
+			var table='<table class="tbl-cnt jails"><thead><tr><th>Jails list</th></tr></thead><tbody><tr><td>'+this.translate('No data, add something')+'!</td></tr></tbody></table>';
 			$('#content').html(table);
 		}else{
 			this.jailsList=data.jails;
@@ -357,7 +357,7 @@ iface={
 	openJail:function()
 	{
 		this.navBackShow();
-		$('#top-path').html('modules list');
+		$('#top-path').html(this.translate('modules list'));
 		this.loadData('getModulesList',$.proxy(this.fillModulesList,this));
 	},
 	
@@ -372,7 +372,7 @@ iface={
 			list+='<li'+current+'><a href="#prj-'+this.project+'/jail-'+this.jail+'/module-'+module['id']+'" class="box"><span class="box-ico"></span>'+module['name']+'</a></li>';
 		}
 		$('#left-menu').html(list);
-		$('#left-menu-caption').html('MODULES');
+		$('#left-menu-caption').html(this.translate('MODULES'));
 		$('#module-info').show();
 	},
 	fillModulesList:function(data)
@@ -387,7 +387,7 @@ iface={
 		}
 		if(data.modules.length<1 || data.modules===false)
 		{
-			var table='<table class="tbl-cnt modules"><thead><tr><th>Modules list</th></tr></thead><tbody><tr><td>No data, add something!</td></tr></tbody></table>';
+			var table='<table class="tbl-cnt modules"><thead><tr><th>Modules list</th></tr></thead><tbody><tr><td>'+this.translate('No data, add something')+'!</td></tr></tbody></table>';
 			$('#content').html(table);
 		}else{
 			this.modulesList=data.modules;
@@ -443,7 +443,7 @@ iface={
 	openHelper:function()
 	{
 		this.navBackShow();
-		$('#top-path').html('helper settings: '+this.helper);
+		$('#top-path').html(this.translate('helper settings')+': '+this.helper);
 		this.loadData('getHelper',$.proxy(this.openHelperForm,this));
 	},
 	openHelperForm:function(_data)
