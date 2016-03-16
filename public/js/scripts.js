@@ -20,6 +20,17 @@ iface={
 	servicesList:[],
 	usersList:[],
 	
+	main:function()
+	{
+		if (typeof this.lang == 'undefined')
+		{
+			$.getJSON('/js/lang/ru.js',function(data){
+				debugger;
+				this.lang=data;
+			});
+		}
+	},
+	
 	resize:function()
 	{
 	this.log_write('onresize');
@@ -2119,4 +2130,4 @@ status: "2"
 
 $(window).bind('resize',function(){iface.resize();});
 $(document).ready(function(){iface.hashCheck();iface.addEvents();});
-$(window).load(function(){iface.resize();});
+$(window).load(function(){iface.main();iface.resize();});
