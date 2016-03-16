@@ -388,7 +388,7 @@ iface={
 		}
 		if(data.modules.length<1 || data.modules===false)
 		{
-			var table='<table class="tbl-cnt modules"><thead><tr><th>Modules list</th></tr></thead><tbody><tr><td>'+this.translate('No data, add something')+'!</td></tr></tbody></table>';
+			var table='<table class="tbl-cnt modules"><thead><tr><th>'+this.translate('Modules')+'</th></tr></thead><tbody><tr><td>'+this.translate('No data, add something')+'!</td></tr></tbody></table>';
 			$('#content').html(table);
 		}else{
 			this.modulesList=data.modules;
