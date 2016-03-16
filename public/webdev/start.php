@@ -2062,3 +2062,8 @@ Array
             [packagename] => php55-wddx
         )
 */
+
+function translate($phrase)
+{
+	require_once('');
+}
