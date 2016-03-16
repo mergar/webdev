@@ -41,5 +41,14 @@
 	"Not running": "Не запущено",
 	"Exported jails": "Экспортированные клетки",
 	"Download": "Скачать",
+	"You want to delete some projects with all jails and modules! Are you sure?": "Вы уверены, что хотите удалить некоторые проекты с клетками и модулями?",
+	"You want to delete some modules! Are you sure?": "Вы уверены, что хотите удалить некоторые модули?",
+	"You want to delete some jails! Are you sure?": "Вы уверены, что хотите удалить некоторые клетки?",
+	"Jail is created": "Клетка создана",
+	"Jail already launched": "Клетка уже запущена",
+	"Jail already stopped": "Клетка уже остановлена",
+	"Export not available on launched jail": "Экспорт невозможен на запущенной клетке",
+	"This field cannot be left blank": "Это поле должно быть заполнено",
+	"You need to select one or more jails for clone": "Вам необходимо выбрать одну или несколько клеток для клонирования",
 	"end":"конец"
 }

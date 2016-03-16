@@ -28,13 +28,13 @@
 		<div class="body"> <!-- <div class="log">log:<br /></div> -->
 			<h1 id="top-path">&hellip;</h1>
 			<div class="menu" id="top-settings">
-				<a href="" class="icon-help-circled"> <?php translate('Help');?></a>
+				<a href="" class="icon-help-circled cmd:help"> <?php translate('Help');?></a>
 			<!--
 				<a href="#">Settings</a>
 				<a href="#">Users</a>
 				<a href="#">User groups</a>
 			-->
-				<a href="" class="icon-gift" style="display:none;"> <?php translate('Import');?></a>
+				<a href="" class="icon-gift cmd:import" style="display:none;"> <?php translate('Import');?></a>
 				<a href="" class="icon-cubes" id="modules-menu" style="display:none;"> <?php translate('Modules');?></a>
 				<a href="" class="icon-cubes" id="helpers-menu" style="display:none;"> <?php translate('Helpers');?></a>
 				<a href="" class="icon-cog" id="services-menu" style="display:none;"> <?php translate('Services');?></a>

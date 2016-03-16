@@ -1086,7 +1086,7 @@ status: "2"
 		this.settWinOpen(form_id);
 		
 	},
-	//this.translate('')
+	
 	selItem:function(tr)
 	{
 		if($(tr).hasClass('sel')) return;
@@ -1105,6 +1105,8 @@ status: "2"
 	topSettingsMenu:function(event)
 	{
 		var target=event.target;
+		var res=target.className.match(/(cmd:[^ ]+)/);
+		debugger;
 		var op=target.innerHTML.trim();
 		var hash=target.hash;
 		if(hash!='') return true;
@@ -1118,9 +1120,6 @@ status: "2"
 				break;
 			case 'Snapshots':
 				alert('show shapshots...');
-				break;
-			case 'Task log':
-				//this.openTaskLog();
 				break;
 		}
 		return false;
@@ -1327,7 +1326,7 @@ status: "2"
 	{
 		if(this.currentPage=='modules')
 		{
-			var c=confirm('You want to delete some modules! Are you sure?');
+			var c=confirm(this.translate('You want to delete some modules! Are you sure?'));
 			if(!c) return;
 			var jails=$('.tbl-cnt.modules input[type="checkbox"]:checked');
 			for(n=0,nl=jails.length;n<nl;n++)
@@ -1340,7 +1339,7 @@ status: "2"
 		}
 		if(this.currentPage=='jails')
 		{
-			var c=confirm('You want to delete some jails! Are you sure?');
+			var c=confirm(this.translate('You want to delete some jails! Are you sure?'));
 			if(!c) return;
 			var jails=$('.tbl-cnt.jails input[type="checkbox"]:checked');
 			for(n=0,nl=jails.length;n<nl;n++)
@@ -1402,13 +1401,13 @@ status: "2"
 	groupOps:function(op,event)
 	{
 		var msgs={
-			'jcreate':'Jail is created!',
-			'jstart':'Jail already launched!',
-			'jstop':'Jail already stopped!',
-			'jexport':'Export not available on launched jail!',
+			'jcreate':this.translate('Jail is created!')+'!',
+			'jstart':this.translate('Jail already launched')+'!',
+			'jstop':this.translate('Jail already stopped')+'!',
+			'jexport':this.translate('Export not available on launched jail')+'!',
 		}
 		var confirms={
-			'jremove':'You want to delete some jails! Are you sure?',
+			'jremove':this.translate('You want to delete some jails! Are you sure?'),
 		}
 		var list_type='jails';
 		var item_type='jail';
@@ -1461,7 +1460,7 @@ status: "2"
 	
 	projectsOps:function(op,event)
 	{
-		var c=confirm('You want to delete some projects with all jails and modules! Are you sure?');
+		var c=confirm(this.translate('You want to delete some projects with all jails and modules! Are you sure?'));
 		if(!c) return;
 		
 		var projects=$('.tbl-cnt.projects input[type="checkbox"]:checked');
@@ -1484,7 +1483,7 @@ status: "2"
 		item_type='module';
 		if(op=='modremove')
 		{
-			var c=confirm('You want to delete some modules! Are you sure?');
+			var c=confirm(this.translate('You want to delete some modules! Are you sure?'));
 			if(!c) return;
 		}
 		
@@ -1545,7 +1544,7 @@ status: "2"
 			var inp=inps[n];
 			if($(inp).val()=='')
 			{
-				var msg="This field cannot be left blank";
+				var msg=this.translate('This field cannot be left blank');
 				inp.setCustomValidity(msg);
 				$(inp).attr('x-moz-errormessage',msg);
 				inp.checkValidity();
@@ -1740,7 +1739,7 @@ status: "2"
 	
 	windowClone:function(event)
 	{
-		var html='<p>You need to select one or more jails for clone</p>';
+		var html='<p>'+this.translate('You need to select one or more jails for clone')+'</p>';
 		var jails=$('.tbl-cnt.jails input[type="checkbox"]:checked');
 		if(jails.length)
 		{
@@ -1891,7 +1890,7 @@ status: "2"
 	writeErrorMessageByJailId:function(id,msg)
 	{
 		var errmsg=$('tr.id-'+id+' .errmsg');
-		$(errmsg).html('<span class="label">Error:</span>'+msg);
+		$(errmsg).html('<span class="label">'+this.translate('Error')+':</span>'+msg);
 	},
 	clearErrorMessageByJailId:function(id)
 	{
