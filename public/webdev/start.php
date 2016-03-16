@@ -2069,7 +2069,7 @@ function translate($phrase)
 	require_once($rp.'/webdev/lang/ru.php');
 	
 	if(isset($lang[$phrase]))
-		return $lang[$phrase];
+		echo $lang[$phrase];
 	else
-		return $phrase;
+		echo $phrase;
 }

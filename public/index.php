@@ -1,3 +1,4 @@
+<?php include_once(realpath('').'/webdev/start.php');?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,19 +28,19 @@
 		<div class="body"> <!-- <div class="log">log:<br /></div> -->
 			<h1 id="top-path">&hellip;</h1>
 			<div class="menu" id="top-settings">
-				<a href="" class="icon-help-circled"> Help</a>
+				<a href="" class="icon-help-circled"> <?php translate('Help');?></a>
 			<!--
 				<a href="#">Settings</a>
 				<a href="#">Users</a>
 				<a href="#">User groups</a>
 			-->
-				<a href="" class="icon-gift" style="display:none;"> Import</a>
-				<a href="" class="icon-cubes" id="modules-menu" style="display:none;"> Modules</a>
-				<a href="" class="icon-cubes" id="helpers-menu" style="display:none;"> Helpers</a>
-				<a href="" class="icon-cog" id="services-menu" style="display:none;"> Services</a>
-				<a href="" class="icon-users" id="users-menu" style="display:none;"> Users</a>
-				<a href="" class="icon-pencil-squared" id="log-menu"> Task log</a>
-			<!--	<a href="" class="icon-camera-alt"> Snapshots</a> -->
+				<a href="" class="icon-gift" style="display:none;"> <?php translate('Import');?></a>
+				<a href="" class="icon-cubes" id="modules-menu" style="display:none;"> <?php translate('Modules');?></a>
+				<a href="" class="icon-cubes" id="helpers-menu" style="display:none;"> <?php translate('Helpers');?></a>
+				<a href="" class="icon-cog" id="services-menu" style="display:none;"> <?php translate('Services');?></a>
+				<a href="" class="icon-users" id="users-menu" style="display:none;"> <?php translate('Users');?></a>
+				<a href="" class="icon-pencil-squared" id="log-menu"> <?php translate('Task log');?></a>
+			<!--	<a href="" class="icon-camera-alt"> <?php translate('Snapshots');?></a> -->
 			</div>
 			<div id="content"></div>
 			
@@ -47,9 +48,9 @@
 		
 		<div class="left-menu">
 			<div class="nav-back-box">
-				<a id="nav-back" href="#" class="invisible"><strong><span class="circle">‹</span> <span class="nav-text">Projects list</span></strong></a>
+				<a id="nav-back" href="#" class="invisible"><strong><span class="circle">‹</span> <span class="nav-text"><?php translate('Projects list');?></span></strong></a>
 			</div>
-			<div class="head" id="left-menu-caption">JAILS</div>
+			<div class="head" id="left-menu-caption"><?php translate('Jails');?></div>
 			<ul id="left-menu"></ul>
 		</div>
 		
