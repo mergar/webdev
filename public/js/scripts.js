@@ -24,8 +24,7 @@ iface={
 	{
 		if (typeof this.lang == 'undefined')
 		{
-			$.getJSON('/js/lang/ru.js',function(data){
-				debugger;
+			$.getJSON('/js/lang/ru.json',function(data){
 				this.lang=data;
 			});
 		}
