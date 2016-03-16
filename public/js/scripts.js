@@ -1375,11 +1375,11 @@ status: "2"
 			var status=jail.status;
 			if(status==0)
 			{
-				this.playButt2Status('icon-play','RUN JAIL');
+				this.playButt2Status('icon-play',this.translate('run jail'));
 				var status='off';
 				var status_txt='Jail is not launched';
 			}else{
-				this.playButt2Status('icon-stop','STOP JAIL');
+				this.playButt2Status('icon-stop',this.translate('stop jail'));
 				var status='on';
 				var status_txt='Jail is launched';
 			}
