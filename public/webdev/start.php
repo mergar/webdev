@@ -341,7 +341,7 @@ class WebDev
 						if($stat['errcode']>0)
 						{
 							$obj[$key]['errmsg']=file_get_contents($stat['logfile']);
-							$obj[$key]['txt_status']='Error';
+							$obj[$key]['txt_status']=get_translate('Error');
 						}
 					#	Удаляем джейл
 						if($stat['status']==2 && $task['operation']=='jremove')
@@ -1108,7 +1108,7 @@ class WebDev
 	}
 	function getModuleSettings()
 	{
-		$html='Module info is unavailable&hellip;';
+		$html=get_translate('Module info is unavailable').'&hellip;';
 		$module_id=$this->_vars['module'];
 		$db=new Db('pkg','jail'.$this->jailId);
 		if(!$db->error)
@@ -1118,12 +1118,12 @@ class WebDev
 			$html='<h1>'.$res['name'].'</h1>';
 			$html.='<h2>'.$res['origin'].'</h2>';
 			$html.='<dl>';
-			$html.='<dt>Version:</dt><dd>'.$res['version'].'</dd>';
-			$html.='<dt>Comment:</dt><dd>'.$res['comment'].'</dd>';
-			$html.='<dt>Description:</dt><dd>'.$res['desc'].'</dd>';
-			$html.='<dt>Link:</dt><dd><a href="'.$res['www'].'">'.$res['www'].'</a></dd>';
-			$html.='<dt>Size:</dt><dd>'.$this->fileSizeConvert($res['flatsize']).'</dd>';
-			$html.='<dt>Time:</dt><dd>'.date('d.m.Y H:i',$res['time']).'</dd>';
+			$html.='<dt>'.get_translate('Version').':</dt><dd>'.$res['version'].'</dd>';
+			$html.='<dt>'.get_translate('Comment').':</dt><dd>'.$res['comment'].'</dd>';
+			$html.='<dt>'.get_translate('Description').':</dt><dd>'.$res['desc'].'</dd>';
+			$html.='<dt>'.get_translate('Link').':</dt><dd><a href="'.$res['www'].'">'.$res['www'].'</a></dd>';
+			$html.='<dt>'.get_translate('Size').':</dt><dd>'.$this->fileSizeConvert($res['flatsize']).'</dd>';
+			$html.='<dt>'.get_translate('Time').':</dt><dd>'.date('d.m.Y H:i',$res['time']).'</dd>';
 			$html.='</dl>';
 		}
 		return $html;

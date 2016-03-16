@@ -322,7 +322,7 @@ iface={
 		}catch(e){alert(e.message);return;}
 		if(data.jails.length<1)
 		{
-			var table='<table class="tbl-cnt jails"><thead><tr><th>Jails list</th></tr></thead><tbody><tr><td>'+this.translate('No data, add something')+'!</td></tr></tbody></table>';
+			var table='<table class="tbl-cnt jails"><thead><tr><th>'+this.translate('Jails')+'</th></tr></thead><tbody><tr><td>'+this.translate('No data, add something')+'!</td></tr></tbody></table>';
 			$('#content').html(table);
 		}else{
 			this.jailsList=data.jails;
