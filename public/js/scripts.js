@@ -191,7 +191,7 @@ iface={
 					var errmsg=$('tr.id-'+key+' .errmsg');
 					if(typeof data[key].errmsg!='undefined')
 					{
-						$(errmsg).html('<span class="label">'+this.translate('Error')+':</span>'+data[key].errmsg);
+						$(errmsg).html('<span class="label">Error:</span>'+data[key].errmsg);	//'+this.translate('Error')+'
 						this.tasks[key].errmsg=data[key].errmsg;
 					}
 					this.tasks[key].operation=data[key].operation;

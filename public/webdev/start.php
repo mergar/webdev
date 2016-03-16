@@ -260,18 +260,18 @@ class WebDev
 		
 		$ops_array=array('jcreate','jstart','jstop','jedit','jremove','jexport','jimport','jclone','madd','sstart','sstop','projremove');	//,'mremove'
 		$stat_array=array(
-			'jcreate'=>array('Creating...',get_translate('Not running')),
-			'jstart'=>array('Starting',get_translate('Launched')),
-			'jstop'=>array('Stopping','Stopped'),
-			'jedit'=>array('Saving','Saved'),
-			'jremove'=>array('Removing','Removed'),
-			'jexport'=>array('Exporting','Exported'),
-			'jimport'=>array('Importing','Imported'),
-			'jclone'=>array('Cloning','Cloned'),
-			'madd'=>array('Installing','Installed'),
+			'jcreate'=>array(get_translate('Creating'),get_translate('Not running')),
+			'jstart'=>array(get_translate('Starting'),get_translate('Launched')),
+			'jstop'=>array(get_translate('Stopping'),get_translate('Stopped')),
+			'jedit'=>array(get_translate('Saving'),get_translate('Saved')),
+			'jremove'=>array(get_translate('Removing'),get_translate('Removed')),
+			'jexport'=>array(get_translate('Exporting'),get_translate('Exported')),
+			'jimport'=>array(get_translate('Importing'),get_translate('Imported')),
+			'jclone'=>array(get_translate('Cloning'),get_translate('Cloned')),
+			'madd'=>array(get_translate('Installing'),get_translate('Installed')),
 			//'mremove'=>array('Removing','Removed'),
-			'sstart'=>array('Starting','Started'),
-			'sstop'=>array('Stopping','Stopped'),
+			'sstart'=>array(get_translate('Starting'),get_translate('Started')),
+			'sstop'=>array(get_translate('Stopping'),get_translate('Stopped')),
 			//'projremove'=>array('Removing','Removed'),
 		);
 		if(!empty($obj)) foreach($obj as $key=>$task)
@@ -396,8 +396,8 @@ class WebDev
 			)
 */
 		$stat_array=array(
-			'modremove'=>array('Removing','Removed'),
-			'modinstall'=>array('Installing','Installed'),
+			'modremove'=>array(get_translate('Removing'),get_translate('Removed')),
+			'modinstall'=>array(get_translate('Installing'),get_translate('Installed')),
 		);
 		if(isset($obj['mod_ops']))
 		{
