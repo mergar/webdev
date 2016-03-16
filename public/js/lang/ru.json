@@ -50,5 +50,7 @@
 	"Export not available on launched jail": "Экспорт невозможен на запущенной клетке",
 	"This field cannot be left blank": "Это поле должно быть заполнено",
 	"You need to select one or more jails for clone": "Вам необходимо выбрать одну или несколько клеток для клонирования",
+	"Not running": "Не запущено",
+	"Launched": "Запущено",
 	"end":"конец"
 }

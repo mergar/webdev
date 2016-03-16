@@ -260,8 +260,8 @@ class WebDev
 		
 		$ops_array=array('jcreate','jstart','jstop','jedit','jremove','jexport','jimport','jclone','madd','sstart','sstop','projremove');	//,'mremove'
 		$stat_array=array(
-			'jcreate'=>array('Creating...',translate('Not running')),
-			'jstart'=>array('Starting',translate('Launched')),
+			'jcreate'=>array('Creating...',get_translate('Not running')),
+			'jstart'=>array('Starting',get_translate('Launched')),
 			'jstop'=>array('Stopping','Stopped'),
 			'jedit'=>array('Saving','Saved'),
 			'jremove'=>array('Removing','Removed'),
@@ -2072,4 +2072,14 @@ function translate($phrase)
 		echo $lang[$phrase];
 	else
 		echo $phrase;
+}
+function get_translate($phrase)
+{
+	global $rp;
+	require($rp.'/webdev/lang/ru.php');
+	
+	if(isset($lang[$phrase]))
+		return $lang[$phrase];
+	else
+		return $phrase;
 }

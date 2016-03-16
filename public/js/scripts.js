@@ -26,7 +26,7 @@ iface={
 		{
 			$.getJSON('/js/lang/ru.json',function(data){
 				iface.lang=data;
-				iface.statuses={0:this.translate('Not running'),1:this.translate('Launched')};
+				iface.statuses={0:iface.translate('Not running'),1:iface.translate('Launched')};
 			});
 		}
 	},
