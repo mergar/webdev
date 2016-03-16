@@ -12,7 +12,7 @@ iface={
 	selectedProjects:{},
 	selectedJails:{},
 	selectedModules:{},
-	statuses:{0:'Not running',1:'Launched',2:'...',3:'...',4:'..'},
+	statuses:{0:'Not running',1:'Launched'},
 	//tasks:{},
 	//interval:null,
 	//checkTasks:false,
@@ -26,6 +26,7 @@ iface={
 		{
 			$.getJSON('/js/lang/ru.json',function(data){
 				iface.lang=data;
+				iface.statuses={0:this.translate('Not running'),1:this.translate('Launched')};
 			});
 		}
 	},
@@ -1106,21 +1107,23 @@ status: "2"
 	{
 		var target=event.target;
 		var res=target.className.match(/(cmd:[^ ]+)/);
-		debugger;
-		var op=target.innerHTML.trim();
+		if(res==null) return;
+		var op=res[0];
 		var hash=target.hash;
 		if(hash!='') return true;
 		switch(op)
 		{
-			case 'Help':
+			case 'cmd:help':
 				alert('show help about exports, shapshots, etc...');
 				break;
-			case 'Import':
+			case 'cmd:import':
 				this.showExportedFiles();
 				break;
+/*
 			case 'Snapshots':
 				alert('show shapshots...');
 				break;
+*/
 		}
 		return false;
 	},
@@ -2134,7 +2137,7 @@ status: "2"
 }
 
 
-
+iface.main();
 $(window).bind('resize',function(){iface.resize();});
 $(document).ready(function(){iface.hashCheck();iface.addEvents();});
-$(window).load(function(){iface.main();iface.resize();});
+$(window).load(function(){iface.resize();});

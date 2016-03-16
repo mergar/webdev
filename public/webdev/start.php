@@ -260,8 +260,8 @@ class WebDev
 		
 		$ops_array=array('jcreate','jstart','jstop','jedit','jremove','jexport','jimport','jclone','madd','sstart','sstop','projremove');	//,'mremove'
 		$stat_array=array(
-			'jcreate'=>array('Creating...','Not running'),
-			'jstart'=>array('Starting','Launched'),
+			'jcreate'=>array('Creating...',translate('Not running')),
+			'jstart'=>array('Starting',translate('Launched')),
 			'jstop'=>array('Stopping','Stopped'),
 			'jedit'=>array('Saving','Saved'),
 			'jremove'=>array('Removing','Removed'),
@@ -964,7 +964,7 @@ class WebDev
 		);
 		*/
 		
-		$statuses=array('Launched','Not running');
+		$statuses=array(translate('Launched'),translate('Not running'));
 		
 		if(!empty($arr)) foreach($arr as $key=>$item)
 		{
