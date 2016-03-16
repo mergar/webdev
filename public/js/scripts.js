@@ -1086,7 +1086,7 @@ status: "2"
 		this.settWinOpen(form_id);
 		
 	},
-	
+	//this.translate('')
 	selItem:function(tr)
 	{
 		if($(tr).hasClass('sel')) return;

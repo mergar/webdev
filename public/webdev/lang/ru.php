@@ -40,7 +40,20 @@ $lang=array(
 	'Jail Settings'=>'Настройки клетки',
 	'Autostart'=>'Автозапуск',
 	'Autostart jail at system startup'=>'Автозапуск клетки при загрузке системы',
+	'available on the jail is not running'=>'доступно при остановленной клетке',
 	
 	'User add'=>'Добавление пользователя',
+	'User Settings'=>'Настройки пользователя',
+	'User login'=>'Логин пользователя',
+	'Full name'=>'Имя пользователя',
+	'Password'=>'Пароль',
+	'Repeat password'=>'Повтор пароля',
+	
+	'Exported jails list'=>'Список экспортированных клеток',
+	'Import jails in project'=>'Импортировать клетку в проект',
+	
+	'Clone settings'=>'Настройки клонирования',
+	'Settings for cloned jails'=>'Настройки для клонирования клетки',
+	
 	''=>'',
 );
