@@ -242,7 +242,7 @@ iface={
 		}catch(e){alert(e.message);return;}
 		if(data.projects.length<1)
 		{
-			var table='<table class="tbl-cnt projects"><thead><tr><th>Projects list</th></tr></thead><tbody><tr><td>'+this.translate('No data, add something')+'!</td></tr></tbody></table>';
+			var table='<table class="tbl-cnt projects"><thead><tr><th>'+this.translate('Projects list')+'</th></tr></thead><tbody><tr><td>'+this.translate('No data, add something')+'!</td></tr></tbody></table>';
 			$('#content').html(table);
 		}else{
 			this.projectsList=data.projects;
@@ -322,7 +322,7 @@ iface={
 		}catch(e){alert(e.message);return;}
 		if(data.jails.length<1)
 		{
-			var table='<table class="tbl-cnt jails"><thead><tr><th>'+this.translate('Jails')+'</th></tr></thead><tbody><tr><td>'+this.translate('No data, add something')+'!</td></tr></tbody></table>';
+			var table='<table class="tbl-cnt jails"><thead><tr><th>'+this.translate('Jails list')+'</th></tr></thead><tbody><tr><td>'+this.translate('No data, add something')+'!</td></tr></tbody></table>';
 			$('#content').html(table);
 		}else{
 			this.jailsList=data.jails;
@@ -388,7 +388,7 @@ iface={
 		}
 		if(data.modules.length<1 || data.modules===false)
 		{
-			var table='<table class="tbl-cnt modules"><thead><tr><th>'+this.translate('Modules')+'</th></tr></thead><tbody><tr><td>'+this.translate('No data, add something')+'!</td></tr></tbody></table>';
+			var table='<table class="tbl-cnt modules"><thead><tr><th>'+this.translate('Modules list')+'</th></tr></thead><tbody><tr><td>'+this.translate('No data, add something')+'!</td></tr></tbody></table>';
 			$('#content').html(table);
 		}else{
 			this.modulesList=data.modules;
@@ -493,7 +493,7 @@ iface={
 		
 		if(data.helpers.length<1 || data.helpers===false)
 		{
-			var table='<table class="tbl-cnt modules"><thead><tr><th>Helpers list</th></tr></thead><tbody><tr><td>'+this.translate('No helpers in list')+'!</td></tr></tbody></table>';
+			var table='<table class="tbl-cnt modules"><thead><tr><th>'+this.translate('Helpers list')+'</th></tr></thead><tbody><tr><td>'+this.translate('No helpers in list')+'!</td></tr></tbody></table>';
 			$('#content').html(table);
 		}else{
 			this.helpersList=data.helpers;
@@ -562,7 +562,7 @@ iface={
 		}
 		if(data.services.length<1 || data.services===false)
 		{
-			var table='<table class="tbl-cnt modules"><thead><tr><th>Services list</th></tr></thead><tbody><tr><td>'+this.translate('No services in list')+'!</td></tr></tbody></table>';
+			var table='<table class="tbl-cnt modules"><thead><tr><th>'+this.translate('Services list')+'</th></tr></thead><tbody><tr><td>'+this.translate('No services in list')+'!</td></tr></tbody></table>';
 			$('#content').html(table);
 		}else{
 			this.servicesList=data.services;
@@ -611,7 +611,7 @@ iface={
 		}
 		if(data.users.length<1 || data.users===false)
 		{
-			var table='<table class="tbl-cnt modules"><thead><tr><th>Users list</th></tr></thead><tbody><tr><td>'+this.translate('No users in list')+'!</td></tr></tbody></table>';
+			var table='<table class="tbl-cnt modules"><thead><tr><th>'+this.translate('Users list')+'</th></tr></thead><tbody><tr><td>'+this.translate('No users in list')+'!</td></tr></tbody></table>';
 			$('#content').html(table);
 		}else{
 			this.usersList=data.users;
@@ -816,7 +816,7 @@ iface={
 	this.log_write('makeTableServices');
 		var table=$('table.tbl-cnt');
 		$(table).addClass('services');
-		var html='<table class="tbl-cnt services"><thead><tr><th colspan="2">&nbsp;</th><th>'+this.translate('Services')+'</th><th>'+this.translate('Autostart')+'</th><th colspan="2">&nbsp;</th><th>Status</th><th>&nbsp;</th></tr></thead><tbody>';
+		var html='<table class="tbl-cnt services"><thead><tr><th colspan="2">&nbsp;</th><th>'+this.translate('Services')+'</th><th>'+this.translate('Autostart')+'</th><th colspan="2">&nbsp;</th><th>'+this.translate('Status')+'</th><th>&nbsp;</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 			var itemId='';
