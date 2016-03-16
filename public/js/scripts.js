@@ -22,12 +22,21 @@ iface={
 	
 	main:function()
 	{
-		if (typeof this.lang == 'undefined')
+		if (typeof this.lang=='undefined')
 		{
 			$.getJSON('/js/lang/ru.json',function(data){
-				this.lang=data;
+				iface.lang=data;
 			});
 		}
+	},
+	translate:function(phrase)
+	{
+		if(typeof this.lang!='undefined')
+		{
+			if(typeof this.lang[phrase]!='undefined')
+				return this.lang[phrase];
+		}
+		return phrase;
 	},
 	
 	resize:function()
@@ -181,7 +190,7 @@ iface={
 					var errmsg=$('tr.id-'+key+' .errmsg');
 					if(typeof data[key].errmsg!='undefined')
 					{
-						$(errmsg).html('<span class="label">Error:</span>'+data[key].errmsg);
+						$(errmsg).html('<span class="label">'+this.translate('Error')+':</span>'+data[key].errmsg);
 						this.tasks[key].errmsg=data[key].errmsg;
 					}
 					this.tasks[key].operation=data[key].operation;
@@ -223,7 +232,7 @@ iface={
 			list+='<li'+current+'><a href="#prj-'+prj['id']+'" class="box">'+prj['name']+'</a></li>';
 		}
 		$('#left-menu').html(list);
-		$('#left-menu-caption').html('PROJECTS');
+		$('#left-menu-caption').html(this.translate('PROJECTS'));
 	},
 	fillProjectsList:function(data)
 	{

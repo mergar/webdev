@@ -1,4 +1,11 @@
 {
 	"Error": "Ошибка",
-	"jails list": "список клеток"
+	"PROJECTS": "ПРОЕКТЫ",
+	"JAILS": "КЛЕТКИ",
+	"MODULES": "МОДУЛИ",
+	"projects list": "список проектов",
+	"jails list": "список клеток",
+	"modules list": "список модулей",
+	"No data, add something": "Нет данных, добавьте что-нибудь",
+	"end":"конец"
 }
