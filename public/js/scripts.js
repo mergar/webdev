@@ -462,7 +462,7 @@ iface={
 	openHelpers:function()
 	{
 		this.navBackShow();
-		$('#top-path').html('helpers list');
+		$('#top-path').html(this.translate('helpers list'));
 		this.loadData('getHelpersList',$.proxy(this.fillHelpersList,this));
 	},
 	fillHelpersToLeftMenu:function()
@@ -476,7 +476,7 @@ iface={
 			list+='<li'+current+'><a href="#prj-'+this.project+'/jail-'+this.jail+'/helpers-'+helper+'" class="box"><span class="box-ico"></span>'+helper+'</a></li>';
 		}
 		$('#left-menu').html(list);
-		$('#left-menu-caption').html('HELPERS');
+		$('#left-menu-caption').html(this.translate('HELPERS'));
 	},
 	fillHelpersList:function(_data)
 	{
@@ -492,7 +492,7 @@ iface={
 		
 		if(data.helpers.length<1 || data.helpers===false)
 		{
-			var table='<table class="tbl-cnt modules"><thead><tr><th>Helpers list</th></tr></thead><tbody><tr><td>No helpers in list!</td></tr></tbody></table>';
+			var table='<table class="tbl-cnt modules"><thead><tr><th>Helpers list</th></tr></thead><tbody><tr><td>'+this.translate('No helpers in list')+'!</td></tr></tbody></table>';
 			$('#content').html(table);
 		}else{
 			this.helpersList=data.helpers;
@@ -544,7 +544,7 @@ iface={
 	openServices:function()
 	{
 		this.navBackShow();
-		$('#top-path').html('services list');
+		$('#top-path').html(this.translate('services list'));
 		this.waitScreenShow();
 		this.loadData('getServicesList',$.proxy(this.fillServicesList,this));
 	},
@@ -561,7 +561,7 @@ iface={
 		}
 		if(data.services.length<1 || data.services===false)
 		{
-			var table='<table class="tbl-cnt modules"><thead><tr><th>Services list</th></tr></thead><tbody><tr><td>No services in list!</td></tr></tbody></table>';
+			var table='<table class="tbl-cnt modules"><thead><tr><th>Services list</th></tr></thead><tbody><tr><td>'+this.translate('No services in list')+'!</td></tr></tbody></table>';
 			$('#content').html(table);
 		}else{
 			this.servicesList=data.services;
@@ -594,7 +594,7 @@ iface={
 	openUsers:function()
 	{
 		this.navBackShow();
-		$('#top-path').html('users list');
+		$('#top-path').html(this.translate('users list'));
 		this.loadData('getUsersList',$.proxy(this.fillUsersList,this));
 	},
 	fillUsersList:function(data)
@@ -610,7 +610,7 @@ iface={
 		}
 		if(data.users.length<1 || data.users===false)
 		{
-			var table='<table class="tbl-cnt modules"><thead><tr><th>Users list</th></tr></thead><tbody><tr><td>No users in list!</td></tr></tbody></table>';
+			var table='<table class="tbl-cnt modules"><thead><tr><th>Users list</th></tr></thead><tbody><tr><td>'+this.translate('No users in list')+'!</td></tr></tbody></table>';
 			$('#content').html(table);
 		}else{
 			this.usersList=data.users;
@@ -640,7 +640,7 @@ iface={
 	openTaskLog:function()
 	{
 		this.navBackShow();
-		$('#top-path').html('task log');
+		$('#top-path').html(this.translate('task log'));
 		this.loadData('getTaskLog',$.proxy(this.fillTaskLog,this));
 	},
 	fillTaskLog:function(data)
@@ -656,7 +656,7 @@ iface={
 		}
 		if(data.tasklog.length<1 || data.tasklog===false)
 		{
-			var table='<table class="tbl-cnt tasks"><thead><tr><th>Task log</th></tr></thead><tbody><tr><td>Log is empty!</td></tr></tbody></table>';
+			var table='<table class="tbl-cnt tasks"><thead><tr><th>'+this.translate('Task log')+'</th></tr></thead><tbody><tr><td>'+this.translate('Log is empty')+'!</td></tr></tbody></table>';
 			$('#content').html(table);
 		}else{
 			var tbl=this.makeTableTaskLog(data.tasklog);
@@ -699,7 +699,7 @@ iface={
 		if(this.currentPage!='project') return;
 		var table=$('table.tbl-cnt');
 		$(table).addClass('projects');
-		var html='<table class="tbl-cnt projects"><thead><tr><th colspan="2">&nbsp;</th><th>Projects</th><th>Status</th><th>&nbsp;</th></tr></thead><tbody>';
+		var html='<table class="tbl-cnt projects"><thead><tr><th colspan="2">&nbsp;</th><th>'+this.translate('Projects')+'</th><th>'+this.translate('Status')+'</th><th>&nbsp;</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 			var itemId='';
@@ -707,9 +707,9 @@ iface={
 			var checked=this.selectedProjects[data[n]['id']]?' checked="checked"':'';
 			html+='<tr class="link hover'+itemId+'"><td class="chbx"><input type="checkbox"'+checked+' /></td>';
 			html+='<td class="ico-proj"></td><td>';
-			html+='<strong>'+data[n].name+'</strong><br /><small class="jdscr">'+data[n].description+'</small><br /><small>Servers: '+data[n].servers_count+', Jails: '+data[n].jails_count+
-				', Modules: '+data[n].modules_count+', Size: '+data[n].size+'</small><div class="errmsg"></div>';
-			html+='</td><td class="sett proj"><span class="icon-cog"></span></td><td class="jstatus">Not running</td></tr>'
+			html+='<strong>'+data[n].name+'</strong><br /><small class="jdscr">'+data[n].description+'</small><br /><small>'+this.translate('*Servers')+': '+data[n].servers_count+', '+this.translate('*Jails')+': '+data[n].jails_count+
+				', '+this.translate('*Modules')+': '+data[n].modules_count+', '+this.translate('Size')+': '+data[n].size+'</small><div class="errmsg"></div>';
+			html+='</td><td class="sett proj"><span class="icon-cog"></span></td><td class="jstatus">'+this.translate('Not running')+'</td></tr>'
 		}
 		html+='</tbody></table>';
 		
@@ -724,7 +724,7 @@ iface={
 	this.log_write('makeTableJails');
 		var table=$('table.tbl-cnt');
 		$(table).addClass('jails');
-		var html='<table class="tbl-cnt jails"><thead><tr><th colspan="2"><input type="checkbox" id="main_chkbox" /></th><th colspan="3">Jails</th><th>Status</th><th>&nbsp;</th></tr></thead><tbody>';
+		var html='<table class="tbl-cnt jails"><thead><tr><th colspan="2"><input type="checkbox" id="main_chkbox" /></th><th colspan="3">'+this.translate('Jails')+'</th><th>'+this.translate('Status')+'</th><th>&nbsp;</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 			var itemId='';
@@ -750,7 +750,7 @@ iface={
 		var ip=data[n].ip;
 		if(ip=='') ip='unknown';
 		html+='<strong class="jname">'+data[n].name+'</strong>&nbsp;<small>(id: '+data[n].id+')</small><br /><small class="jdscr">'+data[n].description+'</small><br /><small>IP: <span class="jip">'+ip+
-			'</span>, Modules: '+data[n].modules_count+', Size: '+data[n].size+'</small><div class="errmsg"></div>';
+			'</span>, '+this.translate('*Modules')+': '+data[n].modules_count+', '+this.translate('Size')+': '+data[n].size+'</small><div class="errmsg"></div>';
 		html+='<td class="info"><span class="icon-info-circled"></span></td><td class="sett"><span class="icon-cog"></span></td>';
 		
 		var status=data[n].status;
@@ -777,7 +777,7 @@ iface={
 	this.log_write('makeTableModules');
 		var table=$('table.tbl-cnt');
 		$(table).addClass('modules');
-		var html='<table class="tbl-cnt modules"><thead><tr><th colspan="2">&nbsp;</th><th>Modules</th><th>&nbsp;</th></tr></thead><tbody>';
+		var html='<table class="tbl-cnt modules"><thead><tr><th colspan="2">&nbsp;</th><th>'+this.translate('Modules')+'</th><th>&nbsp;</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 			var itemId='';
@@ -798,7 +798,7 @@ iface={
 	this.log_write('makeTableHelpers');
 		var table=$('table.tbl-cnt');
 		$(table).addClass('helpers');
-		var html='<table class="tbl-cnt helpers"><thead><tr><th colspan="2">helpers</th></tr></thead><tbody>';
+		var html='<table class="tbl-cnt helpers"><thead><tr><th colspan="2">'+this.translate('Helpers')+'</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 			html+='<tr class="link hover" rel="helpers-'+data[n]+'"><td class="ico-servs"></td>'
@@ -815,7 +815,7 @@ iface={
 	this.log_write('makeTableServices');
 		var table=$('table.tbl-cnt');
 		$(table).addClass('services');
-		var html='<table class="tbl-cnt services"><thead><tr><th colspan="2">&nbsp;</th><th>Services</th><th>Autostart</th><th colspan="2">&nbsp;</th><th>Status</th><th>&nbsp;</th></tr></thead><tbody>';
+		var html='<table class="tbl-cnt services"><thead><tr><th colspan="2">&nbsp;</th><th>'+this.translate('Services')+'</th><th>'+this.translate('Autostart')+'</th><th colspan="2">&nbsp;</th><th>Status</th><th>&nbsp;</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 			var itemId='';
@@ -840,7 +840,7 @@ iface={
 	this.log_write('makeTableUsers');
 		var table=$('table.tbl-cnt');
 		$(table).addClass('users');
-		var html='<table class="tbl-cnt users"><thead><tr><th colspan="2">&nbsp;</th><th>Users</th><th>&nbsp;</th></tr></thead><tbody>';
+		var html='<table class="tbl-cnt users"><thead><tr><th colspan="2">&nbsp;</th><th>'+this.translate('Users')+'</th><th>&nbsp;</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 			var itemId='';
@@ -860,7 +860,7 @@ iface={
 	this.log_write('makeTableTaskLog');
 		var table=$('table.tbl-cnt');
 		$(table).addClass('tasklog');
-		var html='<table class="tbl-cnt tasks"><thead><tr><th>Id</th><th>Command</th><th>Start time</th><th>End time</th><th>Status</th><th>Error code</th><th>Log file</th><th>Log size</th></tr></thead><tbody>';
+		var html='<table class="tbl-cnt tasks"><thead><tr><th>Id</th><th>'+this.translate('Command')+'</th><th>'+this.translate('Start time')+'</th><th>'+this.translate('End time')+'</th><th>'+this.translate('Status')+'</th><th>'+this.translate('Error code')+'</th><th>'+this.translate('Log file')+'</th><th>'+this.translate('Log size')+'</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 /*
@@ -884,12 +884,12 @@ status: "2"
 	makeTableExports:function(data)
 	{
 		var n,nl;
-		var html='<table class="tbl-cnt"><thead><tr><th colspan="1">&nbsp;</th><th>Exported jails</th><th width="20">Download</th></tr></thead><tbody>';
+		var html='<table class="tbl-cnt"><thead><tr><th colspan="1">&nbsp;</th><th>'+this.translate('Exported jails')+'</th><th width="20">'+this.translate('Download')+'</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 			html+='<tr class="link hover" onclick="iface.chkExp(this,event);"><td class="chbx"><input type="checkbox" /></td>';
 			html+='<td><strong><span class="icon-gift"> '+data[n].name+'</span></strong><br /><small>'+data[n].description+'</small><br /><small>'+
-				'Size: '+data[n].size+'</small>';
+				this.translate('Size')+': '+data[n].size+'</small>';
 			html+='</td><td class="text-center"><a href="/export/'+data[n].name+'" class="icon-download"></a></td></tr>'
 		}
 		html+='</tbody></table>';
