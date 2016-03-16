@@ -2066,7 +2066,7 @@ Array
 function translate($phrase)
 {
 	global $rp;
-	require_once($rp.'/webdev/lang/ru.php');
+	require($rp.'/webdev/lang/ru.php');
 	
 	if(isset($lang[$phrase]))
 		echo $lang[$phrase];

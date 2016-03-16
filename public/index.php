@@ -59,16 +59,16 @@
 		</div>
 		<div class="footer">
 			<div class="mng">
-				<span class="butt" id="play-but-2"><span class="ico icon-play"></span><span class="txt">RUN JAIL</span></span>
-				<span class="butt" id="add-but"><span class="ico icon-plus"></span><span class="txt">ADD NEW</span></span>
+				<span class="butt" id="play-but-2"><span class="ico icon-play"></span><span class="txt"><?php translate('run jail');?></span></span>
+				<span class="butt" id="add-but"><span class="ico icon-plus"></span><span class="txt"><?php translate('add new');?></span></span>
 				<!-- <span class="butt edit" id="edit-but"><span class="txt">EDIT</span></span> -->
-				<span class="butt" id="play-but"><span class="ico icon-play"></span><span class="txt">RUN</span></span>
-				<span class="butt" id="stop-but"><span class="ico icon-stop"></span><span class="txt">STOP</span></span>
-				<span class="butt" id="del-but"><span class="ico icon-trash"></span><span class="txt">DELETE</span></span>
-				<span class="butt" id="clone-but"><span class="ico icon-docs"></span><span class="txt">CLONE</span></span>
-				<span class="butt" id="exp-but"><span class="ico icon-gift"></span><span class="txt">EXPORT</span></span>
-				<span class="butt" id="move-but"><span class="ico icon-reply-all"></span><span class="txt">MOVE</span></span>
-				<span class="butt" id="snap-but"><span class="ico icon-camera-alt"></span><span class="txt">SNAPSHOT</span></span>
+				<span class="butt" id="play-but"><span class="ico icon-play"></span><span class="txt"><?php translate('run');?></span></span>
+				<span class="butt" id="stop-but"><span class="ico icon-stop"></span><span class="txt"><?php translate('stop');?></span></span>
+				<span class="butt" id="del-but"><span class="ico icon-trash"></span><span class="txt"><?php translate('delete');?></span></span>
+				<span class="butt" id="clone-but"><span class="ico icon-docs"></span><span class="txt"><?php translate('clone');?></span></span>
+				<span class="butt" id="exp-but"><span class="ico icon-gift"></span><span class="txt"><?php translate('export');?></span></span>
+				<span class="butt" id="move-but"><span class="ico icon-reply-all"></span><span class="txt"><?php translate('move');?></span></span>
+				<span class="butt" id="snap-but"><span class="ico icon-camera-alt"></span><span class="txt"><?php translate('snapshot');?></span></span>
 			</div>
 		</div>
 	</div>
@@ -81,48 +81,48 @@
 		</div>
 	</div></div>
 	<div id="project-settings" class="hide">
-		<h1>Add new project</h1>
-		<h2>Project Settings</h2>
+		<h1><?php translate('Add new project');?></h1>
+		<h2><?php translate('Project Settings');?></h2>
 		<form class="win" method="post">
 			<p>
-				<span class="field-name">Project name:</span>
+				<span class="field-name"><?php translate('Project name');?>:</span>
 				<input type="text" name="name" value="" required />
 			</p>
 			<p>
-				<span class="field-name">Description:</span>
+				<span class="field-name"><?php translate('Description');?>:</span>
 				<textarea type="text" name="description" value="" ></textarea>
 			</p>
 		</form>
 	</div>
 	<div id="jails-settings" class="hide">
-		<h1>Add new jail</h1>
-		<h2>Jail Settings</h2>
+		<h1><?php translate('Add new jail');?></h1>
+		<h2><?php translate('Jail Settings');?></h2>
 		<form class="win" method="post">
 			<p>
-				<span class="field-name">Jail name:</span>
+				<span class="field-name"><?php translate('Jail name');?>:</span>
 				<input type="text" name="name" value="" required />
 			</p>
 			<p>
-				<span class="field-name">Hostname (FQDN):</span>
+				<span class="field-name"><?php translate('Hostname');?> (FQDN):</span>
 				<input type="text" name="hostname" value="" required />
 			</p>
 			<p>
-				<span class="field-name">IP address:</span>
+				<span class="field-name"><?php translate('IP address');?>:</span>
 				<input type="text" name="ip" value="DHCP" required />
 			</p>
 			<p>
-				<span class="field-name">Jail profile:</span>
+				<span class="field-name"><?php translate('Jail profile');?>:</span>
 				<input type="text" name="jprofile" value="webdev" />
 			</p>
 			<p>
-				<span class="field-name">Description:</span>
+				<span class="field-name"><?php translate('Description');?>:</span>
 				<textarea type="text" name="description" value="" ></textarea>
 			</p>
 		</form>
 	</div>
 	<div id="modules-settings" class="hide">
-		<h1>Add new module</h1>
-		<h2>Module install</h2>
+		<h1><?php translate('Add new module');?></h1>
+		<h2><?php translate('Module install');?></h2>
 		<div class="scrolled">
 			<form class="win" method="post" id="modulesForInstall">
 				<p>&hellip;</p>
@@ -130,62 +130,62 @@
 		</div>
 	</div>
 	<div id="jail-settings" class="hide">
-		<h1>Edit jail</h1>
-		<h2>Jail Settings</h2>
+		<h1><?php translate('Edit jail');?></h1>
+		<h2><?php translate('Jail Settings');?></h2>
 		<form class="win" method="post">
 			<p>
-				<span class="field-name">Jail name:</span>
+				<span class="field-name"><?php translate('Jail name');?>:</span>
 				<input type="text" name="name" value="" required />
 			</p>
 			<p>
-				<span class="field-name">Hostname (FQDN):</span>
+				<span class="field-name"><?php translate('Hostname');?> (FQDN):</span>
 				<input type="text" name="hostname" value="" required />
-				<small class="astart-warn">— available on the jail is not running</small>
+				<small class="astart-warn">— <?php translate('available on the jail is not running');?></small>
 			</p>
 			<p>
-				<span class="field-name">IP address:</span>
+				<span class="field-name"><?php translate('IP address');?>:</span>
 				<input type="text" name="ip" value="" required />
 			</p>
 			<p>
-				<span class="field-name">Description:</span>
+				<span class="field-name"><?php translate('Description');?>:</span>
 				<textarea type="text" name="description" value="" ></textarea>
 			</p>
 			<p>
-				<span class="field-name">Autostart:</span>
-				<input type="checkbox" name="astart" id="astart-id" /><label for="astart-id"> Autostart jail at system startup</label>
+				<span class="field-name"><?php translate('Autostart');?>:</span>
+				<input type="checkbox" name="astart" id="astart-id" /><label for="astart-id"> <?php translate('Autostart jail at system startup');?></label>
 			</p>
 		</form>
 	</div>
 	<div id="users-settings" class="hide">
-		<h1>User add</h1>
-		<h2>User Settings</h2>
+		<h1><?php translate('User add');?></h1>
+		<h2><?php translate('User Settings');?></h2>
 		<form class="win" method="post">
 			<p>
-				<span class="field-name">User login:</span>
+				<span class="field-name"><?php translate('User login');?>:</span>
 				<input type="text" name="login" value="" required />
 			</p>
 			<p>
-				<span class="field-name">Full name:</span>
+				<span class="field-name"><?php translate('Full name');?>:</span>
 				<input type="text" name="fullname" value="" />
 			</p>
 			<p>
-				<span class="field-name">Password:</span>
+				<span class="field-name"><?php translate('Password');?>:</span>
 				<input type="password" name="password" value="" />
 			</p>
 			<p>
-				<span class="field-name">Repeat password:</span>
+				<span class="field-name"><?php translate('Repeat password');?>:</span>
 				<input type="password" name="password1" value="" />
 			</p>
 		</form>
 	</div>
 	<div id="exports-list" class="hide">
-		<h1>Exported jails list</h1>
-		<h2>Import jails in project</h2>
+		<h1><?php translate('Exported jails list');?></h1>
+		<h2><?php translate('Import jails in project');?></h2>
 		<div class="exp-list"></div>
 	</div>
 	<div id="clone-settings" class="hide">
-		<h1>Clone settings</h1>
-		<h2>Settings for cloned jails</h2>
+		<h1><?php translate('Clone settings');?></h1>
+		<h2><?php translate('Settings for cloned jails');?></h2>
 		<div class="scrolled">
 			<form class="win" method="post" id="clonedForm"></form>
 		</div>

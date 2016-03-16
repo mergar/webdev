@@ -39,6 +39,7 @@ $lang=array(
 	'Edit jail'=>'Редактирование клетки',
 	'Jail Settings'=>'Настройки клетки',
 	'Autostart'=>'Автозапуск',
+	'Autostart jail at system startup'=>'Автозапуск клетки при загрузке системы',
 	
 	'User add'=>'Добавление пользователя',
 	''=>'',
