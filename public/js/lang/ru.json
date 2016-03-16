@@ -38,7 +38,6 @@
 	"No users in list": "Нет пользователей в списке",
 	"available on the jail is not running": "доступно при остановленной клетке",
 	"Log is empty": "Лог пуст",
-	"Not running": "Не запущено",
 	"Exported jails": "Экспортированные клетки",
 	"Download": "Скачать",
 	"You want to delete some projects with all jails and modules! Are you sure?": "Вы уверены, что хотите удалить некоторые проекты с клетками и модулями?",
@@ -52,5 +51,6 @@
 	"You need to select one or more jails for clone": "Вам необходимо выбрать одну или несколько клеток для клонирования",
 	"Not running": "Не запущено",
 	"Launched": "Запущено",
+	"User edit": "Редактирование пользователя",
 	"end":"конец"
 }

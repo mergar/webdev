@@ -1030,7 +1030,7 @@ status: "2"
 				if(data==null) return;
 				var obj_cnt=this.settWinOpen('users');
 				var form=$('form',obj_cnt);
-				$('#window-content h1').html('User edit');
+				$('#window-content h1').html(this.translate('User edit'));
 				$('input[name="login"]',form).val(data.login).attr('disabled','disabled');
 				$('input[name="fullname"]',form).val(data.gecos);
 				return;break;

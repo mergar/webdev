@@ -964,7 +964,7 @@ class WebDev
 		);
 		*/
 		
-		$statuses=array(translate('Launched'),translate('Not running'));
+		$statuses=array(get_translate('Launched'),get_translate('Not running'));
 		
 		if(!empty($arr)) foreach($arr as $key=>$item)
 		{
@@ -1997,7 +1997,7 @@ class WebDev
 	}
 	function generateForm($items)
 	{
-		$html='<h1>Loading form</h1><h2>Settings</h2>';
+		$html='<h1>'.get_translate('Loading form').'</h1><h2>'.get_translate('Settings').'</h2>';
 		//print_r($items);exit;
 		if(!empty($items))
 		{
