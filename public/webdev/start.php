@@ -964,7 +964,7 @@ class WebDev
 		);
 		*/
 		
-		$statuses=array(get_translate('Launched'),get_translate('Not running'));
+		$statuses=array(get_translate('Launched'),get_translate('Not running'),'unknown status 2','unknown status 3');
 		
 		if(!empty($arr)) foreach($arr as $key=>$item)
 		{
