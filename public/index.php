@@ -7,6 +7,7 @@
 	<link rel="shortcut icon" href="/images/favicon.ico" />
 	<script src="/js/jquery.js" type="text/javascript"></script>
 	<script src="/js/scripts.js" type="text/javascript"></script>
+	<script src="/js/lang/ru.js" type="text/javascript"></script>
 	<link type="text/css" href="/css/reset.css" rel="stylesheet" />
 	<link type="text/css" href="/css/styles.css" rel="stylesheet" />
 	<link type="text/css" href="/font/webdev.css" rel="stylesheet" />

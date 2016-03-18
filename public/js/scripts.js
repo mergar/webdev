@@ -22,6 +22,8 @@ iface={
 	
 	main:function()
 	{
+		iface.statuses={0:iface.translate('Not running'),1:iface.translate('Launched')};
+		/*
 		if (typeof this.lang=='undefined')
 		{
 			$.getJSON('/js/lang/ru.json',function(data){
@@ -29,6 +31,7 @@ iface={
 				iface.statuses={0:iface.translate('Not running'),1:iface.translate('Launched')};
 			});
 		}
+		*/
 	},
 	translate:function(phrase)
 	{
@@ -2137,7 +2140,6 @@ status: "2"
 }
 
 
-iface.main();
 $(window).bind('resize',function(){iface.resize();});
 $(document).ready(function(){iface.hashCheck();iface.addEvents();});
-$(window).load(function(){iface.resize();});
+$(window).load(function(){iface.main();iface.resize();});
