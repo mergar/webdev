@@ -964,14 +964,18 @@ class WebDev
 		);
 		*/
 		
-		$statuses=array(get_translate('Launched'),get_translate('Not running'),'unknown status 2','unknown status 3');
+		$statuses=array(get_translate('Launched'),get_translate('Not running'));
 		
 		if(!empty($arr)) foreach($arr as $key=>$item)
 		{
 			$res=$this->cbsd_cmd('service jname=jail'.$this->jailId.' '.$item['name'].' onestatus');
 			$arr[$key]['jid']=$this->jailId;
 			$arr[$key]['status']=$res['retval'];
-			$arr[$key]['status_message']=$statuses[$res['retval']];
+			
+			if(isset($statuses[$res['retval']]))
+				$arr[$key]['status_message']=$statuses[$res['retval']];
+			else
+				$arr[$key]['status_message']='unknown status (start.php:'.__LINE__.')';
 		}
 		
 		return $arr;
