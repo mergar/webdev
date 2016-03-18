@@ -22,7 +22,7 @@ iface={
 	
 	main:function()
 	{
-		iface.statuses={0:iface.translate('Not running'),1:iface.translate('Launched')};
+		
 		/*
 		if (typeof this.lang=='undefined')
 		{
@@ -82,6 +82,7 @@ iface={
 	
 	addEvents:function()
 	{
+		iface.statuses={0:iface.translate('Not running'),1:iface.translate('Launched')};
 		$('#content').bind('click',$.proxy(this.tableClick,this));
 	
 		$('#close-but').bind('click',$.proxy(this.windowClose,this));
@@ -2142,4 +2143,4 @@ status: "2"
 
 $(window).bind('resize',function(){iface.resize();});
 $(document).ready(function(){iface.hashCheck();iface.addEvents();});
-$(window).load(function(){iface.main();iface.resize();});
+$(window).load(function(){iface.resize();});
