@@ -61,9 +61,9 @@ $lang=getLang();
 		<div class="header">
 			<a class="logo" href="/"></a>
 			<span class="lang-lst"><select>
-				<option value="en"<?php if($lang=='en')echo " selected"; ?>>English</option>
-				<option value="ru"<?php if($lang=='en')echo " selected"; ?>>Russian</option>
-				<option value="de"<?php if($lang=='en')echo " selected"; ?>>Deutch</option> 
+				<option value="en"<?php if($lang=='en')echo ' selected="selected"'; ?>>English</option>
+				<option value="ru"<?php if($lang=='ru')echo ' selected="selected"'; ?>>Russian</option>
+				<option value="de"<?php if($lang=='de')echo ' selected="selected"'; ?>>Deutch</option> 
 			</select></span>
 		</div>
 		<div class="footer">
