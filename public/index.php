@@ -1,4 +1,7 @@
-<?php include_once(realpath('').'/webdev/start.php');?>
+<?php
+include_once(realpath('').'/webdev/start.php');
+$lang=getLang();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +10,7 @@
 	<link rel="shortcut icon" href="/images/favicon.ico" />
 	<script src="/js/jquery.js" type="text/javascript"></script>
 	<script src="/js/scripts.js" type="text/javascript"></script>
-	<script src="/js/lang/ru.js" type="text/javascript"></script>
+	<script src="/js/lang/<?php echo $lang; ?>.js" type="text/javascript"></script>
 	<link type="text/css" href="/css/reset.css" rel="stylesheet" />
 	<link type="text/css" href="/css/styles.css" rel="stylesheet" />
 	<link type="text/css" href="/font/webdev.css" rel="stylesheet" />
@@ -58,7 +61,9 @@
 		<div class="header">
 			<a class="logo" href="/"></a>
 			<span class="lang-lst"><select>
-				<option value="en">English</option> <option value="ru">Russian</option> <option value="de">Deutch</option> 
+				<option value="en"<?php if($lang=='en')echo " selected"; ?>>English</option>
+				<option value="ru"<?php if($lang=='en')echo " selected"; ?>>Russian</option>
+				<option value="de"<?php if($lang=='en')echo " selected"; ?>>Deutch</option> 
 			</select></span>
 		</div>
 		<div class="footer">

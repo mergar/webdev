@@ -2070,7 +2070,10 @@ Array
 function translate($phrase)
 {
 	global $rp;
-	require($rp.'/webdev/lang/ru.php');
+	$lang=getLang();
+	$file=$rp.'/webdev/lang/'.$lang.'.php';
+	if(!file_exists($file)) return;
+	require($file);
 	
 	if(isset($lang[$phrase]))
 		echo $lang[$phrase];
@@ -2080,10 +2083,21 @@ function translate($phrase)
 function get_translate($phrase)
 {
 	global $rp;
-	require($rp.'/webdev/lang/ru.php');
+	$lang=getLang();
+	$file=$rp.'/webdev/lang/'.$lang.'.php';
+	if(!file_exists($file)) return;
+	require($file);
 	
 	if(isset($lang[$phrase]))
 		return $lang[$phrase];
 	else
 		return $phrase;
+}
+
+function getLang()
+{
+	if(isset($_COOKIE['lang']))
+		$lang=$_COOKIE['lang'];
+	if(empty($lang)) $lang='en';
+	return $lang;
 }
