@@ -57,6 +57,9 @@
 		
 		<div class="header">
 			<a class="logo" href="/"></a>
+			<span class="lang-lst"><select>
+				<option value="en">English</option> <option value="ru">Russian</option> <option value="de">Deutch</option> 
+			</select></span>
 		</div>
 		<div class="footer">
 			<div class="mng">
