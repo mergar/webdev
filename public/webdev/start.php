@@ -2071,7 +2071,9 @@ function translate($phrase)
 {
 	global $rp;
 	$lang=getLang();
-	$file=$rp.'/webdev/lang/'.$lang.'.php';
+	$file=getLangFilePath($lang);
+	if(!file_exists($file)) $file=getLangFilePath('en');;
+	//$file=$rp.'/webdev/lang/'.$lang.'.php';
 	if(!file_exists($file)) return;
 	require($file);
 	
@@ -2082,10 +2084,9 @@ function translate($phrase)
 }
 function get_translate($phrase)
 {
-	global $rp;
 	$lang=getLang();
-	$file=$rp.'/webdev/lang/'.$lang.'.php';
-	if(!file_exists($file)) return;
+	$file=getLangFilePath($lang);
+	if(!file_exists($file)) $file=getLangFilePath('en');;
 	require($file);
 	
 	if(isset($lang[$phrase]))
@@ -2100,4 +2101,9 @@ function getLang()
 		$lang=$_COOKIE['lang'];
 	if(empty($lang)) $lang='en';
 	return $lang;
+}
+function getLangFilePath($lang)
+{
+	global $rp;
+	return $rp.'/webdev/lang/'.$lang.'.php';
 }
