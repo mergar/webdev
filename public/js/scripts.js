@@ -84,7 +84,7 @@ iface={
 	{
 		iface.statuses={0:iface.translate('Not running'),1:iface.translate('Launched')};
 		$('#content').bind('click',$.proxy(this.tableClick,this));
-		$('.header .lang-lst select').bind('change',function(){document.cookie="lang="+$(this).val();};);
+		$('.header .lang-lst select').bind('change',function(){document.cookie="lang="+$(this).val();location.reload();});
 	
 		$('#close-but').bind('click',$.proxy(this.windowClose,this));
 		//$('#window #buttons .cancel').bind('click',$.proxy(this.windowClose,this));
