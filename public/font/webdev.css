@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'webdev';
-  src: url('../font/webdev.eot?54094772');
-  src: url('../font/webdev.eot?54094772#iefix') format('embedded-opentype'),
-       url('../font/webdev.woff?54094772') format('woff'),
-       url('../font/webdev.ttf?54094772') format('truetype'),
-       url('../font/webdev.svg?54094772#webdev') format('svg');
+  src: url('/font/webdev.eot?54094772');
+  src: url('/font/webdev.eot?54094772#iefix') format('embedded-opentype'),
+       url('/font/webdev.woff?54094772') format('woff'),
+       url('/font/webdev.ttf?54094772') format('truetype'),
+       url('/font/webdev.svg?54094772#webdev') format('svg');
   font-weight: normal;
   font-style: normal;
 }
