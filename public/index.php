@@ -7,7 +7,7 @@ $lang=getLang();
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>WebDev &mdash; Personal Web Development</title>
-	<link rel="shortcut icon" href="/images/favicon.ico" />
+	<link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
 	<script src="/js/jquery.js" type="text/javascript"></script>
 	<script src="/js/scripts.js" type="text/javascript"></script>
 	<script src="/js/lang/<?php echo $lang; ?>.js" type="text/javascript"></script>
