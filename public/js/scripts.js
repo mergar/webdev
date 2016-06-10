@@ -730,7 +730,7 @@ iface={
 	this.log_write('makeTableJails');
 		var table=$('table.tbl-cnt');
 		$(table).addClass('jails');
-		var html='<table class="tbl-cnt jails"><thead><tr><th colspan="2"><input type="checkbox" id="main_chkbox" /></th><th colspan="3">'+this.translate('Jails list')+'</th><th>'+this.translate('Status')+'</th><th>&nbsp;</th></tr></thead><tbody>';
+		var html='<table class="tbl-cnt jails"><thead><tr><th colspan="2"><input type="checkbox" id="main_chkbox" /></th><th colspan="4">'+this.translate('Jails list')+'</th><th>'+this.translate('Status')+'</th><th>&nbsp;</th></tr></thead><tbody>';
 		for(n=0,nl=data.length;n<nl;n++)
 		{
 			var itemId='';
