@@ -590,6 +590,10 @@ table.modules span.icon-info-circled {
 	color:darkblue;
 	/*font-size:large;*/
 }
+table.modules span.icon-vnc-circled {
+	color:darkblue;
+	/*font-size:large;*/
+}
 td.ops span.icon-stop {
 	color:darkred;
 }

@@ -757,6 +757,7 @@ iface={
 		if(ip=='') ip='unknown';
 		html+='<strong class="jname">'+data[n].name+'</strong>&nbsp;<small>(id: '+data[n].id+')</small><br /><small class="jdscr">'+data[n].description+'</small><br /><small>IP: <span class="jip">'+ip+
 			'</span>, '+this.translate('*Modules')+': '+data[n].modules_count+', '+this.translate('Size')+': '+data[n].size+'</small><div class="errmsg"></div>';
+		html+='<td class="info"><span class="icon-vnc-circled"></span></td>';
 		html+='<td class="info"><span class="icon-info-circled"></span></td><td class="sett"><span class="icon-cog"></span></td>';
 		
 		var status=data[n].status;
