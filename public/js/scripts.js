@@ -249,6 +249,8 @@ iface={
 		{
 			var table='<table class="tbl-cnt projects"><thead><tr><th>'+this.translate('Projects list')+'</th></tr></thead><tbody><tr><td>'+this.translate('No data, add something')+'!</td></tr></tbody></table>';
 			$('#content').html(table);
+			var mng=$('.footer .mng');
+			mng[0].className='mng projects';
 		}else{
 			this.projectsList=data.projects;
 			this.showProjectsList();
