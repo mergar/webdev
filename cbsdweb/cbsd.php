@@ -2,16 +2,12 @@
 $workdir=getenv('WORKDIR');
 
 $rp=realpath('');
-$tplfile=$rp.'jailtpl.jconf';
+$tplfile=$rp.'/jailtpl.jconf';
 
 if (!isset($workdir)) {
 	echo "No such workdir. Please set in nginx: fastcgi_param WORKDIR /path/to/cbsdworkdir;";
 	exit(0);
 }
-
-	echo $tplfile;
-	exit;
-
 
 function getJailTemplate()
 {
@@ -20,6 +16,7 @@ function getJailTemplate()
 	global $mkhostsfile, $devfs_ruleset, $ver, $baserw, $mount_src, $mount_obj, $mount_kernel;
 	global $mount_ports, $astart, $vnet, $applytpl, $mdsize, $floatresolv;
 	global $pkg_bootstrap, $user_pw_root, $interface, $sysrc_enable;
+	global $tplfile;
 
 	$file=file_get_contents($tplfile);
 
