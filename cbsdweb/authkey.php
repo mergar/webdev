@@ -31,6 +31,8 @@
 <a href="javascript:location.reload(true)">[ Refresh Page ]</a>
 <br>
 
+<form action="authkey_add.php" method="post">
+
 <table class="images">
  <thead>
   <tr>
@@ -46,6 +48,7 @@ function fetch_key($dbfilepath)
 {
 	$stat = file_exists($dbfilepath);
 	$str = "";
+	$idx = 0;
 
 	if (!$stat) {
 		$nodetable .= "<tr><td bgcolor=\"#CCFFCC\">$allnodes</td><td colspan=10><center>$dbfilepath not found</center></td></tr>";
@@ -63,21 +66,23 @@ function fetch_key($dbfilepath)
 			list( $idx , $name, $authkey ) = $row;
 $str .= <<<EOF
  <tr>
-  <td><input type="text" size="20" value="$name"></td>
-  <td><input type="text" size="60" value="$authkey"></td>
-  <td><a href="authkey.php?mode=add&idx=$idx">remove</a></td>
+  <td><div class="field"><input type="text" name="authkey_name" size="20" value="$name"></div></td>
+  <td><div class="field"><input type="text" name="authkey" size="60" value="$authkey"></div></td>
+  <td><a href="authkey_remove.php?idx=$idx">remove</a></td></a>
  </tr>
 EOF;
 
 		}
 	}
 
+	$idx++;
+
 // add empty string
 $str .= <<<EOF
  <tr>
-  <td><input type="text" size="20" value=""></td>
-  <td><input type="text" size="60" value=""></td>
-  <td><a href="authkey.php?mode=remove&idx=$idx">add</a></td>
+  <td><div class="field"><input type="text" name="authkey_name" size="20" value=""></div></td>
+  <td><div class="field"><input type="text" name="authkey" size="60" value=""></div></td>
+  <td><input type="submit" name="create" value="Add" >
  </tr>
 EOF;
 
@@ -103,6 +108,8 @@ if (!extension_loaded('sqlite3')) {
 fetch_key("/var/db/webdev/authkey.sqlite");
 
 ?>
+</div>
 </table>
+</form>
 </body>
 </html>

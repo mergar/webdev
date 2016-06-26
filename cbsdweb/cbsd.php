@@ -1,6 +1,8 @@
 <?php
 $workdir=getenv('WORKDIR');
 
+if (empty($workdir)) $workdir="/usr/jails";
+
 $rp=realpath('');
 $tplfile=$rp.'/jailtpl.jconf';
 
