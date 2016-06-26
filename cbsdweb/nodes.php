@@ -221,6 +221,7 @@ EOF;
 				<td>$cpufreq</td>
 				<td>$numjails</td>
 				<td class="edited" data-file="notes" data-type="textarea">$notes</td>
+				<td><a href="nremove.php?nodename=$nodename">Remove</a></td>
 			</tr>
 EOF;
 		$allncpu+=$ncpu;
@@ -291,6 +292,7 @@ if ( $knownfreq > 0 ) {
 		<td>Mhz</td>
 		<td>Jails</td>
 		<td>Notes</td>
+		<td>Action</td>
 	</tr>
 <?php
 	echo $nodetable
