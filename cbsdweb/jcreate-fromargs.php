@@ -62,7 +62,8 @@ if (!isset($_POST['slavenode'])) {
 if (!isset($_POST['astart'])) {
 	$astart="0";
 } else {
-	$astart = $_POST['astart'];
+#	$astart = $_POST['astart'];
+	$astart="1";
 }
 
 if (!isset($_POST['vnet'])) {
@@ -92,7 +93,7 @@ if (!isset($_POST['pkg_bootstrap'])) {
 if (!isset($_POST['baserw'])) {
 	$baserw="0";
 } else {
-	$baserw = $_POST['baserw'];
+	$baserw = "1";
 }
 
 if (!isset($_POST['mount_src'])) {
