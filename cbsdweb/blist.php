@@ -10,7 +10,7 @@
 	</style>
 </head>
 <body>
-<a href="javascript:location.reload(true)">[ Refresh Page ]</a> | <a href="bcreate.php">[ New VM ]</a>
+<a href="javascript:location.reload(true)">[ Refresh Page ]</a> | <a href="bcreate.php">[ New VM ]</a> | <a href="bcreate_cloud.php">[ New Cloud VM ]
 <script>
 </script>
 
