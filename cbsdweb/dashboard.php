@@ -270,6 +270,8 @@ while($res = $result->fetchArray(SQLITE3_ASSOC)){
 	fetch_node_inv($dbpath);
 }
 
+fetch_node_inv($workdir."/var/db/local.sqlite");
+
 if ( $offlinenodes == 0 ) {
 	$offlinecolor="#FFFF99";
 } else { 
