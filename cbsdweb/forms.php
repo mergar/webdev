@@ -6,11 +6,12 @@ class Forms
 {
 	private $name='';
 	private $db='';
+	private $html='';
 	
-	function __construct($name)
+	function __construct($jname,$helper)
 	{
-		$this->name=$name;
-		$this->db=new Db('helpers',$name);
+		$this->name=$jname;
+		$this->db=new Db('helpers',array('jname'=>$jname,'helper'=>$helper));
 	}
 	
 	function generate()
@@ -18,50 +19,19 @@ class Forms
 		$query="select * from forms order by group_id asc, order_id asc";
 		$fields=$this->db->select($query);
 		//echo '<pre>';print_r($fields);
-/*
-            [idx] => 2
-            [group_id] => 1
-            [order_id] => 2
-            [param] => expose_php
-            [desc] => default is Off
-            [def] => Off
-            [cur] => 
-            [new] => 
-            [mandatory] => 1
-            [attr] => maxlen=60
-            [xattr] => 
-            [type] => inputbox
-			
-            [idx] => 1
-            [group_id] => 1
-            [order_id] => 1
-            [param] => -
-            [desc] => PHP Settings
-            [def] => PHP Settings
-            [cur] => PP
-            [new] => 
-            [mandatory] => 1
-            [attr] => maxlen=60
-            [xattr] => 
-            [type] => delimer
-			
-            [idx] => 22
-            [group_id] => 1
-            [order_id] => 1
-            [param] => -
-            [desc] => PHP-FPM Settings
-            [def] => -
-            [cur] => -
-            [new] => 
-            [mandatory] => 1
-            [attr] => maxlen=60
-            [xattr] => 
-            [type] => delimer
-*/
-		echo '<form name="">';
+		$defaults=array();
+
+		$last_type='';
+		$this->html='<form name=""><div class="form-fields">';
 		foreach($fields as $key=>$field)
 		{
-			$tpl=$this->getElement($field['type']);
+			/*
+			if($last_type=='delimer' && $field['type']!='delimer')
+				$this->html.='<div class="pad-head"></div>';
+			*/
+			$last_type=$field['type'];
+				
+			$tpl=$this->getElement($field['type'],$field);
 			$params=array('param','desc','attr','cur');
 			foreach($params as $param)
 			{
@@ -69,40 +39,98 @@ class Forms
 					$tpl=str_replace('${'.$param.'}',$field[$param],$tpl);
 			}
 			
-			$value=$field['def'];
-			if(isset($field['cur']) && !empty($field['cur'])) $value=$field['cur'];
+			//$value=$field['def'];
+			//if(isset($field['cur']) && !empty($field['cur'])) $value=$field['cur'];
+			$value=$field['cur'];
 			$tpl=str_replace('${value}',$value,$tpl);
+			
+			$value=$field['def'];
+			$tpl=str_replace('${def}',$value,$tpl);
 			
 			$required=($field['mandatory']==1)?' required':'';
 			$tpl=str_replace('${required}',$required,$tpl);
-			echo $tpl;
+			$this->html.=$tpl;
+			
+			if(!empty($field['def'])) $defaults[$key]=$field['def'];
 		}
+		$this->html.='</div>';
+		
 		$this->setButtons();
-		echo '</form>';
+		$this->html.='</form>';
+		return array('html'=>$this->html,'defaults'=>$defaults);
 	}
 	
-	function getElement($el)
+	function getElement($el,$arr=array())
 	{
 		$tpl='';
-		switch($el)
+		switch(trim($el))
 		{
 			case 'inputbox':
-				$tpl='<div class="form-field"><input type="text" name="${param}" value="${value}" ${attr}${required} /><span class="small">${desc}</span></div>';
+				$tpl='<div class="form-field"><input type="text" name="${param}" value="${value}" ${attr}${required} /><span class="default val-${def}" title="Click to fill dafault value">[default]</span><span class="small">${desc}</span></div>';
+				break;
+			case 'password':
+				$tpl='<div class="form-field"><input type="password" name="${param}" value="${value}" ${attr}${required} /><span class="default val-${def}" title="Click to fill dafault value">[default]</span><span class="small">${desc}</span></div>';
 				break;
 			case 'delimer':
 				$tpl='<h1>${desc}</h1>';
+				break;
+			case 'checkbox':
+				$tpl='<input type="checkbox" id="chk-${idx}" name="${param}" /><label for="chk-${idx}">${desc}</label>';
+				break;
+			case 'select':
+				$tpl=$this->getSelect($el,$arr);
+				break;
+			case 'radio':
+				$tpl=$this->getRadio($el,$arr);
 				break;
 		}
 		return $tpl;
 	}
 	
+	function getSelect($el,$arr)
+	{
+		$tpl='<div class="form-field"><select name="${param}">';
+		if(isset($arr['link']))
+		{
+			$query="select * from {$arr['link']} order by order_id asc";
+			$opts=$this->db->select($query);
+			array_unshift($opts,array('id'=>0,'text'=>'','order_id'=>-1));
+			if(!empty($opts))foreach($opts as $key=>$opt)
+			{
+				$selected=($opt['id']==$arr['cur'])?' selected':'';
+				$tpl.='<option value="'.$opt['id'].'"'.$selected.'>'.$opt['text'].'</option>';
+			}
+		}
+		$tpl.='</select><span class="default val-${def}" title="Click to fill dafault value">[default]</span><span class="small">${desc}</span></div>';
+		return $tpl;
+	}
+	
+	function getRadio($el,$arr)
+	{
+		$tpl='<div class="form-field"><fieldset><legend>${desc}</legend>';
+		if(isset($arr['link']))
+		{
+			$query="select * from {$arr['link']} order by order_id asc";
+			$opts=$this->db->select($query);
+			if(!empty($opts))foreach($opts as $key=>$opt)
+			{
+				$checked=($opt['id']==$arr['cur'])?' checked':'';
+				$tpl.='<label for="${param}-'.$opt['id'].'">'.$opt['text'].':</label><input type="radio" name="${param}" value="'.$opt['id'].'" id="${param}-'.$opt['id'].'"'.$checked.' />';
+			}
+		}
+		$tpl.='</fieldset></div>';
+		return $tpl;
+	}
+	
 	function setButtons($arr=array())
 	{
-		echo '<div class="buttons"><input type="button" value="Save" /> <input type="button" value="Cancel" /></div>';
+		$this->html.='<div class="buttons"><input type="button" value="Apply" class="save-helper-values" title="Save and apply params" /> &nbsp; <input type="button" value="Clear" class="clear-helper" title="Restore loaded params" /></div>';
 	}
 }
 
-$form=new Forms('redis');
+/*
+
+$form=new Forms('php');
 ?>
 <html>
 <style>
@@ -118,3 +146,5 @@ form {border:1px solid gray;padding:0;margin-bottom:10px;width:500px;border-radi
 <?php
 $form->generate();
 //$form->setButtons(array('save','cancel'));
+
+*/

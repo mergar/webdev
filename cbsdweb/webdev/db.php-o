@@ -1,4 +1,4 @@
-<?php error_reporting(E_ALL);
+<?php
 class Db
 {
 	private $_pdo=null;
@@ -24,13 +24,7 @@ class Db
 				$connect='sqlite:/var/db/webdev/forms.sqlite';
 				break;
 			case 'helpers':
-				if(is_array($database))
-				{
-					$connect='sqlite:'.$this->_workdir.'/jails-system/'.
-						$database['jname'].'/helpers/'.$database['helper'].".sqlite";
-				}else{
-					$connect='';
-				}
+				$connect='sqlite:'.$this->_workdir.'/formfile/'.$database.'.sqlite';
 				break;
 			case 'sqlite_cbsd':
 				if($database!='')
@@ -43,13 +37,6 @@ class Db
 			case 'pkg':
 				$connect='sqlite:'.$this->_workdir.'/jails-data/'.$database.'-data/var/db/pkg/local.sqlite';
 				break;
-/*
-			case 'from_file':
-				echo $this->_workdir.$database;
-				$connect='sqlite:'.$this->_workdir.$database;
-				//"/jails-system/jail".$this->jailId."/helpers/".$this->helper.".sqlite"
-				break;
-*/
 			default:
 				throw new Exception('Unknown database driver!');
 				break;
@@ -64,11 +51,9 @@ class Db
 			}catch (PDOException $e){
 				//die ('DB Error');
 				$this->error=true;
-				$this->error_message=$e->getMessage();	//'DB Error';
+				$this->error_message='DB Error';
 				return false;
 			}
-		}else{
-			return false;
 		}
 	}
 	
