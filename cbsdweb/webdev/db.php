@@ -29,7 +29,7 @@ class Db
 					$connect='sqlite:'.$this->_workdir.'/jails-system/'.
 						$database['jname'].'/helpers/'.$database['helper'].".sqlite";
 				}else{
-					$connect='';
+					$connect='sqlite:'.$this->_workdir.'/formfile/'.$database.'.sqlite';
 				}
 				break;
 			case 'sqlite_cbsd':
