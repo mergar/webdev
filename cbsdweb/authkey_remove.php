@@ -34,7 +34,7 @@ if ($sure==0) {
 <script type="text/javascript">
 <!--
 
-var answer = confirm("Really remove $idx key?")
+var answer = confirm("Really remove key?")
 if (!answer)
 window.location="authkey.php"
 else
