@@ -14,9 +14,12 @@ body {
 }
 .body-div {
 	height:100%;
+	top:0;
+	padding:0;
+	position:absolute;
 	margin-bottom:-100px;
-	padding:10px;
 }
 .body-table {
 	height:inherit;
+	top:10px;
 }
