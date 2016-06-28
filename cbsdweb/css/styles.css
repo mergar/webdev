@@ -12,13 +12,12 @@ body {
 	height:100px;
 	padding:10px;
 	z-index:10;
+	background:white;
 }
 .body-div {
 	height:100%;
-	top:0;
-	padding:0;
+	position:absolute;
 }
 .body-table {
 	height:inherit;
-	top:10px;
 }
