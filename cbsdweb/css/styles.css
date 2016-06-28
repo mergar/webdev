@@ -4,9 +4,13 @@ html {
 	padding:0;
 }
 body {
-	height:100%;
+	height:90%;
+	width:100%;
 	margin:0;
 	padding:0;
+	position:absolute;
+	top:10%;
+	background-color:silver;
 }
 .head-div {
 	height:100px;
@@ -15,7 +19,7 @@ body {
 	background:white;
 }
 .body-div {
-	height:100%;
+	/*height:100%;*/
 	position:absolute;
 }
 .body-table {
