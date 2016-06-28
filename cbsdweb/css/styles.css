@@ -1,0 +1,22 @@
+html {
+	height:100%;
+	margin:0;
+	padding:0;
+}
+body {
+	height:100%;
+	margin:0;
+	padding:0;
+}
+.head-div {
+	height:100px;
+	padding:10px;
+}
+.body-div {
+	height:100%;
+	margin-bottom:-100px;
+	padding:10px;
+}
+.body-table {
+	height:inherit;
+}
