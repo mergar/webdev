@@ -31,7 +31,7 @@
 <a href="javascript:location.reload(true)">[ Refresh Page ]</a>
 <br>
 
-<form action="virtual_private_net_add.php" method="post">
+<form action="vpnet_add.php" method="post">
 
 <table class="images">
  <thead>
