@@ -11,7 +11,7 @@ set -e
 . ${subr}
 set +e
 
-MYPATH="/var/db/webdev/virtual_private_net.sqlite"
+MYPATH="/var/db/webdev/vpnet.sqlite"
 
 [ -f "${MYPATH}" ] && /bin/rm -f "${MYPATH}"
 

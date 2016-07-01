@@ -105,7 +105,7 @@ if (!extension_loaded('sqlite3')) {
 	}
 }
 
-fetch_net("/var/db/webdev/virtual_private_net.sqlite");
+fetch_net("/var/db/webdev/vpnet.sqlite");
 
 ?>
 </div>
