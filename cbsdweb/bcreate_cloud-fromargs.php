@@ -9,8 +9,8 @@ if (isset($_POST['jname'])) {
 	$jname = $_POST['jname'];
 }
 
-if (isset($_POST['imgsize'])) {
-	$imgsize = $_POST['imgsize'];
+if (isset($_POST['vm_size'])) {
+	$vm_size = $_POST['vm_size'];
 }
 
 if (isset($_POST['vm_cpus'])) {
@@ -37,8 +37,8 @@ if ((strlen($jname)<2)) {
 	die;
 }
 
-if ((strlen($imgsize)<2)) {
-	echo "No imgsize";
+if ((strlen($vm_size)<1)) {
+	echo "No vm_size";
 	die;
 }
 
@@ -57,11 +57,9 @@ if ((strlen($vm_authkey)<2)) {
 }
 
 
-echo "READY";
-die;
-$handle=popen("env NOCOLOR=1 /usr/local/bin/sudo /usr/local/bin/cbsd task owner=cbsdweb mode=new /usr/local/bin/cbsd node inter=0 mode=add node=$address pw=$jname port=$vm_authkey", "r");
+$handle=popen("env NOCOLOR=1 /usr/local/bin/sudo /usr/local/bin/cbsd task owner=cbsdweb mode=new /usr/local/bin/cbsd vm_obtain jname=$jname vm_size=$vm_size vm_cpus=$vm_cpus vm_ram=$vm_ram vm_os_type=$vm_os_type ip4_addr=10.0.0.97/24 gw=10.0.0.1 authkey=/usr/home/olevole/.ssh/authorized_keys", "r");
 $read = fgets($handle, 4096);
 echo "Job Queued: $read";
 pclose($handle);
-header( 'Location: nodes.php' ) ;
+header( 'Location: blist.php' ) ;
 ?>

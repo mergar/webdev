@@ -74,14 +74,14 @@ EOF;
 			<input type="text" name="jname" />
 		</div>
 		<div class="field">
-			<label for="imgsize">Image size, GB:</label>
+			<label for="vm_size">Image size, GB:</label>
 			<div style="display:table-cell;">
-				<input type="text" value="5" style="width:35px;text-align:center;" id="imgsize_view" />
-				<input type="range" step="5" value="5" name="imgsize" id="imgsize" min="5" max="40" onmousemove="$('#imgsize_view').val($(this).val());" style="vertical-align:middle;" />
+				<input type="text" value="5" style="width:35px;text-align:center;" id="vm_size_view" />
+				<input type="range" step="5" value="5" name="vm_size" id="vm_size" min="5" max="40" onmousemove="$('#vm_size_view').val($(this).val());" style="vertical-align:middle;" />
 			</div>
 		</div>
 		<div class="field">
-			<label for="vm_ram">VM RAM, GB:</label>
+			<label for="vm_ram">VM RAM size, GB:</label>
 			<div style="display:table-cell;">
 				<input type="text" value="1" style="width:35px;text-align:center;" id="vm_ram_view" />
 				<input type="range" name="vm_ram" value="1" id="vm_ram" min="1" max="16" onmousemove="$('#vm_ram_view').val($(this).val());" style="vertical-align:middle;" />
