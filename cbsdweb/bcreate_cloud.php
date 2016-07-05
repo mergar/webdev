@@ -52,19 +52,25 @@ require('cbsd.php');
 			<input type="text" name="jname" />
 		</div>
 		<div class="field">
-			<label for="imgsize">Image size</label>
-			<input type="text" name="imgsize" value="10g"/>
+			<label for="imgsize">Image size, GB:</label>
+			<div style="display:table-cell;">
+				<input type="text" style="width:35px;text-align:center;" id="imgsize_view" />
+				<input type="range" step="5" value="5" name="imgsize" id="imgsize" min="5" max="40" onmousemove="$('#imgsize_view').val($(this).val());" style="vertical-align:middle;" />
+			</div>
 		</div>
 		<div class="field">
 			<label for="vm_cpus">VM CPUs core:</label>
-			<div style="line-height:100%;">
+			<div style="display:table-cell;">
 				<input type="text" style="width:35px;text-align:center;" id="vm_cpus_view" />
-				<input type="range" name="vm_cpus" id="vm_cpus" min="0" max="16" onmousemove="$('#vm_cpus_view').val($(this).val());" />
+				<input type="range" name="vm_cpus" id="vm_cpus" min="1" max="16" onmousemove="$('#vm_cpus_view').val($(this).val());" style="vertical-align:middle;" />
 			</div>
 		</div>
-
 		<div class="field">
 			<label for="vm_ram">VM RAM, GB:</label>
+			<input type="number" name="vm_ram" min="1" max="32" step="1" value="1">
+		</div>
+		<div class="field">
+			<label for="vm_authkey">Authkey:</label>
 			<input type="number" name="vm_ram" min="1" max="32" step="1" value="1">
 		</div>
 		<input type="submit" name="create" value="Create VM" >
