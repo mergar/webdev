@@ -2,7 +2,6 @@
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>CBSD Project</title>
-        <link type="text/css" href="./css/all.css" rel="stylesheet" />
         <style>
                 body {
                         font-size:14px;
@@ -10,9 +9,8 @@
         </style>
 </head>
 <body>
-<a href="blist.php">[ Bhyve VMs ]</a> |
-<script>
-</script>
+<a href="blist.php">[ << Bhyve VMs ]</a>
+<hr>
 
 <?php
 require('cbsd.php');
