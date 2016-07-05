@@ -81,15 +81,15 @@ EOF;
 			</div>
 		</div>
 		<div class="field">
-			<label for="vm_ram">VM RAM, GB:</label>
+			<label for="vm_cpus">VM CPUs core, num:</label>
 			<div style="display:table-cell;">
-				<input type="text" value="1" style="width:35px;text-align:center;" id="vm_ram_view" />
-				<input type="range" name="vm_ram" value="1" id="vm_ram" min="1" max="16" onmousemove="$('#vm_ram_view').val($(this).val());" style="vertical-align:middle;" />
+				<input type="text" value="1" style="width:35px;text-align:center;" id="vm_cpus_view" />
+				<input type="range" name="vm_cpus" value="1" id="vm_cpus" min="1" max="16" onmousemove="$('#vm_cpus_view').val($(this).val());" style="vertical-align:middle;" />
 			</div>
 		</div>
 		<div class="field">
-			<label for="vm_cpus">VM CPU, num:</label>
-			<input type="number" name="vm_cpus" min="1" max="8" step="1" value="1">
+			<label for="vm_ram">VM RAM, GB:</label>
+			<input type="number" name="vm_ram" min="1" max="32" step="1" value="1">
 		</div>
 		<div class="field">
 			<label for="vm_authkey">Authkey:</label>
