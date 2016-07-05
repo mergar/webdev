@@ -57,7 +57,10 @@ require('cbsd.php');
 		</div>
 		<div class="field">
 			<label for="vm_cpus">VM CPUs core:</label>
-			<input type="range" name="vm_cpus" id="vm_cpus" min="0" max="16">
+			<div style="line-height:100%;">
+				<input type="text" style="width:35px;text-align:center;" id="vm_cpus_view" />
+				<input type="range" name="vm_cpus" id="vm_cpus" min="0" max="16" onmousemove="$('#vm_cpus_view').val($(this).val());" />
+			</div>
 		</div>
 
 		<div class="field">
