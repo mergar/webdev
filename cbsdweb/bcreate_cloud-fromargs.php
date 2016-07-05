@@ -51,12 +51,14 @@ if ((strlen($vm_ram)<2)) {
 	die;
 }
 
-if ((strlen($vm_ram)<2)) {
-	echo "No vm_ram";
-	die;
+if ((strlen($vm_authkey)<2)) {
+	vm_authkey="0";
 }
 
-$handle=popen("env NOCOLOR=1 /usr/local/bin/sudo /usr/local/bin/cbsd task owner=cbsdweb mode=new /usr/local/bin/cbsd node inter=0 mode=add node=$address pw=$jname port=$vm_ram", "r");
+
+echo "READY";
+die;
+$handle=popen("env NOCOLOR=1 /usr/local/bin/sudo /usr/local/bin/cbsd task owner=cbsdweb mode=new /usr/local/bin/cbsd node inter=0 mode=add node=$address pw=$jname port=$vm_authkey", "r");
 $read = fgets($handle, 4096);
 echo "Job Queued: $read";
 pclose($handle);
