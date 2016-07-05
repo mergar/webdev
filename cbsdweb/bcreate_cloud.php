@@ -67,7 +67,7 @@ if (!($authkeyres instanceof Sqlite3Result)) {
         while ($row = $authkeyres->fetchArray()) {
                 list( $idx , $name, $authkey ) = $row;
 $authkey_list .= <<<EOF
-    <option value="$name">$name</option>
+<option value="$name">$name</option>
 EOF;
 	}
 }
@@ -111,7 +111,7 @@ EOF;
 		</div>
 		<div class="field">
 			<label for="vm_authkey">Authkey:</label>
-			<select name="vm_authkey>
+			<select name="vm_authkey">
 <?php
 echo $authkey_list;
 ?>
