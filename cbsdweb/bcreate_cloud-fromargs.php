@@ -5,49 +5,27 @@ if (isset($_POST['vm_os_type'])) {
 	$vm_os_type = $_POST['vm_os_type'];
 }
 
-echo $vm_os_type;
-echo "<br>";
-
 if (isset($_POST['jname'])) {
 	$jname = $_POST['jname'];
 }
-
-echo $jname;
-echo "<br>";
-
 
 if (isset($_POST['imgsize'])) {
 	$imgsize = $_POST['imgsize'];
 }
 
-echo $imgsize;
-echo "<br>";
-
 if (isset($_POST['vm_cpus'])) {
 	$vm_cpus = $_POST['vm_cpus'];
 }
 
-echo $vm_cpus;
-echo "<br>";
-
-
 if (isset($_POST['vm_ram'])) {
 	$vm_ram = $_POST['vm_ram'];
 }
-
-echo $vm_ram;
-echo "<br>";
-
 
 if (isset($_POST['vm_authkey'])) {
 	$vm_authkey = $_POST['vm_authkey'];
 } else {
 	$vm_authkey = "0";
 }
-
-echo $vm_authkey;
-echo "<br>";
-
 
 if ((strlen($vm_os_type)<2)) {
 	echo "No vm_os_type";
@@ -64,12 +42,12 @@ if ((strlen($imgsize)<2)) {
 	die;
 }
 
-if ((strlen($vm_cpus)<2)) {
+if ((strlen($vm_cpus)<1)) {
 	echo "No vm_cpus";
 	die;
 }
 
-if ((strlen($vm_ram)<2)) {
+if ((strlen($vm_ram)<1)) {
 	echo "No vm_ram";
 	die;
 }

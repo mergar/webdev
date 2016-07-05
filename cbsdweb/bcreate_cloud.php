@@ -81,10 +81,10 @@ EOF;
 			</div>
 		</div>
 		<div class="field">
-			<label for="vm_cpus">VM CPUs core:</label>
+			<label for="vm_cpus">VM CPUs core, num:</label>
 			<div style="display:table-cell;">
 				<input type="text" style="width:35px;text-align:center;" id="vm_cpus_view" />
-				<input type="range" name="vm_cpus" id="vm_cpus" min="1" max="16" onmousemove="$('#vm_cpus_view').val($(this).val());" style="vertical-align:middle;" />
+				<input type="range" name="vm_cpus" value=1 id="vm_cpus" min="1" max="16" onmousemove="$('#vm_cpus_view').val($(this).val());" style="vertical-align:middle;" />
 			</div>
 		</div>
 		<div class="field">
