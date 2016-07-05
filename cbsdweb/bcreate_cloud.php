@@ -42,6 +42,10 @@ require('cbsd.php');
 	<div class="main">
 		<div class="field">
 			<label for="vm_os_type">VM OS Type</label>
+			<select>
+				<option>UbuntuBSD</option>
+				<option>FreeBSD</option>
+			</select>
 			<input type="text" name="vm_os_type" value="freebsd" readonly/>
 		</div>
 
@@ -55,7 +59,8 @@ require('cbsd.php');
 		</div>
 		<div class="field">
 			<label for="vm_cpus">VM CPUs</label>
-			<input type="text" name="vm_cpus" value="1"/>
+			<input type="range" name="vm_cpus" min="0" max="16">
+			<input type="submit">
 		</div>
 
 		<div class="field">
