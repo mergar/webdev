@@ -21,6 +21,10 @@ if (isset($_POST['vm_ram'])) {
 	$vm_ram = $_POST['vm_ram'];
 }
 
+if (isset($_POST['ip4_addr'])) {
+	$ip4_addr = $_POST['ip4_addr'];
+}
+
 if (isset($_POST['vm_authkey'])) {
 	$vm_authkey = $_POST['vm_authkey'];
 } else {
@@ -57,7 +61,7 @@ if ((strlen($vm_authkey)<2)) {
 }
 
 
-$handle=popen("env NOCOLOR=1 /usr/local/bin/sudo /usr/local/bin/cbsd task owner=cbsdweb mode=new /usr/local/bin/cbsd vm_obtain jname=$jname vm_size=$vm_size vm_cpus=$vm_cpus vm_ram=$vm_ram vm_os_type=$vm_os_type ip4_addr=10.0.0.97/24 gw=10.0.0.1 authkey=/usr/home/olevole/.ssh/authorized_keys", "r");
+$handle=popen("env NOCOLOR=1 /usr/local/bin/sudo /usr/local/bin/cbsd task owner=cbsdweb mode=new /usr/local/bin/cbsd vm_obtain jname=$jname vm_size=$vm_size vm_cpus=$vm_cpus vm_ram=$vm_ram vm_os_type=$vm_os_type ip4_addr=$ip4_addr gw=10.0.0.1 authkey=/usr/home/olevole/.ssh/authorized_keys", "r");
 $read = fgets($handle, 4096);
 echo "Job Queued: $read";
 pclose($handle);

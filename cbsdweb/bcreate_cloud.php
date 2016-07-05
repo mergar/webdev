@@ -92,6 +92,10 @@ EOF;
 			<input type="number" name="vm_cpus" min="1" max="8" step="1" value="1">
 		</div>
 		<div class="field">
+			<label for="ip4_addr">VM IP4 address</label>
+			<input type="text" name="ip4_addr" value="DHCP"/>
+		</div>
+		<div class="field">
 			<label for="vm_authkey">Authkey:</label>
 			<select name="vm_authkey>
 <?php

@@ -64,3 +64,4 @@ vm_os_profile="#vm_os_profile#";
 jprofile="default";
 swapsize="";
 vm_guestfs="#vm_guestfs#";
+vm_vnc_port="1";
