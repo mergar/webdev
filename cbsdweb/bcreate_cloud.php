@@ -1,3 +1,19 @@
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>CBSD Project</title>
+        <link type="text/css" href="./css/all.css" rel="stylesheet" />
+        <style>
+                body {
+                        font-size:14px;
+                }
+        </style>
+</head>
+<body>
+<a href="javascript:location.reload(true)">[ Refresh Page ]</a> | <a href="bcreate.php">[ New VM ]</a> | <a href="bcreate_cloud.php">[ New Cloud VM ]
+<script>
+</script>
+
 <?php
 require('cbsd.php');
 ?>
