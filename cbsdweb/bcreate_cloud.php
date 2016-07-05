@@ -34,9 +34,31 @@ require('cbsd.php');
 		});
 	});
 	</script>
-	
+
 	
 </head>
+
+<?php
+$dbfilepath="/var/db/webdev/authkey.sqlite";
+
+$db = new SQLite3($dbfilepath); $db->busyTimeout(5000);
+$authkeyres = $db->query('SELECT idx,name,authkey FROM authkey;');
+
+$authkey_list="";
+
+if (!($authkeyres instanceof Sqlite3Result)) {
+        echo "Error: $dbfilepath";
+        $gwinfo="unable to fetch authkey";
+} else {
+        while ($row = $authkeyres->fetchArray()) {
+                list( $idx , $name, $authkey ) = $row;
+$authkey_list .= <<<EOF
+    <option value="$name">$name</option>
+EOF;
+	}
+}
+?>
+
 <body>
 	<form action="bcreate-fromargs.php" method="post">
 	<div class="main">
@@ -71,7 +93,11 @@ require('cbsd.php');
 		</div>
 		<div class="field">
 			<label for="vm_authkey">Authkey:</label>
-			<input type="number" name="vm_ram" min="1" max="32" step="1" value="1">
+			<select>
+<?php
+echo $authkey_list;
+?>
+			</select>
 		</div>
 		<input type="submit" name="create" value="Create VM" >
 	</div>
