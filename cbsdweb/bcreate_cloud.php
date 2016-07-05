@@ -43,12 +43,10 @@ require('cbsd.php');
 		<div class="field">
 			<label for="vm_os_type">VM OS Type</label>
 			<select>
-				<option>UbuntuBSD</option>
-				<option>FreeBSD</option>
+				<option selected value="linux">Linux Ubuntu 16.04</option>
+				<option value="freebsd">FreeBSD 11.0-RELEASE</option>
 			</select>
-			<input type="text" name="vm_os_type" value="freebsd" readonly/>
 		</div>
-
 		<div class="field">
 			<label for="jname">VM name</label>
 			<input type="text" name="jname" />
@@ -58,16 +56,14 @@ require('cbsd.php');
 			<input type="text" name="imgsize" value="10g"/>
 		</div>
 		<div class="field">
-			<label for="vm_cpus">VM CPUs</label>
-			<input type="range" name="vm_cpus" min="0" max="16">
-			<input type="submit">
+			<label for="vm_cpus">VM CPUs core:</label>
+			<input type="range" name="vm_cpus" id="vm_cpus" min="0" max="16">
 		</div>
 
 		<div class="field">
-			<label for="vm_ram">VM RAM</label>
-			<input type="text" name="vm_ram" value="1g"/>
+			<label for="vm_ram">VM RAM, GB:</label>
+			<input type="number" name="vm_ram" min="1" max="32" step="1" value="1">
 		</div>
-
 		<input type="submit" name="create" value="Create VM" >
 	</div>
 </form>
