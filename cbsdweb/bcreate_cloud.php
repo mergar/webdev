@@ -60,11 +60,11 @@ EOF;
 ?>
 
 <body>
-	<form action="bcreate-fromargs.php" method="post">
+	<form action="bcreate_cloud-fromargs.php" method="post">
 	<div class="main">
 		<div class="field">
 			<label for="vm_os_type">VM OS Type</label>
-			<select>
+			<select name="vm_os_type">
 				<option selected value="linux">Linux Ubuntu 16.04</option>
 				<option value="freebsd">FreeBSD 11.0-RELEASE</option>
 			</select>
@@ -93,7 +93,7 @@ EOF;
 		</div>
 		<div class="field">
 			<label for="vm_authkey">Authkey:</label>
-			<select>
+			<select name="vm_authkey>
 <?php
 echo $authkey_list;
 ?>
