@@ -55,7 +55,8 @@ class Forms
 	
 	function generate()
 	{
-		$query="select * from forms order by group_id asc, order_id asc";
+//		$query="select * from forms order by group_id asc, order_id asc";
+		$query="SELECT idx,group_id,order_id,param,desc,def,cur,new,mandatory,attr,xattr,type FROM forms ORDER BY group_id ASC, order_id ASC";
 		$fields=$this->db->select($query);
 		echo '<form name="">';
 		foreach($fields as $key=>$field)
