@@ -50,68 +50,65 @@ jail_menu();
 $rp=realpath('');
 include_once($rp.'/webdev/db.php');
 
-function forms() 
+class Forms
 {
-$dbfilepath="/usr/jails/formfile/memcached.sqlite";
-$name="memcached";
-
-$db=new Db('helpers',$name);
-
-$db = new SQLite3($dbfilepath); $db->busyTimeout(5000);
+	private $name='';
+	private $db='';
 	
-$query="SELECT idx,group_id,order_id,param,desc,def,cur,new,mandatory,attr,xattr,type FROM forms ORDER BY group_id ASC, order_id ASC";
-
-//$authkeyres = $db->query('SELECT idx,name,authkey FROM authkey;');
-
-
-//$fields = $db->select($query);
-$fields = $db->query($query);
-
-
-echo '<form name="">';
-foreach($fields as $key=>$field)
-{
-	$tpl=getElement($field['type']);
-	$params=array('param','desc','attr','cur');
-	foreach($params as $param)
+	function __construct($name)
 	{
-		if(isset($field[$param]))
-			$tpl=str_replace('${'.$param.'}',$field[$param],$tpl);
+		$this->name=$name;
+		$this->db=new Db('helpers',$name);
 	}
 	
-	$value=$field['def'];
-	if(isset($field['cur']) && !empty($field['cur'])) $value=$field['cur'];
-	$tpl=str_replace('${value}',$value,$tpl);
+	function generate()
+	{
+//		$query="select * from forms order by group_id asc, order_id asc";
+		$query="SELECT idx,group_id,order_id,param,desc,def,cur,new,mandatory,attr,xattr,type FROM forms ORDER BY group_id ASC, order_id ASC";
+		$fields=$this->db->select($query);
+		echo '<form name="">';
+		foreach($fields as $key=>$field)
+		{
+			$tpl=$this->getElement($field['type']);
+			$params=array('param','desc','attr','cur');
+			foreach($params as $param)
+			{
+				if(isset($field[$param]))
+					$tpl=str_replace('${'.$param.'}',$field[$param],$tpl);
+			}
 			
-	$required=($field['mandatory']==1)?' required':'';
-	$tpl=str_replace('${required}',$required,$tpl);
-	echo $tpl;
-}
-
-echo '</form>';
-}
-	
-function getElement($el)
-{
-	$tpl='';
-	switch($el)
-	{
-		case 'inputbox':
-			$tpl='<div class="form-field"><input type="text" name="${param}" value="${value}" ${attr}${required} /><span class="small">${desc}</span></div>';
-			break;
-		case 'delimer':
-			$tpl='<h1>${desc}</h1>';
-			break;
+			$value=$field['def'];
+			if(isset($field['cur']) && !empty($field['cur'])) $value=$field['cur'];
+			$tpl=str_replace('${value}',$value,$tpl);
+			
+			$required=($field['mandatory']==1)?' required':'';
+			$tpl=str_replace('${required}',$required,$tpl);
+			echo $tpl;
+		}
+		$this->setButtons();
+		echo '</form>';
 	}
-	return $tpl;
-}
-
 	
-function setButtons($arr=array())
-{
-	echo '<div class="buttons"><input type="button" value="Apply" /> <input type="button" value="Cancel" /></div>';
+	function getElement($el)
+	{
+		$tpl='';
+		switch($el)
+		{
+			case 'inputbox':
+				$tpl='<div class="form-field"><input type="text" name="${param}" value="${value}" ${attr}${required} /><span class="small">${desc}</span></div>';
+				break;
+			case 'delimer':
+				$tpl='<h1>${desc}</h1>';
+				break;
+		}
+		return $tpl;
+	}
+	
+	function setButtons($arr=array())
+	{
+		echo '<div class="buttons"><input type="button" value="Apply" /> <input type="button" value="Cancel" /></div>';
+	}
 }
-
 
 if ($mode=="install") {
 	echo "INSTALL";
@@ -124,10 +121,9 @@ if ($mode=="install") {
 $jail_form=$workdir."/jails-system/".$jname."/helpers/".$helper.".sqlite";
 
 if (file_exists($jail_form)) {
-//	$form=new Forms($helper);
-//	$form->generate();
+	$form=new Forms($helper);
+	$form->generate();
 	//$form->setButtons(array('apply','cancel'));
-	forms();
 } else {
 	echo "Module not installed for $jname. Please <a href='/img_helper_cfg.php?jname=$jname&mode=install&helper=$helper'>install module</a>";
 }
