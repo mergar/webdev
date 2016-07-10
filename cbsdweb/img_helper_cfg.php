@@ -112,7 +112,6 @@ class Forms
 
 if ($mode=="install") {
 	echo "INSTALL";
-#	$res=cbsd_cmd('env NOCOLOR=1 /usr/local/bin/sudo /usr/local/bin/cbsd task owner=cbsdweb autoflush=2 mode=new env NOCOLOR=1 /usr/local/bin/cbsd imghelper module=$hlper jname=$jname inter=0');
 	$res=cbsd_cmd("env NOCOLOR=1 /usr/local/bin/sudo /usr/local/bin/cbsd task owner=cbsdweb mode=new env NOCOLOR=1 /usr/local/bin/cbsd imghelper module=$helper jname=$jname inter=0");
 
 	exit(0);
