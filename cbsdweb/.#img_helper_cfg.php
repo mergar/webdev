@@ -1,1 +1,0 @@
-root@samson.bsdstore.ru.6958

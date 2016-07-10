@@ -44,77 +44,50 @@ if (isset($_GET['mode'])) {
 
 require_once('imghelper_menu.php');
 jail_menu();
-//show_descr();
-//traffic_stats();
 
 $rp=realpath('');
 include_once($rp.'/webdev/db.php');
 
-function forms() 
+function forms( $dbfilepath ) 
 {
-	$dbfilepath="/usr/jails/formfile/memcached.sqlite";
-	$name="memcached";
-
-	$db=new Db('helpers',$name);
-
 	$db = new SQLite3($dbfilepath); $db->busyTimeout(5000);
 	
 	$query="SELECT idx,group_id,order_id,param,desc,def,cur,new,mandatory,attr,xattr,type FROM forms ORDER BY group_id ASC, order_id ASC";
 
-	//$authkeyres = $db->query('SELECT idx,name,authkey FROM authkey;');
-
-
-	//$fields = $db->select($query);
 	$fields = $db->query($query);
 
 	echo '<form name="">';
-	//foreach($fields as $key=>$field)
 
 	while ($row = $fields->fetchArray()) {
-//        list( $idx , $name, $authkey ) = $row;
 
-	list( $idx , $group_id, $order_id , $param , $desc , $def , $cur , $new , $mandatory , $attr , $xattr , $type ) = $row;
+		list( $idx , $group_id, $order_id , $param , $desc , $def , $cur , $new , $mandatory , $attr , $xattr , $type ) = $row;
 
-	$tpl=getElement($type,$desc);
+		$tpl=getElement($type, $desc);
 
-	$params=array('param','desc','attr','cur');
+		$params=array('param','desc','attr','cur');
 
-//	foreach($params as $param)
-//	{
-//		if(isset($param))
-//			$tpl=str_replace('${'.$param.'}',$param,$tpl);
-//	}
-	
-	$value=$def;
-
-	if(isset($cur) && !empty($cur)) $value=$cur;
-	$tpl=str_replace('${value}',$value,$tpl);
+		if(isset($cur) && !empty($cur)) $def=$cur;
+			$tpl=str_replace('${def}',$def,$tpl);
 			
-	$required=($mandatory==1)?' required':'';
-	$tpl=str_replace('${required}',$required,$tpl);
-	echo $tpl;
+		$required=($mandatory==1)?' required':'';
+		$tpl=str_replace('${required}',$required,$tpl);
+		echo $tpl;
 	}
 
 	echo '</form>';
-
 }
 	
-function getElement($el,$mydesc)
+function getElement($el, $desc)
 {
 	$tpl='';
-
-	$desc=$mydesc;
-
-	echo $desc . ":";
 
 	switch($el)
 	{
 		case 'inputbox':
-//			$tpl='<div class="form-field"><input type="text" name="${param}" value="${value}" ${attr}${required} /><span class="small">${desc}</span></div>';
-			$tpl='<input type="text" name="${param}" value="${value}" ${attr}${required} /><br>';
+			$tpl .= $desc . ":" . '<input type="text" name="${param}" value="${def}" ${attr}${required} /><br>';
 			break;
 		case 'delimer':
-			$tpl='<h1>${desc}</h1>';
+			$tpl .= "<h1>${desc}</h1>";
 			break;
 	}
 	return $tpl;
@@ -141,7 +114,7 @@ if (file_exists($jail_form)) {
 //	$form=new Forms($helper);
 //	$form->generate();
 	//$form->setButtons(array('apply','cancel'));
-	forms();
+	forms( $jail_form );
 } else {
 	echo "Module not installed for $jname. Please <a href='/img_helper_cfg.php?jname=$jname&mode=install&helper=$helper'>install module</a>";
 }
