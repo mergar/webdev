@@ -75,15 +75,15 @@ function forms()
 
 	list( $idx , $group_id, $order_id , $param , $desc , $def , $cur , $new , $mandatory , $attr , $xattr , $type ) = $row;
 
-	$tpl=getElement($type);
+	$tpl=getElement($type,$desc);
 
 	$params=array('param','desc','attr','cur');
 
-	foreach($params as $param)
-	{
-		if(isset($param))
-			$tpl=str_replace('${'.$param.'}',$param,$tpl);
-	}
+//	foreach($params as $param)
+//	{
+//		if(isset($param))
+//			$tpl=str_replace('${'.$param.'}',$param,$tpl);
+//	}
 	
 	$value=$def;
 
@@ -99,13 +99,19 @@ function forms()
 
 }
 	
-function getElement($el)
+function getElement($el,$mydesc)
 {
 	$tpl='';
+
+	$desc=$mydesc;
+
+	echo $desc . ":";
+
 	switch($el)
 	{
 		case 'inputbox':
-			$tpl='<div class="form-field"><input type="text" name="${param}" value="${value}" ${attr}${required} /><span class="small">${desc}</span></div>';
+//			$tpl='<div class="form-field"><input type="text" name="${param}" value="${value}" ${attr}${required} /><span class="small">${desc}</span></div>';
+			$tpl='<input type="text" name="${param}" value="${value}" ${attr}${required} /><br>';
 			break;
 		case 'delimer':
 			$tpl='<h1>${desc}</h1>';
