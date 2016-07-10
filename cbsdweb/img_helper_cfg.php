@@ -52,43 +52,51 @@ include_once($rp.'/webdev/db.php');
 
 function forms() 
 {
-$dbfilepath="/usr/jails/formfile/memcached.sqlite";
-$name="memcached";
+	$dbfilepath="/usr/jails/formfile/memcached.sqlite";
+	$name="memcached";
 
-$db=new Db('helpers',$name);
+	$db=new Db('helpers',$name);
 
-$db = new SQLite3($dbfilepath); $db->busyTimeout(5000);
+	$db = new SQLite3($dbfilepath); $db->busyTimeout(5000);
 	
-$query="SELECT idx,group_id,order_id,param,desc,def,cur,new,mandatory,attr,xattr,type FROM forms ORDER BY group_id ASC, order_id ASC";
+	$query="SELECT idx,group_id,order_id,param,desc,def,cur,new,mandatory,attr,xattr,type FROM forms ORDER BY group_id ASC, order_id ASC";
 
-//$authkeyres = $db->query('SELECT idx,name,authkey FROM authkey;');
-
-
-//$fields = $db->select($query);
-$fields = $db->query($query);
+	//$authkeyres = $db->query('SELECT idx,name,authkey FROM authkey;');
 
 
-echo '<form name="">';
-foreach($fields as $key=>$field)
-{
-	$tpl=getElement($field['type']);
+	//$fields = $db->select($query);
+	$fields = $db->query($query);
+
+	echo '<form name="">';
+	//foreach($fields as $key=>$field)
+
+	while ($row = $fields->fetchArray()) {
+//        list( $idx , $name, $authkey ) = $row;
+
+	list( $idx , $group_id, $order_id , $param , $desc , $def , $cur , $new , $mandatory , $attr , $xattr , $type ) = $row;
+
+	$tpl=getElement($type);
+
 	$params=array('param','desc','attr','cur');
+
 	foreach($params as $param)
 	{
-		if(isset($field[$param]))
-			$tpl=str_replace('${'.$param.'}',$field[$param],$tpl);
+		if(isset($param))
+			$tpl=str_replace('${'.$param.'}',$param,$tpl);
 	}
 	
-	$value=$field['def'];
-	if(isset($field['cur']) && !empty($field['cur'])) $value=$field['cur'];
+	$value=$def;
+
+	if(isset($cur) && !empty($cur)) $value=$cur;
 	$tpl=str_replace('${value}',$value,$tpl);
 			
-	$required=($field['mandatory']==1)?' required':'';
+	$required=($mandatory==1)?' required':'';
 	$tpl=str_replace('${required}',$required,$tpl);
 	echo $tpl;
-}
+	}
 
-echo '</form>';
+	echo '</form>';
+
 }
 	
 function getElement($el)
