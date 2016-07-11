@@ -52,20 +52,24 @@ $str="";
 
 if(!empty($lst)) foreach($lst as $item) {
 
-	$dbfilepath=$workdir."/formfile/".$item."sqlite";
+	$dbfilepath=$workdir."/formfile/".$item.".sqlite";
 
-	$db = new SQLite3($dbfilepath); $db->busyTimeout(5000);
-        $helpers = $db->query('SELECT longdesc FROM system;');
+	$longdesc="unable to fetch desc";
 
-        if (!($helpers instanceof Sqlite3Result)) {
-                echo "Error: $dbfilepath";
-                $longdesc="unable to fetch desc";
-        } else {
-                while ($row = $helpers->fetchArray()) {
-                        list( $longdesc ) = $row;
-                        
+	if (file_exists($dbfilepath)) {
 
+		$db = new SQLite3($dbfilepath); $db->busyTimeout(5000);
+	        $helpers = $db->query('SELECT longdesc FROM system');
 
+	        if (!($helpers instanceof Sqlite3Result)) {
+	                echo "Error: $dbfilepath";
+	        } else {
+	                while ($row = $helpers->fetchArray()) {
+	                        list( $longdesc ) = $row;
+	    		}
+			$db->close();
+	    	}
+	}
 
 	$str .= <<<EOF
  <tr>
