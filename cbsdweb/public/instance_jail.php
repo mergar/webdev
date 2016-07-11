@@ -52,6 +52,21 @@ $str="";
 
 if(!empty($lst)) foreach($lst as $item) {
 
+	$dbfilepath=$workdir."/formfile/".$item."sqlite";
+
+	$db = new SQLite3($dbfilepath); $db->busyTimeout(5000);
+        $helpers = $db->query('SELECT longdesc FROM system;');
+
+        if (!($helpers instanceof Sqlite3Result)) {
+                echo "Error: $dbfilepath";
+                $longdesc="unable to fetch desc";
+        } else {
+                while ($row = $helpers->fetchArray()) {
+                        list( $longdesc ) = $row;
+                        
+
+
+
 	$str .= <<<EOF
  <tr>
  <td>
@@ -61,7 +76,7 @@ if(!empty($lst)) foreach($lst as $item) {
 	<h2><a href="/instance_jail_create.php?instance=$item">$item</a></h2>
  </td>
  <td>
-	description
+	$longdesc
  </td>
  </tr>
 EOF;
