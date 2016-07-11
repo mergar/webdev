@@ -129,18 +129,27 @@ if (isset($_POST['newjname'])) {
 	$query="SELECT param FROM forms";
 	$fields = $db->query($query);
 
+	$tmpfname = tempnam("/tmp", "HLPR");
+	copy($jail_form, $tmpfname);
+
 	while ($row = $fields->fetchArray()) {
 		list( $param ) = $row;
 
-		$dbnew = new SQLite3("/redis.sqlite"); $dbnew->busyTimeout(5000);
+		$dbnew = new SQLite3($tmpfname); $dbnew->busyTimeout(5000);
 
 		if (isset($_POST["$param"])) {
 			$val=$_POST["$param"];
 //			$update = "UPDATE forms SET new = '$val' WHERE param = '$param'";
+//			echo "UPDATE forms SET new='{$val}' WHERE param='{$param}'";
 			$dbnew->exec("UPDATE forms SET new='{$val}' WHERE param='{$param}'");
 		}
+
+		$dbnew->close();
 //		echo $param;
 	}
+
+	echo "tMP: $tmpfname";
+	
 	exit(0);
 }
 
