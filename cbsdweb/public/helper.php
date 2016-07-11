@@ -64,8 +64,12 @@ function forms( $dbfilepath, $helper )
 			if($param) {
 //				$tpl=str_replace('${'.$param.'}',$param,$tpl);
 				$tpl=str_replace('${'.$param.'}',$$param,$tpl);
+//				$tpl=str_replace('${param}',$$param,$tpl);
 			}
 		}
+
+//		$tpl=str_replace('${param}',$$param,$tpl);
+		$tpl=str_replace('${param}',"HOHO",$tpl);
 
 		$value=$def;
 		if(isset($cur) && !empty($cur)) $value=$cur;
@@ -123,7 +127,22 @@ if (!file_exists($jail_form)) {
 if (isset($_POST['newjname'])) {
 	$newjname = $_POST['newjname'];
 
-	echo $newjname;
+	$db = new SQLite3($jail_form); $db->busyTimeout(5000);
+	$query="SELECT param FROM forms";
+	$fields = $db->query($query);
+
+	while ($row = $fields->fetchArray()) {
+		list( $param ) = $row;
+
+		echo "$param";
+		echo "<br>";
+
+		if (isset($_POST["$param"])) {
+			echo $_POST["$param"];
+			echo "<br>";
+		}
+//		echo $param;
+	}
 	exit(0);
 }
 
