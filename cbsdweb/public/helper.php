@@ -106,9 +106,6 @@ function setButtons($arr=array())
 }
 
 
-#$jail_form=$workdir."/jails-system/".$jname."/helpers/".$helper.".sqlite";
-
-
 if (isset($_POST['newjname'])) {
 	$newjname = $_POST['newjname'];
 
@@ -116,11 +113,19 @@ if (isset($_POST['newjname'])) {
 	exit(0);
 }
 
+if (!isset($_GET['helper'])) {
+        echo "Empty jname";
+        exit(0);
+} else {
+        $helper=$_GET['helper'];
+}
 
-$jail_form="/redis.sqlite";
+
+$jail_form=$workdir."/jails-system/".$jname."/helpers/".$helper.".sqlite";
 
 if (file_exists($jail_form)) {
 	forms( $jail_form, "redis" );
 } else {
-	echo "Module not installed for $jname. Please <a href='/img_helper_cfg.php?jname=$jname&mode=install&helper=$helper'>install module</a>";
+	echo "No such module $helper";
+	die();
 }
