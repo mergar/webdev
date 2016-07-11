@@ -2,107 +2,16 @@
 require_once("auth.php");
 ?>
 
-<!doctype html>
-<html lang="en-US">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>CBSD Dashboard</title>
-<script type="text/javascript" src="jquery.js"></script>
-<style type="text/css">
-	table td{
-		min-width: 25px;
-	}
-
-	#editor{
-		background: none repeat scroll 0 0 #FFFFFF;
-		border: 1px solid #FF0000;
-		display: none;
-		padding: 10px;
-		position: absolute;
-		text-align: center;
-	}
-</style>
-
-<style type="text/css">
-		body {font-size:80%;font-family:Tahoma,'Sans-Serif',Arial;}
-		label {float:left; padding-right:10px;}
-		.field {clear:both; text-align:right; line-height:25px;}
-		.main,.checkbox-list {float:left;}
-</style>
-
-<script type="text/javascript">
-	var postData;
-	$(function(){
-		$('.edited').dblclick(function(){
-			var field = $(this),
-			sourceText = field.text(),
-			nodeName = field.parent().find('.node-name').text(),
-			fileName =  "/usr/jails/var/db/nodedescr/tmp." + nodeName + '.' +field.data('file'),
-			editor = $('#editor');
-
-			postData = {
-				"node_name": nodeName,
-				"file_name" : fileName,
-				"field": field.data('file')
-			};
-
-			$('#edit-area-data').remove();
-			field.addClass('active');
-
-			switch (field.data('type')){
-				case 'text':
-					$('<input/>', {
-						'type':'text',
-						'name':fileName,
-						'id':'edit-area-data',
-						'value':sourceText
-					}).prependTo('#editor');
-					editor.css({
-						'width':'400px',
-						'height':'160px'
-					});
-					break;
-				case 'textarea':
-					$('<textarea/>', {
-						'name': fileName,
-						'id':'edit-area-data'
-					}).val(sourceText).prependTo('#editor');
-					editor.css({
-						'width':'400px',
-						'height':'160px'
-					});
-					break;
-			}
-
-			editor.css({
-				'top':field.offset().top,
-				'left':field.offset().left
-			}).show();
-			});
-
-			$('#edit-area-cancel').click(function(){
-				$('#editor').hide();
-				$('td.active').removeClass('active');
-			});
-
-			$('#editor').submit(function(){
-				postData["data"] = $('#edit-area-data').val();
-				$.ajax({
-					type: 'POST',
-					url: $(this).attr('action'),
-					data: postData,
-					success: function(data){
-						if(data == 'ok'){
-							$('td.active').text($('#edit-area-data').val()).removeClass('active');
-						}
-						alert(data);
-					}
-				});
-				$('#editor').hide();
-				return false;
-			});
-	});
-</script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>CBSD Project</title>
+        <link type="text/css" href="./css/all.css" rel="stylesheet" />
+        <style>
+                body {
+                        font-size:14px;
+                }
+        </style>
 </head>
 <body>
 <a href="javascript:location.reload(true)">Refresh Page </a> | <a href="addnode.php">Add Node</a>

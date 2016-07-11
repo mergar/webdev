@@ -78,16 +78,18 @@ require_once("auth.php");
 		  <!-- Add a <div> element where the tree should appear: -->
 		  <div id="tree">
 		  <ul>
-			<li class="expanded folder">Summary
+			<li class="expanded folder">Administration
 			<ul>
 			  <li><a href="dashboard.php" target="contentFrame">Dashboard</a>
+			  <li><a href="passwords.php" target="contentFrame">Passwords</a>
+			  <li><a href="invoices.php" target="contentFrame">Invoices</a>
 			</ul>
-			<li class="expanded folder">Virtual
+			<li class="expanded folder">Services
 			<ul>
 			  <li><a href="jlist.php" target="contentFrame">Jail containers</a>
 			  <li><a href="blist.php" target="contentFrame">Bhyve VMs</a>
-			  <li><a href="xlist.php" target="contentFrame">XEN VMs</a>
-			  <li><a href="vlist.php" target="contentFrame">VirtualBox VMs</a>
+<!--			  <li><a href="xlist.php" target="contentFrame">XEN VMs</a> -->
+<!--			  <li><a href="vlist.php" target="contentFrame">VirtualBox VMs</a> -->
 			</ul>
 			<li class="expanded folder">Resources
 			<ul>
@@ -109,6 +111,10 @@ require_once("auth.php");
 			  <li><a href="system/adduser.php" target="contentFrame">Host Add User...</a>
 			  <li><a href="settings.php" target="contentFrame">Settings...</a>
 			  <li><a href="taskls.php" target="contentFrame">Task Log</a>
+			</ul>
+			<li class="expanded folder">Support
+			<ul>
+			  <li><a href="support/requests.php" target="contentFrame">Requests</a>
 			</ul>
 		  </ul>
 		  <ul>
