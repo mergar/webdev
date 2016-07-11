@@ -22,6 +22,18 @@ if (!isset($_POST['basename'])) {
 	$basename = $_POST['basename'];
 }
 
+if (!isset($_POST['with_img_helpers'])) {
+	$with_img_helpers="";
+} else {
+	$with_img_helpers = $_POST['with_img_helpers'];
+}
+
+if (!isset($_POST['runasap'])) {
+	$runasap="";
+} else {
+	$runasap = $_POST['runasap'];
+}
+
 if (!isset($_POST['sysrc_enable'])) {
 	$sysrc_enable="";
 } else {

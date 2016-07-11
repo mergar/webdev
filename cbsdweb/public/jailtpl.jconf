@@ -51,3 +51,7 @@ jail_profile="default";
 exec_start="/bin/sh /etc/rc"
 exec_stop="/bin/sh /etc/rc.shutdown"
 emulator="jail"
+
+with_img_helpers="#with_img_helpers#"
+runasap="#runasap#"
+

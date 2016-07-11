@@ -47,3 +47,6 @@ jail_profile="#jprofile#"
 exec_start="/bin/sh /etc/rc"
 exec_stop="/bin/sh /etc/rc.shutdown"
 emulator="jail"
+
+with_img_helpers=""
+runasap="0"
