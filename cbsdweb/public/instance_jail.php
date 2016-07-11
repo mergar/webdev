@@ -28,6 +28,7 @@ require('cbsd.php');
 <table class="images">
  <thead>
   <tr>
+   <th></th>
    <th>instance</th>
    <th>description</th>
   </tr>
@@ -53,8 +54,15 @@ if(!empty($lst)) foreach($lst as $item) {
 
 	$str .= <<<EOF
  <tr>
-  <td><a href="/instance_jail_create.php?instance=$item">$item</a></td>
-  <td>description</td>
+ <td>
+	<a href="/instance_jail_create.php?instance=$item"><img src="/img/logo/$item.svg" width="200" height="100" alt="$item.svg"></a>
+ </td>
+ <td>
+	<h2><a href="/instance_jail_create.php?instance=$item">$item</a></h2>
+ </td>
+ <td>
+	description
+ </td>
  </tr>
 EOF;
 }
