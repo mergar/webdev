@@ -11,7 +11,7 @@ require_once("auth.php");
 <html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>Control panel</title>
+  <title>Control Panel</title>
 
   <script src="./jquery/jquery.js" type="text/javascript"></script>
   <script src="./jquery/jquery-ui.custom.js" type="text/javascript"></script>
@@ -60,7 +60,7 @@ require_once("auth.php");
 </head>
 <body class="example">
 	<div class="head-div">
-		<h1>CBSD control panel</h1>
+		<h1>Control panel</h1>
 		<p class="description">
 			Please visit <a href="https://www.bsdstore.ru" target="_blank">www.bsdstore.ru</a> and <a href="https://telegram.me/cbsdofficial" target="_blank">CBSD Telegram channel</a> for support; 
 		</p>
