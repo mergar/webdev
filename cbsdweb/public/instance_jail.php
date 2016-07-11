@@ -81,10 +81,10 @@ if(!empty($lst)) foreach($lst as $item) {
 	$str .= <<<EOF
  <tr>
  <td>
-	<a href="/instance_jail_create.php?instance=$item"><img src="$imgsrc" width="200" height="100" alt="$item.svg"></a>
+	<a href="/helper.php?helper=$item"><img src="$imgsrc" width="200" height="100" alt="$item.svg"></a>
  </td>
  <td>
-	<a href="/instance_jail_create.php?instance=$item">$item</a>
+	<a href="/helper.php?helper=$item">$item</a>
  </td>
  <td>
 	$longdesc

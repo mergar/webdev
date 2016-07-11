@@ -41,7 +41,7 @@ function forms( $dbfilepath, $helper )
 
 	?>
 
-	<form class="helperbox" name="<?php echo $helper; ?>" id="<?php echo $helper; ?>" action="helper.php" method="POST">
+	<form class="helperbox" name="<?php echo $helper; ?>" id="<?php echo $helper; ?>" action="helper.php?helper=<?php echo $helper; ?>" method="POST">
 
 	<label for="jname">jname</label>
 	<input type="text" name="newjname" required /><br>
@@ -106,6 +106,20 @@ function setButtons($arr=array())
 }
 
 
+if (!isset($_GET['helper'])) {
+        echo "Empty helper";
+        exit(0);
+} else {
+        $helper=$_GET['helper'];
+}
+
+$jail_form=$workdir."/formfile/".$helper.".sqlite";
+
+if (!file_exists($jail_form)) {
+	echo "No such module $helper at $jail_form";
+	die();
+}
+
 if (isset($_POST['newjname'])) {
 	$newjname = $_POST['newjname'];
 
@@ -113,19 +127,5 @@ if (isset($_POST['newjname'])) {
 	exit(0);
 }
 
-if (!isset($_GET['helper'])) {
-        echo "Empty jname";
-        exit(0);
-} else {
-        $helper=$_GET['helper'];
-}
-
-
-$jail_form=$workdir."/jails-system/".$jname."/helpers/".$helper.".sqlite";
-
-if (file_exists($jail_form)) {
-	forms( $jail_form, "redis" );
-} else {
-	echo "No such module $helper";
-	die();
-}
+$jail_form=$workdir."/formfile/".$helper.".sqlite";
+forms( $jail_form, "redis" );
