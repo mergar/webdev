@@ -59,17 +59,15 @@ function forms( $dbfilepath, $helper )
 
 		$params=array('param','desc','attr','cur');
 
+		$tpl=str_replace('${param}',$param,$tpl);
+
 		foreach($params as $param)
 		{
 			if($param) {
 //				$tpl=str_replace('${'.$param.'}',$param,$tpl);
 				$tpl=str_replace('${'.$param.'}',$$param,$tpl);
-//				$tpl=str_replace('${param}',$$param,$tpl);
 			}
 		}
-
-//		$tpl=str_replace('${param}',$$param,$tpl);
-		$tpl=str_replace('${param}',"HOHO",$tpl);
 
 		$value=$def;
 		if(isset($cur) && !empty($cur)) $value=$cur;
@@ -134,12 +132,12 @@ if (isset($_POST['newjname'])) {
 	while ($row = $fields->fetchArray()) {
 		list( $param ) = $row;
 
-		echo "$param";
-		echo "<br>";
+		$dbnew = new SQLite3("/redis.sqlite"); $dbnew->busyTimeout(5000);
 
 		if (isset($_POST["$param"])) {
-			echo $_POST["$param"];
-			echo "<br>";
+			$val=$_POST["$param"];
+//			$update = "UPDATE forms SET new = '$val' WHERE param = '$param'";
+			$dbnew->exec("UPDATE forms SET new='{$val}' WHERE param='{$param}'");
 		}
 //		echo $param;
 	}
