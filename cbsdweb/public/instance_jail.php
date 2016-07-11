@@ -71,13 +71,20 @@ if(!empty($lst)) foreach($lst as $item) {
 	    	}
 	}
 
+	if (file_exists("img/logo/$item.svg")) {
+		$imgsrc="img/logo/$item.svg";
+	} else {
+		$imgsrc="img/logo/empty.svg";
+	}
+
+
 	$str .= <<<EOF
  <tr>
  <td>
-	<a href="/instance_jail_create.php?instance=$item"><img src="/img/logo/$item.svg" width="200" height="100" alt="$item.svg"></a>
+	<a href="/instance_jail_create.php?instance=$item"><img src="$imgsrc" width="200" height="100" alt="$item.svg"></a>
  </td>
  <td>
-	<h2><a href="/instance_jail_create.php?instance=$item">$item</a></h2>
+	<a href="/instance_jail_create.php?instance=$item">$item</a>
  </td>
  <td>
 	$longdesc
