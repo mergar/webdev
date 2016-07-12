@@ -1988,6 +1988,8 @@ class WebDev
 			$file=str_replace('#astart#',$astart,$file);
 			$file=str_replace('#ipv4#',$ipv4,$file);
 			$file=str_replace('#jprofile#',$jprofile,$file);
+//			$file=str_replace('#runasap#',$runasap,$file);
+//            		$file=str_replace('#with_img_helpers#',$with_img_helpers,$file);
 		}
 		return $file;
 	}
