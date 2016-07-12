@@ -39,12 +39,21 @@ function forms( $dbfilepath, $helper )
 
 	$fields = $db->query($query);
 
+	$res=cbsd_cmd('env NOCOLOR=1 /usr/local/bin/sudo /usr/local/bin/cbsd freejname');
+
+	if ($res['retval'] != 0 ) {
+		if (!empty($res['error_message']))
+            		echo $res['error_message'];
+	                exit(1);
+	}
+
+	$freejname=$res['message'];
 	?>
 
 	<form class="helperbox" name="<?php echo $helper; ?>" id="<?php echo $helper; ?>" action="helper.php?helper=<?php echo $helper; ?>" method="POST">
 
 	<label for="jname">jname</label>
-	<input type="text" name="newjname" required /><br>
+	<input type="text" name="newjname" required value="<?php echo $freejname; ?>"/><br>
 
 	<label for="ip4_addr">ip4_addr</label>
 	<input type="text" name="ip4_addr" required value="DHCP" /><br>
