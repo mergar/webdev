@@ -9,14 +9,25 @@
 	var router={
 		start:function()
 		{
+			var r, res, args;
 			var hash=window.location.hash;
-			if(hash=='') hash='#';
-			var rx=new RegExp(/#([^\/]+)/g);
+			hash=hash.replace(new RegExp(/^#/),'');
+			var rx=new RegExp(/([^\/]+)/g);
 			if(res=hash.match(rx))
 			{
 				debugger;
-				alert(res);
+				for(r in res)
+				{
+					var r1=res[r].split(/([^-]+)-([^-]+)/);
+					if(r1.length==2) args[args.length]={'var':r1[0],'val':r1[1]};
+				}
+				this.route(args);
 			}
+		},
+		
+		route:function()
+		{
+			alert(arguments.length)
 		}
 	}
 	router.start();
