@@ -5,6 +5,22 @@
 	<title>Test page</title>
 	<link href="/images/favicon.ico?" rel="shortcut icon" type="image/x-icon" />
 	<script src="/js/jquery.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	var router={
+		start:function()
+		{
+			var hash=window.location.hash;
+			if(hash=='') hash='#';
+			var rx=new RegExp(/#([^\/]+)/g);
+			if(res=hash.match(rx))
+			{
+				debugger;
+				alert(res);
+			}
+		}
+	}
+	router.start();
+	</script>
 <!--
 	<script src="/js/scripts.js" type="text/javascript"></script>
 	<script src="/js/lang/ru.js" type="text/javascript"></script>
