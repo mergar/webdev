@@ -9,7 +9,7 @@
 	var router={
 		start:function()
 		{
-			var r, res, args;
+			var r, res, args=[];
 			var hash=window.location.hash;
 			hash=hash.replace(new RegExp(/^#/),'');
 			var rx=new RegExp(/([^\/]+)/g);
@@ -18,16 +18,17 @@
 				debugger;
 				for(r in res)
 				{
-					var r1=res[r].split(/([^-]+)-([^-]+)/);
+					var r1=res[r].split('-');
 					if(r1.length==2) args[args.length]={'var':r1[0],'val':r1[1]};
 				}
 				this.route(args);
 			}
 		},
 		
-		route:function()
+		route:function(args)
 		{
-			alert(arguments.length)
+			if(typeof args=='undefined') return;
+			alert(args.length);
 		}
 	}
 	router.start();
