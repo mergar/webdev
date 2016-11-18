@@ -2106,6 +2106,6 @@ function getLang()
 }
 function getLangFilePath($lang)
 {
-	global $rp;
-	return $rp.'/webdev/lang/'.$lang.'.php';
+	global $_REALPATH;
+	return $_REALPATH.'/webdev/lang/'.$lang.'.php';
 }
