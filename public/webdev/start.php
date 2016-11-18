@@ -1,5 +1,4 @@
 <?php
-$rp=realpath('');
 include_once($rp.'/webdev/forms.php');
 
 class WebDev
