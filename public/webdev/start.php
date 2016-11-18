@@ -2074,11 +2074,9 @@ Array
 
 function translate($phrase)
 {
-	global $rp;
 	$lang=getLang();
 	$file=getLangFilePath($lang);
 	if(!file_exists($file)) $file=getLangFilePath('en');;
-	//$file=$rp.'/webdev/lang/'.$lang.'.php';
 	if(!file_exists($file)) return;
 	require($file);
 	
