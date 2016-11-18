@@ -1,6 +1,6 @@
 <?php
-
-include('webdev/start.php');
+$_REALPATH=realpath('');
+include($_REALPATH.'/webdev/start.php');
 $wd=new WebDev();
 
 /*

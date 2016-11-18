@@ -1,5 +1,5 @@
 <?php
-include_once($rp.'/webdev/forms.php');
+include_once($_REALPATH.'/webdev/forms.php');
 
 class WebDev
 {
@@ -61,8 +61,9 @@ class WebDev
 	
 	function __construct()
 	{
+		global $_REALPATH;
 		$this->workdir=getenv('WORKDIR');
-		$rp=realpath('');
+		$rp=$_REALPATH;
 //echo base64_encode(file_get_contents($rp.'/images/tree-minus.gif'));exit;
 		if(substr($rp,-7)=='/webdev')
 		{

@@ -1,5 +1,6 @@
 <?php
-include_once(realpath('').'/webdev/start.php');
+$_REALPATH=realpath('');
+include_once($_REALPATH.'/webdev/start.php');
 $lang=getLang();
 ?>
 <!DOCTYPE html>

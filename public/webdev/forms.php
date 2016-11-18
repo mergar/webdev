@@ -1,6 +1,5 @@
 <?php
-$rp=realpath('');
-include_once($rp.'/webdev/db.php');
+include_once($_REALPATH.'/webdev/db.php');
 
 class Forms
 {
