@@ -698,10 +698,13 @@ class WebDev
 		return $projects;
 	}
 	
-	function getJailsList()
+	function getJailsList($clonos=false)
 	{
 		$ids=array();
-		$jails=$this->_db->select("select * from jails where project_id={$this->projectId}");	// and deleted='false'
+		if($clonos)
+			$jails=$this->_db->select('select jname,ip4_addr,status,hidden FROM jails WHERE emulator != "bhyve"');
+		else
+			$jails=$this->_db->select("select * from jails where project_id={$this->projectId}");	// and deleted='false'
 		if(!empty($jails))
 		{
 			foreach($jails as $key=>$j)
