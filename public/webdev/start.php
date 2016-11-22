@@ -2076,7 +2076,7 @@ function translate($phrase)
 {
 	$lang=getLang();
 	$file=getLangFilePath($lang);
-	if(!file_exists($file)) $file=getLangFilePath('en');;
+	if(!file_exists($file)) $file=getLangFilePath('en');
 	if(!file_exists($file)) return;
 	require($file);
 	
@@ -2089,7 +2089,7 @@ function get_translate($phrase)
 {
 	$lang=getLang();
 	$file=getLangFilePath($lang);
-	if(!file_exists($file)) $file=getLangFilePath('en');;
+	if(!file_exists($file)) $file=getLangFilePath('en');
 	require($file);
 	
 	if(isset($lang[$phrase]))
