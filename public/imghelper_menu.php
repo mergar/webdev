@@ -9,7 +9,7 @@ $str = <<<EOF
 EOF;
 
 
-$res=cbsd_cmd('env NOCOLOR=1 /usr/local/bin/sudo /usr/local/bin/cbsd imghelper header=0');
+$res=cbsd_cmd('env NOCOLOR=1 /usr/local/bin/sudo /usr/local/bin/cbsd forms header=0');
 
 if ($res['retval'] != 0 ) {
 	if (!empty($res['error_message']))

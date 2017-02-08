@@ -852,7 +852,7 @@ class WebDev
 	function getHelpersList()
 	{
 		$arr=array();
-		$res=$this->cbsd_cmd(' imghelper header=0');	//('service jname=jail'.$this->jailId.' mode=list');
+		$res=$this->cbsd_cmd(' forms header=0');	//('service jname=jail'.$this->jailId.' mode=list');
 		if($res['retval']==0)
 		{
 			$lst=explode("\n",$res['message']);
@@ -892,7 +892,7 @@ class WebDev
 	function installHelper()
 	{
 		$arr=array('error'=>true,'errorMsg'=>'Something wrong&hellip;');
-		$res=$this->cbsd_cmd('imghelper module='.$this->helper.' jname=jail'.$this->jailId.' inter=0');
+		$res=$this->cbsd_cmd('forms module='.$this->helper.' jname=jail'.$this->jailId.' inter=0');
 		if($res['retval']==0)
 		{
 			$arr=array('error'=>false,'log'=>$res);
@@ -917,7 +917,7 @@ class WebDev
 		//$count=$db->update($query);
 		
 		//module=redis jname=jail1 mode=apply
-		$res=$this->cbsd_cmd('imghelper module='.$this->helper.' jname='.$jname.' mode=apply inter=0');
+		$res=$this->cbsd_cmd('forms module='.$this->helper.' jname='.$jname.' mode=apply inter=0');
 		if($res['retval']==0)
 		{
 			$arr=$res;
